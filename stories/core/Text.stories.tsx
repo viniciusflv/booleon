@@ -1,8 +1,8 @@
 import React from "react";
-import { Text } from "./";
+import { Text } from "../../packages/core/src";
 
 export default {
-  title: "Text",
+  title: "Core | Text",
   component: Text,
 };
 

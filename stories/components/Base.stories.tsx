@@ -1,8 +1,8 @@
 import React from "react";
-import { Base } from "./";
+import { Base } from "../../packages/components/src";
 
 export default {
-  title: "Base",
+  title: "Components | Base",
   component: Base,
 };
 

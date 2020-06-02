@@ -1,0 +1,22 @@
+{
+  "name": "@vflv/components",
+  "version": "0.0.0",
+  "description": "react components",
+  "author": "Vinícius Victorino",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "tsdx": "^0.13.2"
+  },
+  "scripts": {
+    "build": "tsdx build"
+  }
+}

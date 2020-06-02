@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "build-storybook -c .storybook -o build/dist",
+    "bundle": "lerna run build --parallel"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/styled-components": "^5.1.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
@@ -23,7 +25,10 @@
     "@storybook/addon-storysource": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@types/styled-components": "^5.1.0",
     "babel-loader": "^8.1.0",
+    "tsdx": "^0.13.2",
+    "lerna": "^3.22.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.3"
