@@ -1,5 +1,5 @@
-import React from "react";
+import React, { FC } from 'react';
 
-export function Text() {
-  return <span>text</span>
-}
+export const Text: FC<any> = () => {
+  return <span>text</span>;
+};

@@ -27,10 +27,12 @@
     "@storybook/react": "^5.3.19",
     "@types/styled-components": "^5.1.0",
     "babel-loader": "^8.1.0",
-    "tsdx": "^0.13.2",
-    "lerna": "^3.22.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-loader": "^7.0.5",
+    "lerna": "^3.22.0",
+    "tsdx": "^0.13.2",
     "typescript": "^3.9.3"
   }
 }

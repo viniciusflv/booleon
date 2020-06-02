@@ -1,9 +1,9 @@
-import React from "react";
-import { Text } from "../../packages/core/src";
+import { Text } from '../../packages/core/src';
+import React, { FC } from 'react';
 
 export default {
-  title: "Core | Text",
+  title: 'Core | Text',
   component: Text,
 };
 
-export const no_props = () => <Text />;
+export const NoProps: FC<typeof Text> = () => <Text />;

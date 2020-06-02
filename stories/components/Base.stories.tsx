@@ -1,9 +1,9 @@
-import React from "react";
-import { Base } from "../../packages/components/src";
+import { Base } from '../../packages/components/src';
+import React, { FC } from 'react';
 
 export default {
-  title: "Components | Base",
+  title: 'Components | Base',
   component: Base,
 };
 
-export const no_props = () => <Base />;
+export const NoProps: FC<typeof Base> = () => <Base />;
