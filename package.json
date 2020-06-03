@@ -4,13 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "dev": "start-storybook -p 6006",
     "build": "build-storybook -c .storybook -o build/dist",
     "bundle": "lerna run build --parallel"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +17,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-info": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
@@ -26,12 +27,16 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@types/styled-components": "^5.1.0",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "eslint": "6.8.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "ts-loader": "^7.0.5",
+    "jest": "^26.0.1",
+    "jest-styled-components": "^7.0.2",
     "lerna": "^3.22.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-test-renderer": "^16.13.1",
+    "ts-loader": "^7.0.5",
     "tsdx": "^0.13.2",
     "typescript": "^3.9.3"
   }
