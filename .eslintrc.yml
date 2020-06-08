@@ -37,9 +37,9 @@ rules:
   semi:
     - warn
     - always
-# overrides:
-#   - files:
-#       - "*.js"
-#       - "*.jsx"
-#     rules:
-#       "@typescript-eslint/eslint-plugin-tslint": off
+overrides:
+  - files:
+      - "*"
+    rules:
+      "@typescript-eslint/camelcase": off
+      "@typescript-eslint/explicit-function-return-type": off
