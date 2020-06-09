@@ -1,7 +1,7 @@
 import { Border } from '../Border';
 import { Margin } from '../Margin';
 import { Padding } from '../Padding';
-import { ViewProps } from './interface';
+import { ViewProps } from './interfaces';
 import styled from 'styled-components';
 
 
