@@ -40,20 +40,4 @@ describe('View', () => {
     const component = renderer.create(<View row />).toJSON();
     expect(component).toHaveStyleRule('flex-direction', 'row');
   });
-  // test('m_0', () => {
-  //   const component = renderer.create(<View m_0 />).toJSON();
-  //   expect(component).toHaveStyleRule('margin', '0');
-  // });
-  // test('m_auto', () => {
-  //   const component = renderer.create(<View m_auto />).toJSON();
-  //   expect(component).toHaveStyleRule('margin', 'auto');
-  // });
-  // test('m_xs', () => {
-  //   const component = renderer.create(<View m_xs />).toJSON();
-  //   expect(component).toHaveStyleRule('margin', '0.25rem');
-  // });
-  // test('p_xs', () => {
-  //   const component = renderer.create(<View p_xs />).toJSON();
-  //   expect(component).toHaveStyleRule('padding', '0.25rem');
-  // });
 });

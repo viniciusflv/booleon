@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Background bg_img 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c0::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.c0::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-image: url(https://www.w3schools.com/cssref/img_tree.gif);
+}
+
+<div
+  className="c0"
+/>
+`;

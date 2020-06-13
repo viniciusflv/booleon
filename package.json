@@ -9,6 +9,9 @@
     "build": "build-storybook -c .storybook -o build/dist",
     "bundle": "lerna run build --parallel"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

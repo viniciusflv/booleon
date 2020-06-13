@@ -6,3 +6,4 @@ export * from './Border';
 export * from './Container';
 export * from './Width';
 export * from './Height';
+export * from './Background';
