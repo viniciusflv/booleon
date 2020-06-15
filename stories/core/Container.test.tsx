@@ -133,9 +133,19 @@ describe('Container', () => {
       expect(component).toHaveStyleRule('top', '0');
     });
 
+    test('top_neg', () => {
+      const component = renderer.create(<Container top_neg />).toJSON();
+      expect(component).toHaveStyleRule('top', '-100%');
+    });
+
     test('right', () => {
       const component = renderer.create(<Container right />).toJSON();
       expect(component).toHaveStyleRule('right', '0');
+    });
+
+    test('right_neg', () => {
+      const component = renderer.create(<Container right_neg />).toJSON();
+      expect(component).toHaveStyleRule('right', '-100%');
     });
 
     test('bottom', () => {
@@ -143,9 +153,19 @@ describe('Container', () => {
       expect(component).toHaveStyleRule('bottom', '0');
     });
 
+    test('bottom_neg', () => {
+      const component = renderer.create(<Container bottom_neg />).toJSON();
+      expect(component).toHaveStyleRule('bottom', '-100%');
+    });
+
     test('left', () => {
       const component = renderer.create(<Container left />).toJSON();
       expect(component).toHaveStyleRule('left', '0');
+    });
+
+    test('left_neg', () => {
+      const component = renderer.create(<Container left_neg />).toJSON();
+      expect(component).toHaveStyleRule('left', '-100%');
     });
 
     test('cover', () => {
@@ -154,6 +174,75 @@ describe('Container', () => {
       expect(component).toHaveStyleRule('right', '0');
       expect(component).toHaveStyleRule('bottom', '0');
       expect(component).toHaveStyleRule('left', '0');
+    });
+  });
+
+  describe('Fit', () => {
+    test('fit_contain', () => {
+      const component = renderer.create(<Container fit_contain />).toJSON();
+      expect(component).toHaveStyleRule('object-fit', 'contain');
+    });
+
+    test('fit_cover', () => {
+      const component = renderer.create(<Container fit_cover />).toJSON();
+      expect(component).toHaveStyleRule('object-fit', 'cover');
+    });
+
+    test('fit_fill', () => {
+      const component = renderer.create(<Container fit_fill />).toJSON();
+      expect(component).toHaveStyleRule('object-fit', 'fill');
+    });
+
+    test('fit_none', () => {
+      const component = renderer.create(<Container fit_none />).toJSON();
+      expect(component).toHaveStyleRule('object-fit', 'none');
+    });
+  });
+
+  describe('Events', () => {
+    test('pointer_none', () => {
+      const component = renderer.create(<Container pointer_none />).toJSON();
+      expect(component).toHaveStyleRule('pointer-events', 'none');
+    });
+
+    test('outline_none', () => {
+      const component = renderer.create(<Container outline_none />).toJSON();
+      expect(component).toHaveStyleRule('outline', 'none');
+    });
+
+    test('cursor_auto', () => {
+      const component = renderer.create(<Container cursor_auto />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'auto');
+    });
+
+    test('cursor_default', () => {
+      const component = renderer.create(<Container cursor_default />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'default');
+    });
+
+    test('cursor_pointer', () => {
+      const component = renderer.create(<Container cursor_pointer />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'pointer');
+    });
+
+    test('cursor_wait', () => {
+      const component = renderer.create(<Container cursor_wait />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'wait');
+    });
+
+    test('cursor_text', () => {
+      const component = renderer.create(<Container cursor_text />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'text');
+    });
+
+    test('cursor_move', () => {
+      const component = renderer.create(<Container cursor_move />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'move');
+    });
+
+    test('cursor_not_allowed', () => {
+      const component = renderer.create(<Container cursor_not_allowed />).toJSON();
+      expect(component).toHaveStyleRule('cursor', 'not-allowed');
     });
   });
 });

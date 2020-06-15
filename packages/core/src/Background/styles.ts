@@ -1,15 +1,56 @@
+import { BackgroundProps } from './interfaces';
 import styled from 'styled-components';
 
-const linearGradient = (position: string, color: string) =>
-  `background-image: linear-gradient(${position}, transparent, ${color});`;
+const linearGradient = (...args: string[]) =>
+  `background-image: linear-gradient(${args.join(',')});`;
 
-const linearGradientX = (color: string) =>
-  `background-image: linear-gradient(to right, ${color}, transparent, ${color});`;
+const handleOpacity = (key: string, match: string) => {
+  const [opacity] = key.replace(match, '').split('_');
+  return `opacity: ${Number(opacity) / 100};`;
+};
 
-const linearGradientY = (color: string) =>
-  `background-image: linear-gradient(to top, ${color}, transparent, ${color});`;
+const handleGradient = (key: string, match: string) => {
+  const [color] = key.replace(match, '').split('_');
+  switch (match) {
+  case 'gx_': return linearGradient('to right', `#${color}`, 'transparent', `#${color}`);
+  case 'gy_': return linearGradient('to top', `#${color}`, 'transparent', `#${color}`);
+  case 'gt_': return linearGradient('to top', 'transparent', `#${color}`);
+  case 'gb_': return linearGradient('to bottom', 'transparent', `#${color}`);
+  case 'gl_': return linearGradient('to left', 'transparent', `#${color}`);
+  case 'gr_': return linearGradient('to right', 'transparent', `#${color}`);
+  default: return '';
+  }
+};
 
-export const BackgroundStyle = styled.div<any>`
+const gradient = (props: BackgroundProps) =>
+  Object.keys(props).reduce((acc: string, key: string) => {
+    switch (true) {
+    case key.startsWith('g_op_'): return handleOpacity(key, 'g_op_');
+    case key.startsWith('gx_'): return handleGradient(key, 'gx_');
+    case key.startsWith('gy_'): return handleGradient(key, 'gy_');
+    case key.startsWith('gt_'): return handleGradient(key, 'gt_');
+    case key.startsWith('gb_'): return handleGradient(key, 'gb_');
+    case key.startsWith('gl_'): return handleGradient(key, 'gl_');
+    case key.startsWith('gr_'): return handleGradient(key, 'gr_');
+    default: return acc;
+    }
+  }, '');
+
+const handleBackground = (key: string, match: string) => {
+  const [color] = key.replace(match, '').split('_');
+  return `background-color: #${color};`;
+};
+
+const background = (props: BackgroundProps) =>
+  Object.keys(props).reduce((acc: string, key: string) => {
+    switch (true) {
+    case key.startsWith('bg_op_'): return handleOpacity(key, 'bg_op_');
+    case key.startsWith('bg_'): return handleBackground(key, 'bg_');
+    default: return acc;
+    }
+  }, '');
+
+export const BackgroundStyle = styled.div<BackgroundProps>`
   position: relative;
   ::after {
     content: "";
@@ -19,35 +60,7 @@ export const BackgroundStyle = styled.div<any>`
     left: 0;
     right: 0;
     z-index: -1;
-    ${({ g_op_0 }) => g_op_0 && 'opacity: 0;'}
-    ${({ g_op_10 }) => g_op_10 && 'opacity: .1;'}
-    ${({ g_op_20 }) => g_op_20 && 'opacity: .2;'}
-    ${({ g_op_30 }) => g_op_30 && 'opacity: .3;'}
-    ${({ g_op_40 }) => g_op_40 && 'opacity: .4;'}
-    ${({ g_op_50 }) => g_op_50 && 'opacity: .5;'}
-    ${({ g_op_60 }) => g_op_60 && 'opacity: .6;'}
-    ${({ g_op_70 }) => g_op_70 && 'opacity: .7;'}
-    ${({ g_op_80 }) => g_op_80 && 'opacity: .8;'}
-    ${({ g_op_90 }) => g_op_90 && 'opacity: .9;'}
-    ${({ g_op_100 }) => g_op_100 && 'opacity: 1;'}
-    ${({ gx_black }) => gx_black && linearGradientX('#000')}
-    ${({ gy_black }) => gy_black && linearGradientY('#000')}
-    ${({ gt_black }) => gt_black && linearGradient('to top', '#000')}
-    ${({ gb_black }) => gb_black && linearGradient('to bottom', '#000')}
-    ${({ gl_black }) => gl_black && linearGradient('to left', '#000')}
-    ${({ gr_black }) => gr_black && linearGradient('to right', '#000')}
-    ${({ gx_white }) => gx_white && linearGradientX('#fff')}
-    ${({ gy_white }) => gy_white && linearGradientY('#fff')}
-    ${({ gt_white }) => gt_white && linearGradient('to top', '#fff')}
-    ${({ gb_white }) => gb_white && linearGradient('to bottom', '#fff')}
-    ${({ gl_white }) => gl_white && linearGradient('to left', '#fff')}
-    ${({ gr_white }) => gr_white && linearGradient('to right', '#fff')}
-    ${({ gx_grey }) => gx_grey && linearGradientX('#cbd5e0')}
-    ${({ gy_grey }) => gy_grey && linearGradientY('#cbd5e0')}
-    ${({ gt_grey }) => gt_grey && linearGradient('to top', '#cbd5e0')}
-    ${({ gb_grey }) => gb_grey && linearGradient('to bottom', '#cbd5e0')}
-    ${({ gl_grey }) => gl_grey && linearGradient('to left', '#cbd5e0')}
-    ${({ gr_grey }) => gr_grey && linearGradient('to right', '#cbd5e0')}
+    ${gradient}
   }
   ::before {
     content: "";
@@ -66,19 +79,6 @@ export const BackgroundStyle = styled.div<any>`
     ${({ bg_fixed }) => bg_fixed && 'background-attachment: fixed;'}
     ${({ bg_local }) => bg_local && 'background-attachment: local;'}
     ${({ bg_scroll }) => bg_scroll && 'background-attachment: scroll;'}
-    ${({ bg_black }) => bg_black && 'background-color: #000;'}
-    ${({ bg_white }) => bg_white && 'background-color: #fff;'}
-    ${({ bg_grey }) => bg_grey && 'background-color: #cbd5e0;'}
-    ${({ bg_op_0 }) => bg_op_0 && 'opacity: 0;'}
-    ${({ bg_op_10 }) => bg_op_10 && 'opacity: .1;'}
-    ${({ bg_op_20 }) => bg_op_20 && 'opacity: .2;'}
-    ${({ bg_op_30 }) => bg_op_30 && 'opacity: .3;'}
-    ${({ bg_op_40 }) => bg_op_40 && 'opacity: .4;'}
-    ${({ bg_op_50 }) => bg_op_50 && 'opacity: .5;'}
-    ${({ bg_op_60 }) => bg_op_60 && 'opacity: .6;'}
-    ${({ bg_op_70 }) => bg_op_70 && 'opacity: .7;'}
-    ${({ bg_op_80 }) => bg_op_80 && 'opacity: .8;'}
-    ${({ bg_op_90 }) => bg_op_90 && 'opacity: .9;'}
-    ${({ bg_op_100 }) => bg_op_100 && 'opacity: 1;'}
+    ${background}
   }
 `;

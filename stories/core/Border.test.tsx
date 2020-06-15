@@ -4,6 +4,16 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 describe('Border', () => {
+  describe('Collapse', () => {
+    test('b_collapse', () => {
+      const component = renderer.create(<Border b_collapse />).toJSON();
+      expect(component).toHaveStyleRule('border-collapse', 'collapse');
+    });
+    test('b_separate', () => {
+      const component = renderer.create(<Border b_separate />).toJSON();
+      expect(component).toHaveStyleRule('border-collapse', 'separate');
+    });
+  });
   describe('Display', () => {
     test('b_none', () => {
       const component = renderer.create(<Border b_none />).toJSON();
@@ -213,11 +223,17 @@ describe('Border', () => {
       });
       test('bbr_circular', () => {
         const component = renderer.create(<Border bbr_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-bottom-right-radius', '9999px');
+        expect(component).toHaveStyleRule(
+          'border-bottom-right-radius',
+          '9999px',
+        );
       });
       test('bbl_circular', () => {
         const component = renderer.create(<Border bbl_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-bottom-left-radius', '9999px');
+        expect(component).toHaveStyleRule(
+          'border-bottom-left-radius',
+          '9999px',
+        );
       });
     });
     describe('Rounded', () => {
@@ -303,7 +319,10 @@ describe('Border', () => {
       });
       test('bbr_edge', () => {
         const component = renderer.create(<Border bbr_edge />).toJSON();
-        expect(component).toHaveStyleRule('border-bottom-right-radius', '.5rem');
+        expect(component).toHaveStyleRule(
+          'border-bottom-right-radius',
+          '.5rem',
+        );
       });
       test('bbl_edge', () => {
         const component = renderer.create(<Border bbl_edge />).toJSON();
@@ -378,101 +397,41 @@ describe('Border', () => {
     });
   });
   describe('Color', () => {
-    describe('Black', () => {
-      test('b_black', () => {
-        const component = renderer.create(<Border b_black />).toJSON();
-        expect(component).toHaveStyleRule('border-color', '#000');
-      });
-      test('bx_black', () => {
-        const component = renderer.create(<Border bx_black />).toJSON();
-        expect(component).toHaveStyleRule('border-right-color', '#000');
-        expect(component).toHaveStyleRule('border-left-color', '#000');
-      });
-      test('by_black', () => {
-        const component = renderer.create(<Border by_black />).toJSON();
-        expect(component).toHaveStyleRule('border-top-color', '#000');
-        expect(component).toHaveStyleRule('border-bottom-color', '#000');
-      });
-      test('bt_black', () => {
-        const component = renderer.create(<Border bt_black />).toJSON();
-        expect(component).toHaveStyleRule('border-top-color', '#000');
-      });
-      test('bb_black', () => {
-        const component = renderer.create(<Border bb_black />).toJSON();
-        expect(component).toHaveStyleRule('border-bottom-color', '#000');
-      });
-      test('bl_black', () => {
-        const component = renderer.create(<Border bl_black />).toJSON();
-        expect(component).toHaveStyleRule('border-left-color', '#000');
-      });
-      test('br_black', () => {
-        const component = renderer.create(<Border br_black />).toJSON();
-        expect(component).toHaveStyleRule('border-right-color', '#000');
-      });
+    test('bc', () => {
+      const component = renderer.create(<Border bc_000 />).toJSON();
+      expect(component).toHaveStyleRule('border-color', '#000');
     });
-    describe('White', () => {
-      test('b_white', () => {
-        const component = renderer.create(<Border b_white />).toJSON();
-        expect(component).toHaveStyleRule('border-color', '#fff');
-      });
-      test('bx_white', () => {
-        const component = renderer.create(<Border bx_white />).toJSON();
-        expect(component).toHaveStyleRule('border-right-color', '#fff');
-        expect(component).toHaveStyleRule('border-left-color', '#fff');
-      });
-      test('by_white', () => {
-        const component = renderer.create(<Border by_white />).toJSON();
-        expect(component).toHaveStyleRule('border-top-color', '#fff');
-        expect(component).toHaveStyleRule('border-bottom-color', '#fff');
-      });
-      test('bt_white', () => {
-        const component = renderer.create(<Border bt_white />).toJSON();
-        expect(component).toHaveStyleRule('border-top-color', '#fff');
-      });
-      test('bb_white', () => {
-        const component = renderer.create(<Border bb_white />).toJSON();
-        expect(component).toHaveStyleRule('border-bottom-color', '#fff');
-      });
-      test('bl_white', () => {
-        const component = renderer.create(<Border bl_white />).toJSON();
-        expect(component).toHaveStyleRule('border-left-color', '#fff');
-      });
-      test('br_white', () => {
-        const component = renderer.create(<Border br_white />).toJSON();
-        expect(component).toHaveStyleRule('border-right-color', '#fff');
-      });
+
+    test('bxc', () => {
+      const component = renderer.create(<Border bxc_0f0 />).toJSON();
+      expect(component).toHaveStyleRule('border-right-color', '#0f0');
+      expect(component).toHaveStyleRule('border-left-color', '#0f0');
     });
-    describe('Grey', () => {
-      test('b_grey', () => {
-        const component = renderer.create(<Border b_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-color', '#cbd5e0');
-      });
-      test('bx_grey', () => {
-        const component = renderer.create(<Border bx_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-right-color', '#cbd5e0');
-        expect(component).toHaveStyleRule('border-left-color', '#cbd5e0');
-      });
-      test('by_grey', () => {
-        const component = renderer.create(<Border by_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-top-color', '#cbd5e0');
-        expect(component).toHaveStyleRule('border-bottom-color', '#cbd5e0');
-      });
-      test('bt_grey', () => {
-        const component = renderer.create(<Border bt_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-top-color', '#cbd5e0');
-      });
-      test('bb_grey', () => {
-        const component = renderer.create(<Border bb_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-bottom-color', '#cbd5e0');
-      });
-      test('bl_grey', () => {
-        const component = renderer.create(<Border bl_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-left-color', '#cbd5e0');
-      });
-      test('br_grey', () => {
-        const component = renderer.create(<Border br_grey />).toJSON();
-        expect(component).toHaveStyleRule('border-right-color', '#cbd5e0');
-      });
+
+    test('byc', () => {
+      const component = renderer.create(<Border byc_000 />).toJSON();
+      expect(component).toHaveStyleRule('border-top-color', '#000');
+      expect(component).toHaveStyleRule('border-bottom-color', '#000');
+    });
+
+    test('btc', () => {
+      const component = renderer.create(<Border btc_000 />).toJSON();
+      expect(component).toHaveStyleRule('border-top-color', '#000');
+    });
+
+    test('bbc', () => {
+      const component = renderer.create(<Border bbc_000 />).toJSON();
+      expect(component).toHaveStyleRule('border-bottom-color', '#000');
+    });
+
+    test('blc', () => {
+      const component = renderer.create(<Border blc_000 />).toJSON();
+      expect(component).toHaveStyleRule('border-left-color', '#000');
+    });
+
+    test('brc', () => {
+      const component = renderer.create(<Border brc_000 />).toJSON();
+      expect(component).toHaveStyleRule('border-right-color', '#000');
     });
   });
 });

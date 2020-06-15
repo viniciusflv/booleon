@@ -6,4 +6,4 @@ export default {
   component: View,
 };
 
-export const Default: FC = () => <View />;
+export const Default: FC = () => <View w_8 h_8 bg_0ff />;
