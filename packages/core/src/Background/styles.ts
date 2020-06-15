@@ -24,16 +24,14 @@ const handleGradient = (key: string, match: string) => {
 
 const gradient = (props: BackgroundProps) =>
   Object.keys(props).reduce((acc: string, key: string) => {
-    switch (true) {
-    case key.startsWith('g_op_'): return handleOpacity(key, 'g_op_');
-    case key.startsWith('gx_'): return handleGradient(key, 'gx_');
-    case key.startsWith('gy_'): return handleGradient(key, 'gy_');
-    case key.startsWith('gt_'): return handleGradient(key, 'gt_');
-    case key.startsWith('gb_'): return handleGradient(key, 'gb_');
-    case key.startsWith('gl_'): return handleGradient(key, 'gl_');
-    case key.startsWith('gr_'): return handleGradient(key, 'gr_');
-    default: return acc;
-    }
+    if (key.startsWith('g_op_'))  acc+= handleOpacity(key, 'g_op_');
+    if (key.startsWith('gx_')) acc+= handleGradient(key, 'gx_');
+    if (key.startsWith('gy_')) acc+= handleGradient(key, 'gy_');
+    if (key.startsWith('gt_')) acc+= handleGradient(key, 'gt_');
+    if (key.startsWith('gb_')) acc+= handleGradient(key, 'gb_');
+    if (key.startsWith('gl_')) acc+= handleGradient(key, 'gl_');
+    if (key.startsWith('gr_')) acc+= handleGradient(key, 'gr_');
+    return acc;
   }, '');
 
 const handleBackground = (key: string, match: string) => {
@@ -43,11 +41,9 @@ const handleBackground = (key: string, match: string) => {
 
 const background = (props: BackgroundProps) =>
   Object.keys(props).reduce((acc: string, key: string) => {
-    switch (true) {
-    case key.startsWith('bg_op_'): return handleOpacity(key, 'bg_op_');
-    case key.startsWith('bg_'): return handleBackground(key, 'bg_');
-    default: return acc;
-    }
+    if(key.startsWith('bg_op_')) acc += handleOpacity(key, 'bg_op_');
+    if(key.startsWith('bg_')) acc += handleBackground(key, 'bg_');
+    return acc;
   }, '');
 
 export const BackgroundStyle = styled.div<BackgroundProps>`
@@ -55,10 +51,10 @@ export const BackgroundStyle = styled.div<BackgroundProps>`
   ::after {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: -0.08rem;
+    bottom: -0.08rem;
+    left: -0.08rem;
+    right: -0.08rem;
     z-index: -1;
     ${gradient}
   }

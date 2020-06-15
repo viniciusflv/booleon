@@ -180,59 +180,59 @@ describe('Border', () => {
     describe('Circular', () => {
       test('b_circular', () => {
         const component = renderer.create(<Border b_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-radius', '9999px');
+        expect(component).toHaveStyleRule('border-radius', '100px');
       });
       test('bt_circular', () => {
         const component = renderer.create(<Border bt_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-top-right-radius', '9999px');
-        expect(component).toHaveStyleRule('border-top-left-radius', '9999px');
+        expect(component).toHaveStyleRule('border-top-right-radius', '100px');
+        expect(component).toHaveStyleRule('border-top-left-radius', '100px');
       });
       test('bb_circular', () => {
         const component = renderer.create(<Border bb_circular />).toJSON();
         expect(component).toHaveStyleRule(
           'border-bottom-right-radius',
-          '9999px',
+          '100px',
         );
         expect(component).toHaveStyleRule(
           'border-bottom-left-radius',
-          '9999px',
+          '100px',
         );
       });
       test('bl_circular', () => {
         const component = renderer.create(<Border bl_circular />).toJSON();
         expect(component).toHaveStyleRule(
           'border-bottom-left-radius',
-          '9999px',
+          '100px',
         );
       });
       test('br_circular', () => {
         const component = renderer.create(<Border br_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-top-right-radius', '9999px');
+        expect(component).toHaveStyleRule('border-top-right-radius', '100px');
         expect(component).toHaveStyleRule(
           'border-bottom-right-radius',
-          '9999px',
+          '100px',
         );
       });
       test('btr_circular', () => {
         const component = renderer.create(<Border btr_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-top-right-radius', '9999px');
+        expect(component).toHaveStyleRule('border-top-right-radius', '100px');
       });
       test('btl_circular', () => {
         const component = renderer.create(<Border btl_circular />).toJSON();
-        expect(component).toHaveStyleRule('border-top-left-radius', '9999px');
+        expect(component).toHaveStyleRule('border-top-left-radius', '100px');
       });
       test('bbr_circular', () => {
         const component = renderer.create(<Border bbr_circular />).toJSON();
         expect(component).toHaveStyleRule(
           'border-bottom-right-radius',
-          '9999px',
+          '100px',
         );
       });
       test('bbl_circular', () => {
         const component = renderer.create(<Border bbl_circular />).toJSON();
         expect(component).toHaveStyleRule(
           'border-bottom-left-radius',
-          '9999px',
+          '100px',
         );
       });
     });
@@ -339,12 +339,12 @@ describe('Border', () => {
       test('bx_thick', () => {
         const component = renderer.create(<Border bx_thick />).toJSON();
         expect(component).toHaveStyleRule('border-right-width', '.5rem');
-        expect(component).toHaveStyleRule('order-left-width', '.5rem');
+        expect(component).toHaveStyleRule('border-left-width', '.5rem');
       });
       test('by_thick', () => {
         const component = renderer.create(<Border by_thick />).toJSON();
         expect(component).toHaveStyleRule('border-top-width', '.5rem');
-        expect(component).toHaveStyleRule('order-bottom-width', '.5rem');
+        expect(component).toHaveStyleRule('border-bottom-width', '.5rem');
       });
       test('bt_thick', () => {
         const component = renderer.create(<Border bt_thick />).toJSON();
@@ -352,11 +352,11 @@ describe('Border', () => {
       });
       test('bb_thick', () => {
         const component = renderer.create(<Border bb_thick />).toJSON();
-        expect(component).toHaveStyleRule('order-bottom-width', '.5rem');
+        expect(component).toHaveStyleRule('border-bottom-width', '.5rem');
       });
       test('bl_thick', () => {
         const component = renderer.create(<Border bl_thick />).toJSON();
-        expect(component).toHaveStyleRule('order-left-width', '.5rem');
+        expect(component).toHaveStyleRule('border-left-width', '.5rem');
       });
       test('br_thick', () => {
         const component = renderer.create(<Border br_thick />).toJSON();
@@ -371,12 +371,12 @@ describe('Border', () => {
       test('bx_thin', () => {
         const component = renderer.create(<Border bx_thin />).toJSON();
         expect(component).toHaveStyleRule('border-right-width', '.05rem');
-        expect(component).toHaveStyleRule('order-left-width', '.05rem');
+        expect(component).toHaveStyleRule('border-left-width', '.05rem');
       });
       test('by_thin', () => {
         const component = renderer.create(<Border by_thin />).toJSON();
         expect(component).toHaveStyleRule('border-top-width', '.05rem');
-        expect(component).toHaveStyleRule('order-bottom-width', '.05rem');
+        expect(component).toHaveStyleRule('border-bottom-width', '.05rem');
       });
       test('bt_thin', () => {
         const component = renderer.create(<Border bt_thin />).toJSON();
@@ -384,11 +384,11 @@ describe('Border', () => {
       });
       test('bb_thin', () => {
         const component = renderer.create(<Border bb_thin />).toJSON();
-        expect(component).toHaveStyleRule('order-bottom-width', '.05rem');
+        expect(component).toHaveStyleRule('border-bottom-width', '.05rem');
       });
       test('bl_thin', () => {
         const component = renderer.create(<Border bl_thin />).toJSON();
-        expect(component).toHaveStyleRule('order-left-width', '.05rem');
+        expect(component).toHaveStyleRule('border-left-width', '.05rem');
       });
       test('br_thin', () => {
         const component = renderer.create(<Border br_thin />).toJSON();

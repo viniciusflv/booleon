@@ -4,6 +4,7 @@ import { ContainerProps } from './interfaces';
 import { Height } from '../Height';
 import { Margin } from '../Margin';
 import { Padding } from '../Padding';
+import { Shadow } from '../Shadow';
 import { Width } from '../Width';
 import styled from 'styled-components';
 
@@ -12,7 +13,9 @@ export const ContainerStyle = styled(
   Height.withComponent(
     Width.withComponent(
       Margin.withComponent(
-        Padding.withComponent(Background.withComponent(Border)),
+        Padding.withComponent(
+          Background.withComponent(Border.withComponent(Shadow)),
+        ),
       ),
     ),
   ),
