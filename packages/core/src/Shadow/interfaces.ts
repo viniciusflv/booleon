@@ -8,6 +8,16 @@ type Options =
   | 'sd_9'
   | 'sd_12'
   | 'sd_16'
-  | 'sd_24';
+  | 'sd_24'
+  | 'sdi_1'
+  | 'sdi_2'
+  | 'sdi_3'
+  | 'sdi_4'
+  | 'sdi_6'
+  | 'sdi_8'
+  | 'sdi_9'
+  | 'sdi_12'
+  | 'sdi_16'
+  | 'sdi_24';
 
 export type ShadowProps = { [key in Options]?: boolean };
