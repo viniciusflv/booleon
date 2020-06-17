@@ -1,4 +1,5 @@
 import { Background } from '../Background';
+import { Base } from '../Base';
 import { Border } from '../Border';
 import { ContainerProps } from './interfaces';
 import { Height } from '../Height';
@@ -14,13 +15,14 @@ export const ContainerStyle = styled(
     Width.withComponent(
       Margin.withComponent(
         Padding.withComponent(
-          Background.withComponent(Border.withComponent(Shadow)),
+          Background.withComponent(
+            Border.withComponent(Shadow.withComponent(Base)),
+          ),
         ),
       ),
     ),
   ),
 )<ContainerProps>`
-  box-sizing: border-box;
   ${({ z_max }) => z_max && `z-index: ${MAX_SAFE_INTEGER};`}
   ${({ z_neg }) => z_neg && 'z-index: -1;'}
   ${({ z_auto }) => z_auto && 'z-index: auto;'}

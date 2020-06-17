@@ -1,5 +1,5 @@
 import 'jest-styled-components';
-import { View } from '../../packages/core/src';
+import { View } from '../../packages/core/src/core';
 import React from 'react';
 import renderer from 'react-test-renderer';
 

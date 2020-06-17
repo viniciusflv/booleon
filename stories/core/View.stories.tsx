@@ -1,4 +1,4 @@
-import { View } from '../../packages/core/src';
+import { View } from '../../packages/core/src/core';
 import React, { FC } from 'react';
 
 export default {

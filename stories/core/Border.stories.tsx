@@ -1,4 +1,4 @@
-import { Border } from '../../packages/core/src';
+import { Border } from '../../packages/core/src/core';
 import React, { FC } from 'react';
 
 export default {

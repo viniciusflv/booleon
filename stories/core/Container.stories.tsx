@@ -1,4 +1,4 @@
-import { Container } from '../../packages/core/src';
+import { Container } from '../../packages/core/src/core';
 import React, { FC } from 'react';
 
 export default {
