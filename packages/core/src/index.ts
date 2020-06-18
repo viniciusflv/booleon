@@ -1,1 +1,2 @@
-export { View, Text } from './core';
+export * from './core/Text';
+export * from './core/View';
