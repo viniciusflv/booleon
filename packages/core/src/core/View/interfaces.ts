@@ -7,6 +7,8 @@ type Options =
   | 'grow'
   | 'col'
   | 'row'
+  | 'row_reverse'
+  | 'col_reverse'
   | 'main_between'
   | 'main_around'
   | 'main_evenly'

@@ -182,9 +182,9 @@ export const isintrinsicElement = (key: JsxOrString): key is KeyofJSX =>
 
 const handleIntrinsicElements = (props: BaseProps) => {
   return {
-    as: Object.keys(props).reduce((acc: string, key: string) => {
+    as: (Object.keys(props).reduce((acc: string, key: string) => {
       return isintrinsicElement(key) ? key : acc;
-    }, undefined),
+    }, undefined)) as any,
   };
 };
 

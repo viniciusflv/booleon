@@ -9,17 +9,14 @@ export const Card: FC<ViewProps> = ({ children, ...props }) => {
       col
       cross_center
       main_between
-      w_full
-      h_full
       w_max_full
       h_max_full
-      h_min_16
+      h_min_4
       w_min_8
       px_sm
       py_md
       b_edge
       bg_fff
-      sd_1
       {...props}>
       {children}
     </View>

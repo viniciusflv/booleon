@@ -1,21 +1,25 @@
-import { Card } from '../../packages/components/src';
+import { Drop } from '../../packages/components/src';
+import { View } from '../../packages/core/src';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 
 export default {
-  title: 'Components | Card',
-  component: Card,
+  title: 'Components | Drop',
+  component: Drop,
   decorators: [withKnobs],
 };
 
 export const Default = () => {
-  const props = text('Props', 'sd_12')
+  const props = text('Props', '')
     .split(/\s/)
     .reduce((acc, prop) => ({ ...acc, [prop]: true }), {});
   return (
-    <Card {...props}>
-      {text('Text', 'Hello World')}
-    </Card>
+    <View>
+      <Drop {...props}>
+        <button>header</button>
+        <main>main</main>
+      </Drop>
+    </View>
   );
 };
 

@@ -1,3 +1,4 @@
+import './reset.css'
 import { addParameters } from '@storybook/react';
 
 addParameters({
