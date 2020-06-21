@@ -170,7 +170,6 @@ const intrinsicElements: KeyofJSX[] = [
   'stop',
   'switch',
   'symbol',
-  'text',
   'textPath',
   'tspan',
   'use',
