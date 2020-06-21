@@ -48,6 +48,7 @@ const background = (props: BackgroundProps) =>
 
 export const BackgroundStyle = styled.div<BackgroundProps>`
   position: relative;
+  background: none;
   ::after {
     content: "";
     position: absolute;
