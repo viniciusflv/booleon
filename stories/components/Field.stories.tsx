@@ -13,6 +13,10 @@ export const Text = () => {
   return <Field text label={text('Label', 'Text')} />;
 };
 
+export const TextArea = () => {
+  return <Field textarea label={text('Label', 'Text Area')} />;
+};
+
 export const Select = () => {
   const options = text('Options', 'One Two Three').split(/\s/);
   return (
