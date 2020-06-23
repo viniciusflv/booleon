@@ -1,4 +1,4 @@
-import { Base } from '../Base';
+import { Container } from '../Container';
 import { TextProps } from './interfaces';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ const handleDynamic = (props: TextProps) =>
     return acc;
   }, '');
 
-export const TextStyle = styled(Base.withComponent('span'))<TextProps>`
+export const TextStyle = styled(Container.withComponent('span'))<TextProps>`
   font-stretch: inherit;
   font-family: inherit;
   word-spacing: inherit;

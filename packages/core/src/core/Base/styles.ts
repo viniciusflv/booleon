@@ -195,17 +195,20 @@ export const isintrinsicElement = (key: OrString<KeyofJSX>): key is KeyofJSX =>
   intrinsicElements.includes(key as KeyofJSX);
 
 const handleIntrinsicElements = (props: BaseProps) => {
-  const cast = Object.keys(props).reduce((acc, key: string) => {
-    return isintrinsicElement(key)
-      ? { as: key }
-      : isInputType(key)
-        ? { as: 'input' as KeyofJSX, type: key }
-        : acc;
-  }, { as: undefined, type: undefined });
+  const cast = Object.keys(props).reduce(
+    (acc, key: string) => {
+      return isintrinsicElement(key)
+        ? { as: key }
+        : isInputType(key)
+          ? { as: 'input' as KeyofJSX, type: key }
+          : acc;
+    },
+    { as: undefined, type: undefined },
+  );
 
   return {
     as: cast?.as as any,
-    type: cast?.type
+    type: cast?.type,
   };
 };
 

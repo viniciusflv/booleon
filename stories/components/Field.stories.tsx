@@ -10,7 +10,7 @@ export default {
 };
 
 export const Text = () => {
-  return <Field text label={text('Label', 'Label')} />;
+  return <Field text label={text('Label', 'Text')} />;
 };
 
 export const Select = () => {
@@ -18,7 +18,7 @@ export const Select = () => {
   return (
     <Field
       select
-      label={text('Label', 'Label')}
+      label={text('Label', 'Select')}
       onChange={(e: any) => console.log(e?.target?.value)}>
       {options.map((option) => (
         <TextComponent key={option} option>
@@ -30,33 +30,29 @@ export const Select = () => {
 };
 
 export const Checkbox = () => {
-  return <Field checkbox label={text('Label', 'Label')} />;
+  return <Field checkbox label={text('Label', 'Checkbox')} />;
 };
 
 export const Radio = () => {
-  return <Field radio label={text('Label', 'Label')} />;
+  return <Field radio label={text('Label', 'Radio')} />;
 };
 
 export const Color = () => {
-  return <Field color label={text('Label', 'Label')} />;
+  return <Field color label={text('Label', 'Color')} />;
 };
 
 export const Email = () => {
-  return <Field email label={text('Label', 'Label')} />;
+  return <Field email label={text('Label', 'Email')} />;
 };
 
 export const Password = () => {
-  return <Field password label={text('Label', 'Label')} />;
+  return <Field password label={text('Label', 'Password')} />;
 };
 
 export const Number = () => {
-  return <Field number label={text('Label', 'Label')} />;
+  return <Field number label={text('Label', 'Number')} />;
 };
 
 export const File = () => {
-  return <Field file label={text('Label', 'Label')} />;
-};
-
-export const Range = () => {
-  return <Field range label={text('Label', 'Label')} />;
+  return <Field file label={text('Label', 'File')} />;
 };

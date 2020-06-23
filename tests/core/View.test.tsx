@@ -27,12 +27,12 @@ describe('View', () => {
 
     test('visible', () => {
       const component = renderer.create(<View visible />).toJSON();
-      expect(component).toHaveStyleRule('visiblity', 'visible');
+      expect(component).toHaveStyleRule('visibility', 'visible');
     });
 
     test('invisible', () => {
       const component = renderer.create(<View invisible />).toJSON();
-      expect(component).toHaveStyleRule('visiblity', 'hidden');
+      expect(component).toHaveStyleRule('visibility', 'hidden');
     });
 
     test('display', () => {
