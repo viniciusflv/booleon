@@ -2,6 +2,15 @@ import { Container } from './styles';
 import { Text, View } from '../../../../core/src';
 import React, { FC, useState } from 'react';
 
+const fastHash = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash<<5)-hash)+str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return hash;
+};
+
 const PureField: FC<any> = ({ label, children, ...props }) => {
   const pointer = [
     props?.select,
@@ -12,12 +21,13 @@ const PureField: FC<any> = ({ label, children, ...props }) => {
 
   return (
     <View
-      id={label}
+      id={fastHash(label)}
       h_4
       w_full
       p_md
       outline_none
       cursor_pointer={pointer}
+      h_8={props?.textarea}
       {...props}>
       {props?.select && children}
     </View>
@@ -49,9 +59,8 @@ const FieldDecoration: FC<any> = ({ children, ...props }) => {
   );
 };
 
-const FileField: FC<any> = (props) => {
-  const [fileName, setfileName] = useState('fileName');
-  const [fileSize, setfileSize] = useState('fileSize');
+const FileField: FC<any> = ({ placeholder = 'Select file', ...props}) => {
+  const [msg, setMsg] = useState(placeholder);
 
   const toMB = (size: number, unit = 'Bytes') => {
     if (size / 1024 > 1) {
@@ -67,15 +76,14 @@ const FileField: FC<any> = (props) => {
 
   const onChange = (e: any) => {
     const { name, size } = e?.target?.files[0] as File;
-    setfileName(name);
-    setfileSize(toMB(size));
+    setMsg(`${toMB(size)} - ${name}`);
     if (props?.onChange) props?.onChange(e);
   };
 
   return (
     <FieldDecoration {...props}>
       <View flex cross_center absolute cover p_md pt_lg h_max_16 z_neg>
-        <Text f_truncate>{`${fileSize} - ${fileName}`}</Text>
+        <Text f_truncate>{msg}</Text>
       </View>
       <PureField {...props} op_0 onChange={onChange} />
     </FieldDecoration>
@@ -85,9 +93,9 @@ const FileField: FC<any> = (props) => {
 const CheckboxRadioField: FC<any> = ({ label, ...props }) => {
   return (
     <View flex cross_center w_full w_max_16>
-      <Container relative h_2 w_2 h_min_2 w_min_2 mr_sm>
+      <Container relative h_2 w_2 h_min_2 w_min_2 mx_sm>
         <View
-          id={label}
+          id={fastHash(label)}
           w_full
           h_full
           p_md
