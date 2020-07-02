@@ -1,4 +1,4 @@
-import { Container } from './styles';
+import { ContainerStyle, DecorationStyle } from './styles';
 import { Text, View } from '../../../../core/src';
 import React, { FC, useState } from 'react';
 
@@ -36,12 +36,12 @@ const PureField: FC<any> = ({ label, children, ...props }) => {
 
 const FieldDecoration: FC<any> = ({ children, ...props }) => {
   return (
-    <View
+    <DecorationStyle
       fieldset
       flex
       col
       b_edge
-      bc_000
+      bc_80868b
       b_thin
       main_between
       w_full
@@ -49,13 +49,13 @@ const FieldDecoration: FC<any> = ({ children, ...props }) => {
       pr_md={props?.select}>
       {props?.label && (
         <View ml_sm px_sm legend>
-          <Text label for={props?.label}>
+          <Text label fc_80868b for={props?.label}>
             {props?.label}
           </Text>
         </View>
       )}
       {children}
-    </View>
+    </DecorationStyle>
   );
 };
 
@@ -83,7 +83,7 @@ const FileField: FC<any> = ({ placeholder = 'Select file', ...props}) => {
   return (
     <FieldDecoration {...props}>
       <View flex cross_center absolute cover p_md pt_lg h_max_16 z_neg>
-        <Text f_truncate>{msg}</Text>
+        <Text f_truncate fc_80868b>{msg}</Text>
       </View>
       <PureField {...props} op_0 onChange={onChange} />
     </FieldDecoration>
@@ -93,7 +93,7 @@ const FileField: FC<any> = ({ placeholder = 'Select file', ...props}) => {
 const CheckboxRadioField: FC<any> = ({ label, ...props }) => {
   return (
     <View flex cross_center w_full w_max_16>
-      <Container relative h_2 w_2 h_min_2 w_min_2 mx_sm>
+      <ContainerStyle relative h_2 w_2 h_min_2 w_min_2 mx_sm>
         <View
           id={fastHash(label)}
           w_full
@@ -115,12 +115,12 @@ const CheckboxRadioField: FC<any> = ({ label, ...props }) => {
           h_full
           b_edge={props?.checkbox}
           b_circular={props?.radio}
-          bc_000
+          bc_80868b
           b_thin
         />
-      </Container>
+      </ContainerStyle>
       {label && (
-        <Text label for={label}>
+        <Text label fc_80868b for={label}>
           {label}
         </Text>
       )}
