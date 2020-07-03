@@ -1,1 +1,1 @@
-export { Text, TextProps, View, ViewProps } from './core';
+export * from './core/View';

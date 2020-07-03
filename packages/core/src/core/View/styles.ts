@@ -1,114 +1,100 @@
-import { Container } from '../Container';
-import { ViewProps } from './interfaces';
-import styled from 'styled-components';
+import styled, { FlattenInterpolation, css } from 'styled-components';
 
-const getGridTemplate = (match: string, props: any) =>
-  Object.keys(props).reduce((acc: string, key: string) => {
-    if (key.startsWith(match)) {
-      const options = key.replace(match, '').split('_');
-      for (let i = 0; i < options.length; i += 2) {
-        acc += `repeat(${options[i]}, ${options[i + 1]}) `;
+const viewCss = css<any>`
+  ${({ bc_red }) => bc_red && 'background-color: red;'}
+  ${({ c_red }) => c_red && 'color: red;'}
+`;
+
+function injectPropsContext<T = any>(
+  prop: any,
+  interpolation: FlattenInterpolation<T>,
+) {
+  return interpolation
+    .map((rule: any) => (typeof rule === 'function' ? rule(prop) || '' : rule))
+    .join('');
+}
+
+const regex = /(\w+)__(.*?)\w+/g;
+const pseudo = [
+  'after',
+  'before',
+  'active',
+  'checked',
+  'disabled',
+  'focus',
+  'hover',
+  'visited',
+];
+const dynamic = (props: any) => {
+  const prefixedProps = Object.keys(props).filter((key) => key.match(regex));
+  console.log(prefixedProps);
+  const reduced = prefixedProps.reduce(
+    (acc, prefixedProp) => {
+      const [prefix, prop] = prefixedProp.split('__');
+      const value = props[prefixedProp];
+      switch (prefix) {
+      case 'after': acc.after += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'before': acc.before +=  injectPropsContext({[prop]: value}, viewCss); break;
+      case 'active': acc.active +=  injectPropsContext({[prop]: value}, viewCss); break;
+      case 'checked': acc.checked += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'disabled': acc.disabled += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'focus': acc.focus += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'hover': acc.hover += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'visited': acc.visited += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'xs': acc.xs += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'sm': acc.sm += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'md': acc.md += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'lg': acc.lg += injectPropsContext({[prop]: value}, viewCss); break;
+      case 'xl': acc.xl += injectPropsContext({[prop]: value}, viewCss); break;
       }
       return acc;
-    }
-    return acc;
-  }, '');
-
-const getGridArea = (props: any) =>
-  Object.keys(props).reduce((acc: string, key: string) => {
-    if (key.startsWith('area_')) {
-      const [area] = key.replace('area_', '').split('_');
-      return `grid-area: ${area};`;
-    }
-    return acc;
-  }, '');
-
-const DefaultViewStyle = styled(Container)<ViewProps>`
-  ${({ flex }) => flex && 'display: flex;'}
-  ${({ grid }) => grid && 'display: grid;'}
-  ${({ hidden }) => hidden && 'display: none;'}
-  ${({ visible }) => visible && 'visibility: visible;'}
-  ${({ invisible }) => invisible && 'visibility: hidden;'}
-  ${({ grow }) => grow && 'flex-grow: 1;'}
-  ${({ col }) => col && 'flex-direction: column;'}
-  ${({ row }) => row && 'flex-direction: row;'}
-  ${({ row_reverse }) => row_reverse && 'flex-direction: row-reverse;'}
-  ${({ col_reverse }) => col_reverse && 'flex-direction: column-reverse;'}
-  ${({ main_between }) => main_between && 'justify-content: space-between;'}
-  ${({ main_around }) => main_around && 'justify-content: space-around;'}
-  ${({ main_evenly }) => main_evenly && 'justify-content: space-evenly;'}
-  ${({ main_center }) => main_center && 'justify-content: center;'}
-  ${({ cross_center }) => cross_center && 'align-items: center;'}
-  ${({ main_stretch }) => main_stretch && 'justify-content: stretch;'}
-  ${({ cross_stretch }) => cross_stretch && 'align-items: stretch;'}
-  ${({ main_start }) => main_start && 'justify-content: flex-start;'}
-  ${({ cross_start }) => cross_start && 'align-items: flex-start;'}
-  ${({ main_end }) => main_end && 'justify-content: flex-end;'}
-  ${({ cross_end }) => cross_end && 'align-items: flex-end;'}
-  ${({ areas }) => areas && `grid-template-areas: ${areas};`}
-  ${(props) => {
-    const area = getGridArea(props);
-    return area !== '' && area;
-  }}
-  ${(props) => {
-    const cols = getGridTemplate('cols_', props);
-    return cols !== '' && `grid-template-columns: ${cols};`;
-  }}
-  ${(props) => {
-    const rows = getGridTemplate('rows_', props);
-    return rows !== '' && `grid-template-rows: ${rows};`;
-  }}
-`;
-
-const selectMedia = (media: string, props: ViewProps) =>
-  Object.keys(props)
-    .filter((key: string) => key.startsWith(`${media}_`))
-    .reduce(
-      (acc: object, key: string) => ({
-        ...acc,
-        [key.replace(`${media}_`, '')]: props[key],
-      }),
-      {},
-    );
-
-const runRules = (props: ViewProps) => {
-  // @ts-expect-error
-  const rules: Function[] = DefaultViewStyle.componentStyle.rules.filter(
-    (rule: ('string' | Function)[]) => typeof rule === 'function',
+    },
+    {
+      after: '',
+      before: '',
+      active: '',
+      checked: '',
+      disabled: '',
+      focus: '',
+      hover: '',
+      visited: '',
+      xs: '',
+      sm: '',
+      md: '',
+      lg: '',
+      xl: '',
+    },
   );
-  return rules
-    .map((rule) => rule(props))
-    .filter(Boolean)
-    .reduce((acc, style) => `${acc}${style}`, '');
+  console.log(reduced);
+  const styles = Object.keys(reduced).reduce((acc, key) => {
+    if (pseudo.includes(key)) {
+      acc += reduced[key].length 
+        ? `:${key} { ${reduced[key]} }`
+        : '';
+    }
+    switch (key) {
+    case 'xs': acc += reduced[key].length
+      ? `@media and screen (min-width: 640px) { ${reduced[key]} }`
+      : ''; break;
+    case 'sm': acc += reduced[key].length
+      ? `@media and screen (min-width: 768px) { ${reduced[key]} }`
+      : ''; break;
+    case 'md': acc += reduced[key].length
+      ? `@media and screen (min-width: 1024px) { ${reduced[key]} }`
+      : ''; break;
+    case 'lg': acc += reduced[key].length
+      ? `@media and screen (min-width: 1440px) { ${reduced[key]} }`
+      : ''; break;
+    case 'xl': acc += reduced[key].length
+      ? `@media and screen (min-width: 1920px) { ${reduced[key]} }`
+      : ''; break;
+    }
+    return acc;
+  }, '');
+  return styles;
 };
 
-const getBreakPoint = (media: string) => {
-  switch (media) {
-  case 'xs': return '640px';
-  case 'sm': return '768px';
-  case 'md': return '1024px';
-  case 'lg': return '1440px';
-  case 'xl': return '1920px';
-  default: return '';
-  }
-};
-
-const Medias = styled(DefaultViewStyle).attrs({
-  runRules,
-})`
-  ${(props) => {
-    return ['xs', 'sm', 'md', 'lg', 'xl']
-      .map((media) => {
-        const styles = props.runRules(selectMedia(media, props));
-        if (styles) {
-          return `@media and screen (min-width: ${getBreakPoint(
-            media,
-          )}) { ${styles} }`;
-        }
-        return '';
-      })
-      .join('');
-  }}
+export const ViewStyle = styled.div<any>`
+  ${viewCss}
+  ${dynamic}
 `;
-
-export const ViewStyle = Medias;
