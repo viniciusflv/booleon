@@ -1,8 +1,14 @@
-import { backgroundCss } from '../css/background';
-import styled, { FlattenInterpolation, css } from 'styled-components';
+import { backgroundCss, borderCss } from '../css';
+import styled, { FlattenInterpolation, ThemedStyledProps, css } from 'styled-components';
 
-const viewCss = css`
+type InterpolationProps<T> = T extends FlattenInterpolation<ThemedStyledProps<infer P, any>> ? P : never;
+
+const viewCss = css<
+  & InterpolationProps<typeof borderCss>
+  & InterpolationProps<typeof backgroundCss>
+>`
   ${backgroundCss}
+  ${borderCss}
 `;
 
 function injectPropsContext<T = any>(
