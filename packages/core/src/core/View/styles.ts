@@ -1,8 +1,8 @@
+import { backgroundCss } from '../css/background';
 import styled, { FlattenInterpolation, css } from 'styled-components';
 
-const viewCss = css<any>`
-  ${({ bc_red }) => bc_red && 'background-color: red;'}
-  ${({ c_red }) => c_red && 'color: red;'}
+const viewCss = css`
+  ${backgroundCss}
 `;
 
 function injectPropsContext<T = any>(
@@ -27,7 +27,6 @@ const pseudo = [
 ];
 const dynamic = (props: any) => {
   const prefixedProps = Object.keys(props).filter((key) => key.match(regex));
-  console.log(prefixedProps);
   const reduced = prefixedProps.reduce(
     (acc, prefixedProp) => {
       const [prefix, prop] = prefixedProp.split('__');
@@ -65,7 +64,6 @@ const dynamic = (props: any) => {
       xl: '',
     },
   );
-  console.log(reduced);
   const styles = Object.keys(reduced).reduce((acc, key) => {
     if (pseudo.includes(key)) {
       acc += reduced[key].length 
@@ -73,21 +71,11 @@ const dynamic = (props: any) => {
         : '';
     }
     switch (key) {
-    case 'xs': acc += reduced[key].length
-      ? `@media and screen (min-width: 640px) { ${reduced[key]} }`
-      : ''; break;
-    case 'sm': acc += reduced[key].length
-      ? `@media and screen (min-width: 768px) { ${reduced[key]} }`
-      : ''; break;
-    case 'md': acc += reduced[key].length
-      ? `@media and screen (min-width: 1024px) { ${reduced[key]} }`
-      : ''; break;
-    case 'lg': acc += reduced[key].length
-      ? `@media and screen (min-width: 1440px) { ${reduced[key]} }`
-      : ''; break;
-    case 'xl': acc += reduced[key].length
-      ? `@media and screen (min-width: 1920px) { ${reduced[key]} }`
-      : ''; break;
+    case 'xs': acc += reduced[key].length ? `@media (min-width: 640px) { ${reduced[key]} }` : ''; break;
+    case 'sm': acc += reduced[key].length ? `@media (min-width: 768px) { ${reduced[key]} }` : ''; break;
+    case 'md': acc += reduced[key].length ? `@media (min-width: 1024px) { ${reduced[key]} }` : ''; break;
+    case 'lg': acc += reduced[key].length ? `@media (min-width: 1440px) { ${reduced[key]} }` : ''; break;
+    case 'xl': acc += reduced[key].length ? `@media (min-width: 1920px) { ${reduced[key]} }` : ''; break;
     }
     return acc;
   }, '');
