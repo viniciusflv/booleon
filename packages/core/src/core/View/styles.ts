@@ -1,18 +1,25 @@
-import { backgroundCss, borderCss, marginCss, sizingCss } from '../css';
+import { backgroundCss, borderCss, marginCss, paddingCss, sizingCss } from '../css';
 import styled, { FlattenInterpolation, ThemedStyledProps, css } from 'styled-components';
 
 type InterpolationProps<T> = T extends FlattenInterpolation<ThemedStyledProps<infer P, any>> ? P : never;
 
-const viewCss = css<
-  & InterpolationProps<typeof borderCss>
-  & InterpolationProps<typeof backgroundCss>
-  & InterpolationProps<typeof sizingCss>
-  & InterpolationProps<typeof marginCss>
->`
+type MultipleInterpolation<T extends readonly any[]> =
+    ((...t: T) => void) extends ((...r: infer R) => void) ? InterpolationProps<R> : never
+
+type ViewProps = MultipleInterpolation<[
+  typeof borderCss,
+  typeof backgroundCss,
+  typeof sizingCss,
+  typeof marginCss,
+  typeof paddingCss,
+]>;
+
+const viewCss = css<ViewProps>`
   ${backgroundCss}
   ${borderCss}
   ${sizingCss}
   ${marginCss}
+  ${paddingCss}
 `;
 
 function injectPropsContext<T = any>(
@@ -92,7 +99,7 @@ const dynamic = (props: any) => {
   return styles;
 };
 
-export const ViewStyle = styled.div<any>`
+export const ViewStyle = styled.div<ViewProps>`
   ${viewCss}
   ${dynamic}
 `;
