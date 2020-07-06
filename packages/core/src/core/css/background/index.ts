@@ -1,1 +1,0 @@
-export { backgroundCss } from './styles';

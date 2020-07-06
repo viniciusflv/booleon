@@ -1,1 +1,0 @@
-export { sizingCss } from './styles';

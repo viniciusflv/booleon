@@ -23,6 +23,6 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "css", "utils"],
   "exclude": ["node_modules", "build", "scripts"]
 }

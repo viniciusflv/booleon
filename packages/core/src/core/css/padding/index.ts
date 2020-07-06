@@ -1,1 +1,0 @@
-export { paddingCss } from './styles';

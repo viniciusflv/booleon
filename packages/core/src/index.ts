@@ -1,1 +1,2 @@
-export * from './core/View';
+export * from './View';
+export * from './Text';
