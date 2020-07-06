@@ -1,4 +1,4 @@
-import { Prefixed, handlePrefix } from '../../utils/prefix';
+import { Prefixed, handlePrefix } from '../utils/prefix';
 import { ViewProps } from './interfaces';
 import {
   backgroundCss,
@@ -7,7 +7,7 @@ import {
   paddingCss,
   shadowCss,
   sizingCss,
-} from '../../css';
+} from '../css';
 import styled, { css } from 'styled-components';
 
 const viewCss = css<ViewProps>`

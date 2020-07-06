@@ -5,7 +5,7 @@ import {
   PaddingProps,
   ShadowProps,
   SizingProps,
-} from '../../css';
+} from '../css';
 
 export type ViewProps =
 & BorderProps 

@@ -1,6 +1,6 @@
-import { Prefixed, handlePrefix } from '../../utils/prefix';
+import { Prefixed, handlePrefix } from '../utils/prefix';
 import { TextProps } from './interfaces';
-import { fontCss, marginCss } from '../../css';
+import { fontCss, marginCss } from '../css';
 import styled, { css } from 'styled-components';
 
 const textCss = css<TextProps>`
