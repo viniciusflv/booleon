@@ -63,5 +63,8 @@ export const containerCss = css<ContainerProps>`
   ${({ cursor_text }) => cursor_text && 'cursor: text;'}
   ${({ cursor_move }) => cursor_move && 'cursor: move;'}
   ${({ cursor_not_allowed }) => cursor_not_allowed && 'cursor: not-allowed;'}
+  ${({ hidden }) => hidden && 'display: none;'}
+  ${({ visible }) => visible && 'visibility: visible;'}
+  ${({ invisible }) => invisible && 'visibility: hidden;'}
   ${dynamic}
 `;

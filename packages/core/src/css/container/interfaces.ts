@@ -45,6 +45,9 @@ type Options =
   | 'cursor_wait'
   | 'cursor_text'
   | 'cursor_move'
-  | 'cursor_not_allowed';
+  | 'cursor_not_allowed'
+  | 'hidden'
+  | 'visible'
+  | 'invisible';
 
 export type ContainerProps = { [key in Options]?: boolean };

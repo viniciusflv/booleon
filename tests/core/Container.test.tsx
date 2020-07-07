@@ -4,6 +4,23 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 describe('Container', () => {
+  describe('Visibility', () => {
+    test('hidden', () => {
+      const component = renderer.create(<View hidden />).toJSON();
+      expect(component).toHaveStyleRule('display', 'none');
+    });
+  
+    test('visible', () => {
+      const component = renderer.create(<View visible />).toJSON();
+      expect(component).toHaveStyleRule('visibility', 'visible');
+    });
+  
+    test('invisible', () => {
+      const component = renderer.create(<View invisible />).toJSON();
+      expect(component).toHaveStyleRule('visibility', 'hidden');
+    });
+  });
+
   describe('Z-Index', () => {
     test('z_max', () => {
       const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;

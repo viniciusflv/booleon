@@ -1,4 +1,3 @@
-import { FontProps } from '../css/font/interfaces';
-import { MarginProps } from '../css/margin/interfaces';
+import { ContainerProps, FontProps, MarginProps } from '../css';
 
-export type TextProps = FontProps & MarginProps;
+export type TextProps = FontProps & MarginProps & ContainerProps;
