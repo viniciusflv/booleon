@@ -4,6 +4,7 @@ import {
   backgroundCss,
   borderCss,
   containerCss,
+  gridCss,
   marginCss,
   paddingCss,
   shadowCss,
@@ -19,6 +20,7 @@ const viewCss = css<ViewProps>`
   ${paddingCss}
   ${shadowCss}
   ${containerCss}
+  ${gridCss}
 `;
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`
