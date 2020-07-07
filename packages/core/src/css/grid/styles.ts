@@ -21,6 +21,16 @@ const dynamic = (props: GridProps) =>
     return acc;
   }, '');
 
+const gridFlow = ({ dense, flow_rows, flow_cols }: GridProps) => {
+  switch (true) {
+  case dense && flow_rows: return 'grid-auto-flow: row dense;';
+  case dense && flow_cols: return 'grid-auto-flow: column dense;';
+  case flow_rows: return 'grid-auto-flow: row;';
+  case flow_cols: return 'grid-auto-flow: column;';
+  default: return 'grid-auto-flow: dense;';
+  }
+};
+
 export const gridCss = css<GridProps>`
   ${({ grid }) => grid && 'display: grid;'}
   ${({ areas }) => areas && `grid-template-areas: ${areas};`}
@@ -28,5 +38,6 @@ export const gridCss = css<GridProps>`
   ${({ cols_end }) => cols_end && 'grid-column-end: 1;'}
   ${({ rows_start }) => rows_start && 'grid-row-start: 1;'}
   ${({ rows_end }) => rows_end && 'grid-row-end: 1;'}
+  ${gridFlow}
   ${dynamic}
 `;

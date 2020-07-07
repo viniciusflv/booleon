@@ -2,6 +2,7 @@ import {
   BackgroundProps,
   BorderProps,
   ContainerProps,
+  FlexProps,
   GridProps,
   MarginProps,
   PaddingProps,
@@ -17,4 +18,5 @@ export type ViewProps =
 & PaddingProps 
 & ShadowProps
 & ContainerProps
-& GridProps;
+& GridProps
+& FlexProps;

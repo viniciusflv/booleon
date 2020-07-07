@@ -4,11 +4,12 @@ import {
   backgroundCss,
   borderCss,
   containerCss,
+  flexCss,
   gridCss,
   marginCss,
   paddingCss,
   shadowCss,
-  sizingCss
+  sizingCss,
 } from '../css';
 import styled, { css } from 'styled-components';
 
@@ -21,6 +22,7 @@ const viewCss = css<ViewProps>`
   ${shadowCss}
   ${containerCss}
   ${gridCss}
+  ${flexCss}
 `;
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`

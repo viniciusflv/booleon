@@ -14,6 +14,31 @@ describe('Grid', () => {
     expect(component).toHaveStyleRule('grid-area', 'AREA');
   });
 
+  test('flow_rows', () => {
+    const component = renderer.create(<View flow_rows />).toJSON();
+    expect(component).toHaveStyleRule('grid-auto-flow', 'row');
+  });
+
+  test('flow_cols', () => {
+    const component = renderer.create(<View flow_cols />).toJSON();
+    expect(component).toHaveStyleRule('grid-auto-flow', 'column');
+  });
+
+  test('dense flow_rows', () => {
+    const component = renderer.create(<View dense flow_rows />).toJSON();
+    expect(component).toHaveStyleRule('grid-auto-flow', 'row dense');
+  });
+
+  test('dense flow_cols', () => {
+    const component = renderer.create(<View dense flow_cols />).toJSON();
+    expect(component).toHaveStyleRule('grid-auto-flow', 'column dense');
+  });
+
+  test('dense', () => {
+    const component = renderer.create(<View dense />).toJSON();
+    expect(component).toHaveStyleRule('grid-auto-flow', 'dense');
+  });
+
   test('cols', () => {
     const component = renderer.create(<View cols_1fr_2fr />).toJSON();
     expect(component).toHaveStyleRule('grid-template-columns', '1fr 2fr');
