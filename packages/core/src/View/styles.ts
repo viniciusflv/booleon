@@ -3,10 +3,11 @@ import { ViewProps } from './interfaces';
 import {
   backgroundCss,
   borderCss,
+  containerCss,
   marginCss,
   paddingCss,
   shadowCss,
-  sizingCss,
+  sizingCss
 } from '../css';
 import styled, { css } from 'styled-components';
 
@@ -17,6 +18,7 @@ const viewCss = css<ViewProps>`
   ${marginCss}
   ${paddingCss}
   ${shadowCss}
+  ${containerCss}
 `;
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`

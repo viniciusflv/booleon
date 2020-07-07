@@ -1,10 +1,11 @@
 import {
   BackgroundProps,
   BorderProps,
+  ContainerProps,
   MarginProps,
   PaddingProps,
   ShadowProps,
-  SizingProps,
+  SizingProps
 } from '../css';
 
 export type ViewProps =
@@ -13,4 +14,5 @@ export type ViewProps =
 & SizingProps 
 & MarginProps 
 & PaddingProps 
-& ShadowProps;
+& ShadowProps
+& ContainerProps;
