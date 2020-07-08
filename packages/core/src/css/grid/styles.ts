@@ -6,6 +6,7 @@ const cols = /cols_\d/g;
 
 const dynamic = (props: GridProps) =>
   Object.keys(props).reduce((acc, key) => {
+    // @ts-expect-error
     const [_, ...splitted] = key.split('_');
     const value = splitted[splitted.length - 1];
     const values = splitted.join(' ');

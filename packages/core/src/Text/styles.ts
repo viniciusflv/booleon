@@ -11,5 +11,5 @@ const textCss = css<TextProps>`
 
 export const TextStyle = styled.span<Prefixed<TextProps>>`
   ${textCss}
-  ${handlePrefix<TextProps>(textCss)}
+  ${handlePrefix(textCss)}
 `;

@@ -27,5 +27,5 @@ const viewCss = css<ViewProps>`
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`
   ${viewCss}
-  ${handlePrefix<ViewProps>(viewCss)}
+  ${handlePrefix(viewCss)}
 `;

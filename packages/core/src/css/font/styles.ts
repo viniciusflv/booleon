@@ -1,44 +1,31 @@
 import { FontProps } from './interfaces';
 import { css } from 'styled-components';
 
-const getKeyValues = (key: string) => key.split('_')[1];
-
-const fontStroke = (key: string) => {
-  const color = getKeyValues(key);
-  return ` text-shadow:
-    -1px 0 #${color},
-    0 1px #${color},
-    1px 0 #${color},
-    0 -1px #${color};
-  `;
-};
-
-const fontColor = (key: string) => {
-  const color = getKeyValues(key);
-  return `color: #${color};`;
-};
-
 const handleDynamic = (props: FontProps) =>
   Object.keys(props).reduce((acc: string, key: string) => {
-    if (key.startsWith('fs_')) acc += fontStroke(key);
-    if (key.startsWith('fc_')) acc += fontColor(key);
+    const splitted = key.split('_');
+    const value = splitted[splitted.length - 1];
+    if (key.startsWith('fb_')) acc += `
+      text-shadow:
+      -1px 0 #${value},
+      0 1px #${value},
+      1px 0 #${value},
+      0 -1px #${value};
+    `;
+    if (key.startsWith('fc_')) acc += `color: #${value};`;
+    if (key.startsWith('fs_')) acc += `font-size: ${Number(value)/10}rem;`;
     return acc;
   }, '');
 
 export const fontCss = css<FontProps>`
   ${handleDynamic}
-  ${({ f_sans }) => f_sans &&
+  ${({ ff_sans }) => ff_sans &&
     'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'}
-  ${({ f_serif }) => f_serif &&
+  ${({ ff_serif }) => ff_serif &&
     'font-family: Georgia, Cambria, "Times New Roman", Times, serif;'}
-  ${({ f_mono }) => f_mono &&
+  ${({ ff_mono }) => ff_mono &&
     'font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'}
   ${({ f_italic }) => f_italic && 'font-style: italic;'}
-  ${({ f_xs }) => f_xs && 'font-size: 1rem;'}
-  ${({ f_sm }) => f_sm && 'font-size: 2rem;'}
-  ${({ f_md }) => f_md && 'font-size: 3rem;'}
-  ${({ f_lg }) => f_lg && 'font-size: 4rem;'}
-  ${({ f_xl }) => f_xl && 'font-size: 5rem;'}
   ${({ fw_lightest }) => fw_lightest && 'font-weight: 100;'}
   ${({ fw_lighter }) => fw_lighter && 'font-weight: 200;'}
   ${({ fw_light }) => fw_light && 'font-weight: 300;'}

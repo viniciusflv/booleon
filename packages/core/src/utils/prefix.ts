@@ -40,7 +40,7 @@ type Options =
 export type Prefixed<T> = T &
   ({ [key in Options]?: boolean } | { [id: string]: boolean });
 
-export function handlePrefix<T = any>(interpolation: FlattenInterpolation<T>) {
+export function handlePrefix<T = {}>(interpolation: FlattenInterpolation<T>) {
   return (props: T) => {
     const prefixedProps = Object.keys(props).filter((key) => key.match(regex));
     const reduced = prefixedProps.reduce(

@@ -4,6 +4,7 @@ module.exports = {
     '@storybook/addon-backgrounds/register',
     "@storybook/addon-storysource",
     '@storybook/addon-knobs/register',
+    '@storybook/addon-a11y',
   ],
   webpackFinal: async (config) => {
     config.module.rules.push(
