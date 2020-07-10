@@ -10,6 +10,7 @@ import {
   paddingCss,
   shadowCss,
   sizingCss,
+  transitionCss
 } from '../css';
 import styled, { css } from 'styled-components';
 
@@ -23,6 +24,7 @@ const viewCss = css<ViewProps>`
   ${containerCss}
   ${gridCss}
   ${flexCss}
+  ${transitionCss}
 `;
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`

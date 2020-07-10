@@ -7,7 +7,8 @@ import {
   MarginProps,
   PaddingProps,
   ShadowProps,
-  SizingProps
+  SizingProps,
+  TransitionProps
 } from '../css';
 
 export type ViewProps =
@@ -19,4 +20,5 @@ export type ViewProps =
 & ShadowProps
 & ContainerProps
 & GridProps
-& FlexProps;
+& FlexProps
+& TransitionProps;
