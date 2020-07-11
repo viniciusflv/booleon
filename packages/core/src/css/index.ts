@@ -9,3 +9,4 @@ export * from './container';
 export * from './grid';
 export * from './flex';
 export * from './transition';
+export * from './transform';

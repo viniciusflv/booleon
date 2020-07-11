@@ -8,10 +8,12 @@ import {
   PaddingProps,
   ShadowProps,
   SizingProps,
+  TransformProps,
   TransitionProps
 } from '../css';
 
 export type ViewProps =
+& TransformProps
 & BorderProps 
 & BackgroundProps 
 & SizingProps 
