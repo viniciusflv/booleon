@@ -1,5 +1,6 @@
 import { FontProps } from './interfaces';
 import { css } from 'styled-components';
+import { reducer } from '../../utils/reducer';
 
 const handleDynamic = (props: FontProps) =>
   Object.keys(props).reduce((acc: string, key: string) => {
@@ -18,7 +19,17 @@ const handleDynamic = (props: FontProps) =>
   }, '');
 
 export const fontCss = css<FontProps>`
-  ${handleDynamic}
+  ${reducer([
+    [/^(fb_)([A-z0-9]+)/, (value) => `
+      text-shadow:
+      -1px 0 #${value},
+      0 1px #${value},
+      1px 0 #${value},
+      0 -1px #${value};
+    `],
+    [/^(fc_)([A-z0-9]+)/, (value) => `color: #${value};`],
+    [/^(fs_)([A-z0-9]+)/, (value) => `font-size: ${Number(value)/10}rem;`],
+  ])}
   ${({ ff_sans }) => ff_sans &&
     'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'}
   ${({ ff_serif }) => ff_serif &&

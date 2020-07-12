@@ -1,30 +1,20 @@
 import { ContainerProps } from './interfaces';
 import { css } from 'styled-components';
-
-const zIndex = /z_\d/g;
-const top = /top_\d/g;
-const bottom = /bottom_\d/g;
-const left = /left_\d/g;
-const right = /right_\d/g;
-
-const dynamic = (props: any) =>
-  Object.keys(props).reduce((acc, key) => {
-    const splitted = key.split('_');
-    const value = splitted[splitted.length - 1];
-    if (key.match(zIndex)) acc += `z-index: ${value};`;
-    if (key.match(top)) acc += `top: ${value};`;
-    if (key.match(bottom)) acc += `bottom: ${value};`;
-    if (key.match(left)) acc += `left: ${value};`;
-    if (key.match(right)) acc += `right: ${value};`;
-    if (key.startsWith('top_neg_')) acc += `top: -${value};`;
-    if (key.startsWith('bottom_neg_')) acc += `bottom: -${value};`;
-    if (key.startsWith('left_neg_')) acc += `left: -${value};`;
-    if (key.startsWith('right_neg_')) acc += `right: -${value};`;
-    return acc;
-  }, '');
+import { reducer } from '../../utils/reducer';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 export const containerCss = css<ContainerProps>`
+  ${reducer([
+    [/^(z_)(\d+)/, (value) => `z-index: ${value};`],
+    [/^(top_)(\d+)/, (value) => `top: ${value};`],
+    [/^(bottom_)(\d+)/, (value) => `bottom: ${value};`],
+    [/^(left_)(\d+)/, (value) => `left: ${value};`],
+    [/^(right_)(\d+)/, (value) => `right: ${value};`],
+    [/^(top_neg_)(\d+)/, (value) => `top: -${value};`],
+    [/^(bottom_neg_)(\d+)/, (value) => `bottom: -${value};`],
+    [/^(left_neg_)(\d+)/, (value) => `left: -${value};`],
+    [/^(right_neg_)(\d+)/, (value) => `right: -${value};`],
+  ])}
   ${({ z_max }) => z_max && `z-index: ${MAX_SAFE_INTEGER};`}
   ${({ z_neg }) => z_neg && 'z-index: -1;'}
   ${({ z_auto }) => z_auto && 'z-index: auto;'}
@@ -66,5 +56,4 @@ export const containerCss = css<ContainerProps>`
   ${({ hidden }) => hidden && 'display: none;'}
   ${({ visible }) => visible && 'visibility: visible;'}
   ${({ invisible }) => invisible && 'visibility: hidden;'}
-  ${dynamic}
 `;

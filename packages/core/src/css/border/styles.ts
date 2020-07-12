@@ -1,41 +1,27 @@
 import { BorderProps } from './interfaces';
 import { css } from 'styled-components';
-
-const handleBorderColor = (key: string) => {
-  const [type, color] = key.split('_');
-  switch (type) {
-  case 'bc': return `border-color: #${color};`;
-  case 'bxc':
-    return `
-    border-right-color: #${color};
-    border-left-color: #${color};
-  `;
-  case 'byc':
-    return `
-    border-top-color: #${color};
-    border-bottom-color: #${color};
-  `;
-  case 'btc': return `border-top-color: #${color};`;
-  case 'bbc': return `border-bottom-color: #${color};`;
-  case 'blc': return `border-left-color: #${color};`;
-  case 'brc': return `border-right-color: #${color};`;
-  default: return '';
-  }
-};
-
-const borderColor = (props: BorderProps) =>
-  Object.keys(props).reduce((acc: string, key: string) => {
-    if (key.startsWith('bc') || key.match(/b[a-z]c/))
-      return handleBorderColor(key);
-    return acc;
-  }, '');
+import { reducer } from '../../utils/reducer';
 
 const replicateForPseudo = (style: string) =>
   `${style} ::before, ::after { ${style} }`;
 
 export const borderCss = css<BorderProps>`
   border: 0 solid #000;
-  ${borderColor}
+  ${reducer([
+    [/^(bc_)([A-z0-9]+)/, (value) => `border-color: #${value};`],
+    [/^(btc_)([A-z0-9]+)/, (value) => `border-top-color: #${value};`],
+    [/^(bbc_)([A-z0-9]+)/, (value) => `border-bottom-color: #${value};`],
+    [/^(blc_)([A-z0-9]+)/, (value) => `border-left-color: #${value};`],
+    [/^(brc_)([A-z0-9]+)/, (value) => `border-right-color: #${value};`],
+    [/^(bxc_)([A-z0-9]+)/, (value) => `
+      border-right-color: #${value};
+      border-left-color: #${value};
+    `],
+    [/^(byc_)([A-z0-9]+)/, (value) => `
+      border-top-color: #${value};
+      border-bottom-color: #${value};
+    `],
+  ])}
   ${({ b_collapse }) => b_collapse && 'border-collapse: collapse;'}
   ${({ b_separate }) => b_separate && 'border-collapse: separate;'}
   ${({ b_none }) => b_none && 'border: none;'}

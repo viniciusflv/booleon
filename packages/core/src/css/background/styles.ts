@@ -1,51 +1,9 @@
 import { BackgroundProps } from './interfaces';
 import { css } from 'styled-components';
+import { reducer } from '../../utils/reducer';
 
 const linearGradient = (...args: string[]) =>
   `background-image: linear-gradient(${args.join(',')});`;
-
-const handleOpacity = (key: string, match: string) => {
-  const [opacity] = key.replace(match, '').split('_');
-  return `opacity: ${Number(opacity) / 100};`;
-};
-
-const handleGradient = (key: string, match: string) => {
-  const [color] = key.replace(match, '').split('_');
-  switch (match) {
-  case 'gx_': return linearGradient('to right',`#${color}`,'transparent',`#${color}`);
-  case 'gy_': return linearGradient('to top', `#${color}`, 'transparent', `#${color}`);
-  case 'gt_': return linearGradient('to top', 'transparent', `#${color}`);
-  case 'gb_': return linearGradient('to bottom', 'transparent', `#${color}`);
-  case 'gl_': return linearGradient('to left', 'transparent', `#${color}`);
-  case 'gr_': return linearGradient('to right', 'transparent', `#${color}`);
-  default:
-    return '';
-  }
-};
-
-const gradient = (props: BackgroundProps) =>
-  Object.keys(props).reduce((acc: string, key: string) => {
-    if (key.startsWith('g_op_')) acc += handleOpacity(key, 'g_op_');
-    if (key.startsWith('gx_')) acc += handleGradient(key, 'gx_');
-    if (key.startsWith('gy_')) acc += handleGradient(key, 'gy_');
-    if (key.startsWith('gt_')) acc += handleGradient(key, 'gt_');
-    if (key.startsWith('gb_')) acc += handleGradient(key, 'gb_');
-    if (key.startsWith('gl_')) acc += handleGradient(key, 'gl_');
-    if (key.startsWith('gr_')) acc += handleGradient(key, 'gr_');
-    return acc;
-  }, '');
-
-const handleBackground = (key: string, match: string) => {
-  const [color] = key.replace(match, '').split('_');
-  return `background-color: #${color};`;
-};
-
-const background = (props: BackgroundProps) =>
-  Object.keys(props).reduce((acc: string, key: string) => {
-    if (key.startsWith('bg_')) acc += handleBackground(key, 'bg_');
-    if (key.startsWith('op_')) acc += handleOpacity(key, 'op');
-    return acc;
-  }, '');
 
 const gradientCss = css`
   :after {
@@ -56,7 +14,15 @@ const gradientCss = css`
     left: -0.08rem;
     right: -0.08rem;
     z-index: -1;
-    ${gradient}
+    ${reducer([
+    [/^(g_op_)(\d+)/, (value) => `opacity: ${Number(value) / 100};`],
+    [/^(gx_)([A-z0-9]+)/, (value) => linearGradient('to right',`#${value}`,'transparent',`#${value}`)],
+    [/^(gy_)([A-z0-9]+)/, (value) => linearGradient('to top', `#${value}`, 'transparent', `#${value}`)],
+    [/^(gt_)([A-z0-9]+)/, (value) => linearGradient('to top', 'transparent', `#${value}`)],
+    [/^(gb_)([A-z0-9]+)/, (value) => linearGradient('to bottom', 'transparent', `#${value}`)],
+    [/^(gl_)([A-z0-9]+)/, (value) => linearGradient('to left', 'transparent', `#${value}`)],
+    [/^(gr_)([A-z0-9]+)/, (value) => linearGradient('to right', 'transparent', `#${value}`)],
+  ])}
   }
 `;
 
@@ -70,6 +36,9 @@ export const backgroundCss = css<BackgroundProps>`
   ${({ bg_fixed }) => bg_fixed && 'background-attachment: fixed;'}
   ${({ bg_local }) => bg_local && 'background-attachment: local;'}
   ${({ bg_scroll }) => bg_scroll && 'background-attachment: scroll;'}
-  ${background}
+  ${reducer([
+    [/^(bg_)([A-z0-9]+)/, (value) => `background-color: #${value};`],
+    [/^(op_)(\d+)/, (value) => `opacity: ${Number(value) / 100};`],
+  ])}
   ${gradientCss}
 `;
