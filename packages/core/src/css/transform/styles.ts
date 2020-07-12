@@ -1,42 +1,6 @@
 import { TransformProps } from './interfaces';
 import { css } from 'styled-components';
-
-const scale = /sl_\d/g;
-const scaleX = /slx_\d/g;
-const scaleY = /sly_\d/g;
-const rotate = /rt_\d/g;
-const translate = /tl_\d/g;
-const translateX = /tlx_\d/g;
-const translateY = /tly_\d/g;
-const skew = /sk_\d/g;
-const skewX = /skx_\d/g;
-const skewY = /sky_\d/g;
-
-const dynamic = (props: any) => Object.keys(props).reduce((acc, key) => {
-  const splitted = key.split('_');
-  const value = splitted[splitted.length - 1];
-  if (key.match(scale)) acc += `transform: scale(${value}rem,${value}rem);`;
-  if (key.match(scaleX)) acc += `transform: scaleX(${value}rem);`;
-  if (key.match(scaleY)) acc += `transform: scaleY(${value}rem);`;
-  if (key.match(rotate)) acc += `transform: rotate(${value}deg);`;
-  if (key.match(translate)) acc += `transform: translate(${value}rem,${value}rem);`;
-  if (key.match(translateX)) acc += `transform: translateX(${value}rem);`;
-  if (key.match(translateY)) acc += `transform: translateY(${value}rem);`;
-  if (key.match(skew)) acc += `transform: skew(${value}deg,${value}deg);`;
-  if (key.match(skewX)) acc += `transform: skewX(${value}deg);`;
-  if (key.match(skewY)) acc += `transform: skewY(${value}deg);`;
-  if (key.startsWith('sk_neg')) acc += `transform: skew(-${value}deg,-${value}deg);`;
-  if (key.startsWith('skx_neg')) acc += `transform: skewX(-${value}deg);`;
-  if (key.startsWith('sky_neg')) acc += `transform: skewY(-${value}deg);`;
-  if (key.startsWith('sl_neg')) acc += `transform: scale(-${value}rem,-${value}rem);`;
-  if (key.startsWith('slx_neg')) acc += `transform: scaleX(-${value}rem);`;
-  if (key.startsWith('sly_neg')) acc += `transform: scaleY(-${value}rem);`;
-  if (key.startsWith('rt_neg')) acc += `transform: rotate(-${value}deg);`;
-  if (key.startsWith('tl_neg')) acc += `transform: translate(-${value}rem,-${value}rem);`;
-  if (key.startsWith('tlx_neg')) acc += `transform: translateX(-${value}rem);`;
-  if (key.startsWith('tly_neg')) acc += `transform: translateY(-${value}rem);`;
-  return acc;
-}, '');
+import { reducer } from '../../utils/reducer';
 
 export const transformCss = css<TransformProps>`
   ${({ tl_full }) => tl_full && 'transform: translate(100%, 100%);'}
@@ -60,5 +24,26 @@ export const transformCss = css<TransformProps>`
   ${({ ori_bottom_left }) => ori_bottom_left &&	'transform-origin: bottom left;'}
   ${({ ori_left }) => ori_left &&	'transform-origin: left;'}
   ${({ ori_top_left }) => ori_top_left &&	'transform-origin: top left;'}
-  ${dynamic}
+  ${reducer([
+    [/^(sl_)(\d+)/, (value) => `transform: scale(${value}rem,${value}rem);`],
+    [/^(slx_)(\d+)/, (value) => `transform: scaleX(${value}rem);`],
+    [/^(sly_)(\d+)/, (value) => `transform: scaleY(${value}rem);`],
+    [/^(rt_)(\d+)/, (value) => `transform: rotate(${value}deg);`],
+    [/^(tl_)(\d+)/, (value) => `transform: translate(${value}rem,${value}rem);`],
+    [/^(tlx_)(\d+)/, (value) => `transform: translateX(${value}rem);`],
+    [/^(tly_)(\d+)/, (value) => `transform: translateY(${value}rem);`],
+    [/^(sk_)(\d+)/, (value) => `transform: skew(${value}deg,${value}deg);`],
+    [/^(skx_)(\d+)/, (value) => `transform: skewX(${value}deg);`],
+    [/^(sky_)(\d+)/, (value) => `transform: skewY(${value}deg);`],
+    [/^(sk_neg_)(\d+)/, (value) => `transform: skew(-${value}deg,-${value}deg);`],
+    [/^(skx_neg_)(\d+)/, (value) => `transform: skewX(-${value}deg);`],
+    [/^(sky_neg_)(\d+)/, (value) => `transform: skewY(-${value}deg);`],
+    [/^(sl_neg_)(\d+)/, (value) => `transform: scale(-${value}rem,-${value}rem);`],
+    [/^(slx_neg_)(\d+)/, (value) => `transform: scaleX(-${value}rem);`],
+    [/^(sly_neg_)(\d+)/, (value) => `transform: scaleY(-${value}rem);`],
+    [/^(rt_neg_)(\d+)/, (value) => `transform: rotate(-${value}deg);`],
+    [/^(tl_neg_)(\d+)/, (value) => `transform: translate(-${value}rem,-${value}rem);`],
+    [/^(tlx_neg_)(\d+)/, (value) => `transform: translateX(-${value}rem);`],
+    [/^(tly_neg_)(\d+)/, (value) => `transform: translateY(-${value}rem);`],
+  ])}
 `;

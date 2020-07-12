@@ -70,15 +70,15 @@ describe('Sizing', () => {
     });
     test('w_screen_122', () => {
       const component = renderer.create(<View w_screen_122 />).toJSON();
-      expect(component).toHaveStyleRule('width', '122vh');
+      expect(component).toHaveStyleRule('width', '122vw');
     });
     test('w_max_screen_122', () => {
       const component = renderer.create(<View w_max_screen_122 />).toJSON();
-      expect(component).toHaveStyleRule('max-width', '122vh');
+      expect(component).toHaveStyleRule('max-width', '122vw');
     });
     test('w_min_screen_122', () => {
       const component = renderer.create(<View w_min_screen_122 />).toJSON();
-      expect(component).toHaveStyleRule('min-width', '122vh');
+      expect(component).toHaveStyleRule('min-width', '122vw');
     });
     test('w_full', () => {
       const component = renderer.create(<View w_full />).toJSON();

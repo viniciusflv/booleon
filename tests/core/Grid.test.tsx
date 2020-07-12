@@ -40,13 +40,13 @@ describe('Grid', () => {
   });
 
   test('cols', () => {
-    const component = renderer.create(<View cols_1fr_2fr />).toJSON();
-    expect(component).toHaveStyleRule('grid-template-columns', '1fr 2fr');
+    const component = renderer.create(<View cols_1fr_20px_auto />).toJSON();
+    expect(component).toHaveStyleRule('grid-template-columns', '1fr 20px auto');
   });
 
   test('rows', () => {
-    const component = renderer.create(<View rows_1fr_2fr />).toJSON();
-    expect(component).toHaveStyleRule('grid-template-rows', '1fr 2fr');
+    const component = renderer.create(<View rows_1fr_20px_auto />).toJSON();
+    expect(component).toHaveStyleRule('grid-template-rows', '1fr 20px auto');
   });
 
   test('cols_start', () => {

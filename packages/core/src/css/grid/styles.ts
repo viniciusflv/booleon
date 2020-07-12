@@ -1,5 +1,6 @@
 import { GridProps } from './interfaces';
 import { css } from 'styled-components';
+import { reducer } from '../../utils/reducer';
 
 const rows = /rows_\d/g;
 const cols = /cols_\d/g;
@@ -9,9 +10,6 @@ const dynamic = (props: GridProps) =>
     // @ts-expect-error
     const [_, ...splitted] = key.split('_');
     const value = splitted[splitted.length - 1];
-    const values = splitted.join(' ');
-    if (key.match(rows)) acc += `grid-template-rows: ${values};`;
-    if (key.match(cols)) acc += `grid-template-columns: ${values};`;
     if (key.startsWith('area_')) acc += `grid-area: ${value};`;
     if (key.startsWith('cols_span')) acc += `grid-column: span ${value} / span ${value};`;
     if (key.startsWith('rows_span')) acc += `grid-row: span ${value} / span ${value};`;
@@ -41,4 +39,16 @@ export const gridCss = css<GridProps>`
   ${({ rows_end }) => rows_end && 'grid-row-end: 1;'}
   ${gridFlow}
   ${dynamic}
-`;
+  ${reducer([
+    [/^(rows_)(\d+[a-z]+|auto).*/, (value) => `grid-template-rows: ${value};`],
+    [/^(cols_)(\d+[a-z]+|auto).*/, (value) => `grid-template-columns: ${value};`],
+  ])}
+  `;
+  
+// ${(props) => {
+//   const a = Object.keys(props).join(' ');
+//   const cols = 'cols_1fr_2fr_auto_1px';
+//   const rg = /(?<=cols.*)([^_])+/g;
+//   const m = cols.match(rg);
+//   if (m) console.log(m);
+// }}
