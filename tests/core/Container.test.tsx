@@ -9,12 +9,12 @@ describe('Container', () => {
       const component = renderer.create(<View hidden />).toJSON();
       expect(component).toHaveStyleRule('display', 'none');
     });
-  
+
     test('visible', () => {
       const component = renderer.create(<View visible />).toJSON();
       expect(component).toHaveStyleRule('visibility', 'visible');
     });
-  
+
     test('invisible', () => {
       const component = renderer.create(<View invisible />).toJSON();
       expect(component).toHaveStyleRule('visibility', 'hidden');
@@ -213,53 +213,6 @@ describe('Container', () => {
     test('fit_none', () => {
       const component = renderer.create(<View fit_none />).toJSON();
       expect(component).toHaveStyleRule('object-fit', 'none');
-    });
-  });
-
-  describe('Events', () => {
-    test('pointer_none', () => {
-      const component = renderer.create(<View pointer_none />).toJSON();
-      expect(component).toHaveStyleRule('pointer-events', 'none');
-    });
-
-    test('outline_none', () => {
-      const component = renderer.create(<View outline_none />).toJSON();
-      expect(component).toHaveStyleRule('outline', 'none');
-    });
-
-    test('cursor_auto', () => {
-      const component = renderer.create(<View cursor_auto />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'auto');
-    });
-
-    test('cursor_default', () => {
-      const component = renderer.create(<View cursor_default />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'default');
-    });
-
-    test('cursor_pointer', () => {
-      const component = renderer.create(<View cursor_pointer />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'pointer');
-    });
-
-    test('cursor_wait', () => {
-      const component = renderer.create(<View cursor_wait />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'wait');
-    });
-
-    test('cursor_text', () => {
-      const component = renderer.create(<View cursor_text />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'text');
-    });
-
-    test('cursor_move', () => {
-      const component = renderer.create(<View cursor_move />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'move');
-    });
-
-    test('cursor_not_allowed', () => {
-      const component = renderer.create(<View cursor_not_allowed />).toJSON();
-      expect(component).toHaveStyleRule('cursor', 'not-allowed');
     });
   });
 });

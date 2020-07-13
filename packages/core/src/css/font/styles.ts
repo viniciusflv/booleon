@@ -2,22 +2,6 @@ import { FontProps } from './interfaces';
 import { css } from 'styled-components';
 import { reducer } from '../../utils/reducer';
 
-const handleDynamic = (props: FontProps) =>
-  Object.keys(props).reduce((acc: string, key: string) => {
-    const splitted = key.split('_');
-    const value = splitted[splitted.length - 1];
-    if (key.startsWith('fb_')) acc += `
-      text-shadow:
-      -1px 0 #${value},
-      0 1px #${value},
-      1px 0 #${value},
-      0 -1px #${value};
-    `;
-    if (key.startsWith('fc_')) acc += `color: #${value};`;
-    if (key.startsWith('fs_')) acc += `font-size: ${Number(value)/10}rem;`;
-    return acc;
-  }, '');
-
 export const fontCss = css<FontProps>`
   ${reducer([
     [/^(fb_)([A-z0-9]+)/, (value) => `

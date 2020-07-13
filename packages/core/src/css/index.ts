@@ -10,3 +10,5 @@ export * from './grid';
 export * from './flex';
 export * from './transition';
 export * from './transform';
+export * from './cursor';
+export * from './outline';

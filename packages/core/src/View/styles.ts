@@ -4,9 +4,11 @@ import {
   backgroundCss,
   borderCss,
   containerCss,
+  cursorCss,
   flexCss,
   gridCss,
   marginCss,
+  outlineCss,
   paddingCss,
   shadowCss,
   sizingCss,
@@ -27,6 +29,8 @@ const viewCss = css<ViewProps>`
   ${flexCss}
   ${transitionCss}
   ${transformCss}
+  ${cursorCss}
+  ${outlineCss}
 `;
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`

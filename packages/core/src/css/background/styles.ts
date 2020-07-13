@@ -13,7 +13,6 @@ const gradientCss = css`
     bottom: -0.08rem;
     left: -0.08rem;
     right: -0.08rem;
-    z-index: -1;
     ${reducer([
     [/^(g_op_)(\d+)/, (value) => `opacity: ${Number(value) / 100};`],
     [/^(gx_)([A-z0-9]+)/, (value) => linearGradient('to right',`#${value}`,'transparent',`#${value}`)],

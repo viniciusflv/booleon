@@ -2,9 +2,11 @@ import {
   BackgroundProps,
   BorderProps,
   ContainerProps,
+  CursorProps,
   FlexProps,
   GridProps,
   MarginProps,
+  OutlineProps,
   PaddingProps,
   ShadowProps,
   SizingProps,
@@ -13,6 +15,8 @@ import {
 } from '../css';
 
 export type ViewProps =
+& OutlineProps
+& CursorProps
 & TransformProps
 & BorderProps 
 & BackgroundProps 
