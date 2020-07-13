@@ -47,4 +47,9 @@ export const containerCss = css<ContainerProps>`
   ${({ hidden }) => hidden && 'display: none;'}
   ${({ visible }) => visible && 'visibility: visible;'}
   ${({ invisible }) => invisible && 'visibility: hidden;'}
+  ${({ noappearance }) => noappearance && 'appearance: none;'}
+  ${({ rz_none }) => rz_none && 'resize: none;'}
+  ${({ rz }) => rz && 'resize: both;'}
+  ${({ rzy }) => rzy && 'resize: vertical;'}
+  ${({ rzx }) => rzx && 'resize: horizontal;'}
 `;

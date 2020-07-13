@@ -14,12 +14,13 @@ export const fontCss = css<FontProps>`
     [/^(fc_)([A-z0-9]+)/, (value) => `color: #${value};`],
     [/^(fs_)([A-z0-9]+)/, (value) => `font-size: ${Number(value)/10}rem;`],
   ])}
-  ${({ ff_sans }) => ff_sans &&
-    'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'}
-  ${({ ff_serif }) => ff_serif &&
-    'font-family: Georgia, Cambria, "Times New Roman", Times, serif;'}
-  ${({ ff_mono }) => ff_mono &&
-    'font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'}
+  ${({ ff_sans }) => ff_sans && 'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'}
+  ${({ ff_serif }) => ff_serif && 'font-family: Georgia, Cambria, "Times New Roman", Times, serif;'}
+  ${({ ff_mono }) => ff_mono && 'font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'}
+  ${({ fsl_none }) => fsl_none && 'user-select: none;'}
+  ${({ fsl_text }) => fsl_text && 'user-select: text;'}
+  ${({ fsl_all }) => fsl_all && 'user-select: all;'}
+  ${({ fsl_auto }) => fsl_auto && 'user-select: auto;'}
   ${({ f_italic }) => f_italic && 'font-style: italic;'}
   ${({ fw_lightest }) => fw_lightest && 'font-weight: 100;'}
   ${({ fw_lighter }) => fw_lighter && 'font-weight: 200;'}

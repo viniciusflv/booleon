@@ -48,6 +48,11 @@ type Options =
   | 'cursor_not_allowed'
   | 'hidden'
   | 'visible'
-  | 'invisible';
+  | 'invisible'
+  | 'noappearance'
+  | 'rz_none'
+  | 'rz'
+  | 'rzy'
+  | 'rzx';
 
 export type ContainerProps = { [key in Options]?: boolean };

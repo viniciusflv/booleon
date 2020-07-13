@@ -19,6 +19,11 @@ describe('Container', () => {
       const component = renderer.create(<View invisible />).toJSON();
       expect(component).toHaveStyleRule('visibility', 'hidden');
     });
+
+    test('noappearance', () => {
+      const component = renderer.create(<View noappearance />).toJSON();
+      expect(component).toHaveStyleRule('appearance', 'none');
+    });
   });
 
   describe('Z-Index', () => {
@@ -213,6 +218,28 @@ describe('Container', () => {
     test('fit_none', () => {
       const component = renderer.create(<View fit_none />).toJSON();
       expect(component).toHaveStyleRule('object-fit', 'none');
+    });
+  });
+
+  describe('Resize', () => {
+    test('rz_none', () => {
+      const component = renderer.create(<View rz_none />).toJSON();
+      expect(component).toHaveStyleRule('resize', 'none');
+    });
+
+    test('rz', () => {
+      const component = renderer.create(<View rz />).toJSON();
+      expect(component).toHaveStyleRule('resize', 'both');
+    });
+
+    test('rzy', () => {
+      const component = renderer.create(<View rzy />).toJSON();
+      expect(component).toHaveStyleRule('resize', 'vertical');
+    });
+
+    test('rzx', () => {
+      const component = renderer.create(<View rzx />).toJSON();
+      expect(component).toHaveStyleRule('resize', 'horizontal');
     });
   });
 });
