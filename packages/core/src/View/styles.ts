@@ -6,6 +6,7 @@ import {
   containerCss,
   cursorCss,
   flexCss,
+  gradientCss,
   gridCss,
   marginCss,
   outlineCss,
@@ -31,6 +32,7 @@ const viewCss = css<ViewProps>`
   ${transformCss}
   ${cursorCss}
   ${outlineCss}
+  ${gradientCss}
 `;
 
 export const ViewStyle = styled.div<Prefixed<ViewProps>>`

@@ -8,7 +8,7 @@ const gridFlow = ({ dense, flow_rows, flow_cols }: GridProps) => {
   case dense && flow_cols: return 'grid-auto-flow: column dense;';
   case flow_rows: return 'grid-auto-flow: row;';
   case flow_cols: return 'grid-auto-flow: column;';
-  default: return 'grid-auto-flow: dense;';
+  case dense: return 'grid-auto-flow: dense;';
   }
 };
 

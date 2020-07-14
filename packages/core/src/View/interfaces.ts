@@ -4,6 +4,7 @@ import {
   ContainerProps,
   CursorProps,
   FlexProps,
+  GradientProps,
   GridProps,
   MarginProps,
   OutlineProps,
@@ -15,6 +16,7 @@ import {
 } from '../css';
 
 export type ViewProps =
+& GradientProps
 & OutlineProps
 & CursorProps
 & TransformProps

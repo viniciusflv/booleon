@@ -8,14 +8,7 @@ type Options =
   | 'bg_local'
   | 'bg_scroll'
   | 'bg_HEX'
-  | 'op_PERCENTAGE'
-  | 'g_op_PERCENTAGE'
-  | 'gx_HEX'
-  | 'gy_HEX'
-  | 'gt_HEX'
-  | 'gb_HEX'
-  | 'gl_HEX'
-  | 'gr_HEX';
+  | 'op_PERCENTAGE';
 
 export type BackgroundProps = (
   | { [key in Options]?: boolean }
