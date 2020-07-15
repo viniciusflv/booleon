@@ -8,16 +8,16 @@ const replicateForPseudo = (style: string) =>
 export const borderCss = css<BorderProps>`
   border: 0 solid #000;
   ${reducer([
-    [/^(bc_)([A-z0-9]+)/, (value) => `border-color: #${value};`],
-    [/^(btc_)([A-z0-9]+)/, (value) => `border-top-color: #${value};`],
-    [/^(bbc_)([A-z0-9]+)/, (value) => `border-bottom-color: #${value};`],
-    [/^(blc_)([A-z0-9]+)/, (value) => `border-left-color: #${value};`],
-    [/^(brc_)([A-z0-9]+)/, (value) => `border-right-color: #${value};`],
-    [/^(bxc_)([A-z0-9]+)/, (value) => `
+    [/^(bc_)([A-z0-9]+)/, (value: string) => `border-color: #${value};`],
+    [/^(btc_)([A-z0-9]+)/, (value: string) => `border-top-color: #${value};`],
+    [/^(bbc_)([A-z0-9]+)/, (value: string) => `border-bottom-color: #${value};`],
+    [/^(blc_)([A-z0-9]+)/, (value: string) => `border-left-color: #${value};`],
+    [/^(brc_)([A-z0-9]+)/, (value: string) => `border-right-color: #${value};`],
+    [/^(bxc_)([A-z0-9]+)/, (value: string) => `
       border-right-color: #${value};
       border-left-color: #${value};
     `],
-    [/^(byc_)([A-z0-9]+)/, (value) => `
+    [/^(byc_)([A-z0-9]+)/, (value: string) => `
       border-top-color: #${value};
       border-bottom-color: #${value};
     `],

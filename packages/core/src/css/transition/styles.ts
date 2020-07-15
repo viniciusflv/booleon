@@ -17,7 +17,7 @@ export const transitionCss = css<TransitionProps>`
   ${({ ts_ease_out }) =>	ts_ease_out && 'transition-timing-function: cubic-bezier(0, 0, 0.2, 1);'}
   ${({ ts_ease_in_out }) =>	ts_ease_in_out && 'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);'}
   ${reducer([
-    [/^(ts_duration_)(\d+)/, (value) => `transition-duration: ${value}ms;`],
-    [/^(ts_delay_)(\d+)/, (value) => `transition-delay: ${value}ms;`],
+    [/^(ts_duration_)(\d+)/, (value: string) => `transition-duration: ${value}ms;`],
+    [/^(ts_delay_)(\d+)/, (value: string) => `transition-delay: ${value}ms;`],
   ])}
 `;

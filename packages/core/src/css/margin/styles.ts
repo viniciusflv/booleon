@@ -4,16 +4,16 @@ import { reducer } from '../../utils/reducer';
 
 export const marginCss = css<MarginProps>`
   ${reducer([
-    [/^(m_)(\d+)/, (value) => `margin: ${Number(value) / 10}rem;`],
-    [/^(mt_)(\d+)/, (value) => `margin-top: ${Number(value) / 10}rem;`],
-    [/^(mb_)(\d+)/, (value) => `margin-bottom: ${Number(value) / 10}rem;`],
-    [/^(ml_)(\d+)/, (value) => `margin-left: ${Number(value) / 10}rem;`],
-    [/^(mr_)(\d+)/, (value) => `margin-right: ${Number(value) / 10}rem;`],
-    [/^(mx_)(\d+)/, (value) => `
+    [/^(m_)(\d+)/, (value: string) => `margin: ${Number(value) / 10}rem;`],
+    [/^(mt_)(\d+)/, (value: string) => `margin-top: ${Number(value) / 10}rem;`],
+    [/^(mb_)(\d+)/, (value: string) => `margin-bottom: ${Number(value) / 10}rem;`],
+    [/^(ml_)(\d+)/, (value: string) => `margin-left: ${Number(value) / 10}rem;`],
+    [/^(mr_)(\d+)/, (value: string) => `margin-right: ${Number(value) / 10}rem;`],
+    [/^(mx_)(\d+)/, (value: string) => `
       margin-left: ${Number(value) / 10}rem;
       margin-right: ${Number(value) / 10}rem;
     `],
-    [/^(my_)(\d+)/, (value) => `
+    [/^(my_)(\d+)/, (value: string) => `
       margin-top: ${Number(value) / 10}rem;
       margin-bottom: ${Number(value) / 10}rem;
     `],

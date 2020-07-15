@@ -13,7 +13,7 @@ export const outlineCss = css<OutlineProps>`
   ${({ ol_inset }) => ol_inset && 'outline-style: inset;'}
   ${({ ol_outset }) => ol_outset && 'outline-style: outset;'}
   ${reducer([
-    [/^(olw_)(\d+)/, (value) => `outline-width: ${Number(value) / 10}rem;`],
-    [/^(olc_)([A-z0-9]+)/, (value) => `outline-color: #${value};`],
+    [/^(olw_)(\d+)/, (value: string) => `outline-width: ${Number(value) / 10}rem;`],
+    [/^(olc_)([A-z0-9]+)/, (value: string) => `outline-color: #${value};`],
   ])}
 `;

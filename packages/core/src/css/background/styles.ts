@@ -13,7 +13,7 @@ export const backgroundCss = css<BackgroundProps>`
   ${({ bg_local }) => bg_local && 'background-attachment: local;'}
   ${({ bg_scroll }) => bg_scroll && 'background-attachment: scroll;'}
   ${reducer([
-    [/^(bg_)([A-z0-9]+)/, (value) => `background-color: #${value};`],
-    [/^(op_)(\d+)/, (value) => `opacity: ${Number(value) / 100};`],
+    [/^(bg_)([A-z0-9]+)/, (value: string) => `background-color: #${value};`],
+    [/^(op_)(\d+)/, (value: string) => `opacity: ${Number(value) / 100};`],
   ])}
 `;

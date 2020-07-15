@@ -5,15 +5,15 @@ import { reducer } from '../../utils/reducer';
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 export const containerCss = css<ContainerProps>`
   ${reducer([
-    [/^(z_)(\d+)/, (value) => `z-index: ${value};`],
-    [/^(top_)(\d+)/, (value) => `top: ${value};`],
-    [/^(bottom_)(\d+)/, (value) => `bottom: ${value};`],
-    [/^(left_)(\d+)/, (value) => `left: ${value};`],
-    [/^(right_)(\d+)/, (value) => `right: ${value};`],
-    [/^(top_neg_)(\d+)/, (value) => `top: -${value};`],
-    [/^(bottom_neg_)(\d+)/, (value) => `bottom: -${value};`],
-    [/^(left_neg_)(\d+)/, (value) => `left: -${value};`],
-    [/^(right_neg_)(\d+)/, (value) => `right: -${value};`],
+    [/^(z_)(\d+)/, (value: string) => `z-index: ${value};`],
+    [/^(top_)(\d+)/, (value: string) => `top: ${value};`],
+    [/^(bottom_)(\d+)/, (value: string) => `bottom: ${value};`],
+    [/^(left_)(\d+)/, (value: string) => `left: ${value};`],
+    [/^(right_)(\d+)/, (value: string) => `right: ${value};`],
+    [/^(top_neg_)(\d+)/, (value: string) => `top: -${value};`],
+    [/^(bottom_neg_)(\d+)/, (value: string) => `bottom: -${value};`],
+    [/^(left_neg_)(\d+)/, (value: string) => `left: -${value};`],
+    [/^(right_neg_)(\d+)/, (value: string) => `right: -${value};`],
   ])}
   ${({ z_max }) => z_max && `z-index: ${MAX_SAFE_INTEGER};`}
   ${({ z_neg }) => z_neg && 'z-index: -1;'}

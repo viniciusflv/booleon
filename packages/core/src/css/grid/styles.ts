@@ -9,6 +9,7 @@ const gridFlow = ({ dense, flow_rows, flow_cols }: GridProps) => {
   case flow_rows: return 'grid-auto-flow: row;';
   case flow_cols: return 'grid-auto-flow: column;';
   case dense: return 'grid-auto-flow: dense;';
+  default: return '';
   }
 };
 
@@ -21,14 +22,14 @@ export const gridCss = css<GridProps>`
   ${({ rows_end }) => rows_end && 'grid-row-end: 1;'}
   ${gridFlow}
   ${reducer([
-    [/^(rows_)(\d+[a-z]+|auto).*/, (value) => `grid-template-rows: ${value};`],
-    [/^(cols_)(\d+[a-z]+|auto).*/, (value) => `grid-template-columns: ${value};`],
-    [/^(area_)([A-z]+)/, (value) => `grid-area: ${value};`],
-    [/^(cols_span_)(\d+)/, (value) => `grid-column: span ${value} / span ${value};`],
-    [/^(rows_span_)(\d+)/, (value) => `grid-row: span ${value} / span ${value};`],
-    [/^(cols_start_)(\d+)/, (value) => `grid-column-start: ${value};`],
-    [/^(cols_end_)(\d+)/, (value) => `grid-column-end: ${value};`],
-    [/^(rows_start_)(\d+)/, (value) => `grid-row-start: ${value};`],
-    [/^(rows_end_)(\d+)/, (value) => `grid-row-end: ${value};`],
+    [/^(rows_)(\d+[a-z]+|auto).*/, (value: string) => `grid-template-rows: ${value};`],
+    [/^(cols_)(\d+[a-z]+|auto).*/, (value: string) => `grid-template-columns: ${value};`],
+    [/^(area_)([A-z]+)/, (value: string) => `grid-area: ${value};`],
+    [/^(cols_span_)(\d+)/, (value: string) => `grid-column: span ${value} / span ${value};`],
+    [/^(rows_span_)(\d+)/, (value: string) => `grid-row: span ${value} / span ${value};`],
+    [/^(cols_start_)(\d+)/, (value: string) => `grid-column-start: ${value};`],
+    [/^(cols_end_)(\d+)/, (value: string) => `grid-column-end: ${value};`],
+    [/^(rows_start_)(\d+)/, (value: string) => `grid-row-start: ${value};`],
+    [/^(rows_end_)(\d+)/, (value: string) => `grid-row-end: ${value};`],
   ])}
 `;

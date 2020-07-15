@@ -7,11 +7,11 @@ const linearGradient = (...args: string[]) =>
 
 export const gradientCss = css<GradientProps>`
   ${reducer([
-    [/^(gx_)([A-z0-9]+)/, (value) => linearGradient('to right',`#${value}`,'transparent',`#${value}`)],
-    [/^(gy_)([A-z0-9]+)/, (value) => linearGradient('to top', `#${value}`, 'transparent', `#${value}`)],
-    [/^(gt_)([A-z0-9]+)/, (value) => linearGradient('to top', 'transparent', `#${value}`)],
-    [/^(gb_)([A-z0-9]+)/, (value) => linearGradient('to bottom', 'transparent', `#${value}`)],
-    [/^(gl_)([A-z0-9]+)/, (value) => linearGradient('to left', 'transparent', `#${value}`)],
-    [/^(gr_)([A-z0-9]+)/, (value) => linearGradient('to right', 'transparent', `#${value}`)],
+    [/^(gx_)([A-z0-9]+)/, (value: string) => linearGradient('to right',`#${value}`,'transparent',`#${value}`)],
+    [/^(gy_)([A-z0-9]+)/, (value: string) => linearGradient('to top', `#${value}`, 'transparent', `#${value}`)],
+    [/^(gt_)([A-z0-9]+)/, (value: string) => linearGradient('to top', 'transparent', `#${value}`)],
+    [/^(gb_)([A-z0-9]+)/, (value: string) => linearGradient('to bottom', 'transparent', `#${value}`)],
+    [/^(gl_)([A-z0-9]+)/, (value: string) => linearGradient('to left', 'transparent', `#${value}`)],
+    [/^(gr_)([A-z0-9]+)/, (value: string) => linearGradient('to right', 'transparent', `#${value}`)],
   ])}
 `;

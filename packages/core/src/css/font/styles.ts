@@ -4,15 +4,15 @@ import { reducer } from '../../utils/reducer';
 
 export const fontCss = css<FontProps>`
   ${reducer([
-    [/^(fb_)([A-z0-9]+)/, (value) => `
+    [/^(fb_)([A-z0-9]+)/, (value: string) => `
       text-shadow:
       -1px 0 #${value},
       0 1px #${value},
       1px 0 #${value},
       0 -1px #${value};
     `],
-    [/^(fc_)([A-z0-9]+)/, (value) => `color: #${value};`],
-    [/^(fs_)([A-z0-9]+)/, (value) => `font-size: ${Number(value)/10}rem;`],
+    [/^(fc_)([A-z0-9]+)/, (value: string) => `color: #${value};`],
+    [/^(fs_)([A-z0-9]+)/, (value: string) => `font-size: ${Number(value)/10}rem;`],
   ])}
   ${({ ff_sans }) => ff_sans && 'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'}
   ${({ ff_serif }) => ff_serif && 'font-family: Georgia, Cambria, "Times New Roman", Times, serif;'}
