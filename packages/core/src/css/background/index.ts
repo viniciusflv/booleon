@@ -1,2 +1,2 @@
-export { backgroundCss } from './styles';
-export { BackgroundProps } from './interfaces';
+export { default as backgroundCss } from './styles';
+export { default as BackgroundProps } from './interfaces';

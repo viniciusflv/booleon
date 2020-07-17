@@ -1,3 +1,5 @@
+import { FlattenIntersection } from '../../helpers/interfaces';
+
 type Options =
   | 'bg_repeat'
   | 'bg_norepeat'
@@ -10,9 +12,11 @@ type Options =
   | 'bg_HEX'
   | 'op_PERCENTAGE';
 
-export type BackgroundProps = (
-  | { [key in Options]?: boolean }
+type Props = FlattenIntersection<(
   | { [key in string]?: boolean }
+  | { [key in Options]?: boolean }
 ) & {
   bg_img?: string;
-};
+}>;
+
+export default Props;
