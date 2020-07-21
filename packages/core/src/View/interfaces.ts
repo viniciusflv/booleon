@@ -5,6 +5,7 @@ import {
   CursorProps,
   FlexProps,
   FontProps,
+  GradientProps,
 } from '../css';
 import { FlattenIntersection } from '../helpers/interfaces';
 
@@ -15,6 +16,7 @@ type Props = FlattenIntersection<
   & CursorProps
   & FlexProps
   & FontProps
+  & GradientProps
 >;
 
 export default Props;

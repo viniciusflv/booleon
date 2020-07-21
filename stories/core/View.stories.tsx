@@ -14,5 +14,6 @@ export const Default: FC = () => (
     cr_pointer
     flex
     f_center
+    gb_HEX
   />
 );

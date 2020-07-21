@@ -4,3 +4,4 @@ export * from './container';
 export * from './cursor';
 export * from './flex';
 export * from './font';
+export * from './gradient';
