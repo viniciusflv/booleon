@@ -12,11 +12,11 @@ type Options =
   | 'bg_HEX'
   | 'op_PERCENTAGE';
 
-type Props = FlattenIntersection<(
+type Props = FlattenIntersection<{
+  bg_img?: string;
+} & (
   | { [key in string]?: boolean }
   | { [key in Options]?: boolean }
-) & {
-  bg_img?: string;
-}>;
+)>;
 
 export default Props;

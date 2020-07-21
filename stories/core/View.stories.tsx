@@ -7,5 +7,10 @@ export default {
 };
 
 export const Default: FC = () => (
-  <View bg_fixed b_rounded z_max />
+  <View
+    bg_fixed
+    b_rounded
+    z_max
+    cr_pointer
+  />
 );
