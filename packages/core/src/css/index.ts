@@ -5,3 +5,4 @@ export * from './cursor';
 export * from './flex';
 export * from './font';
 export * from './gradient';
+export * from './grid';

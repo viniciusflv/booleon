@@ -6,6 +6,7 @@ import {
   FlexProps,
   FontProps,
   GradientProps,
+  GridProps,
 } from '../css';
 import { FlattenIntersection } from '../helpers/interfaces';
 
@@ -17,6 +18,7 @@ type Props = FlattenIntersection<
   & FlexProps
   & FontProps
   & GradientProps
+  & GridProps
 >;
 
 export default Props;

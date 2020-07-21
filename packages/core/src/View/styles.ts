@@ -5,7 +5,8 @@ import {
   cursorCss,
   flexCss,
   fontCss,
-  gradientCss
+  gradientCss,
+  gridCss,
 } from '../css';
 import ViewProps from './interfaces';
 import styled from 'styled-components';
@@ -18,4 +19,5 @@ export const ViewStyle = styled.div<ViewProps>`
   ${flexCss}
   ${fontCss}
   ${gradientCss}
+  ${gridCss}
 `;
