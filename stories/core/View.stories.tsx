@@ -13,5 +13,6 @@ export const Default: FC = () => (
     z_max
     cr_pointer
     flex
+    f_center
   />
 );

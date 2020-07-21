@@ -3,3 +3,4 @@ export * from './border';
 export * from './container';
 export * from './cursor';
 export * from './flex';
+export * from './font';
