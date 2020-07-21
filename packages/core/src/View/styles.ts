@@ -7,6 +7,7 @@ import {
   fontCss,
   gradientCss,
   gridCss,
+  marginCss,
 } from '../css';
 import ViewProps from './interfaces';
 import styled from 'styled-components';
@@ -20,4 +21,5 @@ export const ViewStyle = styled.div<ViewProps>`
   ${fontCss}
   ${gradientCss}
   ${gridCss}
+  ${marginCss}
 `;

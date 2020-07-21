@@ -16,5 +16,6 @@ export const Default: FC = () => (
     f_center
     gb_HEX
     cols_start
+    m_auto
   />
 );
