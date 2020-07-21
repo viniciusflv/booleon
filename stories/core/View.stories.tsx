@@ -12,5 +12,6 @@ export const Default: FC = () => (
     b_rounded
     z_max
     cr_pointer
+    flex
   />
 );
