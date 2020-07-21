@@ -1,5 +1,8 @@
-import { BackgroundProps } from '../css';
+import { BackgroundProps, BorderProps, ContainerProps } from '../css';
+import { FlattenIntersection } from '../helpers/interfaces';
 
-type Props = BackgroundProps;
+type Props = FlattenIntersection<
+  BackgroundProps & BorderProps & ContainerProps
+>;
 
 export default Props;

@@ -7,7 +7,5 @@ export default {
 };
 
 export const Default: FC = () => (
-  <View>
-    View
-  </View>
+  <View bg_fixed b_rounded z_max />
 );
