@@ -13,6 +13,7 @@ import {
   shadowCss,
   sizingCss,
   transformCss,
+  transitionCss,
 } from '../css';
 import ViewProps from './interfaces';
 import styled from 'styled-components';
@@ -32,4 +33,5 @@ export const ViewStyle = styled.div<ViewProps>`
   ${shadowCss}
   ${sizingCss}
   ${transformCss}
+  ${transitionCss}
 `;

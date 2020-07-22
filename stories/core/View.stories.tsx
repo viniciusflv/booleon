@@ -24,5 +24,6 @@ export const Default: FC = () => (
     w_screen
     h_full
     tl_full
+    ts_all
   />
 );

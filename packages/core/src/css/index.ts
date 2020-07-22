@@ -12,3 +12,4 @@ export * from './padding';
 export * from './shadow';
 export * from './sizing';
 export * from './transform';
+export * from './transition';
