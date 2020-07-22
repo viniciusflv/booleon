@@ -11,6 +11,7 @@ import {
   outlineCss,
   paddingCss,
   shadowCss,
+  sizingCss,
 } from '../css';
 import ViewProps from './interfaces';
 import styled from 'styled-components';
@@ -28,4 +29,5 @@ export const ViewStyle = styled.div<ViewProps>`
   ${outlineCss}
   ${paddingCss}
   ${shadowCss}
+  ${sizingCss}
 `;

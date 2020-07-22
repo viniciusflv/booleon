@@ -10,6 +10,7 @@ export const Default: FC = () => (
   <View
     bg_fixed
     b_rounded
+    b_thin
     z_max
     cr_pointer
     flex
@@ -20,5 +21,7 @@ export const Default: FC = () => (
     ol_dashed
     p_NUMBER
     sd_4
+    w_screen
+    h_full
   />
 );
