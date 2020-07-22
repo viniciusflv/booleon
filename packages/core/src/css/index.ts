@@ -7,3 +7,4 @@ export * from './font';
 export * from './gradient';
 export * from './grid';
 export * from './margin';
+export * from './outline';

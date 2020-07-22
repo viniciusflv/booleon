@@ -17,5 +17,6 @@ export const Default: FC = () => (
     gb_HEX
     cols_start
     m_auto
+    ol_dashed
   />
 );
