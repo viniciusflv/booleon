@@ -23,5 +23,6 @@ export const Default: FC = () => (
     sd_4
     w_screen
     h_full
+    tl_full
   />
 );

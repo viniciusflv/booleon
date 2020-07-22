@@ -11,3 +11,4 @@ export * from './outline';
 export * from './padding';
 export * from './shadow';
 export * from './sizing';
+export * from './transform';

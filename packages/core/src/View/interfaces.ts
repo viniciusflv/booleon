@@ -12,6 +12,7 @@ import {
   PaddingProps,
   ShadowProps,
   SizingProps,
+  TransformProps,
 } from '../css';
 import { FlattenIntersection } from '../helpers/interfaces';
 
@@ -29,6 +30,7 @@ type Props = FlattenIntersection<
   & PaddingProps
   & ShadowProps
   & SizingProps
+  & TransformProps
 >;
 
 export default Props;
