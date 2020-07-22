@@ -8,3 +8,4 @@ export * from './gradient';
 export * from './grid';
 export * from './margin';
 export * from './outline';
+export * from './padding';

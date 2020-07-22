@@ -18,5 +18,6 @@ export const Default: FC = () => (
     cols_start
     m_auto
     ol_dashed
+    p_NUMBER
   />
 );

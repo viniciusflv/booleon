@@ -1,4 +1,7 @@
-import { FlattenIntersection } from '../../helpers/interfaces';
+import {
+  FlattenIntersection,
+  KeyinTypeOrString,
+} from '../../helpers/interfaces';
 
 type Options =
   | 'grid'
@@ -20,10 +23,7 @@ type Options =
   | 'rows_end_NUMBER';
 
 type Props = FlattenIntersection<
-  { areas?: string } & (
-    | { [key in Options]?: boolean }
-    | { [key in string]?: boolean }
-  )
+  { areas?: string } & KeyinTypeOrString<Options>
 >;
 
 export default Props;

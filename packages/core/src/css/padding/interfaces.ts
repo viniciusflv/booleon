@@ -4,12 +4,13 @@ import {
 } from '../../helpers/interfaces';
 
 type Options =
-  | 'gx_HEX'
-  | 'gy_HEX'
-  | 'gt_HEX'
-  | 'gb_HEX'
-  | 'gl_HEX'
-  | 'gr_HEX';
+  | 'p_NUMBER'
+  | 'px_NUMBER'
+  | 'py_NUMBER'
+  | 'pt_NUMBER'
+  | 'pb_NUMBER'
+  | 'pl_NUMBER'
+  | 'pr_NUMBER';
 
 type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
 

@@ -1,3 +1,5 @@
+import { KeyInType } from '../../helpers/interfaces';
+
 type Options =
   | 'flex'
   | 'grow'
@@ -17,6 +19,6 @@ type Options =
   | 'main_end'
   | 'cross_end';
 
-type Props = { [key in Options]?: boolean };
+type Props = KeyInType<Options>;
 
 export default Props;

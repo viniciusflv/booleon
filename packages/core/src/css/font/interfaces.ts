@@ -1,4 +1,7 @@
-import { FlattenIntersection } from '../../helpers/interfaces';
+import {
+  FlattenIntersection,
+  KeyinTypeOrString,
+} from '../../helpers/interfaces';
 
 type Options =
   | 'fb_HEX'
@@ -56,9 +59,6 @@ type Options =
   | 'f_no_wrap'
   | 'f_truncate';
 
-type Props = FlattenIntersection<
-| { [key in string]?: boolean }
-| { [key in Options]?: boolean }
->;
+type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
 
 export default Props;

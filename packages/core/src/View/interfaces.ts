@@ -9,6 +9,7 @@ import {
   GridProps,
   MarginProps,
   OutlineProps,
+  PaddingProps,
 } from '../css';
 import { FlattenIntersection } from '../helpers/interfaces';
 
@@ -23,6 +24,7 @@ type Props = FlattenIntersection<
   & GridProps
   & MarginProps
   & OutlineProps
+  & PaddingProps
 >;
 
 export default Props;

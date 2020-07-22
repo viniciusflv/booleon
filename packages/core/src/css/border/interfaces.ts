@@ -1,4 +1,7 @@
-import { FlattenIntersection } from '../../helpers/interfaces';
+import {
+  FlattenIntersection,
+  KeyinTypeOrString,
+} from '../../helpers/interfaces';
 
 type Options =
   | 'bc_HEX'
@@ -87,9 +90,6 @@ type Options =
   | 'bbl_rounded'
   | 'bbl_edge';
 
-type Props = FlattenIntersection<(
-  | { [key in string]?: boolean }
-  | { [key in Options]?: boolean }
-)>;
+type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
 
 export default Props;

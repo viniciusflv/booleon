@@ -1,4 +1,7 @@
-import { FlattenIntersection } from '../../helpers/interfaces';
+import {
+  FlattenIntersection,
+  KeyinTypeOrString,
+} from '../../helpers/interfaces';
 
 type Options =
   | 'bg_repeat'
@@ -12,11 +15,9 @@ type Options =
   | 'bg_HEX'
   | 'op_PERCENTAGE';
 
-type Props = FlattenIntersection<{
-  bg_img?: string;
-} & (
-  | { [key in string]?: boolean }
-  | { [key in Options]?: boolean }
-)>;
+type Props = FlattenIntersection<
+  & { bg_img?: string }
+  & KeyinTypeOrString<Options>
+>;
 
 export default Props;

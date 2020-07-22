@@ -1,4 +1,7 @@
-import { FlattenIntersection } from '../../helpers/interfaces';
+import {
+  FlattenIntersection,
+  KeyinTypeOrString,
+} from '../../helpers/interfaces';
 
 type Options =
   | 'm_NUMBER'
@@ -16,9 +19,6 @@ type Options =
   | 'ml_auto'
   | 'mr_auto';
 
-type Props = FlattenIntersection<
-  | { [key in string]?: boolean }
-  | { [key in Options]?: boolean }
->;
+type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
 
 export default Props;
