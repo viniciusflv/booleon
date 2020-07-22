@@ -1,20 +1,20 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import ContainerProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
-// ${reducer([
-//   [/^(z_)(\d+)/, (value: string) => `z-index: ${value};`],
-//   [/^(top_)(\d+)/, (value: string) => `top: ${value};`],
-//   [/^(bottom_)(\d+)/, (value: string) => `bottom: ${value};`],
-//   [/^(left_)(\d+)/, (value: string) => `left: ${value};`],
-//   [/^(right_)(\d+)/, (value: string) => `right: ${value};`],
-//   [/^(top_neg_)(\d+)/, (value: string) => `top: -${value};`],
-//   [/^(bottom_neg_)(\d+)/, (value: string) => `bottom: -${value};`],
-//   [/^(left_neg_)(\d+)/, (value: string) => `left: -${value};`],
-//   [/^(right_neg_)(\d+)/, (value: string) => `right: -${value};`],
-// ])}
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
-export default css<ContainerProps>`
+const containerCss = css<ContainerProps>`
+  ${reducerCss([
+    [/^(z_)(\d+)/, (value: string) => `z-index: ${value};`],
+    [/^(top_)(\d+)/, (value: string) => `top: ${value};`],
+    [/^(bottom_)(\d+)/, (value: string) => `bottom: ${value};`],
+    [/^(left_)(\d+)/, (value: string) => `left: ${value};`],
+    [/^(right_)(\d+)/, (value: string) => `right: ${value};`],
+    [/^(top_neg_)(\d+)/, (value: string) => `top: -${value};`],
+    [/^(bottom_neg_)(\d+)/, (value: string) => `bottom: -${value};`],
+    [/^(left_neg_)(\d+)/, (value: string) => `left: -${value};`],
+    [/^(right_neg_)(\d+)/, (value: string) => `right: -${value};`],
+  ])}
   ${({ z_max }) => z_max && `z-index: ${MAX_SAFE_INTEGER};`}
   ${({ z_neg }) => z_neg && 'z-index: -1;'}
   ${({ z_auto }) => z_auto && 'z-index: auto;'}
@@ -53,3 +53,5 @@ export default css<ContainerProps>`
   ${({ rzy }) => rzy && 'resize: vertical;'}
   ${({ rzx }) => rzx && 'resize: horizontal;'}
 `;
+
+export default containerCss;

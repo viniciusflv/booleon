@@ -1,8 +1,30 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import TransformProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
 
 const transformCss = css<TransformProps>`
+  ${reducerCss([
+    [/^(sl_)(\d+)/, (value: string) => `transform: scale(${value}rem,${value}rem);`],
+    [/^(slx_)(\d+)/, (value: string) => `transform: scaleX(${value}rem);`],
+    [/^(sly_)(\d+)/, (value: string) => `transform: scaleY(${value}rem);`],
+    [/^(rt_)(\d+)/, (value: string) => `transform: rotate(${value}deg);`],
+    [/^(tl_)(\d+)/, (value: string) => `transform: translate(${value}rem,${value}rem);`],
+    [/^(tlx_)(\d+)/, (value: string) => `transform: translateX(${value}rem);`],
+    [/^(tly_)(\d+)/, (value: string) => `transform: translateY(${value}rem);`],
+    [/^(sk_)(\d+)/, (value: string) => `transform: skew(${value}deg,${value}deg);`],
+    [/^(skx_)(\d+)/, (value: string) => `transform: skewX(${value}deg);`],
+    [/^(sky_)(\d+)/, (value: string) => `transform: skewY(${value}deg);`],
+    [/^(sk_neg_)(\d+)/, (value: string) => `transform: skew(-${value}deg,-${value}deg);`],
+    [/^(skx_neg_)(\d+)/, (value: string) => `transform: skewX(-${value}deg);`],
+    [/^(sky_neg_)(\d+)/, (value: string) => `transform: skewY(-${value}deg);`],
+    [/^(sl_neg_)(\d+)/, (value: string) => `transform: scale(-${value}rem,-${value}rem);`],
+    [/^(slx_neg_)(\d+)/, (value: string) => `transform: scaleX(-${value}rem);`],
+    [/^(sly_neg_)(\d+)/, (value: string) => `transform: scaleY(-${value}rem);`],
+    [/^(rt_neg_)(\d+)/, (value: string) => `transform: rotate(-${value}deg);`],
+    [/^(tl_neg_)(\d+)/, (value: string) => `transform: translate(-${value}rem,-${value}rem);`],
+    [/^(tlx_neg_)(\d+)/, (value: string) => `transform: translateX(-${value}rem);`],
+    [/^(tly_neg_)(\d+)/, (value: string) => `transform: translateY(-${value}rem);`],
+  ])}
   ${({ tl_full }) => tl_full && 'transform: translate(100%, 100%);'}
   ${({ tl_half }) => tl_half && 'transform: translate(50%, 50%);'}
   ${({ tl_full_neg }) => tl_full_neg && 'transform: translate(-100%, -100%);'}
@@ -27,25 +49,3 @@ const transformCss = css<TransformProps>`
 `;
 
 export default transformCss;
-// ${reducer([
-//   [/^(sl_)(\d+)/, (value: string) => `transform: scale(${value}rem,${value}rem);`],
-//   [/^(slx_)(\d+)/, (value: string) => `transform: scaleX(${value}rem);`],
-//   [/^(sly_)(\d+)/, (value: string) => `transform: scaleY(${value}rem);`],
-//   [/^(rt_)(\d+)/, (value: string) => `transform: rotate(${value}deg);`],
-//   [/^(tl_)(\d+)/, (value: string) => `transform: translate(${value}rem,${value}rem);`],
-//   [/^(tlx_)(\d+)/, (value: string) => `transform: translateX(${value}rem);`],
-//   [/^(tly_)(\d+)/, (value: string) => `transform: translateY(${value}rem);`],
-//   [/^(sk_)(\d+)/, (value: string) => `transform: skew(${value}deg,${value}deg);`],
-//   [/^(skx_)(\d+)/, (value: string) => `transform: skewX(${value}deg);`],
-//   [/^(sky_)(\d+)/, (value: string) => `transform: skewY(${value}deg);`],
-//   [/^(sk_neg_)(\d+)/, (value: string) => `transform: skew(-${value}deg,-${value}deg);`],
-//   [/^(skx_neg_)(\d+)/, (value: string) => `transform: skewX(-${value}deg);`],
-//   [/^(sky_neg_)(\d+)/, (value: string) => `transform: skewY(-${value}deg);`],
-//   [/^(sl_neg_)(\d+)/, (value: string) => `transform: scale(-${value}rem,-${value}rem);`],
-//   [/^(slx_neg_)(\d+)/, (value: string) => `transform: scaleX(-${value}rem);`],
-//   [/^(sly_neg_)(\d+)/, (value: string) => `transform: scaleY(-${value}rem);`],
-//   [/^(rt_neg_)(\d+)/, (value: string) => `transform: rotate(-${value}deg);`],
-//   [/^(tl_neg_)(\d+)/, (value: string) => `transform: translate(-${value}rem,-${value}rem);`],
-//   [/^(tlx_neg_)(\d+)/, (value: string) => `transform: translateX(-${value}rem);`],
-//   [/^(tly_neg_)(\d+)/, (value: string) => `transform: translateY(-${value}rem);`],
-// ])}

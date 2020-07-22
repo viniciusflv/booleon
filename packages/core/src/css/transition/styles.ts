@@ -1,10 +1,14 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import TransitionProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
 
 const colors = 'background-color, border-color, color, fill, stroke';
 
 const transitionCss = css<TransitionProps>`
+  ${reducerCss([
+    [/^(ts_duration_)(\d+)/, (value: string) => `transition-duration: ${value}ms;`],
+    [/^(ts_delay_)(\d+)/, (value: string) => `transition-delay: ${value}ms;`],
+  ])}
   ${({ ts }) => ts && `transition-property: ${colors}, opacity, box-shadow, transform;`}
   ${({ ts_none }) => ts_none &&	'transition-property: none;'}
   ${({ ts_all }) => ts_all &&	'transition-property: all;'}
@@ -17,8 +21,5 @@ const transitionCss = css<TransitionProps>`
   ${({ ts_ease_out }) =>	ts_ease_out && 'transition-timing-function: cubic-bezier(0, 0, 0.2, 1);'}
   ${({ ts_ease_in_out }) =>	ts_ease_in_out && 'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);'}
 `;
-// ${reducer([
-//   [/^(ts_duration_)(\d+)/, (value: string) => `transition-duration: ${value}ms;`],
-//   [/^(ts_delay_)(\d+)/, (value: string) => `transition-delay: ${value}ms;`],
-// ])}
+
 export default transitionCss;

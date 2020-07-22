@@ -1,8 +1,22 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import SizingProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
 
-export default css<SizingProps>`
+const sizingCss = css<SizingProps>`
+  ${reducerCss([
+    [/^(h_)(\d+)/, (value: string) => `height: ${value}rem;`],
+    [/^(h_max_)(\d+)/, (value: string) => `max-height: ${value}rem;`],
+    [/^(h_min_)(\d+)/, (value: string) => `min-height: ${value}rem;`],
+    [/^(w_)(\d+)/, (value: string) => `width: ${value}rem;`],
+    [/^(w_max_)(\d+)/, (value: string) => `max-width: ${value}rem;`],
+    [/^(w_min_)(\d+)/, (value: string) => `min-width: ${value}rem;`],
+    [/^(w_screen_)(\d+)/, (value: string) => `width: ${value}vw;`],
+    [/^(w_max_screen_)(\d+)/, (value: string) => `max-width: ${value}vw;`],
+    [/^(w_min_screen_)(\d+)/, (value: string) => `min-width: ${value}vw;`],
+    [/^(h_screen_)(\d+)/, (value: string) => `height: ${value}vh;`],
+    [/^(h_max_screen_)(\d+)/, (value: string) => `max-height: ${value}vh;`],
+    [/^(h_min_screen_)(\d+)/, (value: string) => `min-height: ${value}vh;`],
+  ])}
   ${({ h_full }) => h_full && 'height: 100%;'}
   ${({ h_max_full }) => h_max_full && 'max-height: 100%;'}
   ${({ h_min_full }) => h_min_full && 'min-height: 100%;'}
@@ -22,17 +36,5 @@ export default css<SizingProps>`
   ${({ w_max_screen }) => w_max_screen && 'max-width: 100vw;'}
   ${({ w_min_screen }) => w_min_screen && 'min-width: 100vw;'}
 `;
-// ${reducer([
-//   [/^(h_)(\d+)/, (value: string) => `height: ${value}rem;`],
-//   [/^(h_max_)(\d+)/, (value: string) => `max-height: ${value}rem;`],
-//   [/^(h_min_)(\d+)/, (value: string) => `min-height: ${value}rem;`],
-//   [/^(w_)(\d+)/, (value: string) => `width: ${value}rem;`],
-//   [/^(w_max_)(\d+)/, (value: string) => `max-width: ${value}rem;`],
-//   [/^(w_min_)(\d+)/, (value: string) => `min-width: ${value}rem;`],
-//   [/^(w_screen_)(\d+)/, (value: string) => `width: ${value}vw;`],
-//   [/^(w_max_screen_)(\d+)/, (value: string) => `max-width: ${value}vw;`],
-//   [/^(w_min_screen_)(\d+)/, (value: string) => `min-width: ${value}vw;`],
-//   [/^(h_screen_)(\d+)/, (value: string) => `height: ${value}vh;`],
-//   [/^(h_max_screen_)(\d+)/, (value: string) => `max-height: ${value}vh;`],
-//   [/^(h_min_screen_)(\d+)/, (value: string) => `min-height: ${value}vh;`],
-// ])}
+
+export default sizingCss;

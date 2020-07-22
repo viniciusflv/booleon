@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import ShadowProps from './interfaces';
 
-export default css<ShadowProps>`
+const shadowCss = css<ShadowProps>`
   ${({ sd_1 }) => sd_1 && `
     box-shadow:
     0 1px 1px 0 rgba(0,0,0,0.14),
@@ -123,3 +123,5 @@ export default css<ShadowProps>`
     0 11px 15px -7px rgba(0,0,0,0.20) inset;
   `}
 `;
+
+export default shadowCss;

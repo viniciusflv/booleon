@@ -1,8 +1,12 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import OutlineProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
 
-export default css<OutlineProps>`
+const outlineCss = css<OutlineProps>`
+  ${reducerCss([
+    [/^(olw_)(\d+)/, (value: string) => `outline-width: ${Number(value) / 10}rem;`],
+    [/^(olc_)([A-z0-9]+)/, (value: string) => `outline-color: #${value};`],
+  ])}
   ${({ ol_none }) => ol_none && 'outline: none;'}
   ${({ ol_dotted }) => ol_dotted && 'outline-style: dotted;'}
   ${({ ol_dashed }) => ol_dashed && 'outline-style: dashed;'}
@@ -13,7 +17,5 @@ export default css<OutlineProps>`
   ${({ ol_inset }) => ol_inset && 'outline-style: inset;'}
   ${({ ol_outset }) => ol_outset && 'outline-style: outset;'}
 `;
-// ${reducer([
-//   [/^(olw_)(\d+)/, (value: string) => `outline-width: ${Number(value) / 10}rem;`],
-//   [/^(olc_)([A-z0-9]+)/, (value: string) => `outline-color: #${value};`],
-// ])}
+
+export default outlineCss;

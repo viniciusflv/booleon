@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import FlexProps from './interfaces';
 
-export default css<FlexProps>`
+const flexCss = css<FlexProps>`
   ${({ flex }) => flex && 'display: flex;'}
   ${({ grow }) => grow && 'flex-grow: 1;'}
   ${({ col }) => col && 'flex-direction: column;'}
@@ -20,3 +20,5 @@ export default css<FlexProps>`
   ${({ main_end }) => main_end && 'justify-content: flex-end;'}
   ${({ cross_end }) => cross_end && 'align-items: flex-end;'}
 `;
+
+export default flexCss;

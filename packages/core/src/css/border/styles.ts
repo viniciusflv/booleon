@@ -1,26 +1,26 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import BorderProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
-// ${reducer([
-//   [/^(bc_)([A-z0-9]+)/, (value: string) => `border-color: #${value};`],
-//   [/^(btc_)([A-z0-9]+)/, (value: string) => `border-top-color: #${value};`],
-//   [/^(bbc_)([A-z0-9]+)/, (value: string) => `border-bottom-color: #${value};`],
-//   [/^(blc_)([A-z0-9]+)/, (value: string) => `border-left-color: #${value};`],
-//   [/^(brc_)([A-z0-9]+)/, (value: string) => `border-right-color: #${value};`],
-//   [/^(bxc_)([A-z0-9]+)/, (value: string) => `
-//     border-right-color: #${value};
-//     border-left-color: #${value};
-//   `],
-//   [/^(byc_)([A-z0-9]+)/, (value: string) => `
-//     border-top-color: #${value};
-//     border-bottom-color: #${value};
-//   `],
-// ])}
 
 const replicateForPseudo = (style: string) =>
   `${style} ::before, ::after { ${style} }`;
 
-export default css<BorderProps>`
+const borderCss = css<BorderProps>`
+  ${reducerCss([
+    [/^(bc_)([A-z0-9]+)/, (value: string) => `border-color: #${value};`],
+    [/^(btc_)([A-z0-9]+)/, (value: string) => `border-top-color: #${value};`],
+    [/^(bbc_)([A-z0-9]+)/, (value: string) => `border-bottom-color: #${value};`],
+    [/^(blc_)([A-z0-9]+)/, (value: string) => `border-left-color: #${value};`],
+    [/^(brc_)([A-z0-9]+)/, (value: string) => `border-right-color: #${value};`],
+    [/^(bxc_)([A-z0-9]+)/, (value: string) => `
+      border-right-color: #${value};
+      border-left-color: #${value};
+    `],
+    [/^(byc_)([A-z0-9]+)/, (value: string) => `
+      border-top-color: #${value};
+      border-bottom-color: #${value};
+    `],
+  ])}
   border: 0 solid #000;
   ${({ b_collapse }) => b_collapse && 'border-collapse: collapse;'}
   ${({ b_separate }) => b_separate && 'border-collapse: separate;'}
@@ -174,3 +174,5 @@ export default css<BorderProps>`
   ${({ bbl_edge }) =>
     bbl_edge && replicateForPseudo('border-bottom-left-radius: .5rem;')}
 `;
+
+export default borderCss;

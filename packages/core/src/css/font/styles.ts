@@ -1,19 +1,19 @@
 import { css } from 'styled-components';
+import { reducerCss } from '../../helpers/reducer';
 import FontProps from './interfaces';
-// import { reducer } from '../../utils/reducer';
-// ${reducer([
-//   [/^(fb_)([A-z0-9]+)/, (value: string) => `
-//     text-shadow:
-//     -1px 0 #${value},
-//     0 1px #${value},
-//     1px 0 #${value},
-//     0 -1px #${value};
-//   `],
-//   [/^(fc_)([A-z0-9]+)/, (value: string) => `color: #${value};`],
-//   [/^(fs_)([A-z0-9]+)/, (value: string) => `font-size: ${Number(value)/10}rem;`],
-// ])}
 
-export default css<FontProps>`
+const fontCss = css<FontProps>`
+  ${reducerCss([
+    [/^(fb_)([A-z0-9]+)/, (value: string) => `
+      text-shadow:
+      -1px 0 #${value},
+      0 1px #${value},
+      1px 0 #${value},
+      0 -1px #${value};
+    `],
+    [/^(fc_)([A-z0-9]+)/, (value: string) => `color: #${value};`],
+    [/^(fs_)([A-z0-9]+)/, (value: string) => `font-size: ${Number(value)/10}rem;`],
+  ])}
   ${({ ff_sans }) => ff_sans && 'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'}
   ${({ ff_serif }) => ff_serif && 'font-family: Georgia, Cambria, "Times New Roman", Times, serif;'}
   ${({ ff_mono }) => ff_mono && 'font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'}
@@ -73,3 +73,5 @@ export default css<FontProps>`
     white-space: nowrap;
   `}
 `;
+
+export default fontCss;

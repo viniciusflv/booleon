@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import CursorProps from './interfaces';
 
-export default css<CursorProps>`
+const cursorCss = css<CursorProps>`
   ${({ cr_auto }) => cr_auto && 'cursor: auto;'}
   ${({ cr_default }) => cr_default && 'cursor: default;'}
   ${({ cr_pointer }) => cr_pointer && 'cursor: pointer;'}
@@ -25,3 +25,5 @@ export default css<CursorProps>`
   ${({ cr_events }) => cr_events && 'pointer-events: auto;'}
   ${({ cr_url }) => cr_url && `cursor: url(${cr_url}),auto;`}
 `;
+
+export default cursorCss;
