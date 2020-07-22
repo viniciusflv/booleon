@@ -10,6 +10,7 @@ import {
   marginCss,
   outlineCss,
   paddingCss,
+  shadowCss,
 } from '../css';
 import ViewProps from './interfaces';
 import styled from 'styled-components';
@@ -26,4 +27,5 @@ export const ViewStyle = styled.div<ViewProps>`
   ${marginCss}
   ${outlineCss}
   ${paddingCss}
+  ${shadowCss}
 `;

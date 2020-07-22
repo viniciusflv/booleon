@@ -19,5 +19,6 @@ export const Default: FC = () => (
     m_auto
     ol_dashed
     p_NUMBER
+    sd_4
   />
 );
