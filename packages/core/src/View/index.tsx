@@ -1,2 +1,1 @@
-export { ViewStyle as View } from './styles';
-export { default as ViewProps } from './interfaces';
+export { default as View, ViewType, ViewProps } from './styles';

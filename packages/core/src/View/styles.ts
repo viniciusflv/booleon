@@ -15,10 +15,11 @@ import {
   transformCss,
   transitionCss,
 } from '../css';
+import { handlePrefix } from '../helpers/prefix';
 import ViewProps from './interfaces';
-import styled from 'styled-components';
+import styled, { StyledComponentInnerOtherProps, css } from 'styled-components';
 
-export const ViewStyle = styled.div<ViewProps>`
+const viewCss = css`
   ${backgroundCss}
   ${borderCss}
   ${containerCss}
@@ -35,3 +36,13 @@ export const ViewStyle = styled.div<ViewProps>`
   ${transformCss}
   ${transitionCss}
 `;
+
+const ViewStyle = styled.div<ViewProps>`
+  ${viewCss}
+  ${handlePrefix(viewCss)}
+`;
+
+type ViewType = Partial<StyledComponentInnerOtherProps<typeof ViewStyle>>;
+
+export { ViewType, ViewProps };
+export default ViewStyle;
