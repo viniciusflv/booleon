@@ -1,5 +1,4 @@
 import {
-  FlattenIntersection,
   KeyinTypeOrString,
 } from '../../helpers/interfaces';
 
@@ -22,8 +21,8 @@ type Options =
   | 'rows_start_NUMBER'
   | 'rows_end_NUMBER';
 
-type Props = FlattenIntersection<
+type Props = 
   { areas?: string } & KeyinTypeOrString<Options>
->;
+;
 
 export default Props;

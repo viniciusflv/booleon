@@ -1,5 +1,4 @@
 import {
-  FlattenIntersection,
   KeyinTypeOrString,
 } from '../../helpers/interfaces';
 
@@ -90,6 +89,6 @@ type Options =
   | 'bbl_rounded'
   | 'bbl_edge';
 
-type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
+type Props = KeyinTypeOrString<Options>;
 
 export default Props;

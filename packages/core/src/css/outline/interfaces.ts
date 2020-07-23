@@ -1,7 +1,4 @@
-import {
-  FlattenIntersection,
-  KeyinTypeOrString,
-} from '../../helpers/interfaces';
+import { KeyinTypeOrString } from '../../helpers/interfaces';
 
 type Options =
   | 'ol_none'
@@ -16,6 +13,6 @@ type Options =
   | 'olw_NUMBER'
   | 'olc_HEX';
 
-type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
+type Props = KeyinTypeOrString<Options>;
 
 export default Props;

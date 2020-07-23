@@ -15,9 +15,8 @@ import {
   TransformProps,
   TransitionProps
 } from '../css';
-import { FlattenIntersection } from '../helpers/interfaces';
 
-type Props = FlattenIntersection<
+type Props = 
   & BackgroundProps
   & BorderProps
   & ContainerProps
@@ -33,6 +32,6 @@ type Props = FlattenIntersection<
   & SizingProps
   & TransformProps
   & TransitionProps
->;
+;
 
 export default Props;

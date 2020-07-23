@@ -1,4 +1,4 @@
-import { FlattenIntersection, KeyInType } from '../../helpers/interfaces';
+import { KeyInType } from '../../helpers/interfaces';
 
 type Options =
   | 'cr_auto'
@@ -23,9 +23,9 @@ type Options =
   | 'cr_noevents'
   | 'cr_events';
 
-type Props = FlattenIntersection<
+type Props = 
   & { cr_url?: string }
   & KeyInType<Options>
->;
+;
 
 export default Props;

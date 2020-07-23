@@ -1,5 +1,4 @@
 import {
-  FlattenIntersection,
   KeyinTypeOrString,
 } from '../../helpers/interfaces';
 
@@ -11,6 +10,6 @@ type Options =
   | 'gl_HEX'
   | 'gr_HEX';
 
-type Props = FlattenIntersection<KeyinTypeOrString<Options>>;
+type Props = KeyinTypeOrString<Options>;
 
 export default Props;

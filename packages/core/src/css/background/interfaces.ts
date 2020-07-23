@@ -1,5 +1,4 @@
 import {
-  FlattenIntersection,
   KeyinTypeOrString,
 } from '../../helpers/interfaces';
 
@@ -15,9 +14,9 @@ type Options =
   | 'bg_HEX'
   | 'op_PERCENTAGE';
 
-type Props = FlattenIntersection<
+type Props = 
   & { bg_img?: string }
   & KeyinTypeOrString<Options>
->;
+;
 
 export default Props;
