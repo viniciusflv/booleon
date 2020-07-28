@@ -7,23 +7,7 @@ export default {
 };
 
 export const Default: FC = () => (
-  <View
+  <View.section
     bg_f00
-    b_rounded
-    b_thin
-    z_max
-    cr_pointer
-    flex
-    f_center
-    gb_HEX
-    cols_start
-    m_auto
-    ol_dashed
-    p_NUMBER
-    sd_4
-    w_screen
-    h_full
-    tl_full
-    ts_all
   />
 );

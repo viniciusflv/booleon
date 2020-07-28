@@ -1,1 +1,2 @@
-export { default as Text, TextType, TextProps } from './styles';
+
+export default () => {};
