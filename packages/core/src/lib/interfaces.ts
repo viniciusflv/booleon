@@ -17,7 +17,7 @@ export type KeyinTypeOrString<T extends string | number | symbol> =
   | KeyInType<T>
   | KeyInString;
 
-export type Indexer<T> = Array<[RegExp | keyof T, (args: string) => string]>
+export type Indexer<T> = Array<[RegExp | keyof T | null, (args: string) => string]>
 
 export type Medias = typeof medias[number];
 export type Pseudo = typeof pseudo[number];
