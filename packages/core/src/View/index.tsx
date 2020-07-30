@@ -1,7 +1,6 @@
-import { booleon } from '../helpers/booleon';
+import { backgroundCss } from '../css';
+import { booleon } from '../lib/booleon';
 
 const tags = ['div', 'section'] as const;
 
-type Tags = typeof tags[number];
-
-export const View = booleon<Tags>(tags);
+export const View = booleon(tags, backgroundCss);

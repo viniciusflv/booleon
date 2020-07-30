@@ -1,7 +1,8 @@
 import {
   KeyinTypeOrString,
-} from '../helpers/interfaces';
-import { indexerCss } from '../helpers/indexer';
+} from '../lib/interfaces';
+import { hexColor } from '../lib/constants';
+import { indexerCss } from '../lib/indexer';
 
 type Options =
   | 'bg_repeat'
@@ -21,7 +22,7 @@ export type BackgroundProps =
 ;
 
 export const backgroundCss = indexerCss<BackgroundProps>([
-  [/^(bg_)([A-z0-9]+)/, (value) => `background-color: #${value};`],
+  [new RegExp(`^(bg_)${hexColor}`), (value) => `background-color: #${value};`],
   [/^(op_)(\d+)/, (value) => `opacity: ${Number(value) / 100};`],
   ['bg_img', (bg_img) => `background-image: url(${bg_img});`],
   ['bg_repeat', () => 'background-repeat: repeat;'],
