@@ -5,11 +5,11 @@ type Options =
 | 'ft_contrast_'
 | 'ft_grayscale_'
 | 'ft_hue_'
-| 'ft_invert_'
+| 'ft_invert'
 | 'ft_opacity_'
 | 'ft_saturate_'
 | 'ft_sepia_'
-| 'ft_shadow_';
+| 'ft_sd_';
 
 type Props = KeyInType<Options>;
 

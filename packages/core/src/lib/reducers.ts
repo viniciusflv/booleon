@@ -1,64 +1,58 @@
-import { Indexer, Medias, Pseudo, ReducedProps } from './interfaces';
-import { fastHash } from '../lib/fastHash';
-import { medias, mediasMap, pseudo } from '../lib/constants';
+import { ReducedProps, Indexer, Medias, Pseudo } from "./interfaces";
+import { fastHash } from "../lib/fastHash";
+import { medias, mediasMap, pseudo } from "../lib/constants";
+
+function cssReducer(key: string, value: any, ...indexers: Indexer<any>[]) {
+  if (value) {
+    const merged = indexers.reduce((acc, indexer) => [...acc, ...indexer], []);
+    return merged.reduce((acc, [index, cb]) => {
+      if (index instanceof RegExp) {
+        const match = key.match(index);
+        if (match) {
+          const groups = match[0].replace(match[1], "").replace(/_/g, " ");
+          acc += cb(groups);
+        }
+      } else if (index && value && index === key) {
+        acc += cb(value);
+      }
+      return acc;
+    }, '');
+  }
+  return '';
+}
 
 const prefixRegex = /(\w+)__(.*?)\w+/g;
-export const propsReducer = (props: any) =>
+export const propsReducer = (props: any,...indexers: Indexer<any>[]) =>
   Object.keys(props).reduce((acc, key) => {
     if (key.match(prefixRegex)) {
-      const prefix = key.split('__')[0] as keyof ReducedProps;
-      const cleanKey = key.replace(`${prefix}__`, '');
-      acc[prefix] = { ...acc[prefix], [cleanKey]: props[key] };
+      const prefix = key.split("__")[0] as keyof ReducedProps;
+      const cleanKey = key.replace(`${prefix}__`, "");
+      if (!acc[prefix]) acc[prefix] = '';
+      acc[prefix] += cssReducer(cleanKey, props[key], ...indexers);
     } else {
-      acc.style = { ...acc.style, [key]: props[key] };
+      if (!acc.style) acc.style = '';
+      acc.style += cssReducer(key, props[key], ...indexers);
     }
     return acc;
   }, {} as ReducedProps);
 
-export function styleReducer<T = any>(props: any, ...indexers: Indexer<T>[]) {
-  const merged = indexers.reduce((acc, indexer) => [...acc, ...indexer], []);
-  return Object.keys(props).reduce((acc, key) => {
-    if (props[key]) {
-      merged.forEach(([index, cb]) => {
-        if (props[index] && index === key) {
-          acc += cb(props[index]);
-        } else if (index instanceof RegExp) {
-          const match = key.match(index);
-          if (match) {
-            const groups = match[0].replace(match[1], '').replace(/_/g, ' ');
-            acc += cb(groups);
-          }
-        }
-      });
-    }
-    return acc;
-  }, '');
-}
-
-export const cssReducer = (props: ReducedProps, ...indexers: Indexer<any>[]) =>
-  Object.keys(props).reduce<ReducedProps>(
-    (acc: ReducedProps, key) => ({
-      ...acc,
-      [key]: styleReducer(props[key as keyof ReducedProps], ...indexers),
-    }),
-    {} as ReducedProps
-  );
-
-export function classReducer(reducedCss: any) {
-  const className = `bl-${fastHash(Object.values(reducedCss).join(''))}`;
+export function classReducer(props: any,...indexers: Indexer<any>[]) {
+  const reducedCss = propsReducer(props,...indexers);
+  const className = `bl-${fastHash(Object.values(reducedCss).join(""))}`;
   const classes = Object.keys(reducedCss).reduce((acc, key) => {
-    const css = reducedCss[key];
+    const css = reducedCss[key as keyof ReducedProps];
     switch (true) {
-    case pseudo.includes(key as Pseudo):
-      acc += `.${className}:${key}{${css}}`;
-      break;
-    case medias.includes(key as Medias):
-      acc += `@media${mediasMap.get(key as Medias)}{.${className}{${css}}}`;
-      break;
-    default:
-      acc += `.${className}{${css}}`;
+      case pseudo.includes(key as Pseudo):
+        acc += `.${className}:${key}{${css}}`;
+        break;
+      case medias.includes(key as Medias):
+        const breakpoint = mediasMap.get(key as Medias);
+        acc += `@media${breakpoint}{.${className}{${css}}}`;
+        break;
+      default:
+        acc += `.${className}{${css}}`;
     }
     return acc;
-  }, '');
+  }, "");
   return [className, classes];
 }
