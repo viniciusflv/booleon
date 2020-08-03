@@ -5,34 +5,34 @@ import BorderProps from './interfaces';
 const borderCss = indexerCss<BorderProps>([
   [
     new RegExp(`^(bc_)${hexColor}`),
-    (value: string) => `border-color: #${value};`,
+    (value) => `border-color: #${value};`,
   ],
   [
     new RegExp(`^(btc_)${hexColor}`),
-    (value: string) => `border-top-color: #${value};`,
+    (value) => `border-top-color: #${value};`,
   ],
   [
     new RegExp(`^(bbc_)${hexColor}`),
-    (value: string) => `border-bottom-color: #${value};`,
+    (value) => `border-bottom-color: #${value};`,
   ],
   [
     new RegExp(`^(blc_)${hexColor}`),
-    (value: string) => `border-left-color: #${value};`,
+    (value) => `border-left-color: #${value};`,
   ],
   [
     new RegExp(`^(brc_)${hexColor}`),
-    (value: string) => `border-right-color: #${value};`,
+    (value) => `border-right-color: #${value};`,
   ],
   [
     new RegExp(`^(bxc_)${hexColor}`),
-    (value: string) => `
+    (value) => `
         border-right-color: #${value};
         border-left-color: #${value};
       `,
   ],
   [
     new RegExp(`^(byc_)${hexColor}`),
-    (value: string) => `
+    (value) => `
         border-top-color: #${value};
         border-bottom-color: #${value};
       `,

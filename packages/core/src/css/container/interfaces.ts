@@ -1,6 +1,4 @@
-import {
-  KeyinTypeOrString,
-} from '../../helpers/interfaces';
+import { KeyinTypeOrString } from '../../lib/interfaces';
 
 type Options =
   | 'z_NUMBER'

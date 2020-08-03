@@ -1,22 +1,20 @@
-import { View } from '../../packages/core/src';
 import React, { FC, useState } from 'react';
+import { withA11y } from '@storybook/addon-a11y';
+import { withKnobs } from '@storybook/addon-knobs';
+// import { View } from '../../packages/core/src';
+
+const View = () => <div />
 
 export default {
   title: 'Core | View',
   component: View,
+  decorators: [withA11y, withKnobs],
 };
 
 export const Default: FC = () => {
-  const [click, setClick] = useState(true);
-  console.log(click);
+  // const [click, setClick] = useState(true);
+  // console.log(click);
   return (
-    <View.section
-      onClick={() => setClick(!click)}
-      style={{ height: 50, width: 50 }}
-      after__bg_ff0
-      md__bg_000
-      bg_f00={click}
-      bg_ff0={!click}
-    />
+    <div>aa</div>
   );
 };

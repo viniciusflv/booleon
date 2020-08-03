@@ -49,9 +49,9 @@ const sd_24 = [
   ["0 1px 3px", "0", "rgba(0,0,0,0.20)"],
 ];
 
-const wrap = (bool?: boolean, value: string = "") =>
+const wrap = (bool?: boolean, value = "") =>
   bool ? `drop-shadow(${value})` : value;
-const concat = (bool?: boolean, value: string = "") => (bool ? value : "");
+const concat = (bool?: boolean, value = "") => (bool ? value : "");
 
 const handler = (sd: any[], inset?: boolean, drop?: boolean) =>
   sd
