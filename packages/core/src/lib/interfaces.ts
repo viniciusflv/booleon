@@ -29,13 +29,12 @@ type Prefix = { [key in Options]?: boolean };
 
 type Prefixed<T = {}> = T & Prefix;
 
-type Props<T = {}> = Prefixed<(
-  & T
-  & { className?: string; }
-) | { [key in string]?: boolean }
+type Props<T = {}> = Prefixed<
+  | (T & React.HTMLProps<T>)
+  | { [key in string]?: boolean | string }
 >;
 
-export type Indexer<T> = Array<[RegExp | keyof T, (args: string) => string]>;
+export type Indexer<T> = Array<[RegExp | keyof T, (args: string | boolean) => string]>;
 
 export type Medias = typeof medias[number];
 export type Pseudo = typeof pseudo[number];

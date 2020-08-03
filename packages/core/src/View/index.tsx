@@ -14,45 +14,13 @@ import {
   sizingCss,
   transformCss,
   transitionCss,
-  BackgroundProps,
-  BorderProps,
-  ContainerProps,
-  CursorProps,
-  FilterProps,
-  FlexProps,
-  GradientProps,
-  GridProps,
-  MarginProps,
-  OutlineProps,
-  PaddingProps,
-  ShadowProps,
-  TransformProps,
-  SizingProps,
-  TransitionProps,
 } from '../css';
 import { booleon } from '../lib/booleon';
+import { viewTags } from '../lib/constants';
+import ViewProps from './interfaces';
 
-const tags = ['div', 'section'] as const;
-
-export const View = booleon<
-  typeof tags,
-  & BackgroundProps
-  & BorderProps
-  & ContainerProps
-  & CursorProps
-  & FilterProps
-  & FlexProps
-  & GradientProps
-  & GridProps
-  & MarginProps
-  & OutlineProps
-  & PaddingProps
-  & ShadowProps
-  & SizingProps
-  & TransformProps
-  & TransitionProps
->(
-  tags,
+export const View = booleon<typeof viewTags, ViewProps>(
+  viewTags,
   backgroundCss,
   borderCss,
   containerCss,

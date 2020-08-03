@@ -12,6 +12,7 @@ const containerCss: Indexer<ContainerProps> = [
   [/^(bottom_neg_)(\d+)/, (value) => `bottom: -${value};`],
   [/^(left_neg_)(\d+)/, (value) => `left: -${value};`],
   [/^(right_neg_)(\d+)/, (value) => `right: -${value};`],
+  ['content', (value) => `content: ${typeof value === 'string' ? value : '""'};`],
   ['z_max', () => `z-index: ${MAX_SAFE_INTEGER};`],
   ['z_neg', () => 'z-index: -1;'],
   ['z_auto', () => 'z-index: auto;'],
