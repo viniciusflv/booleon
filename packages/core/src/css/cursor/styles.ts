@@ -1,7 +1,7 @@
-import { indexerCss } from '../../lib/indexer';
 import CursorProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
-const cursorCss = indexerCss<CursorProps>([
+const cursorCss: Indexer<CursorProps> = [
   ['cr_auto', () => 'cursor: auto;'],
   ['cr_default', () => 'cursor: default;'],
   ['cr_pointer', () => 'cursor: pointer;'],
@@ -24,6 +24,6 @@ const cursorCss = indexerCss<CursorProps>([
   ['cr_noevents', () => 'pointer-events: none;'],
   ['cr_events', () => 'pointer-events: auto;'],
   ['cr_url', (cr_url) => `cursor: url(${cr_url}),auto;`],
-]);
+];
 
 export default cursorCss;

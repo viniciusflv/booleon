@@ -1,7 +1,7 @@
 import GridProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
-const gridCss = indexerCss<GridProps>([
+const gridCss: Indexer<GridProps> = [
   [/^(rows_)(\d+[a-z]+|auto).*/, (value) => `grid-template-rows: ${value};`],
   [/^(cols_)(\d+[a-z]+|auto).*/, (value) => `grid-template-columns: ${value};`],
   [/^(area_)([A-z]+)/, (value) => `grid-area: ${value};`],
@@ -17,6 +17,6 @@ const gridCss = indexerCss<GridProps>([
   ['cols_end', () => 'grid-column-end: 1;'],
   ['rows_start', () => 'grid-row-start: 1;'],
   ['rows_end', () => 'grid-row-end: 1;'],
-])
+];
 
 export default gridCss;

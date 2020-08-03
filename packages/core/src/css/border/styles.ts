@@ -1,16 +1,10 @@
 import { hexColor } from '../../lib/constants';
-import { indexerCss } from '../../lib/indexer';
 import BorderProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
-const borderCss = indexerCss<BorderProps>([
-  [
-    new RegExp(`^(bc_)${hexColor}`),
-    (value) => `border-color: #${value};`,
-  ],
-  [
-    new RegExp(`^(btc_)${hexColor}`),
-    (value) => `border-top-color: #${value};`,
-  ],
+const borderCss: Indexer<BorderProps> = [
+  [new RegExp(`^(bc_)${hexColor}`), (value) => `border-color: #${value};`],
+  [new RegExp(`^(btc_)${hexColor}`), (value) => `border-top-color: #${value};`],
   [
     new RegExp(`^(bbc_)${hexColor}`),
     (value) => `border-bottom-color: #${value};`,
@@ -151,6 +145,6 @@ const borderCss = indexerCss<BorderProps>([
     'bt_edge',
     () => 'border-top-right-radius: .5rem;border-top-left-radius: .5rem;',
   ],
-]);
+];
 
 export default borderCss;

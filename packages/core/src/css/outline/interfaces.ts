@@ -1,4 +1,4 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'ol_none'
@@ -13,6 +13,6 @@ type Options =
   | 'olw_NUMBER'
   | 'olc_HEX';
 
-type Props = KeyinTypeOrString<Options>;
+type Props = KeyInType<Options>;
 
 export default Props;

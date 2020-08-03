@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
-// import { View } from '../../packages/core/src';
-
-const View = () => <div />
+import { View } from '../../packages/core/src';
 
 export default {
   title: 'Core | View',
@@ -11,10 +9,10 @@ export default {
   decorators: [withA11y, withKnobs],
 };
 
-export const Default: FC = () => {
+export const Default = () => {
   // const [click, setClick] = useState(true);
   // console.log(click);
   return (
-    <div>aa</div>
+    <View.div flex after__flex>aba</View.div>
   );
 };

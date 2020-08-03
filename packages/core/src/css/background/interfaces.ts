@@ -1,4 +1,5 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
+
 type Options =
   | 'bg_repeat'
   | 'bg_norepeat'
@@ -11,6 +12,6 @@ type Options =
   | 'bg_HEX'
   | 'op_PERCENTAGE';
 
-type Props = { bg_img?: string } & KeyinTypeOrString<Options>;
+type Props = { bg_img?: string } & KeyInType<Options>;
 
 export default Props;

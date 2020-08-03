@@ -1,4 +1,4 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'fb_HEX'
@@ -56,6 +56,6 @@ type Options =
   | 'f_no_wrap'
   | 'f_truncate';
 
-type Props = KeyinTypeOrString<Options>;
+type Props = KeyInType<Options>;
 
 export default Props;

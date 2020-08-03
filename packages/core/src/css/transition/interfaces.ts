@@ -1,4 +1,4 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'ts_duration_NUMBER'
@@ -15,6 +15,6 @@ type Options =
   | 'ts_ease_out'
   | 'ts_ease_in_out';
 
-type Props = KeyinTypeOrString<Options>;
+type Props = KeyInType<Options>;
 
 export default Props;

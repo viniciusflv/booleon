@@ -1,14 +1,29 @@
 import FontProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
 import { hexColor } from '../../lib/constants';
+import { Indexer } from '../../lib/interfaces';
 
-const fontCss = indexerCss<FontProps>([
-  [new RegExp(`^(fb_)${hexColor}`), (value) => `text-shadow: -1px 0 #${value}, 0 1px #${value}, 1px 0 #${value}, 0 -1px #${value};`],
+const fontCss: Indexer<FontProps> = [
+  [
+    new RegExp(`^(fb_)${hexColor}`),
+    (value) =>
+      `text-shadow: -1px 0 #${value}, 0 1px #${value}, 1px 0 #${value}, 0 -1px #${value};`,
+  ],
   [new RegExp(`^(fc_)${hexColor}`), (value) => `color: #${value};`],
-  [/^(fs_)(\d+)/, (value) => `font-size: ${Number(value)/10}rem;`],
-  ['ff_sans', () => 'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;'],
-  ['ff_serif', () => 'font-family: Georgia, Cambria, "Times New Roman", Times, serif;'],
-  ['ff_mono', () => 'font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'],
+  [/^(fs_)(\d+)/, (value) => `font-size: ${Number(value) / 10}rem;`],
+  [
+    'ff_sans',
+    () =>
+      'font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;',
+  ],
+  [
+    'ff_serif',
+    () => 'font-family: Georgia, Cambria, "Times New Roman", Times, serif;',
+  ],
+  [
+    'ff_mono',
+    () =>
+      'font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;',
+  ],
   ['fsl_none', () => 'user-select: none;'],
   ['fsl_text', () => 'user-select: text;'],
   ['fsl_all', () => 'user-select: all;'],
@@ -54,8 +69,14 @@ const fontCss = indexerCss<FontProps>([
   ['f_wrap_space', () => 'white-space: normal;'],
   ['f_wrap_word', () => 'overflow-wrap: break-word;'],
   ['f_wrap_letter', () => 'word-break: break-all;'],
-  ['f_no_wrap', () =>   'white-space: nowrap; word-break: normal; overflow-wrap: normal;'],
-  ['f_truncate', () => 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;']
-])
+  [
+    'f_no_wrap',
+    () => 'white-space: nowrap; word-break: normal; overflow-wrap: normal;',
+  ],
+  [
+    'f_truncate',
+    () => 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;',
+  ],
+];
 
 export default fontCss;

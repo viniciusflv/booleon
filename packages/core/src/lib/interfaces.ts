@@ -1,35 +1,47 @@
-import { medias, pseudo } from "./constants";
-import { MemoExoticComponent } from "react";
-
-export type FlattenIntersection<T> = T extends { [K in keyof T]: any }
-  ? { [K in keyof T]: T[K] }
-  : never;
+import { medias, pseudo } from './constants';
+import { FC } from 'react';
 
 export type KeyInType<T extends string | number | symbol> = {
   [key in T]?: boolean;
 };
 
-export type KeyInString = {
-  [key in string]?: boolean;
-};
+export type KeyInString<T = {}> = T &
+  {
+    [key in string]?: boolean;
+  };
 
-export type KeyinTypeOrString<T extends string | number | symbol> =
-  | KeyInType<T>
-  | KeyInString;
+type Options =
+  | 'after__PROP'
+  | 'before__PROP'
+  | 'active__PROP'
+  | 'checked__PROP'
+  | 'disabled__PROP'
+  | 'focus__PROP'
+  | 'hover__PROP'
+  | 'visited__PROP'
+  | 'xs__PROP'
+  | 'sm__PROP'
+  | 'md__PROP'
+  | 'lg__PROP'
+  | 'xl__PROP';
+
+type Prefix = { [key in Options]?: boolean };
+
+type Prefixed<T = {}> = T & Prefix;
+
+type Props<T = {}> = Prefixed<(
+  & T
+  & { className?: string; }
+) | { [key in string]?: boolean }
+>;
 
 export type Indexer<T> = Array<[RegExp | keyof T, (args: string) => string]>;
 
 export type Medias = typeof medias[number];
 export type Pseudo = typeof pseudo[number];
 
-export type ReducedProps = { [key in Medias | Pseudo]?: any } & { style: any };
+export type ReducedProps<T> = { [key in Medias | Pseudo]?: T } & { style: T };
 
-export type Booleon<T extends keyof React.ReactDOM> = {
-  [key in T]: MemoExoticComponent<any>;
+export type Booleon<E extends keyof React.ReactDOM, T = {}> = {
+  [key in E]: FC<Props<T>>;
 };
-
-export type UnionToIntersection<U> = (
-  U extends any ? (k: U) => void : never
-) extends (k: infer I) => void
-  ? I
-  : never;

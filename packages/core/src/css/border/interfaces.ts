@@ -1,6 +1,4 @@
-import {
-  KeyinTypeOrString,
-} from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'bc_HEX'
@@ -89,6 +87,6 @@ type Options =
   | 'bbl_rounded'
   | 'bbl_edge';
 
-type Props = KeyinTypeOrString<Options>;
+type Props = KeyInType<Options>;
 
 export default Props;

@@ -1,7 +1,7 @@
 import TransformProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
-const transformCss = indexerCss<TransformProps>([
+const transformCss: Indexer<TransformProps> = [
   [/^(sl_)(\d+)/, (value) => `transform: scale(${value}rem,${value}rem);`],
   [/^(slx_)(\d+)/, (value) => `transform: scaleX(${value}rem);`],
   [/^(sly_)(\d+)/, (value) => `transform: scaleY(${value}rem);`],
@@ -43,6 +43,6 @@ const transformCss = indexerCss<TransformProps>([
   ['ori_bottom_left', () => 'transform-origin: bottom left;'],
   ['ori_left', () => 'transform-origin: left;'],
   ['ori_top_left', () => 'transform-origin: top left;'],
-])
+];
 
 export default transformCss;

@@ -1,9 +1,9 @@
 import TransitionProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
 const colors = 'background-color, border-color, color, fill, stroke';
 
-const transitionCss = indexerCss<TransitionProps>([
+const transitionCss: Indexer<TransitionProps> = [
   [/^(ts_duration_)(\d+)/, (value) => `transition-duration: ${value}ms;`],
   [/^(ts_delay_)(\d+)/, (value) => `transition-delay: ${value}ms;`],
   ['ts', () => `transition-property: ${colors}, opacity, box-shadow, transform;`],
@@ -17,6 +17,6 @@ const transitionCss = indexerCss<TransitionProps>([
   ['ts_ease_in', () => 'transition-timing-function: cubic-bezier(0.4, 0, 1, 1);'],
   ['ts_ease_out', () => 'transition-timing-function: cubic-bezier(0, 0, 0.2, 1);'],
   ['ts_ease_in_out', () => 'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);'],
-]);
+];
 
 export default transitionCss;

@@ -1,7 +1,7 @@
 import OutlineProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
-const outlineCss = indexerCss<OutlineProps>([
+const outlineCss: Indexer<OutlineProps> = [
   [/^(olw_)(\d+)/, (value) => `outline-width: ${Number(value) / 10}rem;`],
   [/^(olc_)([A-z0-9]+)/, (value) => `outline-color: #${value};`],
   ['ol_none', () => 'outline: none;'],
@@ -13,6 +13,6 @@ const outlineCss = indexerCss<OutlineProps>([
   ['ol_ridge', () => 'outline-style: ridge;'],
   ['ol_inset', () => 'outline-style: inset;'],
   ['ol_outset', () => 'outline-style: outset;'],
-])
+];
 
 export default outlineCss;

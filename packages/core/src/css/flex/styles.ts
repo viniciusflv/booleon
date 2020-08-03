@@ -1,7 +1,7 @@
 import FlexProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
-const flexCss = indexerCss<FlexProps>([
+const flexCss: Indexer<FlexProps> = [
   ['flex', () => 'display: flex;'],
   ['grow', () => 'flex-grow: 1;'],
   ['col', () => 'flex-direction: column;'],
@@ -19,6 +19,6 @@ const flexCss = indexerCss<FlexProps>([
   ['cross_start', () => 'align-items: flex-start;'],
   ['main_end', () => 'justify-content: flex-end;'],
   ['cross_end', () => 'align-items: flex-end;'],
-]);
+];
 
 export default flexCss;

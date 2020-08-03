@@ -1,4 +1,4 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'p_NUMBER'
@@ -9,6 +9,6 @@ type Options =
   | 'pl_NUMBER'
   | 'pr_NUMBER';
 
-type Props = KeyinTypeOrString<Options>;
+type Props = KeyInType<Options>;
 
 export default Props;

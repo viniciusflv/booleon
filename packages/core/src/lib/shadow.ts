@@ -53,7 +53,7 @@ const wrap = (bool?: boolean, value = "") =>
   bool ? `drop-shadow(${value})` : value;
 const concat = (bool?: boolean, value = "") => (bool ? value : "");
 
-const handler = (sd: any[], inset?: boolean, drop?: boolean) =>
+const handler = (sd: string[][], inset?: boolean, drop?: boolean) =>
   sd
     .map(
       ([shadow, spread, color]) =>

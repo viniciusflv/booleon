@@ -1,7 +1,7 @@
 import MarginProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
-const marginCss = indexerCss<MarginProps>([
+const marginCss: Indexer<MarginProps> = [
   [/^(m_)(\d+)/, (value) => `margin: ${Number(value) / 10}rem;`],
   [/^(mt_)(\d+)/, (value) => `margin-top: ${Number(value) / 10}rem;`],
   [/^(mb_)(\d+)/, (value) => `margin-bottom: ${Number(value) / 10}rem;`],
@@ -16,6 +16,6 @@ const marginCss = indexerCss<MarginProps>([
   ['mb_auto', () => 'margin-bottom: auto;'],
   ['ml_auto', () => 'margin-left: auto;'],
   ['mr_auto', () => 'margin-right: auto;'],
-]);
+];
 
 export default marginCss;

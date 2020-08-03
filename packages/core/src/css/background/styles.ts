@@ -1,11 +1,11 @@
 import { hexColor } from '../../lib/constants';
-import { indexerCss } from '../../lib/indexer';
 import BackgroundProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
-const backgroundCss = indexerCss<BackgroundProps>([
+const backgroundCss: Indexer<BackgroundProps> = [
   [new RegExp(`^(bg_)${hexColor}`), (value) => `background-color: #${value};`],
   [/^(op_)(\d+)/, (value) => `opacity: ${Number(value) / 100};`],
-  ['bg_img', (bg_img) => `background-image: url(${bg_img});`],
+  ['bg_img', (value) => `background-image: url(${value});`],
   ['bg_repeat', () => 'background-repeat: repeat;'],
   ['bg_norepeat', () => 'repeat: no-repeat;'],
   ['bg_auto', () => 'background-size: auto;'],
@@ -14,6 +14,6 @@ const backgroundCss = indexerCss<BackgroundProps>([
   ['bg_fixed', () => 'background-attachment: fixed;'],
   ['bg_local', () => 'background-attachment: local;'],
   ['bg_scroll', () => 'background-attachment: scroll;'],
-]);
+];
 
 export default backgroundCss;

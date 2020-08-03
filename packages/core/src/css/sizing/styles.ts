@@ -1,7 +1,7 @@
 import SizingProps from './interfaces';
-import { indexerCss } from '../../lib/indexer';
+import { Indexer } from '../../lib/interfaces';
 
-const sizingCss = indexerCss<SizingProps>([
+const sizingCss: Indexer<SizingProps> = [
   [/^(h_)(\d+)/, (value) => `height: ${value}rem;`],
   [/^(h_max_)(\d+)/, (value) => `max-height: ${value}rem;`],
   [/^(h_min_)(\d+)/, (value) => `min-height: ${value}rem;`],
@@ -32,6 +32,6 @@ const sizingCss = indexerCss<SizingProps>([
   ['w_screen', () => 'width: 100vw;'],
   ['w_max_screen', () => 'max-width: 100vw;'],
   ['w_min_screen', () => 'min-width: 100vw;'],
-]);
+];
 
 export default sizingCss;

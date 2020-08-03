@@ -1,8 +1,8 @@
-import { indexerCss } from '../../lib/indexer';
 import ContainerProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
-const containerCss = indexerCss<ContainerProps>([
+const containerCss: Indexer<ContainerProps> = [
   [/^(z_)(\d+)/, (value) => `z-index: ${value};`],
   [/^(top_)(\d+)/, (value) => `top: ${value};`],
   [/^(bottom_)(\d+)/, (value) => `bottom: ${value};`],
@@ -49,6 +49,6 @@ const containerCss = indexerCss<ContainerProps>([
   ['rz', () => 'resize: both;'],
   ['rzy', () => 'resize: vertical;'],
   ['rzx', () => 'resize: horizontal;'],
-]);
+];
 
 export default containerCss;

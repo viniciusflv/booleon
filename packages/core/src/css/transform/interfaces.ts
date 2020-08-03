@@ -1,4 +1,4 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'tl_full'
@@ -43,6 +43,6 @@ type Options =
   | 'tlx_neg_NUMBER'
   | 'tly_neg_NUMBER';
 
-type Props = KeyinTypeOrString<Options>;
+type Props = KeyInType<Options>;
 
 export default Props;

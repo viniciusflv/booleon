@@ -1,4 +1,4 @@
-import { KeyinTypeOrString } from '../../lib/interfaces';
+import { KeyInType } from '../../lib/interfaces';
 
 type Options =
   | 'grid'
@@ -19,6 +19,6 @@ type Options =
   | 'rows_start_NUMBER'
   | 'rows_end_NUMBER';
 
-type Props = { areas?: string } & KeyinTypeOrString<Options>;
+type Props = { areas?: string } & KeyInType<Options>;
 
 export default Props;
