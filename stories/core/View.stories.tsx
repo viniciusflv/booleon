@@ -26,6 +26,7 @@ export const Default = () => {
       py_10
       px_25
     >
+      <View.div by_none />
       <Text.span fc_fff fs_12>Aperte o botão</Text.span>
     </View.button>
   );
