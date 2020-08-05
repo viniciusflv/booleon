@@ -19,17 +19,11 @@ const borderCss: Indexer<BorderProps> = [
   ],
   [
     new RegExp(`^(bxc_)${hexColor}`),
-    (value) => `
-        border-right-color: #${value};
-        border-left-color: #${value};
-      `,
+    (value) => `border-right-color: #${value};border-left-color: #${value};`,
   ],
   [
     new RegExp(`^(byc_)${hexColor}`),
-    (value) => `
-        border-top-color: #${value};
-        border-bottom-color: #${value};
-      `,
+    (value) => `border-top-color: #${value};border-bottom-color: #${value};`,
   ],
   ['b_collapse', () => 'border-collapse: collapse;'],
   ['b_separate', () => 'border-collapse: separate;'],

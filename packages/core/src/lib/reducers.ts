@@ -1,6 +1,6 @@
-import { ReducedProps, Indexer, Medias, Pseudo } from "./interfaces";
-import { fastHash } from "../lib/fastHash";
-import { medias, mediasMap, pseudo } from "../lib/constants";
+import { ReducedProps, Indexer, Medias, Pseudo } from './interfaces';
+import { fastHash } from '../lib/fastHash';
+import { medias, mediasMap, pseudo } from '../lib/constants';
 
 function cssReducer<T>(key: string, value: any, ...indexers: Indexer<T>[]) {
   if (value) {
@@ -9,7 +9,7 @@ function cssReducer<T>(key: string, value: any, ...indexers: Indexer<T>[]) {
       if (index instanceof RegExp) {
         const match = key.match(index);
         if (match) {
-          const groups = match[0].replace(match[1], "").replace(/_/g, " ");
+          const groups = match[0].replace(match[1], '').replace(/_/g, ' ');
           acc += cb(groups);
         }
       } else if (index && value && index === key) {
@@ -22,11 +22,11 @@ function cssReducer<T>(key: string, value: any, ...indexers: Indexer<T>[]) {
 }
 
 const prefixRegex = /(\w+)__(.*?)\w+/g;
-export const propsReducer = <T>(props: T,...indexers: Indexer<T>[]) =>
+export const propsReducer = <T>(props: T, ...indexers: Indexer<T>[]) =>
   Object.keys(props).reduce((acc, key) => {
     if (key.match(prefixRegex)) {
-      const prefix = key.split("__")[0] as keyof ReducedProps<string>;
-      const cleanKey = key.replace(`${prefix}__`, "");
+      const prefix = key.split('__')[0] as keyof ReducedProps<string>;
+      const cleanKey = key.replace(`${prefix}__`, '');
       if (!acc[prefix]) acc[prefix] = '';
       acc[prefix] += cssReducer<T>(cleanKey, props[key], ...indexers);
     } else {
@@ -36,9 +36,9 @@ export const propsReducer = <T>(props: T,...indexers: Indexer<T>[]) =>
     return acc;
   }, {} as ReducedProps<string>);
 
-export function classReducer<T>(props: T,...indexers: Indexer<T>[]) {
-  const reducedCss = propsReducer<T>(props,...indexers);
-  const className = `bl-${fastHash(Object.values(reducedCss).join(""))}`;
+export function classReducer<T>(props: T, ...indexers: Indexer<T>[]) {
+  const reducedCss = propsReducer<T>(props, ...indexers);
+  const className = `bl-${fastHash(Object.values(reducedCss).join(''))}`;
   const classes = Object.keys(reducedCss).reduce((acc, key) => {
     const css = reducedCss[key as keyof ReducedProps<string>];
     switch (true) {
@@ -53,6 +53,20 @@ export function classReducer<T>(props: T,...indexers: Indexer<T>[]) {
         acc += `.${className}{${css}}`;
     }
     return acc;
-  }, "");
+  }, '');
   return [className, classes];
 }
+
+export const cleanProps = <T>(props: T, ...indexers: Indexer<T>[]) =>
+  Object.keys(props).reduce((acc, key) => {
+    const merged = indexers.reduce((acc, indexer) => [...acc, ...indexer], []);
+    const filtered = merged
+      .map(([index]) => {
+        return index instanceof RegExp
+          ? Boolean(key.match(index))
+          : key === index || Boolean((key as string).match(prefixRegex));
+      })
+      .includes(true);
+
+    return filtered ? acc : { ...acc, [key]: props[key] };
+  }, {} as React.HTMLProps<{}>);

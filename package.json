@@ -30,7 +30,8 @@
     "@storybook/addon-storysource": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
-    "@types/styled-components": "^5.1.0",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.8",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "eslint": "6.8.0",
@@ -39,7 +40,6 @@
     "jest-styled-components": "^7.0.2",
     "lerna": "^3.22.0",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-test-renderer": "^16.13.1",
     "ts-loader": "^7.0.5",
     "tsdx": "^0.13.2",
     "typescript": "^3.9.3"
