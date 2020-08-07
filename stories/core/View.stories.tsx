@@ -25,6 +25,7 @@ export const Default = () => {
       b_rounded
       py_10
       px_25
+      cr_url="data:image/gif;base64,R0lGODdhBQAFAPABAP////8AACwAAAAABQAFAAACCARihhe9q0wBADs="
     >
       <View.div by_none />
       <Text.span fc_fff fs_12>Aperte o botão</Text.span>
