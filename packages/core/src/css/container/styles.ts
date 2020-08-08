@@ -1,17 +1,18 @@
 import ContainerProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
+import { divideIfNumber } from '../../lib/divideIfNumber';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerCss: Indexer<ContainerProps> = [
   [/^(z_)(\d+)/, (value) => `z-index: ${value};`],
-  [/^(top_)(\d+)/, (value) => `top: ${Number(value)/100}rem;`],
-  [/^(bottom_)(\d+)/, (value) => `bottom: ${Number(value)/100}rem;`],
-  [/^(left_)(\d+)/, (value) => `left: ${Number(value)/100}rem;`],
-  [/^(right_)(\d+)/, (value) => `right: ${Number(value)/100}rem;`],
-  [/^(top_neg_)(\d+)/, (value) => `top: -${Number(value)/100}rem;`],
-  [/^(bottom_neg_)(\d+)/, (value) => `bottom: -${Number(value)/100}rem;`],
-  [/^(left_neg_)(\d+)/, (value) => `left: -${Number(value)/100}rem;`],
-  [/^(right_neg_)(\d+)/, (value) => `right: -${Number(value)/100}rem;`],
+  [/^(top_)(\d+)/, (value) => `top: ${divideIfNumber(value, 100, 'rem')};`],
+  [/^(bottom_)(\d+)/, (value) => `bottom: ${divideIfNumber(value, 100, 'rem')};`],
+  [/^(left_)(\d+)/, (value) => `left: ${divideIfNumber(value, 100, 'rem')};`],
+  [/^(right_)(\d+)/, (value) => `right: ${divideIfNumber(value, 100, 'rem')};`],
+  [/^(top_neg_)(\d+)/, (value) => `top: -${divideIfNumber(value, 100, 'rem')};`],
+  [/^(bottom_neg_)(\d+)/, (value) => `bottom: -${divideIfNumber(value, 100, 'rem')};`],
+  [/^(left_neg_)(\d+)/, (value) => `left: -${divideIfNumber(value, 100, 'rem')};`],
+  [/^(right_neg_)(\d+)/, (value) => `right: -${divideIfNumber(value, 100, 'rem')};`],
   ['content', (value) => `content: ${typeof value === 'string' ? value : '""'};`],
   ['z_max', () => `z-index: ${MAX_SAFE_INTEGER};`],
   ['z_neg', () => 'z-index: -1;'],

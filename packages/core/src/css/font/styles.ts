@@ -1,15 +1,16 @@
 import FontProps from './interfaces';
 import { hexColor } from '../../lib/constants';
 import { Indexer } from '../../lib/interfaces';
+import { divideIfNumber } from '../../lib/divideIfNumber';
 
 const fontCss: Indexer<FontProps> = [
   [new RegExp(`^(fb_)${hexColor}`), (value) => `text-shadow: -1px 0 #${value}, 0 1px #${value}, 1px 0 #${value}, 0 -1px #${value};`,],
   [new RegExp(`^(fc_)${hexColor}`), (value) => `color: #${value};`],
-  [/^(fs_)(\d+)/, (value) => `font-size: ${Number(value) / 10}rem;`],
+  [/^(fs_)(\d+)/, (value) => `font-size: ${divideIfNumber(value, 10, 'rem')};`],
   [/^(fsl_)([a-z]+)/, (value) => `user-select: ${value};`],
-  [/^(ls_)(\d+)/, (value) => `letter-spacing: ${Number(value) / 100}rem;`],
-  [/^(ls_neg_)(\d+)/, (value) => `letter-spacing: -${Number(value) / 100}rem;`],
-  [/^(lh_)(\d+)/, (value) => `line-height: ${Number(value) / 100}rem;`],
+  [/^(ls_)(\d+)/, (value) => `letter-spacing: ${divideIfNumber(value, 100, 'rem')};`],
+  [/^(ls_neg_)(\d+)/, (value) => `letter-spacing: -${divideIfNumber(value, 100, 'rem')};`],
+  [/^(lh_)(\d+)/, (value) => `line-height: ${divideIfNumber(value, 100, 'rem')};`],
   [/^(fa_)([a-z]+)/, (value) => `text-align: ${value};`],
   [/^(ft_)([a-z]+)/, (value) => `text-transform: ${value};`],
   [/^(ff_)([A-z]+).*/, (value) => `font-family: ${value};`],

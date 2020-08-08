@@ -1,6 +1,7 @@
 import { hexColor } from '../../lib/constants';
 import BorderProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
+import { divideIfNumber } from '../../lib/divideIfNumber';
 
 const borderCss: Indexer<BorderProps> = [
   [new RegExp(`^(bc_)${hexColor}`),(value) => `border-color: #${value};`],
@@ -17,13 +18,13 @@ const borderCss: Indexer<BorderProps> = [
   [/(brs_)([a-z]+)/, (value) => `border-right-style: ${value};`],
   [/(bxs_)([a-z]+)/, (value) => `border-left-style: ${value};border-right-style: ${value};`],
   [/(bys_)([a-z]+)/, (value) => `border-top-style: ${value};border-bottom-style: ${value};`],
-  [/(bw_)([0-9]+)/, (value) => `border-width: ${Number(value)/100}rem;`],
-  [/(btw_)([0-9]+)/, (value) => `border-top-width: ${Number(value)/100}rem;`],
-  [/(bbw_)([0-9]+)/, (value) => `border-bottom-width: ${Number(value)/100}rem;`],
-  [/(blw_)([0-9]+)/, (value) => `border-left-width: ${Number(value)/100}rem;`],
-  [/(brw_)([0-9]+)/, (value) => `border-right-width: ${Number(value)/100}rem;`],
-  [/(bxw_)([0-9]+)/, (value) => `border-left-width: ${Number(value)/100}rem;border-right-width: ${Number(value)/100}rem;`],
-  [/(byw_)([0-9]+)/, (value) => `border-top-width: ${Number(value)/100}rem;border-bottom-width: ${Number(value)/100}rem;`],
+  [/(bw_)([0-9]+)/, (value) => `border-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [/(btw_)([0-9]+)/, (value) => `border-top-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [/(bbw_)([0-9]+)/, (value) => `border-bottom-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [/(blw_)([0-9]+)/, (value) => `border-left-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [/(brw_)([0-9]+)/, (value) => `border-right-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [/(bxw_)([0-9]+)/, (value) => `border-left-width: ${divideIfNumber(value, 100, 'rem')};border-right-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [/(byw_)([0-9]+)/, (value) => `border-top-width: ${divideIfNumber(value, 100, 'rem')};border-bottom-width: ${divideIfNumber(value, 100, 'rem')};`],
   ['b_collapse', () => 'border-collapse: collapse;'],
   ['b_separate', () => 'border-collapse: separate;'],
   ['b_none', () => 'border: none;'],
