@@ -12,11 +12,7 @@ const gridCss: Indexer<GridProps> = [
   [/^(rows_start_)(\d+)/, (value) => `grid-row-start: ${value};`],
   [/^(rows_end_)(\d+)/, (value) => `grid-row-end: ${value};`],
   ['grid', () => 'display: grid;'],
-  ['areas', (areas) => `grid-template-areas: ${areas};`],
-  ['cols_start', () => 'grid-column-start: 1;'],
-  ['cols_end', () => 'grid-column-end: 1;'],
-  ['rows_start', () => 'grid-row-start: 1;'],
-  ['rows_end', () => 'grid-row-end: 1;'],
+  ['areas', (areas) => `grid-template-areas: ${(areas as string).replace(/\n|\s+\s/gm,"")};`],
 ];
 
 export default gridCss;
