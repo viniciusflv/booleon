@@ -1,8 +1,8 @@
-import { ViewProps } from '../../../core/src/View';
+import ViewProps from '../../../core/src/View/interfaces';
+
 type Variant = 'blue' | 'green' | 'red';
 
-export type ButtonProps = Omit<
-  & { [key in Variant]?: boolean }
+export type ButtonProps =
   & ViewProps
-  & React.HTMLProps<ViewProps>
-,'ref'>
+  & { [key in Variant]?: boolean }
+  & React.DOMAttributes<any>;

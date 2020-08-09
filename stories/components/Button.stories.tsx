@@ -11,7 +11,7 @@ export default {
 
 export const Default = () => {
   return (
-    <Button green onClick={console.log}>
+    <Button red onClick={console.log}>
       Button
     </Button>
   );
