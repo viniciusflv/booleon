@@ -19,6 +19,7 @@ import { booleon } from '../lib/booleon';
 import { viewTags } from '../lib/constants';
 import ViewProps from './interfaces';
 
+export { ViewProps };
 export const View = booleon<typeof viewTags, ViewProps>(
   viewTags,
   backgroundCss,

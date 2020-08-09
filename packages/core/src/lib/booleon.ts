@@ -9,7 +9,7 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
   return elements.reduce(
     (acc: Booleon<E[number]>, element: E[number]) => ({
       ...acc,
-      [element]: ({ className = '', ...props }) => {
+      [element]: function Booleon({ className = '', ...props }) {
         const indexer = useMemo(
           () => indexers.reduce((acc, indexer) => [...acc, ...indexer], []),
           [indexers],
