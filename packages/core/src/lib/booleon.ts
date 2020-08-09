@@ -1,6 +1,6 @@
-import React from 'react';
-import { classReducer,cleanProps } from './reducers';
+import React, { useMemo } from 'react';
 import { Indexer, Booleon } from './interfaces';
+import { useReducer } from './reducer';
 
 export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
   elements: E,
@@ -10,8 +10,15 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
     (acc: Booleon<E[number]>, element: E[number]) => ({
       ...acc,
       [element]: ({ className = '', ...props }) => {
-        const cleanedProps = cleanProps<T>(props as T, ...indexers)
-        const [id, classes] = classReducer<T>(props as T, ...indexers);
+        const indexer = useMemo(
+          () => indexers.reduce((acc, indexer) => [...acc, ...indexer], []),
+          [indexers],
+        );
+
+        const [id, classes, htmlProps] = useMemo(() => useReducer<T>(props as T, indexer), [
+          props,
+          indexer,
+        ]);
 
         let style = document.getElementById(id);
         if (!style) {
@@ -22,7 +29,7 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
         if (classes !== style.innerHTML) style.innerHTML = classes;
 
         return React.createElement(element, {
-          ...cleanedProps,
+          ...htmlProps,
           className: id + className,
         });
       },

@@ -17,7 +17,7 @@ export const Default = () => {
       onClick={() => setClick(!click)}
       b_none
       sd_1
-      hover__sd_2
+      hover__sd_3
       active__sdi_6
       focus__ol_none
       bg_00f
@@ -25,8 +25,6 @@ export const Default = () => {
       b_rounded
       py_10
       px_25
-      gx_000
-      cr_url="data:image/gif;base64,R0lGODdhBQAFAPABAP////8AACwAAAAABQAFAAACCARihhe9q0wBADs="
     >
       <View.div by_none />
       <Text.span fc_fff fs_12>Aperte o botão</Text.span>
