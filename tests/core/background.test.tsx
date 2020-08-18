@@ -9,11 +9,6 @@ describe('Background', () => {
     expect(getByTestId('bg_HEX')).toHaveStyle('background-color: #fff;');
   });
 
-  test('op_PERCENTAGE', () => {
-    const { getByTestId } = render(<View.div data-testid="op_PERCENTAGE" op_10 />);
-    expect(getByTestId('op_PERCENTAGE')).toHaveStyle('opacity: 0.1;');
-  });
-
   test('bg_img', () => {
     const bg_img = 'https://www.w3schools.com/cssref/img_tree.gif';
     const { getByTestId } = render(<View.div data-testid="bg_img" bg_img={bg_img} />);

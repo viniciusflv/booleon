@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import React, { FC } from 'react';
 
 export default {
-  title: 'Core | Text',
+  title: 'Core / Text',
   component: Text,
   decorators: [withA11y, withKnobs],
 };

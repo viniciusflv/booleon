@@ -5,6 +5,7 @@ import { divideIfNumber } from '../../lib/divideIfNumber';
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerCss: Indexer<ContainerProps> = [
   [/^(z_)(\d+)/, (value) => `z-index: ${value};`],
+  [/^(op_)(\d+)/, (value) => `opacity: ${divideIfNumber(value, 100)};`],
   [/^(top_)(\d+)/, (value) => `top: ${divideIfNumber(value, 100, 'rem')};`],
   [/^(bottom_)(\d+)/, (value) => `bottom: ${divideIfNumber(value, 100, 'rem')};`],
   [/^(left_)(\d+)/, (value) => `left: ${divideIfNumber(value, 100, 'rem')};`],

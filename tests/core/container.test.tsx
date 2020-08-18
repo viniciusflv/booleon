@@ -14,6 +14,11 @@ describe('Container', () => {
       const { getByTestId } = render(<View.div data-testid='content' content="X" />);
       expect(getByTestId('content')).toHaveStyle('content: X;');
     });
+
+    test('op_PERCENTAGE', () => {
+      const { getByTestId } = render(<View.div data-testid="op_PERCENTAGE" op_10 />);
+      expect(getByTestId('op_PERCENTAGE')).toHaveStyle('opacity: 0.1;');
+    });
   })
 
   describe('Z-Index', () => {

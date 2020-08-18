@@ -1,9 +1,11 @@
-import './reset.css'
-import { addParameters } from '@storybook/react';
+import './reset.css';
 
-addParameters({
-  backgrounds: [
-    { name: 'light', value: '#eeeeee', default: true },
-    { name: 'dark', value: '#333333' },
-  ],
-});
+export const parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: '#eeeeee', default: true },
+      { name: 'dark', value: '#333333' },
+    ],
+  },
+};

@@ -9,8 +9,8 @@ type Options =
   | 'bg_fixed'
   | 'bg_local'
   | 'bg_scroll'
-  | 'bg_HEX'
-  | 'op_PERCENTAGE';
+  | 'bg_transparent'
+  | 'bg_HEX';
 
 type Props = { bg_img?: string } & KeyInType<Options>;
 

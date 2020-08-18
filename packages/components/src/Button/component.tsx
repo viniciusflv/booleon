@@ -4,17 +4,30 @@ import { ButtonProps } from './interfaces';
 
 const ButtonComponent: FC<ButtonProps> = ({
   children,
-  blue = true,
+  blue,
   green,
   red,
+  white,
+  outlined,
   ...props
 }) => {
+  const noColor = !blue && !green && !red && !white;
   return (
     <View.button
-      bg_1e88e5={blue && !green && !red}
-      bg_8bc34a={green}
-      bg_f44336={red}
+      bg_transparent={outlined}
+      bg_555={!outlined && noColor}
+      bg_0073E6={!outlined && blue}
+      bg_008563={!outlined && green}
+      bg_EB0000={!outlined && red}
+      bg_fff={!outlined && white}
       b_none
+      bs_solid={outlined}
+      bw_10={outlined}
+      bc_555={outlined && noColor}
+      bc_0073E6={outlined && blue}
+      bc_008563={outlined && green}
+      bc_EB0000={outlined && red}
+      bc_fff={outlined && white}
       b_rounded
       sd_1
       py_10
@@ -30,9 +43,18 @@ const ButtonComponent: FC<ButtonProps> = ({
       disabled__bg_e1e2e1
       disabled__cr_disallowed
       disabled__sd_1
-      {...props}
-      >
-      <Text.span fa_center ls_10 fs_10 fc_fff fw_bold ff_sans>
+      {...props}>
+      <Text.span
+        fa_center
+        ls_10
+        fs_10
+        fc_fff={!outlined || (white && outlined)}
+        fc_555={(!outlined && white) || (outlined && noColor)}
+        fc_0073E6={outlined && blue}
+        fc_008563={outlined && green}
+        fc_EB0000={outlined && red}
+        fw_bold
+        ff_sans>
         {children}
       </Text.span>
     </View.button>

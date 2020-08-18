@@ -10,6 +10,7 @@ type Options =
   | 'bottom_neg_NUMBER'
   | 'left_neg_NUMBER'
   | 'right_neg_NUMBER'
+  | 'op_PERCENTAGE'
   | 'content'
   | 'z_max'
   | 'z_neg'
