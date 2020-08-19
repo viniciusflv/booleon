@@ -31,11 +31,12 @@ export const textTags = [
   'h6',
   'li',
   'p',
+  'label',
   'span',
   'strong',
   'td',
   'th',
-] as const
+] as const;
 
 export const svgTags = [
   'animate',
@@ -145,7 +146,6 @@ export const viewTags = [
   'ins',
   'kbd',
   'keygen',
-  'label',
   'legend',
   'link',
   'main',

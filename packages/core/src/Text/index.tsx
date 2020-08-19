@@ -1,12 +1,12 @@
+import { booleon } from '../lib/booleon';
 import {
+  containerCss,
   cursorCss,
+  fontCss,
   marginCss,
   transformCss,
   transitionCss,
-  fontCss,
-  containerCss,
 } from '../css';
-import { booleon } from '../lib/booleon';
 import { textTags } from '../lib/constants';
 import TextProps from './interfaces';
 

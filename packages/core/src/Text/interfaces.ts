@@ -1,10 +1,10 @@
 import {
   ContainerProps,
   CursorProps,
+  FontProps,
   MarginProps,
   TransformProps,
   TransitionProps,
-  FontProps,
 } from '../css';
 
 type Props =

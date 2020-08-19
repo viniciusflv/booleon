@@ -1,4 +1,4 @@
-import { Indexer, ReducedProps, Medias, Pseudo } from './interfaces';
+import { Indexer, Medias, Pseudo, ReducedProps } from './interfaces';
 import { fastHash } from './fastHash';
 import { medias, mediasMap, pseudo } from './constants';
 
@@ -61,25 +61,26 @@ function propsReducer<T>(props: T, indexer: Indexer<T>) {
   }, {} as ReducedProps<string>);
 }
 
+const focusWithin = (key: string, className: string) =>
+  key === 'focus' ? `,.${className}:focus-within` : '';
+
 function classReducer<T>(props: T, indexer: Indexer<T>): [string, string] {
   const reducedCss = propsReducer<T>(props, indexer);
   const className = `bl-${fastHash(Object.values(reducedCss).join(''))}`;
   const classes = Object.keys(reducedCss).reduce((acc, key) => {
     const css = reducedCss[key as keyof ReducedProps<string>];
     switch (true) {
-      case pseudo.includes(key as Pseudo):
-        acc += `.${className}:${key}{${css}}`;
-        break;
-      case medias.includes(key as Medias):
-        const breakpoint = mediasMap.get(key as Medias);
-        acc += `@media${breakpoint}{.${className}{${css}}}`;
-        break;
-      default:
-        acc += `.${className}{${css}}`;
+    case pseudo.includes(key as Pseudo):
+      acc += `.${className}:${key}${focusWithin(key, className)}{${css}}`;
+      break;
+    case medias.includes(key as Medias):
+      acc += `@media${mediasMap.get(key as Medias)}{.${className}{${css}}}`;
+      break;
+    default:
+      acc += `.${className}{${css}}`;
     }
     return acc;
   }, '');
-
 
   return [className, classes];
 }

@@ -19,6 +19,7 @@ type Options =
   | 'focus__PROP'
   | 'hover__PROP'
   | 'visited__PROP'
+  // | 'siblign__PROP'
   | 'xs__PROP'
   | 'sm__PROP'
   | 'md__PROP'

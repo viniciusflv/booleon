@@ -30,7 +30,7 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
 
         return React.createElement(element, {
           ...htmlProps,
-          className: id + className,
+          className: `${id} ${className}`,
         });
       },
     }),

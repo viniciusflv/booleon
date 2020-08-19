@@ -5,14 +5,15 @@ import {
   CursorProps,
   FilterProps,
   FlexProps,
+  FontProps,
   GradientProps,
   GridProps,
   MarginProps,
   OutlineProps,
   PaddingProps,
   ShadowProps,
-  TransformProps,
   SizingProps,
+  TransformProps,
   TransitionProps,
 } from '../css';
 
@@ -23,6 +24,7 @@ type Props =
   & CursorProps
   & FilterProps
   & FlexProps
+  & FontProps
   & GradientProps
   & GridProps
   & MarginProps
