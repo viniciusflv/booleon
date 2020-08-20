@@ -1,8 +1,8 @@
-import { Indexer, Medias, Pseudo, ReducedProps } from './interfaces';
+import { Indexer, Medias, Pseudo } from './interfaces';
 import { fastHash } from './fastHash';
-import { medias, mediasMap, pseudo } from './constants';
+import { medias, mediasMap } from './constants';
 
-const prefixRegex = /(\w+)__(.*?)\w+/g;
+const prefixRegex = /((\w+)__)/g;
 
 function propIsBooleon<T>(key: string, indexer: Indexer<T>) {
   return indexer
@@ -46,51 +46,59 @@ function cssReducer<T>(key: string, value: any, indexer: Indexer<T>) {
   }, '');
 }
 
-function propsReducer<T>(props: T, indexer: Indexer<T>) {
-  return Object.keys(props).reduce((acc, key) => {
-    if (key.match(prefixRegex)) {
-      const prefix = key.split('__')[0] as keyof ReducedProps<string>;
-      const cleanKey = key.replace(`${prefix}__`, '');
-      if (!acc[prefix]) acc[prefix] = '';
-      acc[prefix] += cssReducer<T>(cleanKey, props[key], indexer);
-    } else {
-      if (!acc.style) acc.style = '';
-      acc.style += cssReducer<T>(key, props[key], indexer);
-    }
-    return acc;
-  }, {} as ReducedProps<string>);
-}
+const handlePseudo = (prefix: Pseudo) => new Map([
+  ['focus', ':focus:focus-within'],
+  ['after', ':after'],
+  ['before', ':before'],
+  ['active', ':active'],
+  ['checked', ':checked'],
+  ['disabled', ':disabled'],
+  ['hover', ':hover'],
+  ['visited', ':visited'],
+  ['child', '>*'],
+  ['last', ':last-child'],
+  ['first', ':first-child'],
+  ['sibling', '+*'],
+]).get(prefix) || prefix;
 
-const focusWithin = (key: string, className: string) =>
-  key === 'focus' ? `,.${className}:focus-within` : '';
+const handleMedias = (prefix: Medias) => `@media${mediasMap.get(prefix)}`;
 
-function classReducer<T>(props: T, indexer: Indexer<T>): [string, string] {
-  const reducedCss = propsReducer<T>(props, indexer);
-  const className = `bl-${fastHash(Object.values(reducedCss).join(''))}`;
-  const classes = Object.keys(reducedCss).reduce((acc, key) => {
-    const css = reducedCss[key as keyof ReducedProps<string>];
-    switch (true) {
-    case pseudo.includes(key as Pseudo):
-      acc += `.${className}:${key}${focusWithin(key, className)}{${css}}`;
-      break;
-    case medias.includes(key as Medias):
-      acc += `@media${mediasMap.get(key as Medias)}{.${className}{${css}}}`;
-      break;
-    default:
-      acc += `.${className}{${css}}`;
-    }
-    return acc;
-  }, '');
+const propsReducer = (id: string, booleonProps: any) => 
+  Object.keys(booleonProps).reduce((acc, key) => {
+    const match = key.match(prefixRegex);
+    if (match) {
+      const prefix = match[0]
+        .split('__')
+        .filter(Boolean)
+        .map((prefix) => medias.includes(prefix as any)
+          ? handleMedias(prefix as any)
+          : handlePseudo(prefix as any))
+        .join('');
 
-  return [className, classes];
-}
+      const cleanKey = key.replace(match[0], '');
+      const prefixKey = prefix.match(/@media/g)
+        ? prefix
+        : `${id}${prefix}`;
+      return {...acc, [prefixKey]: { ...acc[prefix], [cleanKey]: booleonProps[key] }};
+    } else return { ...acc, [id]: { ...acc[id], [key]:booleonProps[key]  } };
+  }, {});
+
+const classReducer = (id: string, key: string, reducedProps: any, indexer: any) => `.${id}{${Object.keys(reducedProps[key]).map((k) => {
+  return cssReducer(k, reducedProps[key][k], indexer);
+}).join('')}}`;
 
 export function useReducer<T>(
   props: T | React.HTMLProps<{}>,
   indexer: Indexer<T>,
 ): [string, string, React.HTMLProps<{}>] {
   const [htmlProps, booleonProps] = categorizeProps(props, indexer);
-  const [id, classes] = classReducer(booleonProps, indexer);
+  const id = `bl-${fastHash(Object.keys(booleonProps).join(''))}`;
+  const reducedProps = propsReducer(id, booleonProps);
+  const classes = Object.keys(reducedProps).reduce((acc, key) => {
+    return acc += key.match(/@media/g)
+      ? `${key}{${classReducer(id, key, reducedProps, indexer)}}`
+      : classReducer(key, key, reducedProps, indexer);
+  }, '');
 
   return [id, classes, htmlProps];
 }

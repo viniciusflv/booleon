@@ -33,10 +33,10 @@ export const Default = () => {
         bg_d5d5d5
         checked__bg_00f
         focus__bc_00f
-        before__content='"✔"'
+        checked__before__content='"✔"'
         before__absolute
       />
-      <Text.label for="checkbox" cr_pointer fs_12 ff_sans>
+      <Text.label htmlFor="checkbox" fsl_none cr_pointer fs_12 ff_sans>
         Checkbox
       </Text.label>
     </View.div>
