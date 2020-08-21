@@ -1,11 +1,14 @@
-import FilterProps from './interfaces';
-import { handleShadow } from '../../lib/shadow';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
+import { handleShadow } from '../../lib/shadow';
+import FilterProps from './interfaces';
 
 const filterCss: Indexer<FilterProps> = [
   [/^(ft_blur_)(\d+)/, (value) => `filter: blur(${value}rem);`],
-  [/^(ft_bn_)(\d+)/, (value) => `filter: brightness(${divideIfNumber(value, 100)});`],
+  [
+    /^(ft_bn_)(\d+)/,
+    (value) => `filter: brightness(${divideIfNumber(value, 100)});`,
+  ],
   [/^(ft_contrast_)(\d+)/, (value) => `filter: contrast(${value}%);`],
   [/^(ft_grayscale_)(\d+)/, (value) => `filter: grayscale(${value}%);`],
   [/^(ft_hue_)(\d+)/, (value) => `filter: hue-rotate(${value}deg);`],

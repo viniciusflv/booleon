@@ -7,12 +7,11 @@ import {
   TransitionProps,
 } from '../css';
 
-type Props =
-  & FontProps
-  & ContainerProps
-  & CursorProps
-  & MarginProps
-  & TransformProps
-  & TransitionProps;
+type Props = FontProps &
+  ContainerProps &
+  CursorProps &
+  MarginProps &
+  TransformProps &
+  TransitionProps;
 
 export default Props;

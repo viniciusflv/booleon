@@ -1,5 +1,5 @@
-import FlexProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
+import FlexProps from './interfaces';
 
 const flexCss: Indexer<FlexProps> = [
   ['flex', () => 'display: flex;'],

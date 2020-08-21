@@ -1,11 +1,14 @@
-import TransformProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
+import TransformProps from './interfaces';
 
 const transformCss: Indexer<TransformProps> = [
   [/^(sl_)(\d+)/, (value) => `transform: scale(${value}rem,${value}rem);`],
   [/^(slx_)(\d+)/, (value) => `transform: scaleX(${value}rem);`],
   [/^(sly_)(\d+)/, (value) => `transform: scaleY(${value}rem);`],
-  [/^(sl_neg_)(\d+)/, (value) => `transform: scale(-${value}rem,-${value}rem);`],
+  [
+    /^(sl_neg_)(\d+)/,
+    (value) => `transform: scale(-${value}rem,-${value}rem);`,
+  ],
   [/^(slx_neg_)(\d+)/, (value) => `transform: scaleX(-${value}rem);`],
   [/^(sly_neg_)(\d+)/, (value) => `transform: scaleY(-${value}rem);`],
   [/^(rt_)(\d+)/, (value) => `transform: rotate(${value}deg);`],
@@ -19,7 +22,10 @@ const transformCss: Indexer<TransformProps> = [
   [/^(tl_)(\d+)/, (value) => `transform: translate(${value}rem,${value}rem);`],
   [/^(tlx_)(\d+)/, (value) => `transform: translateX(${value}rem);`],
   [/^(tly_)(\d+)/, (value) => `transform: translateY(${value}rem);`],
-  [/^(tl_neg_)(\d+)/, (value) => `transform: translate(-${value}rem,-${value}rem);`],
+  [
+    /^(tl_neg_)(\d+)/,
+    (value) => `transform: translate(-${value}rem,-${value}rem);`,
+  ],
   [/^(tlx_neg_)(\d+)/, (value) => `transform: translateX(-${value}rem);`],
   [/^(tly_neg_)(\d+)/, (value) => `transform: translateY(-${value}rem);`],
   [/^(ori_)([a-z]+).*/, (value) => `transform-origin: ${value};`],

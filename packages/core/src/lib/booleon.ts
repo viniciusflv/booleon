@@ -15,10 +15,10 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
           [indexers],
         );
 
-        const [id, classes, htmlProps] = useMemo(() => useReducer<T>(props as T, indexer), [
-          props,
-          indexer,
-        ]);
+        const [id, classes, htmlProps] = useMemo(
+          () => useReducer<T>(props as T, indexer),
+          [props, indexer],
+        );
 
         let style = document.getElementById(id);
         if (!style) {

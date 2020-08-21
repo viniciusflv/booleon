@@ -1,11 +1,17 @@
-import SizingProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
+import SizingProps from './interfaces';
 
 const sizingCss: Indexer<SizingProps> = [
   [/^(h_)(\d+)/, (value) => `height: ${divideIfNumber(value, 100, 'rem')};`],
-  [/^(h_max_)(\d+)/, (value) => `max-height: ${divideIfNumber(value, 100, 'rem')};`],
-  [/^(h_min_)(\d+)/, (value) => `min-height: ${divideIfNumber(value, 100, 'rem')};`],
+  [
+    /^(h_max_)(\d+)/,
+    (value) => `max-height: ${divideIfNumber(value, 100, 'rem')};`,
+  ],
+  [
+    /^(h_min_)(\d+)/,
+    (value) => `min-height: ${divideIfNumber(value, 100, 'rem')};`,
+  ],
   [/^(h_screen_)(\d+)/, (value) => `height: ${value}vh;`],
   [/^(h_max_screen_)(\d+)/, (value) => `max-height: ${value}vh;`],
   [/^(h_min_screen_)(\d+)/, (value) => `min-height: ${value}vh;`],
@@ -19,8 +25,14 @@ const sizingCss: Indexer<SizingProps> = [
   ['h_max_screen', () => 'max-height: 100vh;'],
   ['h_min_screen', () => 'min-height: 100vh;'],
   [/^(w_)(\d+)/, (value) => `width: ${divideIfNumber(value, 100, 'rem')};`],
-  [/^(w_max_)(\d+)/, (value) => `max-width: ${divideIfNumber(value, 100, 'rem')};`],
-  [/^(w_min_)(\d+)/, (value) => `min-width: ${divideIfNumber(value, 100, 'rem')};`],
+  [
+    /^(w_max_)(\d+)/,
+    (value) => `max-width: ${divideIfNumber(value, 100, 'rem')};`,
+  ],
+  [
+    /^(w_min_)(\d+)/,
+    (value) => `min-width: ${divideIfNumber(value, 100, 'rem')};`,
+  ],
   [/^(w_screen_)(\d+)/, (value) => `width: ${value}vw;`],
   [/^(w_max_screen_)(\d+)/, (value) => `max-width: ${value}vw;`],
   [/^(w_min_screen_)(\d+)/, (value) => `min-width: ${value}vw;`],

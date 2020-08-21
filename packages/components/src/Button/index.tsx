@@ -1,10 +1,10 @@
-import React, { lazy, Suspense, FC } from 'react';
 import { ButtonProps } from './interfaces';
+import React, { FC, Suspense, lazy } from 'react';
 
 const ButtonComponent = lazy(() => import('./component'));
 
 export const Button: FC<ButtonProps> = (props) => (
   <Suspense fallback={<button />}>
-    <ButtonComponent {...props}/>
+    <ButtonComponent {...props} />
   </Suspense>
 );

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import { render } from '@testing-library/react';
 import { View } from '../../packages/core/src';
+import { render } from '@testing-library/react';
+import React from 'react';
 
 describe('Gradient', () => {
   test('gx_f00', () => {

@@ -1,6 +1,6 @@
+import { Indexer } from '../../lib/interfaces';
 import { hexColor } from '../../lib/constants';
 import BackgroundProps from './interfaces';
-import { Indexer } from '../../lib/interfaces';
 
 const backgroundCss: Indexer<BackgroundProps> = [
   [new RegExp(`^(bg_)${hexColor}`), (value) => `background-color: #${value};`],

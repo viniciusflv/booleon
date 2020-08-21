@@ -46,46 +46,58 @@ function cssReducer<T>(key: string, value: any, indexer: Indexer<T>) {
   }, '');
 }
 
-const handlePseudo = (prefix: Pseudo) => new Map([
-  ['focus', ':focus:focus-within'],
-  ['after', ':after'],
-  ['before', ':before'],
-  ['active', ':active'],
-  ['checked', ':checked'],
-  ['disabled', ':disabled'],
-  ['hover', ':hover'],
-  ['visited', ':visited'],
-  ['child', '>*'],
-  ['last', ':last-child'],
-  ['first', ':first-child'],
-  ['sibling', '+*'],
-]).get(prefix) || prefix;
+const handlePseudo = (prefix: Pseudo) =>
+  new Map([
+    ['focus', ':focus:focus-within'],
+    ['after', ':after'],
+    ['before', ':before'],
+    ['active', ':active'],
+    ['checked', ':checked'],
+    ['disabled', ':disabled'],
+    ['hover', ':hover'],
+    ['visited', ':visited'],
+    ['child', '>*'],
+    ['last', ':last-child'],
+    ['first', ':first-child'],
+    ['sibling', '+*'],
+  ]).get(prefix) || prefix;
 
 const handleMedias = (prefix: Medias) => `@media${mediasMap.get(prefix)}`;
 
-const propsReducer = (id: string, booleonProps: any) => 
+const propsReducer = (id: string, booleonProps: any) =>
   Object.keys(booleonProps).reduce((acc, key) => {
     const match = key.match(prefixRegex);
     if (match) {
       const prefix = match[0]
         .split('__')
         .filter(Boolean)
-        .map((prefix) => medias.includes(prefix as any)
-          ? handleMedias(prefix as any)
-          : handlePseudo(prefix as any))
+        .map((prefix) =>
+          medias.includes(prefix as any)
+            ? handleMedias(prefix as any)
+            : handlePseudo(prefix as any),
+        )
         .join('');
 
       const cleanKey = key.replace(match[0], '');
-      const prefixKey = prefix.match(/@media/g)
-        ? prefix
-        : `${id}${prefix}`;
-      return {...acc, [prefixKey]: { ...acc[prefixKey], [cleanKey]: booleonProps[key] }};
-    } else return { ...acc, [id]: { ...acc[id], [key]:booleonProps[key]  } };
+      const prefixKey = prefix.match(/@media/g) ? prefix : `${id}${prefix}`;
+      return {
+        ...acc,
+        [prefixKey]: { ...acc[prefixKey], [cleanKey]: booleonProps[key] },
+      };
+    } else return { ...acc, [id]: { ...acc[id], [key]: booleonProps[key] } };
   }, {});
 
-const classReducer = (id: string, key: string, reducedProps: any, indexer: any) => `.${id}{${Object.keys(reducedProps[key]).map((k) => {
-  return cssReducer(k, reducedProps[key][k], indexer);
-}).join('')}}`;
+const classReducer = (
+  id: string,
+  key: string,
+  reducedProps: any,
+  indexer: any,
+) =>
+  `.${id}{${Object.keys(reducedProps[key])
+    .map((k) => {
+      return cssReducer(k, reducedProps[key][k], indexer);
+    })
+    .join('')}}`;
 
 export function useReducer<T>(
   props: T | React.HTMLProps<{}>,
@@ -95,9 +107,9 @@ export function useReducer<T>(
   const id = `bl-${fastHash(Object.keys(booleonProps).join(''))}`;
   const reducedProps = propsReducer(id, booleonProps);
   const classes = Object.keys(reducedProps).reduce((acc, key) => {
-    return acc += key.match(/@media/g)
+    return (acc += key.match(/@media/g)
       ? `${key}{${classReducer(id, key, reducedProps, indexer)}}`
-      : classReducer(key, key, reducedProps, indexer);
+      : classReducer(key, key, reducedProps, indexer));
   }, '');
 
   return [id, classes, htmlProps];

@@ -1,22 +1,35 @@
-import FontProps from './interfaces';
-import { hexColor } from '../../lib/constants';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
+import { hexColor } from '../../lib/constants';
+import FontProps from './interfaces';
 
 const fontCss: Indexer<FontProps> = [
-  [new RegExp(`^(fb_)${hexColor}`), (value) => `text-shadow: -1px 0 #${value}, 0 1px #${value}, 1px 0 #${value}, 0 -1px #${value};`,],
+  [
+    new RegExp(`^(fb_)${hexColor}`),
+    (value) =>
+      `text-shadow: -1px 0 #${value}, 0 1px #${value}, 1px 0 #${value}, 0 -1px #${value};`,
+  ],
   [new RegExp(`^(fc_)${hexColor}`), (value) => `color: #${value};`],
   [/^(fs_)(\d+)/, (value) => `font-size: ${divideIfNumber(value, 10, 'rem')};`],
   [/^(fsl_)([a-z]+)/, (value) => `user-select: ${value};`],
-  [/^(ls_)(\d+)/, (value) => `letter-spacing: ${divideIfNumber(value, 100, 'rem')};`],
-  [/^(ls_neg_)(\d+)/, (value) => `letter-spacing: -${divideIfNumber(value, 100, 'rem')};`],
-  [/^(lh_)(\d+)/, (value) => `line-height: ${divideIfNumber(value, 100, 'rem')};`],
+  [
+    /^(ls_)(\d+)/,
+    (value) => `letter-spacing: ${divideIfNumber(value, 100, 'rem')};`,
+  ],
+  [
+    /^(ls_neg_)(\d+)/,
+    (value) => `letter-spacing: -${divideIfNumber(value, 100, 'rem')};`,
+  ],
+  [
+    /^(lh_)(\d+)/,
+    (value) => `line-height: ${divideIfNumber(value, 100, 'rem')};`,
+  ],
   [/^(fa_)([a-z]+)/, (value) => `text-align: ${value};`],
   [/^(ft_)([a-z]+)/, (value) => `text-transform: ${value};`],
   [/^(ff_)([A-z]+).*/, (value) => `font-family: ${value};`],
-  ['ff_sans',() => 'font-family: sans-serif;'],
-  ['ff_serif',() => 'font-family: serif;'],
-  ['ff_mono',() =>'font-family: monospace;'],
+  ['ff_sans', () => 'font-family: sans-serif;'],
+  ['ff_serif', () => 'font-family: serif;'],
+  ['ff_mono', () => 'font-family: monospace;'],
   ['f_italic', () => 'font-style: italic;'],
   ['fw_lightest', () => 'font-weight: 100;'],
   ['fw_lighter', () => 'font-weight: 200;'],
@@ -38,8 +51,14 @@ const fontCss: Indexer<FontProps> = [
   ['f_wrap_space', () => 'white-space: normal;'],
   ['f_wrap_word', () => 'overflow-wrap: break-word;'],
   ['f_wrap_letter', () => 'word-break: break-all;'],
-  ['f_no_wrap',() => 'white-space: nowrap; word-break: normal; overflow-wrap: normal;',],
-  ['f_truncate',() => 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;',],
+  [
+    'f_no_wrap',
+    () => 'white-space: nowrap; word-break: normal; overflow-wrap: normal;',
+  ],
+  [
+    'f_truncate',
+    () => 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;',
+  ],
 ];
 
 export default fontCss;

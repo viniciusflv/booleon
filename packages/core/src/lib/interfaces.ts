@@ -1,5 +1,5 @@
-import { medias, pseudo } from './constants';
 import { FC } from 'react';
+import { medias, pseudo } from './constants';
 
 export type KeyInType<T extends string | number | symbol> = {
   [key in T]?: boolean;
@@ -31,11 +31,12 @@ type Prefix = { [key in Options]?: boolean };
 type Prefixed<T = {}> = T & Prefix;
 
 type Props<T = {}> = Prefixed<
-  | (T & React.HTMLProps<T>)
-  | { [key in string]?: boolean | string }
+  (T & React.HTMLProps<T>) | { [key in string]?: boolean | string }
 >;
 
-export type Indexer<T> = Array<[RegExp | keyof T, (args: string | boolean) => string]>;
+export type Indexer<T> = Array<
+  [RegExp | keyof T, (args: string | boolean) => string]
+>;
 
 export type Medias = typeof medias[number];
 export type Pseudo = typeof pseudo[number];
