@@ -1,7 +1,7 @@
 import { Text } from '../../packages/core/src';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
-import React, { FC } from 'react';
+import React from 'react';
 
 export default {
   title: 'Core / Text',

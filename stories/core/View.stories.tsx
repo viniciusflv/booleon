@@ -10,8 +10,9 @@ export default {
 };
 
 export const Default = () => {
+  return <View.div hover__op_80 hover__sd_3 />;
   return (
-    <View.div flex cross_center fc_555 focus__fc_00f>
+    <View.div flex cross_center fc_555>
       <View.input
         id="checkbox"
         type="checkbox"
@@ -35,6 +36,7 @@ export const Default = () => {
         focus__bc_00f
         checked__before__content='"✔"'
         before__absolute
+        focus__sibling__fc_00f
       />
       <Text.label htmlFor="checkbox" fsl_none cr_pointer fs_12 ff_sans>
         Checkbox

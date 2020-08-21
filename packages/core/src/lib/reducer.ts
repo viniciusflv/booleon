@@ -79,7 +79,7 @@ const propsReducer = (id: string, booleonProps: any) =>
       const prefixKey = prefix.match(/@media/g)
         ? prefix
         : `${id}${prefix}`;
-      return {...acc, [prefixKey]: { ...acc[prefix], [cleanKey]: booleonProps[key] }};
+      return {...acc, [prefixKey]: { ...acc[prefixKey], [cleanKey]: booleonProps[key] }};
     } else return { ...acc, [id]: { ...acc[id], [key]:booleonProps[key]  } };
   }, {});
 
