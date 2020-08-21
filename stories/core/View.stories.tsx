@@ -1,16 +1,14 @@
 import { Text, View } from '../../packages/core/src';
-import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 
 export default {
   title: 'Core / View',
   component: View,
-  decorators: [withA11y, withKnobs],
+  decorators: [withKnobs],
 };
 
 export const Default = () => {
-  return <View.div hover__op_80 hover__sd_3 />;
   return (
     <View.div flex cross_center fc_555>
       <View.input

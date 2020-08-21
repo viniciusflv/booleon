@@ -8,4 +8,10 @@ export const parameters = {
       { name: 'dark', value: '#333333' },
     ],
   },
+  a11y: {
+    element: '#root',
+    config: {},
+    options: {},
+    manual: true,
+  },
 };

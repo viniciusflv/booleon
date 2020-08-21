@@ -1,17 +1,17 @@
 import { Text } from '../../packages/core/src';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { withA11y } from '@storybook/addon-a11y';
 import React from 'react';
 
 export default {
   title: 'Core / Text',
   component: Text,
-  decorators: [withA11y, withKnobs],
+  decorators: [withKnobs],
 };
 
 export const Default = () => {
-  const props = text('Props', '')
+  const props = text('Props', 'fc_f00 ff_sans fs_12')
     .split(/\s/)
+    .filter(Boolean)
     .reduce((acc, prop) => ({ ...acc, [prop]: true }), {});
   return <Text.span {...props}>{text('Text', 'Hello World')}</Text.span>;
 };
