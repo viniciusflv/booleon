@@ -1,7 +1,7 @@
-import '@testing-library/jest-dom';
 import React from 'react';
 import { Text } from '../../packages/core/src';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('Font', () => {
   describe('Style', () => {
