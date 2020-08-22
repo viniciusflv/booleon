@@ -10,6 +10,12 @@
     "format": "prettier-eslint --write $PWD/**/*.{ts,tsx}",
     "bundle": "lerna run build --parallel"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format",
+      "pre-push": "npm test"
+    }
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -40,6 +46,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-styled-components": "^7.0.2",
     "lerna": "^3.22.0",
