@@ -10,8 +10,7 @@
     "styled-components": "^5.1.0"
   },
   "dependencies": {
-    "react": "^16.13.1",
-    "styled-components": "^5.1.0"
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "tsdx": "^0.13.2"

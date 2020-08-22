@@ -9,30 +9,36 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
   return elements.reduce(
     (acc: Booleon<E[number]>, element: E[number]) => ({
       ...acc,
-      [element]: function Booleon({ className = '', ...props }) {
-        const indexer = useMemo(
-          () => indexers.reduce((acc, indexer) => [...acc, ...indexer], []),
-          [indexers],
-        );
+      [element]: (() => {
+        function Booleon({ className = '', ...props }) {
+          const indexer = useMemo(
+            () => indexers.reduce((acc, indexer) => [...acc, ...indexer], []),
+            [indexers],
+          );
 
-        const [id, classes, htmlProps] = useMemo(
-          () => useReducer<T>(props as T, indexer),
-          [props, indexer],
-        );
+          const [id, classes, htmlProps] = useMemo(
+            () => useReducer<T>(props as T, indexer),
+            [props, indexer],
+          );
 
-        let style = document.getElementById(id);
-        if (!style) {
-          style = document.createElement('style');
-          style.setAttribute('id', id);
-          document.head.appendChild(style);
+          let style = document.getElementById(id);
+          if (!style) {
+            style = document.createElement('style');
+            style.setAttribute('id', id);
+            document.head.appendChild(style);
+          }
+          if (classes !== style.innerHTML) style.innerHTML = classes;
+
+          return React.createElement(element, {
+            ...htmlProps,
+            className: `${id} ${className}`,
+          });
         }
-        if (classes !== style.innerHTML) style.innerHTML = classes;
 
-        return React.createElement(element, {
-          ...htmlProps,
-          className: `${id} ${className}`,
-        });
-      },
+        Booleon.displayName = `Booleon.${element}`;
+
+        return Booleon;
+      })(),
     }),
     {} as Booleon<E[number]>,
   );
