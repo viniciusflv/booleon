@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { medias, pseudo } from './constants';
 
 export type KeyInType<T extends string | number | symbol> = {
   [key in T]?: boolean;
@@ -37,11 +36,6 @@ type Props<T = {}> = Prefixed<
 export type Indexer<T> = Array<
   [RegExp | keyof T, (args: string | boolean) => string]
 >;
-
-export type Medias = typeof medias[number];
-export type Pseudo = typeof pseudo[number];
-
-export type ReducedProps<T> = { [key in Medias | Pseudo]?: T } & { style: T };
 
 export type Booleon<E extends keyof React.ReactDOM, T = {}> = {
   [key in E]: FC<Props<T>>;

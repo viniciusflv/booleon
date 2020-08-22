@@ -1,8 +1,12 @@
-import { Indexer, Medias, Pseudo } from './interfaces';
+import { Indexer } from './interfaces';
+import {
+  MediaQueries,
+  PseudoElements,
+  mediaQueries,
+  prefixRegex,
+  pseudoElements,
+} from './constants';
 import { fastHash } from './fastHash';
-import { medias, mediasMap } from './constants';
-
-const prefixRegex = /((\w+)__)/g;
 
 function propIsBooleon<T>(key: string, indexer: Indexer<T>) {
   return indexer
@@ -46,23 +50,11 @@ function cssReducer<T>(key: string, value: any, indexer: Indexer<T>) {
   }, '');
 }
 
-const handlePseudo = (prefix: Pseudo) =>
-  new Map([
-    ['focus', ':focus:focus-within'],
-    ['after', ':after'],
-    ['before', ':before'],
-    ['active', ':active'],
-    ['checked', ':checked'],
-    ['disabled', ':disabled'],
-    ['hover', ':hover'],
-    ['visited', ':visited'],
-    ['child', '>*'],
-    ['last', ':last-child'],
-    ['first', ':first-child'],
-    ['sibling', '+*'],
-  ]).get(prefix) || prefix;
+const handlePseudo = (prefix: PseudoElements) =>
+  new Map(pseudoElements).get(prefix);
 
-const handleMedias = (prefix: Medias) => `@media${mediasMap.get(prefix)}`;
+const handleMedias = (prefix: MediaQueries) =>
+  `@media${new Map(mediaQueries).get(prefix)}`;
 
 const propsReducer = (id: string, booleonProps: any) =>
   Object.keys(booleonProps).reduce((acc, key) => {
@@ -71,10 +63,10 @@ const propsReducer = (id: string, booleonProps: any) =>
       const prefix = match[0]
         .split('__')
         .filter(Boolean)
-        .map((prefix) =>
-          medias.includes(prefix as any)
-            ? handleMedias(prefix as any)
-            : handlePseudo(prefix as any),
+        .map(
+          (prefix) =>
+            handlePseudo(prefix as PseudoElements) ||
+            handleMedias(prefix as MediaQueries),
         )
         .join('');
 
