@@ -1,6 +1,6 @@
+import GradientProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { hexColor } from '../../lib/constants';
-import GradientProps from './interfaces';
 
 const lg = (linear: string) => `background-image: linear-gradient(${linear});`;
 

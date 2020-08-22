@@ -1,5 +1,5 @@
-import { Indexer } from '../../lib/interfaces';
 import CursorProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
 const cursorCss: Indexer<CursorProps> = [
   ['cr_auto', () => 'cursor: auto;'],

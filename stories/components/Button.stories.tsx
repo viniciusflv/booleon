@@ -1,7 +1,7 @@
+import React from 'react';
 import { Button } from '../../packages/components/src';
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 
 export default {
   title: 'Components / Button',

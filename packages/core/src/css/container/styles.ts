@@ -1,6 +1,6 @@
+import ContainerProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
-import ContainerProps from './interfaces';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerCss: Indexer<ContainerProps> = [

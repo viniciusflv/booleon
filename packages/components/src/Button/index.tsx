@@ -1,5 +1,5 @@
-import { ButtonProps } from './interfaces';
 import React, { FC, Suspense, lazy } from 'react';
+import { ButtonProps } from './interfaces';
 
 const ButtonComponent = lazy(() => import('./component'));
 

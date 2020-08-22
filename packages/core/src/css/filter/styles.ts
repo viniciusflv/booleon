@@ -1,7 +1,7 @@
+import FilterProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
 import { handleShadow } from '../../lib/shadow';
-import FilterProps from './interfaces';
 
 const filterCss: Indexer<FilterProps> = [
   [/^(ft_blur_)(\d+)/, (value) => `filter: blur(${value}rem);`],

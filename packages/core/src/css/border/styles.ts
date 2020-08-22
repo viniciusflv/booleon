@@ -1,7 +1,7 @@
+import BorderProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
 import { hexColor } from '../../lib/constants';
-import BorderProps from './interfaces';
 
 const borderCss: Indexer<BorderProps> = [
   [new RegExp(`^(bc_)${hexColor}`), (value) => `border-color: #${value};`],

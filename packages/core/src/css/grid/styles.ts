@@ -1,5 +1,5 @@
-import { Indexer } from '../../lib/interfaces';
 import GridProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
 const gridCss: Indexer<GridProps> = [
   [/^(rows_)(\d+[a-z]+|auto).*/, (value) => `grid-template-rows: ${value};`],

@@ -1,7 +1,7 @@
+import OutlineProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
 import { hexColor } from '../../lib/constants';
-import OutlineProps from './interfaces';
 
 const outlineCss: Indexer<OutlineProps> = [
   [new RegExp(`^(olc_)${hexColor}`), (value) => `outline-color: #${value};`],

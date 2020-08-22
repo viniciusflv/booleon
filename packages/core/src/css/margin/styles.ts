@@ -1,6 +1,6 @@
+import MarginProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
-import MarginProps from './interfaces';
 
 const marginCss: Indexer<MarginProps> = [
   [

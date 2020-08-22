@@ -1,5 +1,5 @@
-import { Indexer } from '../../lib/interfaces';
 import TransformProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
 const transformCss: Indexer<TransformProps> = [
   [/^(sl_)(\d+)/, (value) => `transform: scale(${value}rem,${value}rem);`],

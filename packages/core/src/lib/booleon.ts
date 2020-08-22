@@ -1,6 +1,6 @@
+import React, { useMemo } from 'react';
 import { Booleon, Indexer } from './interfaces';
 import { useReducer } from './reducer';
-import React, { useMemo } from 'react';
 
 export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
   elements: E,

@@ -1,6 +1,6 @@
+import SizingProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
-import SizingProps from './interfaces';
 
 const sizingCss: Indexer<SizingProps> = [
   [/^(h_)(\d+)/, (value) => `height: ${divideIfNumber(value, 100, 'rem')};`],

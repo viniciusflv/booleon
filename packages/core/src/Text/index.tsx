@@ -1,3 +1,4 @@
+import TextProps from './interfaces';
 import { booleon } from '../lib/booleon';
 import {
   containerCss,
@@ -8,7 +9,6 @@ import {
   transitionCss,
 } from '../css';
 import { textTags } from '../lib/constants';
-import TextProps from './interfaces';
 
 export const Text = booleon<typeof textTags, TextProps>(
   textTags,

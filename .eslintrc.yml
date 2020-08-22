@@ -30,6 +30,13 @@ rules:
     - allowExpressions: true
   sort-imports-es6-autofix/sort-imports-es6:
     - warn
+    - ignoreCase: false
+      ignoreMemberSort: false
+      memberSyntaxSortOrder:
+        - single
+        - all
+        - multiple
+        - none
   indent:
     - warn
     - 2

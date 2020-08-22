@@ -1,6 +1,6 @@
+import React from 'react';
 import { Text } from '../../packages/core/src';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 
 export default {
   title: 'Core / Text',

@@ -1,5 +1,5 @@
-import { Indexer } from '../../lib/interfaces';
 import TransitionProps from './interfaces';
+import { Indexer } from '../../lib/interfaces';
 
 const colors = 'background-color, border-color, color, fill, stroke';
 

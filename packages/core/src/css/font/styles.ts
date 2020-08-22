@@ -1,7 +1,7 @@
+import FontProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
 import { hexColor } from '../../lib/constants';
-import FontProps from './interfaces';
 
 const fontCss: Indexer<FontProps> = [
   [

@@ -1,6 +1,6 @@
+import React, { FC } from 'react';
 import { ButtonProps } from './interfaces';
 import { Text, View } from '../../../core/src';
-import React, { FC } from 'react';
 
 const ButtonComponent: FC<ButtonProps> = ({
   children,

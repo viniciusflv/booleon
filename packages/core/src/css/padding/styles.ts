@@ -1,6 +1,6 @@
+import PaddingProps from './interfaces';
 import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
-import PaddingProps from './interfaces';
 
 const paddingCss: Indexer<PaddingProps> = [
   [/^(p_)(\d+)/, (value) => `padding: ${divideIfNumber(value, 10, 'rem')};`],
