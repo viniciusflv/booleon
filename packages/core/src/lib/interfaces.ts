@@ -34,7 +34,7 @@ type Props<T = {}> = Prefixed<
 >;
 
 export type Indexer<T> = Array<
-  [RegExp | keyof T, (args: string | boolean) => string]
+  [(() => RegExp) | keyof T, (args: string | boolean) => string]
 >;
 
 export type Booleon<E extends keyof React.ReactDOM, T = {}> = {

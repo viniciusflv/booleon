@@ -3,25 +3,28 @@ import { Indexer } from '../../lib/interfaces';
 import { divideIfNumber } from '../../lib/divideIfNumber';
 
 const paddingCss: Indexer<PaddingProps> = [
-  [/^(p_)(\d+)/, (value) => `padding: ${divideIfNumber(value, 10, 'rem')};`],
   [
-    /^(pt_)(\d+)/,
+    () => /^(p_)(\d+)/,
+    (value) => `padding: ${divideIfNumber(value, 10, 'rem')};`,
+  ],
+  [
+    () => /^(pt_)(\d+)/,
     (value) => `padding-top: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    /^(pb_)(\d+)/,
+    () => /^(pb_)(\d+)/,
     (value) => `padding-bottom: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    /^(pl_)(\d+)/,
+    () => /^(pl_)(\d+)/,
     (value) => `padding-left: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    /^(pr_)(\d+)/,
+    () => /^(pr_)(\d+)/,
     (value) => `padding-right: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    /^(px_)(\d+)/,
+    () => /^(px_)(\d+)/,
     (value) =>
       `padding-left: ${divideIfNumber(
         value,
@@ -30,7 +33,7 @@ const paddingCss: Indexer<PaddingProps> = [
       )}; padding-right: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    /^(py_)(\d+)/,
+    () => /^(py_)(\d+)/,
     (value) =>
       `padding-top: ${divideIfNumber(
         value,

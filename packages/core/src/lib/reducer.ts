@@ -11,8 +11,8 @@ import { fastHash } from './fastHash';
 function propIsBooleon<T>(key: string, indexer: Indexer<T>) {
   return indexer
     .map(([index]) =>
-      index instanceof RegExp
-        ? Boolean(key.match(index))
+      index instanceof Function
+        ? Boolean(key.match(index()))
         : key === index || Boolean((key as string).match(prefixRegex)),
     )
     .includes(true);
@@ -37,8 +37,8 @@ function cssReducer<T>(key: string, value: any, indexer: Indexer<T>) {
   if (!value) return '';
 
   return indexer.reduce((acc, [index, cb]) => {
-    if (index instanceof RegExp) {
-      const match = key.match(index);
+    if (index instanceof Function) {
+      const match = key.match(index());
       if (match) {
         const groups = match[0].replace(match[1], '').replace(/_/g, ' ');
         acc += cb(groups);

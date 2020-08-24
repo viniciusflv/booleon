@@ -4,8 +4,11 @@ import { Indexer } from '../../lib/interfaces';
 const colors = 'background-color, border-color, color, fill, stroke';
 
 const transitionCss: Indexer<TransitionProps> = [
-  [/^(ts_duration_)(\d+[a-z]+)/, (value) => `transition-duration: ${value};`],
-  [/^(ts_delay_)(\d+[a-z]+)/, (value) => `transition-delay: ${value};`],
+  [
+    () => /^(ts_duration_)(\d+[a-z]+)/,
+    (value) => `transition-duration: ${value};`,
+  ],
+  [() => /^(ts_delay_)(\d+[a-z]+)/, (value) => `transition-delay: ${value};`],
   [
     'ts',
     () => `transition-property: ${colors}, opacity, box-shadow, transform;`,
