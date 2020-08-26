@@ -4,27 +4,27 @@ import { divideIfNumber } from '../../lib/divideIfNumber';
 
 const marginCss: Indexer<MarginProps> = [
   [
-    () => /^(m_)(\d+|auto)/,
+    () => '^(m_)(\\d+|auto)',
     (value) => `margin: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    () => /^(mt_)(\d+|auto)/,
+    () => '^(mt_)(\\d+|auto)',
     (value) => `margin-top: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    () => /^(mb_)(\d+|auto)/,
+    () => '^(mb_)(\\d+|auto)',
     (value) => `margin-bottom: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    () => /^(ml_)(\d+|auto)/,
+    () => '^(ml_)(\\d+|auto)',
     (value) => `margin-left: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    () => /^(mr_)(\d+|auto)/,
+    () => '^(mr_)(\\d+|auto)',
     (value) => `margin-right: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    () => /^(mx_)(\d+|auto)/,
+    () => '^(mx_)(\\d+|auto)',
     (value) =>
       `margin-left: ${divideIfNumber(
         value,
@@ -33,7 +33,7 @@ const marginCss: Indexer<MarginProps> = [
       )}; margin-right: ${divideIfNumber(value, 10, 'rem')};`,
   ],
   [
-    () => /^(my_)(\d+|auto)/,
+    () => '^(my_)(\\d+|auto)',
     (value) =>
       `margin-top: ${divideIfNumber(
         value,

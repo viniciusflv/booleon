@@ -4,69 +4,54 @@ import { divideIfNumber } from '../../lib/divideIfNumber';
 import { hexColor } from '../../lib/constants';
 
 const borderCss: Indexer<BorderProps> = [
+  [() => `^(bc_)${hexColor}`, (value) => `border-color: #${value};`],
+  [() => `^(btc_)${hexColor}`, (value) => `border-top-color: #${value};`],
+  [() => `^(bbc_)${hexColor}`, (value) => `border-bottom-color: #${value};`],
+  [() => `^(blc_)${hexColor}`, (value) => `border-left-color: #${value};`],
+  [() => `^(brc_)${hexColor}`, (value) => `border-right-color: #${value};`],
   [
-    () => new RegExp(`^(bc_)${hexColor}`),
-    (value) => `border-color: #${value};`,
-  ],
-  [
-    () => new RegExp(`^(btc_)${hexColor}`),
-    (value) => `border-top-color: #${value};`,
-  ],
-  [
-    () => new RegExp(`^(bbc_)${hexColor}`),
-    (value) => `border-bottom-color: #${value};`,
-  ],
-  [
-    () => new RegExp(`^(blc_)${hexColor}`),
-    (value) => `border-left-color: #${value};`,
-  ],
-  [
-    () => new RegExp(`^(brc_)${hexColor}`),
-    (value) => `border-right-color: #${value};`,
-  ],
-  [
-    () => new RegExp(`^(bxc_)${hexColor}`),
+    () => `^(bxc_)${hexColor}`,
     (value) => `border-right-color: #${value};border-left-color: #${value};`,
   ],
   [
-    () => new RegExp(`^(byc_)${hexColor}`),
+    () => `^(byc_)${hexColor}`,
     (value) => `border-top-color: #${value};border-bottom-color: #${value};`,
   ],
-  [() => /^(bs_)([a-z]+)/, (value) => `border-style: ${value};`],
-  [() => /^(bts_)([a-z]+)/, (value) => `border-top-style: ${value};`],
-  [() => /^(bbs_)([a-z]+)/, (value) => `border-bottom-style: ${value};`],
-  [() => /^(bls_)([a-z]+)/, (value) => `border-left-style: ${value};`],
-  [() => /^(brs_)([a-z]+)/, (value) => `border-right-style: ${value};`],
+  [() => '^(bs_)([a-z]+)', (value) => `border-style: ${value};`],
+  [() => '^(bts_)([a-z]+)', (value) => `border-top-style: ${value};`],
+  [() => '^(bbs_)([a-z]+)', (value) => `border-bottom-style: ${value};`],
+  [() => '^(bls_)([a-z]+)', (value) => `border-left-style: ${value};`],
+  [() => '^(brs_)([a-z]+)', (value) => `border-right-style: ${value};`],
   [
-    () => /^(bxs_)([a-z]+)/,
+    () => '^(bxs_)([a-z]+)',
     (value) => `border-left-style: ${value};border-right-style: ${value};`,
   ],
   [
-    () => /^(bys_)([a-z]+)/,
+    () => '^(bys_)([a-z]+)',
     (value) => `border-top-style: ${value};border-bottom-style: ${value};`,
   ],
   [
-    () => /^(bw_)([0-9]+)/,
+    () => '^(bw_)(\\d+)',
     (value) => `border-width: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(btw_)([0-9]+)/,
+    () => '^(btw_)(\\d+)',
     (value) => `border-top-width: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(bbw_)([0-9]+)/,
+    () => '^(bbw_)(\\d+)',
     (value) => `border-bottom-width: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(blw_)([0-9]+)/,
+    () => '^(blw_)(\\d+)',
     (value) => `border-left-width: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(brw_)([0-9]+)/,
+    () => '^(brw_)(\\d+)',
     (value) => `border-right-width: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(bxw_)([0-9]+)/,
+    () => '^(bxw_)(\\d+)',
     (value) =>
       `border-left-width: ${divideIfNumber(
         value,
@@ -75,7 +60,7 @@ const borderCss: Indexer<BorderProps> = [
       )};border-right-width: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(byw_)([0-9]+)/,
+    () => '^(byw_)(\\d+)',
     (value) =>
       `border-top-width: ${divideIfNumber(
         value,

@@ -8,11 +8,11 @@ import {
 } from './constants';
 import { fastHash } from './fastHash';
 
-function propIsBooleon<T>(key: string, indexer: Indexer<T>) {
+function propIsBooleon<T>(key: string, indexer: Indexer<T, RegExp>) {
   return indexer
     .map(([index]) =>
-      index instanceof Function
-        ? Boolean(key.match(index()))
+      index instanceof RegExp
+        ? Boolean(key.match(index))
         : key === index || Boolean((key as string).match(prefixRegex)),
     )
     .includes(true);
@@ -20,7 +20,7 @@ function propIsBooleon<T>(key: string, indexer: Indexer<T>) {
 
 function categorizeProps<T>(
   props: T | React.HTMLProps<{}>,
-  indexer: Indexer<T>,
+  indexer: Indexer<T, RegExp>,
 ): [React.HTMLProps<{}>, T] {
   return Object.keys(props).reduce(
     (acc, key) => {
@@ -33,12 +33,12 @@ function categorizeProps<T>(
   );
 }
 
-function cssReducer<T>(key: string, value: any, indexer: Indexer<T>) {
+function cssReducer<T>(key: string, value: any, indexer: Indexer<T, RegExp>) {
   if (!value) return '';
 
   return indexer.reduce((acc, [index, cb]) => {
-    if (index instanceof Function) {
-      const match = key.match(index());
+    if (index instanceof RegExp) {
+      const match = key.match(index);
       if (match) {
         const groups = match[0].replace(match[1], '').replace(/_/g, ' ');
         acc += cb(groups);
@@ -93,7 +93,7 @@ const classReducer = (
 
 export function useReducer<T>(
   props: T | React.HTMLProps<{}>,
-  indexer: Indexer<T>,
+  indexer: Indexer<T, RegExp>,
 ): [string, string, React.HTMLProps<{}>] {
   const [htmlProps, booleonProps] = categorizeProps(props, indexer);
   const id = `bl-${fastHash(Object.keys(booleonProps).join(''))}`;

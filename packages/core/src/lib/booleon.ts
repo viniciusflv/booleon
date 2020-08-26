@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { Booleon, Indexer } from './interfaces';
 import { useReducer } from './reducer';
 
@@ -11,8 +11,14 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
       ...acc,
       [element]: (() => {
         function Booleon({ className = '', ...props }) {
-          const indexer = useMemo(
-            () => indexers.reduce((acc, indexer) => [...acc, ...indexer], []),
+          const indexer: Indexer<T, RegExp> = useMemo(
+            () =>
+              indexers
+                .reduce((acc, indexer) => [...acc, ...indexer], [])
+                .map(([index, cb]) => [
+                  index instanceof Function ? new RegExp(index()) : index,
+                  cb,
+                ]),
             [indexers],
           );
 
@@ -37,7 +43,7 @@ export function booleon<E extends readonly (keyof React.ReactDOM)[], T>(
 
         Booleon.displayName = `Booleon.${element}`;
 
-        return Booleon;
+        return memo(Booleon);
       })(),
     }),
     {} as Booleon<E[number]>,

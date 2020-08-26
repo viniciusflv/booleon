@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --watch",
     "dev": "start-storybook -p 6006",
     "build": "build-storybook -c .storybook -o build/dist",
     "format": "prettier-eslint --write $PWD/**/*.{ts,tsx}",

@@ -10,15 +10,20 @@ export type KeyInString<T = {}> = T &
   };
 
 type Options =
+  | 'focus__PROP'
   | 'after__PROP'
   | 'before__PROP'
   | 'active__PROP'
   | 'checked__PROP'
   | 'disabled__PROP'
-  | 'focus__PROP'
   | 'hover__PROP'
   | 'visited__PROP'
-  // | 'siblign__PROP'
+  | 'child__PROP'
+  | 'last__PROP'
+  | 'first__PROP'
+  | 'sibling__PROP'
+  | 'odd__PROP'
+  | 'even__PROP'
   | 'xs__PROP'
   | 'sm__PROP'
   | 'md__PROP'
@@ -33,8 +38,8 @@ type Props<T = {}> = Prefixed<
   (T & React.HTMLProps<T>) | { [key in string]?: boolean | string }
 >;
 
-export type Indexer<T> = Array<
-  [(() => RegExp) | keyof T, (args: string | boolean) => string]
+export type Indexer<T, R = () => string> = Array<
+  [keyof T | R, (args: string | boolean) => string]
 >;
 
 export type Booleon<E extends keyof React.ReactDOM, T = {}> = {

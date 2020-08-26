@@ -4,38 +4,38 @@ import { divideIfNumber } from '../../lib/divideIfNumber';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerCss: Indexer<ContainerProps> = [
-  [() => /^(z_)(\d+)/, (value) => `z-index: ${value};`],
-  [() => /^(op_)(\d+)/, (value) => `opacity: ${divideIfNumber(value, 100)};`],
+  [() => '^(z_)(\\d+)', (value) => `z-index: ${value};`],
+  [() => '^(op_)(\\d+)', (value) => `opacity: ${divideIfNumber(value, 100)};`],
   [
-    () => /^(top_)(\d+)/,
+    () => '^(top_)(\\d+)',
     (value) => `top: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(bottom_)(\d+)/,
+    () => '^(bottom_)(\\d+)',
     (value) => `bottom: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(left_)(\d+)/,
+    () => '^(left_)(\\d+)',
     (value) => `left: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(right_)(\d+)/,
+    () => '^(right_)(\\d+)',
     (value) => `right: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(top_neg_)(\d+)/,
+    () => '^(top_neg_)(\\d+)',
     (value) => `top: -${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(bottom_neg_)(\d+)/,
+    () => '^(bottom_neg_)(\\d+)',
     (value) => `bottom: -${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(left_neg_)(\d+)/,
+    () => '^(left_neg_)(\\d+)',
     (value) => `left: -${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(right_neg_)(\d+)/,
+    () => '^(right_neg_)(\\d+)',
     (value) => `right: -${divideIfNumber(value, 100, 'rem')};`,
   ],
   [

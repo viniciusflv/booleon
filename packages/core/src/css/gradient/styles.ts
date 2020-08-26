@@ -6,27 +6,21 @@ const lg = (linear: string) => `background-image: linear-gradient(${linear});`;
 
 const gradientCss: Indexer<GradientProps> = [
   [
-    () => new RegExp(`^(gx_)${hexColor}`),
+    () => `^(gx_)${hexColor}`,
     (value) => lg(`to right,#${value},transparent,#${value}`),
   ],
   [
-    () => new RegExp(`^(gy_)${hexColor}`),
+    () => `^(gy_)${hexColor}`,
     (value) => lg(`to top, #${value}, transparent, #${value}`),
   ],
+  [() => `^(gt_)${hexColor}`, (value) => lg(`to top, transparent, #${value}`)],
   [
-    () => new RegExp(`^(gt_)${hexColor}`),
-    (value) => lg(`to top, transparent, #${value}`),
-  ],
-  [
-    () => new RegExp(`^(gb_)${hexColor}`),
+    () => `^(gb_)${hexColor}`,
     (value) => lg(`to bottom, transparent, #${value}`),
   ],
+  [() => `^(gl_)${hexColor}`, (value) => lg(`to left, transparent, #${value}`)],
   [
-    () => new RegExp(`^(gl_)${hexColor}`),
-    (value) => lg(`to left, transparent, #${value}`),
-  ],
-  [
-    () => new RegExp(`^(gr_)${hexColor}`),
+    () => `^(gr_)${hexColor}`,
     (value) => lg(`to right, transparent, #${value}`),
   ],
 ];

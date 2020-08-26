@@ -5,31 +5,31 @@ import { hexColor } from '../../lib/constants';
 
 const fontCss: Indexer<FontProps> = [
   [
-    () => new RegExp(`^(fb_)${hexColor}`),
+    () => `^(fb_)${hexColor}`,
     (value) =>
       `text-shadow: -1px 0 #${value}, 0 1px #${value}, 1px 0 #${value}, 0 -1px #${value};`,
   ],
-  [() => new RegExp(`^(fc_)${hexColor}`), (value) => `color: #${value};`],
+  [() => `^(fc_)${hexColor}`, (value) => `color: #${value};`],
   [
-    () => /^(fs_)(\d+)/,
+    () => '^(fs_)(\\d+)',
     (value) => `font-size: ${divideIfNumber(value, 10, 'rem')};`,
   ],
-  [() => /^(fsl_)([a-z]+)/, (value) => `user-select: ${value};`],
+  [() => '^(fsl_)([a-z]+)', (value) => `user-select: ${value};`],
   [
-    () => /^(ls_)(\d+)/,
+    () => '^(ls_)(\\d+)',
     (value) => `letter-spacing: ${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(ls_neg_)(\d+)/,
+    () => '^(ls_neg_)(\\d+)',
     (value) => `letter-spacing: -${divideIfNumber(value, 100, 'rem')};`,
   ],
   [
-    () => /^(lh_)(\d+)/,
+    () => '^(lh_)(\\d+)',
     (value) => `line-height: ${divideIfNumber(value, 100, 'rem')};`,
   ],
-  [() => /^(fa_)([a-z]+)/, (value) => `text-align: ${value};`],
-  [() => /^(ft_)([a-z]+)/, (value) => `text-transform: ${value};`],
-  [() => /^(ff_)([A-z]+).*/, (value) => `font-family: ${value};`],
+  [() => '^(fa_)([a-z]+)', (value) => `text-align: ${value};`],
+  [() => '^(ft_)([a-z]+)', (value) => `text-transform: ${value};`],
+  [() => '^(ff_)([A-z]+).*', (value) => `font-family: ${value};`],
   ['ff_sans', () => 'font-family: sans-serif;'],
   ['ff_serif', () => 'font-family: serif;'],
   ['ff_mono', () => 'font-family: monospace;'],
