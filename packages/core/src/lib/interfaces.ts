@@ -35,8 +35,12 @@ type Prefix = { [key in Options]?: boolean };
 type Prefixed<T = {}> = T & Prefix;
 
 type Props<T = {}> = Prefixed<
-  (T & React.HTMLProps<T>) | { [key in string]?: boolean | string }
+  (T & React.HTMLProps<T>) | { [key in string]?: boolean | string | any }
 >;
+
+export type InferBooleon<T> = T extends Booleon<infer Z, infer P>
+  ? Props<P>
+  : never;
 
 export type Indexer<T, R = () => string> = Array<
   [keyof T | R, (args: string | boolean) => string]
