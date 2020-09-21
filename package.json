@@ -14,8 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format",
-      "pre-push": "npm test"
+      "pre-commit": "npm run format"
     }
   },
   "workspaces": [
