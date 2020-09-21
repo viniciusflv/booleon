@@ -1,28 +1,21 @@
 import { Entry, Indexer } from '../lib/interfaces';
-import { c } from '../lib/constants';
 import { hexColor } from '../lib/regex';
 
 const backgroundTuple = [
-  [
-    'bg_img',
-    (value: string) => c.background['-'].image[':'].value(value)[';'].res,
-  ],
-  ['bg_transparent', () => c.background['-'].color[':'].transparent[';'].res],
-  ['bg_repeat', () => c.background['-'].repeat[':'].repeat[';'].res],
-  ['bg_norepeat', () => c.background['-'].repeat[':'].no.repeat[';'].res],
-  ['bg_auto', () => c.background['-'].size[':'].auto[';'].res],
-  ['bg_cover', () => c.background['-'].size[':'].cover[';'].res],
-  ['bg_contain', () => c.background['-'].size[':'].contain[';'].res],
-  ['bg_fixed', () => c.background['-'].attachment[':'].fixed[';'].res],
-  ['bg_local', () => c.background['-'].attachment[':'].local[';'].res],
-  ['bg_scroll', () => c.background['-'].attachment[':'].scroll[';'].res],
+  ['bg_img', (value: string) => `background-image:${value};`],
+  ['bg_transparent', () => 'background-color:transparent;'],
+  ['bg_repeat', () => 'background-repeat:repeat;'],
+  ['bg_norepeat', () => 'background-repeat:norepeat;'],
+  ['bg_auto', () => 'background-size:auto;'],
+  ['bg_cover', () => 'background-size:cover;'],
+  ['bg_contain', () => 'background-size:contain;'],
+  ['bg_fixed', () => 'background-attachment:fixed;'],
+  ['bg_local', () => 'background-attachment:local;'],
+  ['bg_scroll', () => 'background-attachment:scroll;'],
 ] as const;
 
 const backgroundIndexer: Indexer = [
-  [
-    () => `^(bg_)(${hexColor})`,
-    (value) => c.background['-'].color[':'].value(`#${value}`)[';'].res,
-  ],
+  [() => `^(bg_)(${hexColor})`, (value) => `background-color:#${value};`],
 ];
 
 type BackgroundProps = Entry<typeof backgroundTuple, 'bg_HEX'>;
