@@ -78,17 +78,17 @@ const borderTuple = [
 ] as const;
 
 const borderIndexer: Indexer = [
-  [() => `^(bc_)${hexColor}`, (value) => `border-color:#${value};`],
-  [() => `^(btc_)${hexColor}`, (value) => `border-top-color:#${value};`],
-  [() => `^(bbc_)${hexColor}`, (value) => `border-bottom-color:#${value};`],
-  [() => `^(blc_)${hexColor}`, (value) => `border-left-color:#${value};`],
-  [() => `^(brc_)${hexColor}`, (value) => `border-right-color:#${value};`],
+  [() => `^(bc_)(${hexColor})`, (value) => `border-color:#${value};`],
+  [() => `^(btc_)(${hexColor})`, (value) => `border-top-color:#${value};`],
+  [() => `^(bbc_)(${hexColor})`, (value) => `border-bottom-color:#${value};`],
+  [() => `^(blc_)(${hexColor})`, (value) => `border-left-color:#${value};`],
+  [() => `^(brc_)(${hexColor})`, (value) => `border-right-color:#${value};`],
   [
-    () => `^(bxc_)${hexColor}`,
+    () => `^(bxc_)(${hexColor})`,
     (value) => `border-right-color:#${value};border-left-color:#${value};`,
   ],
   [
-    () => `^(byc_)${hexColor}`,
+    () => `^(byc_)(${hexColor})`,
     (value) => `border-top-color:#${value};border-bottom-color:#${value};`,
   ],
   [() => '^(bs_)([a-z]+)', (value) => `border-style:${value};`],

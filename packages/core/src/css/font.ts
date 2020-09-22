@@ -1,6 +1,6 @@
 import { Entry, Indexer } from '../lib/interfaces';
-import { hexColor } from 'lib/regex';
-import { percentage } from 'lib/utils';
+import { hexColor } from '../lib/regex';
+import { percentage } from '../lib/utils';
 
 const fontTuple = [
   ['ff_sans', () => 'font-family:sans-serif;'],
@@ -39,11 +39,11 @@ const fontTuple = [
 
 const fontIndexer: Indexer = [
   [
-    () => `^(fb_)${hexColor}`,
+    () => `^(fb_)(${hexColor})`,
     (value) =>
       `text-shadow:-1px0#${value},01px#${value},1px0#${value},0-1px#${value};`,
   ],
-  [() => `^(fc_)${hexColor}`, (value) => `color:#${value};`],
+  [() => `^(fc_)(${hexColor})`, (value) => `color:#${value};`],
   [() => '^(fs_)(\\d+)', (value) => `font-size:${percentage(value)}rem;`],
   [() => '^(fsl_)([a-z]+)', (value) => `user-select:${value};`],
   [() => '^(ls_)(\\d+)', (value) => `letter-spacing:${percentage(value)}rem;`],

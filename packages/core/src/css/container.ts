@@ -1,5 +1,5 @@
 import { Entry, Indexer } from '../lib/interfaces';
-import { percentage } from 'lib/utils';
+import { percentage } from '../lib/utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerTuple = [

@@ -1,5 +1,5 @@
-import { Indexer } from '../lib/interfaces';
-import { percentage, shadow } from 'lib/utils';
+import { Entry, Indexer } from '../lib/interfaces';
+import { percentage, shadow } from '../lib/utils';
 
 const filterIndexer: Indexer = [
   [() => '^(ft_blur_)(\\d+)', (value) => `filter:blur(${value}rem);`],
@@ -20,18 +20,18 @@ const filterIndexer: Indexer = [
   [() => '(ft_invert_)(\\d+)', (value) => `filter:invert(${value}%);`],
 ];
 
-type FilterProps = {
-  [key in
-    | 'ft_blur_NUMBER'
-    | 'ft_btn_NUMBER'
-    | 'ft_contrast_NUMBER'
-    | 'ft_grayscale_NUMBER'
-    | 'ft_hue_NUMBER'
-    | 'ft_invertNUMBER'
-    | 'ft_opacity_NUMBER'
-    | 'ft_saturate_NUMBER'
-    | 'ft_sepia_NUMBER'
-    | 'ft_sd_NUMBER']?: string | boolean;
-};
+type FilterProps = Entry<
+  any,
+  | 'ft_blur_NUMBER'
+  | 'ft_btn_NUMBER'
+  | 'ft_contrast_NUMBER'
+  | 'ft_grayscale_NUMBER'
+  | 'ft_hue_NUMBER'
+  | 'ft_invertNUMBER'
+  | 'ft_opacity_NUMBER'
+  | 'ft_saturate_NUMBER'
+  | 'ft_sepia_NUMBER'
+  | 'ft_sd_NUMBER'
+>;
 
 export { filterIndexer, FilterProps };
