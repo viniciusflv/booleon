@@ -13,9 +13,15 @@ const gradientIndexer: Indexer = [
     (value) => lg(`to top,#${value},transparent,#${value}`),
   ],
   [() => `^(gt_)(${hexColor})`, (value) => lg(`to top,transparent,#${value}`)],
-  [() => `^(gb_)(${hexColor})`, (value) => lg(`to bottom,transparent,#${value}`)],
+  [
+    () => `^(gb_)(${hexColor})`,
+    (value) => lg(`to bottom,transparent,#${value}`),
+  ],
   [() => `^(gl_)(${hexColor})`, (value) => lg(`to left,transparent,#${value}`)],
-  [() => `^(gr_)(${hexColor})`, (value) => lg(`to right,transparent,#${value}`)],
+  [
+    () => `^(gr_)(${hexColor})`,
+    (value) => lg(`to right,transparent,#${value}`),
+  ],
 ];
 
 type GradientProps = Entry<
