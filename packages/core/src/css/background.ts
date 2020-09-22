@@ -15,7 +15,7 @@ const backgroundTuple = [
 ] as const;
 
 const backgroundIndexer: Indexer = [
-  [() => `^(bg_)((${hexColor}))`, (value) => `background-color:#${value};`],
+  [() => `^(bg_)(${hexColor})`, (value) => `background-color:#${value};`],
 ];
 
 type BackgroundProps = Entry<typeof backgroundTuple, 'bg_HEX'>;
