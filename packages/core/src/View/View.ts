@@ -1,68 +1,43 @@
 import {
-  backgroundIndexer,
   backgroundTuple,
-  borderIndexer,
   borderTuple,
-  containerIndexer,
   containerTuple,
   cursorTuple,
-  filterIndexer,
+  filterTuple,
   flexTuple,
-  fontIndexer,
   fontTuple,
-  gradientIndexer,
-  gridIndexer,
+  gradientTuple,
   gridTuple,
-  marginIndexer,
-  outlineIndexer,
+  marginTuple,
   outlineTuple,
-  paddingIndexer,
-  shadowIndexer,
-  sizingIndexer,
+  paddingTuple,
+  shadowTuple,
   sizingTuple,
-  transformIndexer,
   transformTuple,
-  transitionIndexer,
   transitionTuple,
 } from '../css';
 import { booleon } from '../lib/booleon';
 import { viewTags } from '../lib/constants';
 
 const tuples = [
-  ...sizingTuple,
-  ...containerTuple,
-  ...fontTuple,
-  ...flexTuple,
-  ...gridTuple,
   ...backgroundTuple,
   ...borderTuple,
+  ...containerTuple,
   ...cursorTuple,
+  ...filterTuple,
+  ...flexTuple,
+  ...fontTuple,
+  ...gradientTuple,
+  ...gridTuple,
+  ...marginTuple,
   ...outlineTuple,
+  ...paddingTuple,
+  ...shadowTuple,
+  ...sizingTuple,
   ...transformTuple,
   ...transitionTuple,
-];
+] as const;
 
-const indexers = [
-  ...backgroundIndexer,
-  ...containerIndexer,
-  ...sizingIndexer,
-  ...marginIndexer,
-  ...paddingIndexer,
-  ...fontIndexer,
-  ...gridIndexer,
-  ...borderIndexer,
-  ...shadowIndexer,
-  ...gradientIndexer,
-  ...outlineIndexer,
-  ...filterIndexer,
-  ...transformIndexer,
-  ...transitionIndexer,
-];
-
-const View = booleon<typeof viewTags, typeof tuples>(
-  viewTags,
-  tuples,
-  indexers,
-);
+const View = booleon<typeof viewTags, typeof tuples>(viewTags, tuples);
 
 export default View;

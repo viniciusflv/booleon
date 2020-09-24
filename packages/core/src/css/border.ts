@@ -1,8 +1,102 @@
-import { Entry, Indexer } from '../lib/interfaces';
-import { hexColor } from '../lib/regex';
+import { Entry } from '../lib/interfaces';
+import { hexColor, lowerCase, number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
 const borderTuple = [
+  [
+    ['bc_' as 'bc_HEX', `(${hexColor})`],
+    (value: string) => `border-color:#${value};`,
+  ],
+  [
+    ['btc_' as 'btc_HEX', `(${hexColor})`],
+    (value: string) => `border-top-color:#${value};`,
+  ],
+  [
+    ['bbc_' as 'bbc_HEX', `(${hexColor})`],
+    (value: string) => `border-bottom-color:#${value};`,
+  ],
+  [
+    ['blc_' as 'blc_HEX', `(${hexColor})`],
+    (value: string) => `border-left-color:#${value};`,
+  ],
+  [
+    ['brc_' as 'brc_HEX', `(${hexColor})`],
+    (value: string) => `border-right-color:#${value};`,
+  ],
+  [
+    ['bxc_' as 'bxc_HEX', `(${hexColor})`],
+    (value: string) =>
+      `border-right-color:#${value};border-left-color:#${value};`,
+  ],
+  [
+    ['byc_' as 'byc_HEX', `(${hexColor})`],
+    (value: string) =>
+      `border-top-color:#${value};border-bottom-color:#${value};`,
+  ],
+  [
+    ['bs_' as 'bs_STYLE', `(${lowerCase})`],
+    (value: string) => `border-style:${value};`,
+  ],
+  [
+    ['bts_' as 'bts_STYLE', `(${lowerCase})`],
+    (value: string) => `border-top-style:${value};`,
+  ],
+  [
+    ['bbs_' as 'bbs_STYLE', `(${lowerCase})`],
+    (value: string) => `border-bottom-style:${value};`,
+  ],
+  [
+    ['bls_' as 'bls_STYLE', `(${lowerCase})`],
+    (value: string) => `border-left-style:${value};`,
+  ],
+  [
+    ['brs_' as 'brs_STYLE', `(${lowerCase})`],
+    (value: string) => `border-right-style:${value};`,
+  ],
+  [
+    ['bxs_' as 'bxs_STYLE', `(${lowerCase})`],
+    (value: string) =>
+      `border-left-style:${value};border-right-style:${value};`,
+  ],
+  [
+    ['bys_' as 'bys_STYLE', `(${lowerCase})`],
+    (value: string) =>
+      `border-top-style:${value};border-bottom-style:${value};`,
+  ],
+  [
+    ['bw_' as 'bw_NUMBER', `(${number})`],
+    (value: string) => `border-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['btw_' as 'btw_NUMBER', `(${number})`],
+    (value: string) => `border-top-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['bbw_' as 'bbw_NUMBER', `(${number})`],
+    (value: string) => `border-bottom-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['blw_' as 'blw_NUMBER', `(${number})`],
+    (value: string) => `border-left-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['brw_' as 'brw_NUMBER', `(${number})`],
+    (value: string) => `border-right-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['bxw_NUMBER', `(${number})`],
+    (value: string) =>
+      `border-left-width:${percentage(
+        value,
+      )}rem;border-right-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['byw_NUMBER', `(${number})`],
+    (value: string) =>
+      `border-top-width:${percentage(
+        value,
+      )}rem;border-bottom-width:${percentage(value)}rem;`,
+  ],
   ['b_collapse', () => 'border-collapse:collapse;'],
   ['b_separate', () => 'border-collapse:separate;'],
   ['b_none', () => 'border:none;'],
@@ -77,89 +171,6 @@ const borderTuple = [
   ],
 ] as const;
 
-const borderIndexer: Indexer = [
-  [() => `^(bc_)(${hexColor})`, (value) => `border-color:#${value};`],
-  [() => `^(btc_)(${hexColor})`, (value) => `border-top-color:#${value};`],
-  [() => `^(bbc_)(${hexColor})`, (value) => `border-bottom-color:#${value};`],
-  [() => `^(blc_)(${hexColor})`, (value) => `border-left-color:#${value};`],
-  [() => `^(brc_)(${hexColor})`, (value) => `border-right-color:#${value};`],
-  [
-    () => `^(bxc_)(${hexColor})`,
-    (value) => `border-right-color:#${value};border-left-color:#${value};`,
-  ],
-  [
-    () => `^(byc_)(${hexColor})`,
-    (value) => `border-top-color:#${value};border-bottom-color:#${value};`,
-  ],
-  [() => '^(bs_)([a-z]+)', (value) => `border-style:${value};`],
-  [() => '^(bts_)([a-z]+)', (value) => `border-top-style:${value};`],
-  [() => '^(bbs_)([a-z]+)', (value) => `border-bottom-style:${value};`],
-  [() => '^(bls_)([a-z]+)', (value) => `border-left-style:${value};`],
-  [() => '^(brs_)([a-z]+)', (value) => `border-right-style:${value};`],
-  [
-    () => '^(bxs_)([a-z]+)',
-    (value) => `border-left-style:${value};border-right-style:${value};`,
-  ],
-  [
-    () => '^(bys_)([a-z]+)',
-    (value) => `border-top-style:${value};border-bottom-style:${value};`,
-  ],
-  [() => '^(bw_)(\\d+)', (value) => `border-width:${percentage(value)}rem;`],
-  [
-    () => '^(btw_)(\\d+)',
-    (value) => `border-top-width:${percentage(value)}rem;`,
-  ],
-  [
-    () => '^(bbw_)(\\d+)',
-    (value) => `border-bottom-width:${percentage(value)}rem;`,
-  ],
-  [
-    () => '^(blw_)(\\d+)',
-    (value) => `border-left-width:${percentage(value)}rem;`,
-  ],
-  [
-    () => '^(brw_)(\\d+)',
-    (value) => `border-right-width:${percentage(value)}rem;`,
-  ],
-  [
-    () => '^(bxw_)(\\d+)',
-    (value) =>
-      `border-left-width:${percentage(
-        value,
-      )}rem;border-right-width:${percentage(value)}rem;`,
-  ],
-  [
-    () => '^(byw_)(\\d+)',
-    (value) =>
-      `border-top-width:${percentage(
-        value,
-      )}rem;border-bottom-width:${percentage(value)}rem;`,
-  ],
-];
+type BorderProps = Entry<typeof borderTuple>;
 
-type BorderProps = Entry<
-  typeof borderTuple,
-  | 'bc_HEX'
-  | 'btc_HEX'
-  | 'bbc_HEX'
-  | 'blc_HEX'
-  | 'brc_HEX'
-  | 'bxc_HEX'
-  | 'byc_HEX'
-  | 'bs_STYLE'
-  | 'bts_STYLE'
-  | 'bbs_STYLE'
-  | 'bls_STYLE'
-  | 'brs_STYLE'
-  | 'bxs_STYLE'
-  | 'bys_STYLE'
-  | 'bw_NUMBER'
-  | 'btw_NUMBER'
-  | 'bbw_NUMBER'
-  | 'blw_NUMBER'
-  | 'brw_NUMBER'
-  | 'bxw_NUMBER'
-  | 'byw_NUMBER'
->;
-
-export { BorderProps, borderIndexer, borderTuple };
+export { BorderProps, borderTuple };

@@ -25,6 +25,6 @@ const cursorTuple = [
   ['cr_url', (cr_url: string) => `cursor:url(${cr_url}),auto;`],
 ] as const;
 
-type CursorProps = Entry<typeof cursorTuple, string>;
+type CursorProps = Entry<typeof cursorTuple>;
 
 export { CursorProps, cursorTuple };

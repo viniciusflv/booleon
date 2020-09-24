@@ -1,41 +1,35 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
 import { hexColor } from '../lib/regex';
 
 const lg = (linear: string) => `background-image:linear-gradient(${linear});`;
 
-const gradientIndexer: Indexer = [
+const gradientTuple = [
   [
-    () => `^(gx_)(${hexColor})`,
-    (value) => lg(`to right,#${value},transparent,#${value}`),
+    ['gx_' as 'gx_HEX', `(${hexColor})`],
+    (value: string) => lg(`to right,#${value},transparent,#${value}`),
   ],
   [
-    () => `^(gy_)(${hexColor})`,
-    (value) => lg(`to top,#${value},transparent,#${value}`),
+    ['gy_' as 'gy_HEX', `(${hexColor})`],
+    (value: string) => lg(`to top,#${value},transparent,#${value}`),
   ],
-  [() => `^(gt_)(${hexColor})`, (value) => lg(`to top,transparent,#${value}`)],
   [
-    () => `^(gb_)(${hexColor})`,
-    (value) => lg(`to bottom,transparent,#${value}`),
+    ['gt_' as 'gt_HEX', `(${hexColor})`],
+    (value: string) => lg(`to top,transparent,#${value}`),
   ],
-  [() => `^(gl_)(${hexColor})`, (value) => lg(`to left,transparent,#${value}`)],
   [
-    () => `^(gr_)(${hexColor})`,
-    (value) => lg(`to right,transparent,#${value}`),
+    ['gb_' as 'gb_HEX', `(${hexColor})`],
+    (value: string) => lg(`to bottom,transparent,#${value}`),
   ],
-];
+  [
+    ['gl_' as 'gl_HEX', `(${hexColor})`],
+    (value: string) => lg(`to left,transparent,#${value}`),
+  ],
+  [
+    ['gr_' as 'gr_HEX', `(${hexColor})`],
+    (value: string) => lg(`to right,transparent,#${value}`),
+  ],
+] as const;
 
-type GradientProps = Entry<
-  any,
-  | 'ft_blur_NUMBER'
-  | 'ft_btn_NUMBER'
-  | 'ft_contrast_NUMBER'
-  | 'ft_grayscale_NUMBER'
-  | 'ft_hue_NUMBER'
-  | 'ft_invertNUMBER'
-  | 'ft_opacity_NUMBER'
-  | 'ft_saturate_NUMBER'
-  | 'ft_sepia_NUMBER'
-  | 'ft_sd_NUMBER'
->;
+type GradientProps = Entry<typeof gradientTuple>;
 
-export { gradientIndexer, GradientProps };
+export { gradientTuple, GradientProps };

@@ -1,7 +1,11 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
 import { hexColor } from '../lib/regex';
 
 const backgroundTuple = [
+  [
+    ['bg_' as 'bg_HEX', `(${hexColor})`],
+    (value: string) => `background-color:#${value};`,
+  ],
   ['bg_img', (value: string) => `background-image:${value};`],
   ['bg_transparent', () => 'background-color:transparent;'],
   ['bg_repeat', () => 'background-repeat:repeat;'],
@@ -14,10 +18,6 @@ const backgroundTuple = [
   ['bg_scroll', () => 'background-attachment:scroll;'],
 ] as const;
 
-const backgroundIndexer: Indexer = [
-  [() => `^(bg_)(${hexColor})`, (value) => `background-color:#${value};`],
-];
+type BackgroundProps = Entry<typeof backgroundTuple>;
 
-type BackgroundProps = Entry<typeof backgroundTuple, 'bg_HEX'>;
-
-export { BackgroundProps, backgroundIndexer, backgroundTuple };
+export { BackgroundProps, backgroundTuple };

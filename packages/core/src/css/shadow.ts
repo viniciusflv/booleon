@@ -1,36 +1,29 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
 import { shadow } from '../lib/utils';
 
-const shadowIndexer: Indexer = [
-  [() => '^(sd_)(\\d+)', (value) => `box-shadow:${shadow(Number(value))};`],
-  [
-    () => '^(sdi_)(\\d+)',
-    (value) => `box-shadow:${shadow(Number(value), true)};`,
-  ],
-];
+const shadowTuple = [
+  ['sd_1', () => `box-shadow:${shadow(1)};`],
+  ['sd_2', () => `box-shadow:${shadow(2)};`],
+  ['sd_3', () => `box-shadow:${shadow(3)};`],
+  ['sd_4', () => `box-shadow:${shadow(4)};`],
+  ['sd_6', () => `box-shadow:${shadow(6)};`],
+  ['sd_8', () => `box-shadow:${shadow(8)};`],
+  ['sd_9', () => `box-shadow:${shadow(9)};`],
+  ['sd_12', () => `box-shadow:${shadow(12)};`],
+  ['sd_16', () => `box-shadow:${shadow(16)};`],
+  ['sd_24', () => `box-shadow:${shadow(24)};`],
+  ['sdi_1', () => `box-shadow:${shadow(1, true)};`],
+  ['sdi_2', () => `box-shadow:${shadow(2, true)};`],
+  ['sdi_3', () => `box-shadow:${shadow(3, true)};`],
+  ['sdi_4', () => `box-shadow:${shadow(4, true)};`],
+  ['sdi_6', () => `box-shadow:${shadow(6, true)};`],
+  ['sdi_8', () => `box-shadow:${shadow(8, true)};`],
+  ['sdi_9', () => `box-shadow:${shadow(9, true)};`],
+  ['sdi_12', () => `box-shadow:${shadow(12, true)};`],
+  ['sdi_16', () => `box-shadow:${shadow(16, true)};`],
+  ['sdi_24', () => `box-shadow:${shadow(24, true)};`],
+] as const;
 
-type ShadowProps = Entry<
-  any,
-  | 'sd_1'
-  | 'sd_2'
-  | 'sd_3'
-  | 'sd_4'
-  | 'sd_6'
-  | 'sd_8'
-  | 'sd_9'
-  | 'sd_12'
-  | 'sd_16'
-  | 'sd_24'
-  | 'sdi_1'
-  | 'sdi_2'
-  | 'sdi_3'
-  | 'sdi_4'
-  | 'sdi_6'
-  | 'sdi_8'
-  | 'sdi_9'
-  | 'sdi_12'
-  | 'sdi_16'
-  | 'sdi_24'
->;
+type ShadowProps = Entry<typeof shadowTuple>;
 
-export { shadowIndexer, ShadowProps };
+export { shadowTuple, ShadowProps };

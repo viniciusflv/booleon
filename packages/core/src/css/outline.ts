@@ -1,18 +1,23 @@
-import { Entry, Indexer } from '../lib/interfaces';
-import { hexColor } from '../lib/regex';
+import { Entry } from '../lib/interfaces';
+import { hexColor, lowerCase, number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
-const outlineTuple = [['ol_none', () => 'outline:none;']] as const;
+const outlineTuple = [
+  ['ol_none', () => 'outline:none;'],
+  [
+    ['olc_' as 'olc_HEX', `(${hexColor})`],
+    (value: string) => `outline-color:#${value};`,
+  ],
+  [
+    ['olw_' as 'olw_NUMBER', `(${number})`],
+    (value: string) => `outline-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['ols_' as 'ols_STYLE', `(${lowerCase})`],
+    (value: string) => `outline-style:${value};`,
+  ],
+] as const;
 
-const outlineIndexer: Indexer = [
-  [() => `^(olc_)(${hexColor})`, (value) => `outline-color:#${value};`],
-  [() => '^(olw_)(\\d+)', (value) => `outline-width:${percentage(value)}rem;`],
-  [() => '^(ols_)([a-z]+)', (value) => `outline-style:${value};`],
-];
+type OutlineProps = Entry<typeof outlineTuple>;
 
-type OutlineProps = Entry<
-  typeof outlineTuple,
-  'olc_HEX' | 'olw_WIDTH' | 'ols_STYLE'
->;
-
-export { outlineTuple, outlineIndexer, OutlineProps };
+export { outlineTuple, OutlineProps };

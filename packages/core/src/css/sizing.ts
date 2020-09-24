@@ -1,7 +1,56 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
 const sizingTuple = [
+  [
+    ['h_' as 'h_NUMBER', `(${number})`],
+    (value: string) => `height:${percentage(value)}rem;`,
+  ],
+  [
+    ['h_max_' as 'h_max_NUMBER', `(${number})`],
+    (value: string) => `max-height:${percentage(value)}rem;`,
+  ],
+  [
+    ['h_min_' as 'h_min_NUMBER', `(${number})`],
+    (value: string) => `min-height:${percentage(value)}rem;`,
+  ],
+  [
+    ['h_screen_' as 'h_screen_NUMBER', `(${number})`],
+    (value: string) => `height:${value}vh;`,
+  ],
+  [
+    ['h_max_screen_' as 'h_max_screen_NUMBER', `(${number})`],
+    (value: string) => `max-height:${value}vh;`,
+  ],
+  [
+    ['h_min_screen_' as 'h_min_screen_NUMBER', `(${number})`],
+    (value: string) => `min-height:${value}vh;`,
+  ],
+  [
+    ['w_' as 'w_NUMBER', `(${number})`],
+    (value: string) => `width:${percentage(value)}rem;`,
+  ],
+  [
+    ['w_max_' as 'w_max_NUMBER', `(${number})`],
+    (value: string) => `max-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['w_min_' as 'w_min_NUMBER', `(${number})`],
+    (value: string) => `min-width:${percentage(value)}rem;`,
+  ],
+  [
+    ['w_screen_' as 'w_screen_NUMBER', `(${number})`],
+    (value: string) => `width:${value}vw;`,
+  ],
+  [
+    ['w_max_screen_' as 'w_max_screen_NUMBER', `(${number})`],
+    (value: string) => `max-width:${value}vw;`,
+  ],
+  [
+    ['w_min_screen_' as 'w_min_screen_NUMBER', `(${number})`],
+    (value: string) => `min-width:${value}vw;`,
+  ],
   ['h_full', () => 'height:100%;'],
   ['h_max_full', () => 'max-height:100%;'],
   ['h_min_full', () => 'min-height:100%;'],
@@ -22,35 +71,6 @@ const sizingTuple = [
   ['w_min_screen', () => 'min-width:100vw;'],
 ] as const;
 
-const sizingIndexer: Indexer = [
-  [() => '^(h_)(\\d+)', (value) => `height:${percentage(value)}rem;`],
-  [() => '^(h_max_)(\\d+)', (value) => `max-height:${percentage(value)}rem;`],
-  [() => '^(h_min_)(\\d+)', (value) => `min-height:${percentage(value)}rem;`],
-  [() => '^(h_screen_)(\\d+)', (value) => `height:${value}vh;`],
-  [() => '^(h_max_screen_)(\\d+)', (value) => `max-height:${value}vh;`],
-  [() => '^(h_min_screen_)(\\d+)', (value) => `min-height:${value}vh;`],
-  [() => '^(w_)(\\d+)', (value) => `width:${percentage(value)}rem;`],
-  [() => '^(w_max_)(\\d+)', (value) => `max-width:${percentage(value)}rem;`],
-  [() => '^(w_min_)(\\d+)', (value) => `min-width:${percentage(value)}rem;`],
-  [() => '^(w_screen_)(\\d+)', (value) => `width:${value}vw;`],
-  [() => '^(w_max_screen_)(\\d+)', (value) => `max-width:${value}vw;`],
-  [() => '^(w_min_screen_)(\\d+)', (value) => `min-width:${value}vw;`],
-];
+type SizingProps = Entry<typeof sizingTuple>;
 
-type SizingProps = Entry<
-  typeof sizingTuple,
-  | 'h_NUMBER'
-  | 'h_max_NUMBER'
-  | 'h_min_NUMBER'
-  | 'h_screen_NUMBER'
-  | 'h_max_screen_NUMBER'
-  | 'h_min_screen_NUMBER'
-  | 'w_NUMBER'
-  | 'w_max_NUMBER'
-  | 'w_min_NUMBER'
-  | 'w_screen_NUMBER'
-  | 'w_max_screen_NUMBER'
-  | 'w_min_screen_NUMBER'
->;
-
-export { SizingProps, sizingTuple, sizingIndexer };
+export { SizingProps, sizingTuple };

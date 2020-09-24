@@ -20,6 +20,6 @@ const flexTuple = [
   ['cross_end', () => 'align-items:flex-end;'],
 ] as const;
 
-type FlexProps = Entry<typeof flexTuple, string>;
+type FlexProps = Entry<typeof flexTuple>;
 
 export { flexTuple, FlexProps };

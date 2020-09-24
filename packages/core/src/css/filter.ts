@@ -1,37 +1,50 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { number } from '../lib/regex';
 import { percentage, shadow } from '../lib/utils';
 
-const filterIndexer: Indexer = [
-  [() => '^(ft_blur_)(\\d+)', (value) => `filter:blur(${value}rem);`],
+const filterTuple = [
   [
-    () => '^(ft_bn_)(\\d+)',
-    (value) => `filter:brightness(${percentage(value)});`,
+    ['ft_blur_' as 'ft_blur_NUMBER', `(${number})`],
+    (value: string) => `filter:blur(${value}rem);`,
   ],
-  [() => '^(ft_contrast_)(\\d+)', (value) => `filter:contrast(${value}%);`],
-  [() => '^(ft_grayscale_)(\\d+)', (value) => `filter:grayscale(${value}%);`],
-  [() => '^(ft_hue_)(\\d+)', (value) => `filter:hue-rotate(${value}deg);`],
-  [() => '^(ft_opacity_)(\\d+)', (value) => `filter:opacity(${value}%);`],
-  [() => '^(ft_saturate_)(\\d+)', (value) => `filter:saturate(${value});`],
-  [() => '^(ft_sepia_)(\\d+)', (value) => `filter:sepia(${value}%);`],
   [
-    () => '^(ft_sd_)(\\d+)',
-    (value) => `filter:${shadow(Number(value), false, true)};`,
+    ['ft_bn_' as 'ft_bn_NUMBER', `(${number})`],
+    (value: string) => `filter:brightness(${percentage(value)});`,
   ],
-  [() => '(ft_invert_)(\\d+)', (value) => `filter:invert(${value}%);`],
-];
+  [
+    ['ft_contrast_' as 'ft_contrast_NUMBER', `(${number})`],
+    (value: string) => `filter:contrast(${value}%);`,
+  ],
+  [
+    ['ft_grayscale_' as 'ft_grayscale_NUMBER', `(${number})`],
+    (value: string) => `filter:grayscale(${value}%);`,
+  ],
+  [
+    ['ft_hue_' as 'ft_hue_NUMBER', `(${number})`],
+    (value: string) => `filter:hue-rotate(${value}deg);`,
+  ],
+  [
+    ['ft_opacity_' as 'ft_opacity_NUMBER', `(${number})`],
+    (value: string) => `filter:opacity(${value}%);`,
+  ],
+  [
+    ['ft_saturate_' as 'ft_saturate_NUMBER', `(${number})`],
+    (value: string) => `filter:saturate(${value});`,
+  ],
+  [
+    ['ft_sepia_' as 'ft_sepia_NUMBER', `(${number})`],
+    (value: string) => `filter:sepia(${value}%);`,
+  ],
+  [
+    ['ft_sd_' as 'ft_sd_NUMBER', `(${number})`],
+    (value: string) => `filter:${shadow(Number(value), false, true)};`,
+  ],
+  [
+    ['ft_invert_' as 'ft_invert_NUMBER', `(${number})`],
+    (value: string) => `filter:invert(${value}%);`,
+  ],
+] as const;
 
-type FilterProps = Entry<
-  any,
-  | 'ft_blur_NUMBER'
-  | 'ft_btn_NUMBER'
-  | 'ft_contrast_NUMBER'
-  | 'ft_grayscale_NUMBER'
-  | 'ft_hue_NUMBER'
-  | 'ft_invertNUMBER'
-  | 'ft_opacity_NUMBER'
-  | 'ft_saturate_NUMBER'
-  | 'ft_sepia_NUMBER'
-  | 'ft_sd_NUMBER'
->;
+type FilterProps = Entry<typeof filterTuple>;
 
-export { filterIndexer, FilterProps };
+export { filterTuple, FilterProps };

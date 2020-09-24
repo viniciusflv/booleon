@@ -1,37 +1,44 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
-const paddingIndexer: Indexer = [
-  [() => '^(p_)(\\d+)', (value) => `padding:${percentage(value)}rem;`],
-  [() => '^(pt_)(\\d+)', (value) => `padding-top:${percentage(value)}rem;`],
-  [() => '^(pb_)(\\d+)', (value) => `padding-bottom:${percentage(value)}rem;`],
-  [() => '^(pl_)(\\d+)', (value) => `padding-left:${percentage(value)}rem;`],
-  [() => '^(pr_)(\\d+)', (value) => `padding-right:${percentage(value)}rem;`],
+const paddingTuple = [
   [
-    () => '^(px_)(\\d+)',
-    (value) =>
+    ['p_' as 'p_NUMBER', `(${number})`],
+    (value: string) => `padding:${percentage(value)}rem;`,
+  ],
+  [
+    ['pt_' as 'pt_NUMBER', `(${number})`],
+    (value: string) => `padding-top:${percentage(value)}rem;`,
+  ],
+  [
+    ['pb_' as 'pb_NUMBER', `(${number})`],
+    (value: string) => `padding-bottom:${percentage(value)}rem;`,
+  ],
+  [
+    ['pl_' as 'pl_NUMBER', `(${number})`],
+    (value: string) => `padding-left:${percentage(value)}rem;`,
+  ],
+  [
+    ['pr_' as 'pr_NUMBER', `(${number})`],
+    (value: string) => `padding-right:${percentage(value)}rem;`,
+  ],
+  [
+    ['px_' as 'px_NUMBER', `(${number})`],
+    (value: string) =>
       `padding-left:${percentage(value)}rem;padding-right:${percentage(
         value,
       )}rem;`,
   ],
   [
-    () => '^(py_)(\\d+)',
-    (value) =>
+    ['py_' as 'py_NUMBER', `(${number})`],
+    (value: string) =>
       `padding-top:${percentage(value)}rem;padding-bottom:${percentage(
         value,
       )}rem;`,
   ],
-];
+] as const;
 
-type PaddingProps = Entry<
-  any,
-  | 'p_NUMBER'
-  | 'px_NUMBER'
-  | 'py_NUMBER'
-  | 'pt_NUMBER'
-  | 'pb_NUMBER'
-  | 'pl_NUMBER'
-  | 'pr_NUMBER'
->;
+type PaddingProps = Entry<typeof paddingTuple>;
 
-export { PaddingProps, paddingIndexer };
+export { PaddingProps, paddingTuple };

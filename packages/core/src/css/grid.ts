@@ -1,4 +1,5 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { letter, lowerCase, number } from '../lib/regex';
 
 const gridTuple = [
   ['grid', () => 'display:grid;'],
@@ -7,43 +8,44 @@ const gridTuple = [
     (areas: string) =>
       `grid-template-areas:${areas.replace(/\n|\s+\s/gm, '')};`,
   ],
+  [
+    ['rows_' as 'rows_FRACTIONS', `(${number}${lowerCase}|auto).*`],
+    (value: string) => `grid-template-rows:${value};`,
+  ],
+  [
+    ['cols_' as 'cols_FRACTIONS', `(${number}${lowerCase}|auto).*`],
+    (value: string) => `grid-template-columns:${value};`,
+  ],
+  [
+    ['area_' as 'area_AREA', `(${letter})`],
+    (value: string) => `grid-area:${value};`,
+  ],
+  [
+    ['cols_span_' as 'cols_span_NUMBER', `(${number})`],
+    (value: string) => `grid-column:span${value}/span${value};`,
+  ],
+  [
+    ['rows_span_' as 'rows_span_NUMBER', `(${number})`],
+    (value: string) => `grid-row:span${value}/span${value};`,
+  ],
+  [
+    ['cols_start_' as 'cols_start_NUMBER', `(${number})`],
+    (value: string) => `grid-column-start:${value};`,
+  ],
+  [
+    ['cols_end_' as 'cols_end_NUMBER', `(${number})`],
+    (value: string) => `grid-column-end:${value};`,
+  ],
+  [
+    ['rows_start_' as 'rows_start_NUMBER', `(${number})`],
+    (value: string) => `grid-row-start:${value};`,
+  ],
+  [
+    ['rows_end_' as 'rows_end_NUMBER', `(${number})`],
+    (value: string) => `grid-row-end:${value};`,
+  ],
 ] as const;
 
-const gridIndexer: Indexer = [
-  [
-    () => '^(rows_)(\\d+[a-z]+|auto).*',
-    (value) => `grid-template-rows:${value};`,
-  ],
-  [
-    () => '^(cols_)(\\d+[a-z]+|auto).*',
-    (value) => `grid-template-columns:${value};`,
-  ],
-  [() => '^(area_)([A-z]+)', (value) => `grid-area:${value};`],
-  [
-    () => '^(cols_span_)(\\d+)',
-    (value) => `grid-column:span${value}/span${value};`,
-  ],
-  [
-    () => '^(rows_span_)(\\d+)',
-    (value) => `grid-row:span${value}/span${value};`,
-  ],
-  [() => '^(cols_start_)(\\d+)', (value) => `grid-column-start:${value};`],
-  [() => '^(cols_end_)(\\d+)', (value) => `grid-column-end:${value};`],
-  [() => '^(rows_start_)(\\d+)', (value) => `grid-row-start:${value};`],
-  [() => '^(rows_end_)(\\d+)', (value) => `grid-row-end:${value};`],
-];
+type GridProps = Entry<typeof gridTuple>;
 
-type GridProps = Entry<
-  typeof gridTuple,
-  | 'area_AREA'
-  | 'rows_FRACTIONS'
-  | 'cols_FRACTIONS'
-  | 'cols_span_NUMBER'
-  | 'rows_span_NUMBER'
-  | 'cols_start_NUMBER'
-  | 'cols_end_NUMBER'
-  | 'rows_start_NUMBER'
-  | 'rows_end_NUMBER'
->;
-
-export { gridIndexer, gridTuple, GridProps };
+export { gridTuple, GridProps };

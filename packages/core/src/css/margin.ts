@@ -1,53 +1,44 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
-const marginIndexer: Indexer = [
-  [() => '^(m_)(\\d+|auto)', (value) => `margin:${percentage(value)}rem;`],
-  [() => '^(mt_)(\\d+|auto)', (value) => `margin-top:${percentage(value)}rem;`],
+const marginTuple = [
   [
-    () => '^(mb_)(\\d+|auto)',
-    (value) => `margin-bottom:${percentage(value)}rem;`,
+    ['m_' as 'm_NUMBER', `(${number}|auto)`],
+    (value: string) => `margin:${percentage(value)}rem;`,
   ],
   [
-    () => '^(ml_)(\\d+|auto)',
-    (value) => `margin-left:${percentage(value)}rem;`,
+    ['mt_' as 'mt_NUMBER', `(${number}|auto)`],
+    (value: string) => `margin-top:${percentage(value)}rem;`,
   ],
   [
-    () => '^(mr_)(\\d+|auto)',
-    (value) => `margin-right:${percentage(value)}rem;`,
+    ['mb_' as 'mb_NUMBER', `(${number}|auto)`],
+    (value: string) => `margin-bottom:${percentage(value)}rem;`,
   ],
   [
-    () => '^(mx_)(\\d+|auto)',
-    (value) =>
+    ['ml_' as 'ml_NUMBER', `(${number}|auto)`],
+    (value: string) => `margin-left:${percentage(value)}rem;`,
+  ],
+  [
+    ['mr_' as 'mr_NUMBER', `(${number}|auto)`],
+    (value: string) => `margin-right:${percentage(value)}rem;`,
+  ],
+  [
+    ['mx_' as 'mx_NUMBER', `(${number}|auto)`],
+    (value: string) =>
       `margin-left:${percentage(value)}rem;margin-right:${percentage(
         value,
       )}rem;`,
   ],
   [
-    () => '^(my_)(\\d+|auto)',
-    (value) =>
+    ['my_' as 'my_NUMBER', `(${number}|auto)`],
+    (value: string) =>
       `margin-top:${percentage(value)}rem;margin-bottom:${percentage(
         value,
       )}rem;`,
   ],
-];
+] as const;
 
-type MarginProps = Entry<
-  any,
-  | 'm_NUMBER'
-  | 'mx_NUMBER'
-  | 'my_NUMBER'
-  | 'mt_NUMBER'
-  | 'mb_NUMBER'
-  | 'ml_NUMBER'
-  | 'mr_NUMBER'
-  | 'm_auto'
-  | 'mx_auto'
-  | 'my_auto'
-  | 'mt_auto'
-  | 'mb_auto'
-  | 'ml_auto'
-  | 'mr_auto'
->;
+type MarginProps = Entry<typeof marginTuple>;
 
-export { MarginProps, marginIndexer };
+export { MarginProps, marginTuple };

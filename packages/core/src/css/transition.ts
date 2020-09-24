@@ -1,7 +1,16 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { lowerCase, number } from '../lib/regex';
 const colors = 'background-color,border-color,color,fill,stroke';
 
 const transitionTuple = [
+  [
+    ['ts_delay_' as 'ts_delay_TIME', `(${number}${lowerCase})`],
+    (value: string) => `transition-delay:${value};`,
+  ],
+  [
+    ['ts_duration_' as 'ts_duration_TIME', `(${number}${lowerCase})`],
+    (value: string) => `transition-duration:${value};`,
+  ],
   ['ts', () => `transition-property:${colors},opacity,box-shadow,transform;`],
   ['ts_none', () => 'transition-property:none;'],
   ['ts_all', () => 'transition-property:all;'],
@@ -18,17 +27,6 @@ const transitionTuple = [
   ],
 ] as const;
 
-const transitionIndexer: Indexer = [
-  [() => '^(ts_delay_)(\\d+[a-z]+)', (value) => `transition-delay:${value};`],
-  [
-    () => '^(ts_duration_)(\\d+[a-z]+)',
-    (value) => `transition-duration:${value};`,
-  ],
-];
+type TransitionProps = Entry<typeof transitionTuple>;
 
-type TransitionProps = Entry<
-  typeof transitionTuple,
-  'ts_duration_DELAY' | 'ts_delay_DELAY'
->;
-
-export { transitionTuple, transitionIndexer, TransitionProps };
+export { transitionTuple, TransitionProps };

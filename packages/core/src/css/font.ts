@@ -1,8 +1,46 @@
-import { Entry, Indexer } from '../lib/interfaces';
-import { hexColor } from '../lib/regex';
+import { Entry } from '../lib/interfaces';
+import { hexColor, letter, lowerCase, number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
 const fontTuple = [
+  [
+    ['fb_' as 'fb_HEX', `(${hexColor})`],
+    (value: string) =>
+      `text-shadow:-1px0#${value},01px#${value},1px0#${value},0-1px#${value};`,
+  ],
+  [['fc_' as 'fc_HEX', `(${hexColor})`], (value: string) => `color:#${value};`],
+  [
+    ['fs_' as 'fs_NUMBER', `(${number})`],
+    (value: string) => `font-size:${percentage(value)}rem;`,
+  ],
+  [
+    ['ls_' as 'ls_NUMBER', `(${number})`],
+    (value: string) => `letter-spacing:${percentage(value)}rem;`,
+  ],
+  [
+    ['ls_neg_' as 'ls_neg_NUMBER', `(${number})`],
+    (value: string) => `letter-spacing:-${percentage(value)}rem;`,
+  ],
+  [
+    ['lh_' as 'lh_NUMBER', `(${number})`],
+    (value: string) => `line-height:${percentage(value)}rem;`,
+  ],
+  [
+    ['fsl_' as 'fsl_SELECT', `(${lowerCase})`],
+    (value: string) => `user-select:${value};`,
+  ],
+  [
+    ['fa_' as 'fa_ALIGN', `(${lowerCase})`],
+    (value: string) => `text-align:${value};`,
+  ],
+  [
+    ['ft_' as 'ft_TRANSFORM', `(${lowerCase})`],
+    (value: string) => `text-transform:${value};`,
+  ],
+  [
+    ['ff_' as 'ff_FAMILY', `(${letter}).*`],
+    (value: string) => `font-family:${value};`,
+  ],
   ['ff_sans', () => 'font-family:sans-serif;'],
   ['ff_serif', () => 'font-family:serif;'],
   ['ff_mono', () => 'font-family:monospace;'],
@@ -37,41 +75,6 @@ const fontTuple = [
   ],
 ] as const;
 
-const fontIndexer: Indexer = [
-  [
-    () => `^(fb_)(${hexColor})`,
-    (value) =>
-      `text-shadow:-1px0#${value},01px#${value},1px0#${value},0-1px#${value};`,
-  ],
-  [() => `^(fc_)(${hexColor})`, (value) => `color:#${value};`],
-  [() => '^(fs_)(\\d+)', (value) => `font-size:${percentage(value)}rem;`],
-  [() => '^(fsl_)([a-z]+)', (value) => `user-select:${value};`],
-  [() => '^(ls_)(\\d+)', (value) => `letter-spacing:${percentage(value)}rem;`],
-  [
-    () => '^(ls_neg_)(\\d+)',
-    (value) => `letter-spacing:-${percentage(value)}rem;`,
-  ],
-  [() => '^(lh_)(\\d+)', (value) => `line-height:${percentage(value)}rem;`],
-  [() => '^(fa_)([a-z]+)', (value) => `text-align:${value};`],
-  [() => '^(ft_)([a-z]+)', (value) => `text-transform:${value};`],
-  [() => '^(ff_)([A-z]+).*', (value) => `font-family:${value};`],
-];
+type FontProps = Entry<typeof fontTuple>;
 
-type FontProps = Entry<
-  typeof fontTuple,
-  | 'fb_HEX'
-  | 'fc_HEX'
-  | 'fs_NUMBER'
-  | 'fsl_none'
-  | 'fsl_text'
-  | 'fsl_all'
-  | 'fsl_auto'
-  | 'ls_NUMBER'
-  | 'ls_neg_NUMBER'
-  | 'lh_NUMBER'
-  | 'fa_ALIGN'
-  | 'ft_TRANSFORM'
-  | 'ff_FAMILY'
->;
-
-export { fontTuple, fontIndexer, FontProps };
+export { fontTuple, FontProps };

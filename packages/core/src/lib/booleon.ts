@@ -1,15 +1,17 @@
-import { Indexer } from './interfaces';
+import { Booleon, Entry } from './interfaces';
 import { RegexMap } from './RegexMap';
+import { createComponent } from './createComponent';
+
 export function booleon<
   E extends readonly (keyof React.ReactDOM)[],
-  T extends readonly (readonly [string, Function])[]
->(elements: E, tuples: T, indexers: Indexer) {
-  const prop = 'fc_00f';
-  const tupleMap = new Map(tuples);
-  const indexerMap = new RegexMap(indexers);
-
-  let res = tupleMap.get(prop)?.();
-  res = res ? res : indexerMap.get(prop);
-
-  console.log(res);
+  T extends readonly (readonly [string | readonly string[], Function])[]
+>(elements: E, tuples: T) {
+  const map = new RegexMap(tuples);
+  return elements.reduce(
+    (acc, element) => ({
+      ...acc,
+      [element]: createComponent<typeof map, E[number]>(element, map),
+    }),
+    {} as Booleon<E[number], Entry<T>>,
+  );
 }

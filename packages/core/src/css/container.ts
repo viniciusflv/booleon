@@ -1,8 +1,46 @@
-import { Entry, Indexer } from '../lib/interfaces';
+import { Entry } from '../lib/interfaces';
+import { number } from '../lib/regex';
 import { percentage } from '../lib/utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerTuple = [
+  [['z_' as 'z_NUMBER', `(${number})`], (value: string) => `z-index:${value};`],
+  [
+    ['op_' as 'op_NUMBER', `(${number})`],
+    (value: string) => `opacity:${percentage(value)};`,
+  ],
+  [
+    ['top_' as 'top_NUMBER', `(${number})`],
+    (value: string) => `top:${percentage(value)}rem;`,
+  ],
+  [
+    ['bottom_' as 'bottom_NUMBER', `(${number})`],
+    (value: string) => `bottom:${percentage(value)}rem;`,
+  ],
+  [
+    ['left_' as 'left_NUMBER', `(${number})`],
+    (value: string) => `left:${percentage(value)}rem;`,
+  ],
+  [
+    ['right_' as 'right_NUMBER', `(${number})`],
+    (value: string) => `right:${percentage(value)}rem;`,
+  ],
+  [
+    ['top_neg_' as 'top_neg_NUMBER', `(${number})`],
+    (value: string) => `top:-${percentage(value)}rem;`,
+  ],
+  [
+    ['bottom_neg_' as 'bottom_neg_NUMBER', `(${number})`],
+    (value: string) => `bottom:-${percentage(value)}rem;`,
+  ],
+  [
+    ['left_neg_' as 'left_neg_NUMBER', `(${number})`],
+    (value: string) => `left:-${percentage(value)}rem;`,
+  ],
+  [
+    ['right_neg_' as 'right_neg_NUMBER', `(${number})`],
+    (value: string) => `right:-${percentage(value)}rem;`,
+  ],
   ['z_max', () => `z-index:${MAX_SAFE_INTEGER};`],
   ['z_neg', () => 'z-index:-1;'],
   ['z_auto', () => 'z-index:auto;'],
@@ -48,31 +86,6 @@ const containerTuple = [
   ],
 ] as const;
 
-const containerIndexer: Indexer = [
-  [() => '^(z_)(\\d+)', (value) => `z-index:${value};`],
-  [() => '^(op_)(\\d+)', (value) => `opacity:${percentage(value)};`],
-  [() => '^(top_)(\\d+)', (value) => `top:${percentage(value)}rem;`],
-  [() => '^(bottom_)(\\d+)', (value) => `bottom:${percentage(value)}rem;`],
-  [() => '^(left_)(\\d+)', (value) => `left:${percentage(value)}rem;`],
-  [() => '^(right_)(\\d+)', (value) => `right:${percentage(value)}rem;`],
-  [() => '^(top_neg_)(\\d+)', (value) => `top:-${percentage(value)}rem;`],
-  [() => '^(bottom_neg_)(\\d+)', (value) => `bottom:-${percentage(value)}rem;`],
-  [() => '^(left_neg_)(\\d+)', (value) => `left:-${percentage(value)}rem;`],
-  [() => '^(right_neg_)(\\d+)', (value) => `right:-${percentage(value)}rem;`],
-];
+type ContainerProps = Entry<typeof containerTuple>;
 
-type ContainerProps = Entry<
-  typeof containerTuple,
-  | 'z_NUMBER'
-  | 'top_NUMBER'
-  | 'bottom_NUMBER'
-  | 'left_NUMBER'
-  | 'right_NUMBER'
-  | 'top_neg_NUMBER'
-  | 'bottom_neg_NUMBER'
-  | 'left_neg_NUMBER'
-  | 'right_neg_NUMBER'
-  | 'op_PERCENTAGE'
->;
-
-export { ContainerProps, containerTuple, containerIndexer };
+export { ContainerProps, containerTuple };
