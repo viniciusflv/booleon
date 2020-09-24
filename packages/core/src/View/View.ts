@@ -29,34 +29,34 @@ import { booleon } from '../lib/booleon';
 import { viewTags } from '../lib/constants';
 
 const tuples = [
+  ...sizingTuple,
+  ...containerTuple,
+  ...fontTuple,
+  ...flexTuple,
+  ...gridTuple,
   ...backgroundTuple,
   ...borderTuple,
-  ...containerTuple,
   ...cursorTuple,
-  ...flexTuple,
-  ...fontTuple,
-  ...gridTuple,
   ...outlineTuple,
-  ...sizingTuple,
   ...transformTuple,
   ...transitionTuple,
 ];
 
 const indexers = [
   ...backgroundIndexer,
-  ...borderIndexer,
   ...containerIndexer,
-  ...filterIndexer,
-  ...fontIndexer,
-  ...gradientIndexer,
-  ...gridIndexer,
-  ...marginIndexer,
-  ...outlineIndexer,
-  ...paddingIndexer,
   ...sizingIndexer,
+  ...marginIndexer,
+  ...paddingIndexer,
+  ...fontIndexer,
+  ...gridIndexer,
+  ...borderIndexer,
+  ...shadowIndexer,
+  ...gradientIndexer,
+  ...outlineIndexer,
+  ...filterIndexer,
   ...transformIndexer,
   ...transitionIndexer,
-  ...shadowIndexer,
 ];
 
 const View = booleon<typeof viewTags, typeof tuples>(
