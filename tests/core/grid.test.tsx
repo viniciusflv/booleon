@@ -18,7 +18,7 @@ describe('Grid', () => {
       <View.div data-testid="cols" cols_1fr_auto_1px />,
     );
     expect(getByTestId('cols')).toHaveStyle(
-      'grid-template-columns: 1fr auto 1px;',
+      'grid-template-columns:1fr auto 1px;',
     );
   });
 

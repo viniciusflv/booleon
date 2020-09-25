@@ -39,10 +39,7 @@ const filterTuple = [
     ['ft_sd_' as 'ft_sd_NUMBER', `(${number})`],
     (value: string) => `filter:${shadow(Number(value), false, true)};`,
   ],
-  [
-    ['ft_invert_' as 'ft_invert_NUMBER', `(${number})`],
-    (value: string) => `filter:invert(${value}%);`,
-  ],
+  ['ft_invert', () => 'filter:invert(100%);'],
 ] as const;
 
 type FilterProps = Entry<typeof filterTuple>;

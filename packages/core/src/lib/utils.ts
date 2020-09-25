@@ -11,8 +11,8 @@ import {
   sd_9,
 } from './constants';
 
-export const percentage = (value: any) =>
-  isNaN(value) ? value : Number(value) / 100;
+export const percentage = (value: any, sulfix = '') =>
+  isNaN(value) ? value : Number(value) / 100 + sulfix;
 
 const wrap = (bool?: boolean, value = '') =>
   bool ? `drop-shadow(${value})` : value;
@@ -34,27 +34,27 @@ const handler = (sd: string[][], inset?: boolean, drop?: boolean) =>
 
 export function shadow(value: number, inset?: boolean, drop?: boolean) {
   switch (value) {
-    case 1:
-      return handler(sd_1, inset, drop);
-    case 2:
-      return handler(sd_2, inset, drop);
-    case 3:
-      return handler(sd_3, inset, drop);
-    case 4:
-      return handler(sd_4, inset, drop);
-    case 6:
-      return handler(sd_6, inset, drop);
-    case 8:
-      return handler(sd_8, inset, drop);
-    case 9:
-      return handler(sd_9, inset, drop);
-    case 12:
-      return handler(sd_12, inset, drop);
-    case 16:
-      return handler(sd_16, inset, drop);
-    case 24:
-      return handler(sd_24, inset, drop);
-    default:
-      return '';
+  case 1:
+    return handler(sd_1, inset, drop);
+  case 2:
+    return handler(sd_2, inset, drop);
+  case 3:
+    return handler(sd_3, inset, drop);
+  case 4:
+    return handler(sd_4, inset, drop);
+  case 6:
+    return handler(sd_6, inset, drop);
+  case 8:
+    return handler(sd_8, inset, drop);
+  case 9:
+    return handler(sd_9, inset, drop);
+  case 12:
+    return handler(sd_12, inset, drop);
+  case 16:
+    return handler(sd_16, inset, drop);
+  case 24:
+    return handler(sd_24, inset, drop);
+  default:
+    return '';
   }
 }

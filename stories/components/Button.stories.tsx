@@ -1,62 +1,62 @@
-import React from 'react';
-import { Button } from '../../packages/components/src';
-import { withA11y } from '@storybook/addon-a11y';
-import { withKnobs } from '@storybook/addon-knobs';
+// import React from 'react';
+// import { Button } from '../../packages/components/src';
+// import { withA11y } from '@storybook/addon-a11y';
+// import { withKnobs } from '@storybook/addon-knobs';
 
-export default {
-  title: 'Components / Button',
-  component: Button,
-  decorators: [withA11y, withKnobs],
-};
+// export default {
+//   title: 'Components / Button',
+//   component: Button,
+//   decorators: [withA11y, withKnobs],
+// };
 
-export const Default = () => {
-  return <Button onClick={console.log}>Default</Button>;
-};
+// export const Default = () => {
+//   return <Button onClick={console.log}>Default</Button>;
+// };
 
-export const Blue = () => {
-  return (
-    <Button blue onClick={console.log}>
-      Blue
-    </Button>
-  );
-};
+// export const Blue = () => {
+//   return (
+//     <Button blue onClick={console.log}>
+//       Blue
+//     </Button>
+//   );
+// };
 
-export const Red = () => {
-  return (
-    <Button red onClick={console.log}>
-      Red
-    </Button>
-  );
-};
+// export const Red = () => {
+//   return (
+//     <Button red onClick={console.log}>
+//       Red
+//     </Button>
+//   );
+// };
 
-export const Green = () => {
-  return (
-    <Button green onClick={console.log}>
-      Green
-    </Button>
-  );
-};
+// export const Green = () => {
+//   return (
+//     <Button green onClick={console.log}>
+//       Green
+//     </Button>
+//   );
+// };
 
-export const White = () => {
-  return (
-    <Button white onClick={console.log}>
-      White
-    </Button>
-  );
-};
+// export const White = () => {
+//   return (
+//     <Button white onClick={console.log}>
+//       White
+//     </Button>
+//   );
+// };
 
-export const Disabled = () => {
-  return (
-    <Button disabled onClick={console.log}>
-      Disabled
-    </Button>
-  );
-};
+// export const Disabled = () => {
+//   return (
+//     <Button disabled onClick={console.log}>
+//       Disabled
+//     </Button>
+//   );
+// };
 
-export const Outlined = () => {
-  return (
-    <Button outlined onClick={console.log}>
-      Outlined
-    </Button>
-  );
-};
+// export const Outlined = () => {
+//   return (
+//     <Button outlined onClick={console.log}>
+//       Outlined
+//     </Button>
+//   );
+// };

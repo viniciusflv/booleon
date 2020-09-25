@@ -10,7 +10,7 @@ const outlineTuple = [
   ],
   [
     ['olw_' as 'olw_NUMBER', `(${number})`],
-    (value: string) => `outline-width:${percentage(value)}rem;`,
+    (value: string) => `outline-width:${percentage(value, 'rem')};`,
   ],
   [
     ['ols_' as 'ols_STYLE', `(${lowerCase})`],

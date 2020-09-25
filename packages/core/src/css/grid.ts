@@ -9,11 +9,11 @@ const gridTuple = [
       `grid-template-areas:${areas.replace(/\n|\s+\s/gm, '')};`,
   ],
   [
-    ['rows_' as 'rows_FRACTIONS', `(${number}${lowerCase}|auto).*`],
+    ['rows_' as 'rows_FRACTIONS', `((${number}${lowerCase}|auto)(.*))`],
     (value: string) => `grid-template-rows:${value};`,
   ],
   [
-    ['cols_' as 'cols_FRACTIONS', `(${number}${lowerCase}|auto).*`],
+    ['cols_' as 'cols_FRACTIONS', `((${number}${lowerCase}|auto)(.*))`],
     (value: string) => `grid-template-columns:${value};`,
   ],
   [
@@ -22,11 +22,11 @@ const gridTuple = [
   ],
   [
     ['cols_span_' as 'cols_span_NUMBER', `(${number})`],
-    (value: string) => `grid-column:span${value}/span${value};`,
+    (value: string) => `grid-column:span ${value} / span ${value};`,
   ],
   [
     ['rows_span_' as 'rows_span_NUMBER', `(${number})`],
-    (value: string) => `grid-row:span${value}/span${value};`,
+    (value: string) => `grid-row:span ${value} / span ${value};`,
   ],
   [
     ['cols_start_' as 'cols_start_NUMBER', `(${number})`],

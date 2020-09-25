@@ -10,7 +10,7 @@ export function booleon<
   return elements.reduce(
     (acc, element) => ({
       ...acc,
-      [element]: createComponent<typeof map, E[number]>(element, map),
+      [element]: createComponent<T, E[number]>(element, map),
     }),
     {} as Booleon<E[number], Entry<T>>,
   );

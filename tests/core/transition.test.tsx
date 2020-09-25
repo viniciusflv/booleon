@@ -26,7 +26,7 @@ describe('Transition', () => {
     test('ts', () => {
       const { getByTestId } = render(<View.div data-testid="ts" ts />);
       expect(getByTestId('ts')).toHaveStyle(
-        'transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;',
+        'transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;',
       );
     });
 
@@ -47,7 +47,7 @@ describe('Transition', () => {
         <View.div data-testid="ts_colors" ts_colors />,
       );
       expect(getByTestId('ts_colors')).toHaveStyle(
-        'transition-property: background-color, border-color, color, fill, stroke;',
+        'transition-property: background-color,border-color,color,fill,stroke;',
       );
     });
 
@@ -94,7 +94,7 @@ describe('Transition', () => {
         <View.div data-testid="ts_ease_in" ts_ease_in />,
       );
       expect(getByTestId('ts_ease_in')).toHaveStyle(
-        'transition-timing-function: cubic-bezier(0.4, 0, 1, 1);',
+        'transition-timing-function: cubic-bezier(0.4,0,1,1);',
       );
     });
 
@@ -103,7 +103,7 @@ describe('Transition', () => {
         <View.div data-testid="ts_ease_out" ts_ease_out />,
       );
       expect(getByTestId('ts_ease_out')).toHaveStyle(
-        'transition-timing-function: cubic-bezier(0, 0, 0.2, 1);',
+        'transition-timing-function: cubic-bezier(0,0,0.2,1);',
       );
     });
 
@@ -112,7 +112,7 @@ describe('Transition', () => {
         <View.div data-testid="ts_ease_in_out" ts_ease_in_out />,
       );
       expect(getByTestId('ts_ease_in_out')).toHaveStyle(
-        'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);',
+        'transition-timing-function: cubic-bezier(0.4,0,0.2,1);',
       );
     });
   });

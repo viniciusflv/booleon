@@ -83,7 +83,7 @@ const transformTuple = [
     (value: string) => `transform:translateY(-${value}rem);`,
   ],
   [
-    ['ori_' as 'ori_NUMBER', `(${lowerCase}).*`],
+    ['ori_' as 'ori_NUMBER', `((${lowerCase})(.*))`],
     (value: string) => `transform-origin:${value};`,
   ],
   ['tl_full', () => 'transform:translate(100%,100%);'],

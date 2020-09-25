@@ -65,37 +65,39 @@ const borderTuple = [
   ],
   [
     ['bw_' as 'bw_NUMBER', `(${number})`],
-    (value: string) => `border-width:${percentage(value)}rem;`,
+    (value: string) => `border-width:${percentage(value, 'rem')};`,
   ],
   [
     ['btw_' as 'btw_NUMBER', `(${number})`],
-    (value: string) => `border-top-width:${percentage(value)}rem;`,
+    (value: string) => `border-top-width:${percentage(value, 'rem')};`,
   ],
   [
     ['bbw_' as 'bbw_NUMBER', `(${number})`],
-    (value: string) => `border-bottom-width:${percentage(value)}rem;`,
+    (value: string) => `border-bottom-width:${percentage(value, 'rem')};`,
   ],
   [
     ['blw_' as 'blw_NUMBER', `(${number})`],
-    (value: string) => `border-left-width:${percentage(value)}rem;`,
+    (value: string) => `border-left-width:${percentage(value, 'rem')};`,
   ],
   [
     ['brw_' as 'brw_NUMBER', `(${number})`],
-    (value: string) => `border-right-width:${percentage(value)}rem;`,
+    (value: string) => `border-right-width:${percentage(value, 'rem')};`,
   ],
   [
-    ['bxw_NUMBER', `(${number})`],
+    ['bxw_' as 'bxw_NUMBER', `(${number})`],
     (value: string) =>
       `border-left-width:${percentage(
         value,
-      )}rem;border-right-width:${percentage(value)}rem;`,
+        'rem',
+      )};border-right-width:${percentage(value, 'rem')};`,
   ],
   [
-    ['byw_NUMBER', `(${number})`],
+    ['byw_' as 'byw_NUMBER', `(${number})`],
     (value: string) =>
       `border-top-width:${percentage(
         value,
-      )}rem;border-bottom-width:${percentage(value)}rem;`,
+        'rem',
+      )};border-bottom-width:${percentage(value, 'rem')};`,
   ],
   ['b_collapse', () => 'border-collapse:collapse;'],
   ['b_separate', () => 'border-collapse:separate;'],

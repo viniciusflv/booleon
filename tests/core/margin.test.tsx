@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 describe('Margin', () => {
   test('m_12', () => {
     const { getByTestId } = render(<View.div data-testid="m_12" m_12 />);
-    expect(getByTestId('m_12')).toHaveStyle('margin: 1.2rem;');
+    expect(getByTestId('m_12')).toHaveStyle('margin: 0.12rem;');
   });
 
   test('m_auto', () => {
@@ -16,7 +16,7 @@ describe('Margin', () => {
 
   test('mt_12', () => {
     const { getByTestId } = render(<View.div data-testid="mt_12" mt_12 />);
-    expect(getByTestId('mt_12')).toHaveStyle('margin-top: 1.2rem;');
+    expect(getByTestId('mt_12')).toHaveStyle('margin-top: 0.12rem;');
   });
 
   test('mt_auto', () => {
@@ -26,7 +26,7 @@ describe('Margin', () => {
 
   test('mb_12', () => {
     const { getByTestId } = render(<View.div data-testid="mb_12" mb_12 />);
-    expect(getByTestId('mb_12')).toHaveStyle('margin-bottom: 1.2rem;');
+    expect(getByTestId('mb_12')).toHaveStyle('margin-bottom: 0.12rem;');
   });
 
   test('mb_auto', () => {
@@ -36,7 +36,7 @@ describe('Margin', () => {
 
   test('ml_12', () => {
     const { getByTestId } = render(<View.div data-testid="ml_12" ml_12 />);
-    expect(getByTestId('ml_12')).toHaveStyle('margin-left: 1.2rem;');
+    expect(getByTestId('ml_12')).toHaveStyle('margin-left: 0.12rem;');
   });
 
   test('ml_auto', () => {
@@ -46,7 +46,7 @@ describe('Margin', () => {
 
   test('mr_12', () => {
     const { getByTestId } = render(<View.div data-testid="mr_12" mr_12 />);
-    expect(getByTestId('mr_12')).toHaveStyle('margin-right: 1.2rem;');
+    expect(getByTestId('mr_12')).toHaveStyle('margin-right: 0.12rem;');
   });
 
   test('mr_auto', () => {
@@ -56,8 +56,8 @@ describe('Margin', () => {
 
   test('mx_12', () => {
     const { getByTestId } = render(<View.div data-testid="mx_12" mx_12 />);
-    expect(getByTestId('mx_12')).toHaveStyle('margin-right: 1.2rem;');
-    expect(getByTestId('mx_12')).toHaveStyle('margin-left: 1.2rem;');
+    expect(getByTestId('mx_12')).toHaveStyle('margin-right: 0.12rem;');
+    expect(getByTestId('mx_12')).toHaveStyle('margin-left: 0.12rem;');
   });
 
   test('mx_auto', () => {
@@ -68,8 +68,8 @@ describe('Margin', () => {
 
   test('my_12', () => {
     const { getByTestId } = render(<View.div data-testid="my_12" my_12 />);
-    expect(getByTestId('my_12')).toHaveStyle('margin-top: 1.2rem;');
-    expect(getByTestId('my_12')).toHaveStyle('margin-bottom: 1.2rem;');
+    expect(getByTestId('my_12')).toHaveStyle('margin-top: 0.12rem;');
+    expect(getByTestId('my_12')).toHaveStyle('margin-bottom: 0.12rem;');
   });
 
   test('my_auto', () => {

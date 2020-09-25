@@ -1,13 +1,16 @@
+import { Entry, Tuple } from './interfaces';
+import { RegexMap } from './RegexMap';
 import { createElement, memo, useMemo } from 'react';
+import { useReducer } from './reducer';
 
-export function createComponent<T, E extends readonly (keyof React.ReactDOM)[]>(
-  element: E[number],
-  indexer: Indexer<T, RegExp>,
-) {
+export function createComponent<
+  T extends Tuple,
+  E extends keyof React.ReactDOM
+>(element: E, map: RegexMap<T>) {
   function Booleon({ className = '', ...props }) {
     const [id, classes, htmlProps] = useMemo(
-      () => useReducer<T>({ ...props } as T, indexer),
-      [props, indexer],
+      () => useReducer<Entry<T>, T>(props, map),
+      [props, map],
     );
 
     let style = document.getElementById(id);

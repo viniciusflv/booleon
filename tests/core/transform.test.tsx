@@ -188,7 +188,7 @@ describe('Transform', () => {
           <View.div data-testid="tl_full" tl_full />,
         );
         expect(getByTestId('tl_full')).toHaveStyle(
-          'transform: translate(100%, 100%);',
+          'transform:translate(100%,100%);',
         );
       });
 
@@ -197,7 +197,7 @@ describe('Transform', () => {
           <View.div data-testid="tl_full_neg" tl_full_neg />,
         );
         expect(getByTestId('tl_full_neg')).toHaveStyle(
-          'transform: translate(-100%, -100%);',
+          'transform:translate(-100%,-100%);',
         );
       });
 
@@ -226,7 +226,7 @@ describe('Transform', () => {
           <View.div data-testid="tl_half" tl_half />,
         );
         expect(getByTestId('tl_half')).toHaveStyle(
-          'transform: translate(50%, 50%);',
+          'transform: translate(50%,50%);',
         );
       });
 
@@ -235,7 +235,7 @@ describe('Transform', () => {
           <View.div data-testid="tl_half_neg" tl_half_neg />,
         );
         expect(getByTestId('tl_half_neg')).toHaveStyle(
-          'transform: translate(-50%, -50%);',
+          'transform: translate(-50%,-50%);',
         );
       });
 

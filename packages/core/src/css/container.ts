@@ -11,35 +11,35 @@ const containerTuple = [
   ],
   [
     ['top_' as 'top_NUMBER', `(${number})`],
-    (value: string) => `top:${percentage(value)}rem;`,
+    (value: string) => `top:${percentage(value, 'rem')};`,
   ],
   [
     ['bottom_' as 'bottom_NUMBER', `(${number})`],
-    (value: string) => `bottom:${percentage(value)}rem;`,
+    (value: string) => `bottom:${percentage(value, 'rem')};`,
   ],
   [
     ['left_' as 'left_NUMBER', `(${number})`],
-    (value: string) => `left:${percentage(value)}rem;`,
+    (value: string) => `left:${percentage(value, 'rem')};`,
   ],
   [
     ['right_' as 'right_NUMBER', `(${number})`],
-    (value: string) => `right:${percentage(value)}rem;`,
+    (value: string) => `right:${percentage(value, 'rem')};`,
   ],
   [
     ['top_neg_' as 'top_neg_NUMBER', `(${number})`],
-    (value: string) => `top:-${percentage(value)}rem;`,
+    (value: string) => `top:-${percentage(value, 'rem')};`,
   ],
   [
     ['bottom_neg_' as 'bottom_neg_NUMBER', `(${number})`],
-    (value: string) => `bottom:-${percentage(value)}rem;`,
+    (value: string) => `bottom:-${percentage(value, 'rem')};`,
   ],
   [
     ['left_neg_' as 'left_neg_NUMBER', `(${number})`],
-    (value: string) => `left:-${percentage(value)}rem;`,
+    (value: string) => `left:-${percentage(value, 'rem')};`,
   ],
   [
     ['right_neg_' as 'right_neg_NUMBER', `(${number})`],
-    (value: string) => `right:-${percentage(value)}rem;`,
+    (value: string) => `right:-${percentage(value, 'rem')};`,
   ],
   ['z_max', () => `z-index:${MAX_SAFE_INTEGER};`],
   ['z_neg', () => 'z-index:-1;'],

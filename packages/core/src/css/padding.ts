@@ -5,37 +5,39 @@ import { percentage } from '../lib/utils';
 const paddingTuple = [
   [
     ['p_' as 'p_NUMBER', `(${number})`],
-    (value: string) => `padding:${percentage(value)}rem;`,
+    (value: string) => `padding:${percentage(value, 'rem')};`,
   ],
   [
     ['pt_' as 'pt_NUMBER', `(${number})`],
-    (value: string) => `padding-top:${percentage(value)}rem;`,
+    (value: string) => `padding-top:${percentage(value, 'rem')};`,
   ],
   [
     ['pb_' as 'pb_NUMBER', `(${number})`],
-    (value: string) => `padding-bottom:${percentage(value)}rem;`,
+    (value: string) => `padding-bottom:${percentage(value, 'rem')};`,
   ],
   [
     ['pl_' as 'pl_NUMBER', `(${number})`],
-    (value: string) => `padding-left:${percentage(value)}rem;`,
+    (value: string) => `padding-left:${percentage(value, 'rem')};`,
   ],
   [
     ['pr_' as 'pr_NUMBER', `(${number})`],
-    (value: string) => `padding-right:${percentage(value)}rem;`,
+    (value: string) => `padding-right:${percentage(value, 'rem')};`,
   ],
   [
     ['px_' as 'px_NUMBER', `(${number})`],
     (value: string) =>
-      `padding-left:${percentage(value)}rem;padding-right:${percentage(
+      `padding-left:${percentage(value, 'rem')};padding-right:${percentage(
         value,
-      )}rem;`,
+        'rem',
+      )};`,
   ],
   [
     ['py_' as 'py_NUMBER', `(${number})`],
     (value: string) =>
-      `padding-top:${percentage(value)}rem;padding-bottom:${percentage(
+      `padding-top:${percentage(value, 'rem')};padding-bottom:${percentage(
         value,
-      )}rem;`,
+        'rem',
+      )};`,
   ],
 ] as const;
 
