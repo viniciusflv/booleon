@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 describe('Background', () => {
   test('bg_HEX', () => {
     const { getByTestId } = render(<View.div data-testid="bg_HEX" bg_fff />);
-    expect(getByTestId('bg_HEX')).toHaveStyle('background-color: #f0f;');
+    expect(getByTestId('bg_HEX')).toHaveStyle('background-color: #fff;');
   });
 
   test('bg_img', () => {
