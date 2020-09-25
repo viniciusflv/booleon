@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { MediaQueries, PseudoElements } from './constants';
-type TupleKey<T> = T extends readonly (readonly [infer K, Function])[]
+export type TupleKey<T> = T extends readonly (readonly [infer K, Function])[]
   ? K extends string
     ? K
     : K extends readonly string[]

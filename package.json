@@ -10,7 +10,11 @@
     "dev": "start-storybook -p 6006",
     "build": "build-storybook -c .storybook -o build/dist",
     "format": "prettier-eslint --write $PWD/**/*.{ts,tsx}",
-    "bundle": "lerna run build --parallel"
+    "release": "lerna publish --conventional-commits --conventional-graduate --dist-tag latest",
+    "release:beta": "lerna publish --conventional-commits --conventional-prerelease --dist-tag beta",
+    "release:alpha": "lerna publish --conventional-commits --conventional-prerelease --dist-tag alpha",
+    "bun": "run-p bundle:*",
+    "bundle:core": "lerna exec --scope=@booleon/core -- npm run build"
   },
   "husky": {
     "hooks": {
@@ -18,9 +22,6 @@
       "pre-push": "npm test"
     }
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -49,6 +50,7 @@
     "jest": "^26.0.1",
     "jest-styled-components": "^7.0.2",
     "lerna": "^3.22.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "prettier-eslint-cli": "^5.0.0",
     "react-docgen-typescript-loader": "^3.7.2",

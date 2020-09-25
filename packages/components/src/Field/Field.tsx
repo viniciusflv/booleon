@@ -1,7 +1,7 @@
-// import { Checkbox } from './Checkbox';
+import { Checkbox } from './Checkbox';
 
-// const Field = {
-//   Checkbox,
-// };
+const Field = {
+  Checkbox,
+};
 
-// export default Field;
+export default Field;

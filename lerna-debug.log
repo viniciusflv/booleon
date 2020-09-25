@@ -1,0 +1,15 @@
+23 error Error: Command failed: git diff --name-only  -- packages/components
+23 error fatal: bad revision 'undefined'
+23 error
+23 error
+23 error     at makeError (/home/viniciusflv/Documentos/estudo/booleon/node_modules/execa/index.js:174:9)
+23 error     at Function.module.exports.sync (/home/viniciusflv/Documentos/estudo/booleon/node_modules/execa/index.js:338:15)
+23 error     at Object.execSync (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/child-process/index.js:26:16)
+23 error     at diffSinceIn (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/collect-updates/lib/make-diff-predicate.js:63:23)
+23 error     at hasDiffSinceThatIsntIgnored (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/collect-updates/lib/make-diff-predicate.js:27:18)
+23 error     at isCandidate (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/collect-updates/collect-updates.js:88:77)
+23 error     at /home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/collect-updates/lib/collect-packages.js:11:9
+23 error     at Map.forEach (<anonymous>)
+23 error     at collectPackages (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/collect-updates/lib/collect-packages.js:10:12)
+23 error     at collectUpdates (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/collect-updates/collect-updates.js:87:10)
+23 error     at VersionCommand.initialize (/home/viniciusflv/Documentos/estudo/booleon/node_modules/@lerna/version/index.js:192:20)
