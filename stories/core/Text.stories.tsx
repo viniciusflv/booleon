@@ -1,5 +1,6 @@
-import { text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
+
+import { text, withKnobs } from '@storybook/addon-knobs';
 
 import { Text } from '../../packages/core/src';
 

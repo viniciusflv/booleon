@@ -6,8 +6,7 @@
   "license": "MIT",
   "private": false,
   "peerDependencies": {
-    "react": "^16.13.1",
-    "styled-components": "^5.1.0"
+    "react": "^16.13.1"
   },
   "dependencies": {
     "react": "^16.13.1"
