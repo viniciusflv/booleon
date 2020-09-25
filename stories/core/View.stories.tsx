@@ -1,6 +1,7 @@
-import React from 'react';
-import { View } from '../../packages/core/src';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
+
+import { View } from '../../packages/core/src';
 
 export default {
   title: 'Core / View',

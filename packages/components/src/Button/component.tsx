@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { Text, View } from '../../../core/src';
 
 const ButtonComponent: FC<any> = ({

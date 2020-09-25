@@ -1,4 +1,3 @@
-import { booleon } from '../lib/booleon';
 import {
   containerTuple,
   cursorTuple,
@@ -7,6 +6,7 @@ import {
   transformTuple,
   transitionTuple,
 } from '../css';
+import { booleon } from '../lib/booleon';
 import { textTags } from '../lib/constants';
 
 const tuples = [

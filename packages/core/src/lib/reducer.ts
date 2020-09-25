@@ -1,5 +1,5 @@
-import { RegexMap } from './RegexMap';
 import { Tuple } from './interfaces';
+import { RegexMap } from './RegexMap';
 
 export function useReducer<P, T extends Tuple>(
   props: P | React.HTMLProps<{}>,

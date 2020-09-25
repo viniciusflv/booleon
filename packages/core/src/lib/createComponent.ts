@@ -1,7 +1,8 @@
-import { Entry, Tuple } from './interfaces';
-import { RegexMap } from './RegexMap';
 import { createElement, memo, useMemo } from 'react';
+
+import { Entry, Tuple } from './interfaces';
 import { useReducer } from './reducer';
+import { RegexMap } from './RegexMap';
 
 export function createComponent<
   T extends Tuple,

@@ -1,7 +1,7 @@
 {
   "version": "independent",
   "npmClient": "npm",
-  "packages": ["packages/*"],
+  "packages": ["packages/core/*"],
   "command": {
     "bootstrap": {
       "registry": ""

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { MediaQueries, PseudoElements } from './constants';
 export type TupleKey<T> = T extends readonly (readonly [infer K, Function])[]
   ? K extends string

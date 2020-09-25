@@ -21,22 +21,26 @@ plugins:
   - prettier
   - react
   - "@typescript-eslint"
-  - eslint-plugin-sort-imports-es6-autofix
+  - "eslint-plugin-import-helpers"
 rules:
   "prettier/prettier":
     - warn
   "@typescript-eslint/explicit-function-return-type":
     - warn
     - allowExpressions: true
-  sort-imports-es6-autofix/sort-imports-es6:
+  import-helpers/order-imports:
     - warn
-    - ignoreCase: false
-      ignoreMemberSort: false
-      memberSyntaxSortOrder:
-        - single
-        - all
-        - multiple
-        - none
+    - newlinesBetween: always
+      groups:
+      - /react/
+      - /boolean/
+      - module
+      - - parent
+        - sibling
+        - index
+      alphabetize:
+        order: asc
+        ignoreCase: true
   indent:
     - warn
     - 2

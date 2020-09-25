@@ -1,6 +1,7 @@
-import React from 'react';
-import { View } from '../../packages/core/src';
 import { render } from '@testing-library/react';
+import React from 'react';
+
+import { View } from '../../packages/core/src';
 import '@testing-library/jest-dom';
 
 describe('Grid', () => {

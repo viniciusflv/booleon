@@ -1,6 +1,6 @@
+import { createComponent } from './createComponent';
 import { Booleon, Entry } from './interfaces';
 import { RegexMap } from './RegexMap';
-import { createComponent } from './createComponent';
 
 export function booleon<
   E extends readonly (keyof React.ReactDOM)[],
