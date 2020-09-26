@@ -26,6 +26,8 @@ type Props<T = {}> = Prefixed<
   (T & React.HTMLProps<T>) | { [key in string]?: boolean | string | any }
 >;
 
+export type Styled<T> = FC<Props<T>>;
+
 export type Booleon<E extends keyof React.ReactDOM, T = {}> = {
-  [key in E]: FC<Props<T>>;
+  [key in E]: Styled<T>;
 };
