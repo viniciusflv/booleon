@@ -5,6 +5,8 @@
   "author": "Vinícius Victorino",
   "license": "MIT",
   "private": false,
+  "main": "dist/index.js",
+  "module": "dist/core.esm.js",
   "peerDependencies": {
     "react": "^16.13.1"
   },
