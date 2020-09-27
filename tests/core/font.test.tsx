@@ -20,7 +20,7 @@ describe('Font', () => {
 
     test('fs_10', () => {
       const { getByTestId } = render(<View.div data-testid="fs_10" fs_10 />);
-      expect(getByTestId('fs_10')).toHaveStyle('font-size: 0.1rem;');
+      expect(getByTestId('fs_10')).toHaveStyle('font-size: 1rem;');
     });
 
     test('f_italic', () => {
