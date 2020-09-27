@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '../../../../core/src';
+import { Text, View } from '@booleon/core';
 
 const Checkbox: FC<any> = ({ id, children, ...props }) => {
   return (
