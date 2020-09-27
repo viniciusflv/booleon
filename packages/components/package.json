@@ -16,5 +16,15 @@
   },
   "scripts": {
     "build": "tsdx build"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viniciusflv/booleon.git"
   }
 }
