@@ -1,6 +1,6 @@
 import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
-import { percentage, shadow } from '../lib/utils';
+import { divideIfNumber, shadow } from '../lib/utils';
 
 const filterTuple = [
   [
@@ -9,7 +9,7 @@ const filterTuple = [
   ],
   [
     ['ft_bn_' as 'ft_bn_NUMBER', `(${number})`],
-    (value: string) => `filter:brightness(${percentage(value)});`,
+    (value: string) => `filter:brightness(${divideIfNumber(value)});`,
   ],
   [
     ['ft_contrast_' as 'ft_contrast_NUMBER', `(${number})`],

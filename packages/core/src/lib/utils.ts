@@ -14,8 +14,8 @@ import {
 export const uniqueClass = (...classes: string[]) =>
   Array.from(new Set(classes.filter(Boolean))).join(' ');
 
-export const percentage = (value: any, sulfix = '') =>
-  isNaN(value) ? value : Number(value) / 100 + sulfix;
+export const divideIfNumber = (value: any, sulfix = '', divider = 100) =>
+  isNaN(value) ? value : Number(value) / divider + sulfix;
 
 const wrap = (bool?: boolean, value = '') =>
   bool ? `drop-shadow(${value})` : value;

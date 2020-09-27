@@ -1,45 +1,45 @@
 import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
-import { percentage } from '../lib/utils';
+import { divideIfNumber } from '../lib/utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerTuple = [
   [['z_' as 'z_NUMBER', `(${number})`], (value: string) => `z-index:${value};`],
   [
     ['op_' as 'op_NUMBER', `(${number})`],
-    (value: string) => `opacity:${percentage(value)};`,
+    (value: string) => `opacity:${divideIfNumber(value)};`,
   ],
   [
     ['top_' as 'top_NUMBER', `(${number})`],
-    (value: string) => `top:${percentage(value, 'rem')};`,
+    (value: string) => `top:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['bottom_' as 'bottom_NUMBER', `(${number})`],
-    (value: string) => `bottom:${percentage(value, 'rem')};`,
+    (value: string) => `bottom:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['left_' as 'left_NUMBER', `(${number})`],
-    (value: string) => `left:${percentage(value, 'rem')};`,
+    (value: string) => `left:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['right_' as 'right_NUMBER', `(${number})`],
-    (value: string) => `right:${percentage(value, 'rem')};`,
+    (value: string) => `right:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['top_neg_' as 'top_neg_NUMBER', `(${number})`],
-    (value: string) => `top:-${percentage(value, 'rem')};`,
+    (value: string) => `top:-${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['bottom_neg_' as 'bottom_neg_NUMBER', `(${number})`],
-    (value: string) => `bottom:-${percentage(value, 'rem')};`,
+    (value: string) => `bottom:-${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['left_neg_' as 'left_neg_NUMBER', `(${number})`],
-    (value: string) => `left:-${percentage(value, 'rem')};`,
+    (value: string) => `left:-${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['right_neg_' as 'right_neg_NUMBER', `(${number})`],
-    (value: string) => `right:-${percentage(value, 'rem')};`,
+    (value: string) => `right:-${divideIfNumber(value, 'rem')};`,
   ],
   ['z_max', () => `z-index:${MAX_SAFE_INTEGER};`],
   ['z_neg', () => 'z-index:-1;'],

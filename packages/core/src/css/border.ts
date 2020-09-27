@@ -1,6 +1,6 @@
 import { Entry } from '../lib/interfaces';
 import { hexColor, lowerCase, number } from '../lib/regex';
-import { percentage } from '../lib/utils';
+import { divideIfNumber } from '../lib/utils';
 
 const borderTuple = [
   [
@@ -65,39 +65,39 @@ const borderTuple = [
   ],
   [
     ['bw_' as 'bw_NUMBER', `(${number})`],
-    (value: string) => `border-width:${percentage(value, 'rem')};`,
+    (value: string) => `border-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['btw_' as 'btw_NUMBER', `(${number})`],
-    (value: string) => `border-top-width:${percentage(value, 'rem')};`,
+    (value: string) => `border-top-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['bbw_' as 'bbw_NUMBER', `(${number})`],
-    (value: string) => `border-bottom-width:${percentage(value, 'rem')};`,
+    (value: string) => `border-bottom-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['blw_' as 'blw_NUMBER', `(${number})`],
-    (value: string) => `border-left-width:${percentage(value, 'rem')};`,
+    (value: string) => `border-left-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['brw_' as 'brw_NUMBER', `(${number})`],
-    (value: string) => `border-right-width:${percentage(value, 'rem')};`,
+    (value: string) => `border-right-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['bxw_' as 'bxw_NUMBER', `(${number})`],
     (value: string) =>
-      `border-left-width:${percentage(
+      `border-left-width:${divideIfNumber(
         value,
         'rem',
-      )};border-right-width:${percentage(value, 'rem')};`,
+      )};border-right-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['byw_' as 'byw_NUMBER', `(${number})`],
     (value: string) =>
-      `border-top-width:${percentage(
+      `border-top-width:${divideIfNumber(
         value,
         'rem',
-      )};border-bottom-width:${percentage(value, 'rem')};`,
+      )};border-bottom-width:${divideIfNumber(value, 'rem')};`,
   ],
   ['b_collapse', () => 'border-collapse:collapse;'],
   ['b_separate', () => 'border-collapse:separate;'],

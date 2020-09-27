@@ -1,1 +1,1 @@
-export const Button = import('./component');
+export { default as Button } from './Button';

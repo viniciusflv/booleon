@@ -58,7 +58,7 @@ export class RegexMap<T extends Tuple> {
   }
 
   private regexp(key: string, idx: string[], cb: T[number][1]) {
-    const rgx = new RegExp(idx.join(''));
+    const rgx = new RegExp(`^${idx.join('')}`);
     const match = key.match(rgx);
     return match ? cb(match[1].replace(/_/g, ' ')) : '';
   }
@@ -73,6 +73,7 @@ export class RegexMap<T extends Tuple> {
   }
 
   private compileCss(key: string, value: string | boolean) {
+    if (!value) return '';
     return this.entry.reduce((acc, [idx, cb]) => {
       acc +=
         idx instanceof Array

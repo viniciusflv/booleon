@@ -41,9 +41,6 @@ rules:
       alphabetize:
         order: asc
         ignoreCase: true
-  indent:
-    - warn
-    - 2
   linebreak-style:
     - warn
     - unix

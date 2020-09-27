@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { Text, View } from '../../../core/src';
 
-const ButtonComponent: FC<any> = ({
+const Button: FC<any> = ({
   children,
   blue,
   green,
@@ -61,4 +61,4 @@ const ButtonComponent: FC<any> = ({
   );
 };
 
-export default ButtonComponent;
+export default Button;

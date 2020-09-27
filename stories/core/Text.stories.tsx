@@ -11,7 +11,7 @@ export default {
 };
 
 export const Default = () => {
-  const props = text('Props', 'fc_f00 ff_sans fs_120')
+  const props = text('Props', 'fc_f00 ff_sans fs_12')
     .split(/\s/)
     .filter(Boolean)
     .reduce((acc, prop) => ({ ...acc, [prop]: true }), {});
