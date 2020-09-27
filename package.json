@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup": "lerna bootstrap",
     "lint": "lint-staged",
     "test": "jest",
     "test:cov": "jest --coverage",
