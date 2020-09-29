@@ -17,6 +17,16 @@ export const uniqueClass = (...classes: string[]) =>
 export const divideIfNumber = (value: any, sulfix = '', divider = 100) =>
   isNaN(value) ? value : Number(value) / divider + sulfix;
 
+export function handleStyle(id: string, classes: string) {
+  let style = document.getElementById(id);
+  if (!style) {
+    style = document.createElement('style');
+    style.setAttribute('id', id);
+    document.head.appendChild(style);
+  }
+  if (classes !== style.innerHTML) style.innerHTML = classes;
+}
+
 const wrap = (bool?: boolean, value = '') =>
   bool ? `drop-shadow(${value})` : value;
 const concat = (bool?: boolean, value = '') => (bool ? value : '');

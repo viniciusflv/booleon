@@ -11,7 +11,6 @@ export default {
 };
 
 const SectionStyled2 = View.styled(({ children, className }) => {
-  console.log(className);
   return <section className={className}>{children}</section>;
 });
 
