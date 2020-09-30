@@ -1,4 +1,4 @@
-import { createElement, memo, useMemo } from 'react';
+import { createElement, useMemo } from 'react';
 
 import { Entry, Tuple } from './interfaces';
 import { useReducer } from './reducer';
@@ -25,5 +25,5 @@ export function createComponent<
 
   Booleon.displayName = `Booleon.${element}`;
 
-  return memo(Booleon);
+  return Booleon;
 }

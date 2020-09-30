@@ -1,4 +1,4 @@
-import React, { ComponentType, memo, useMemo } from 'react';
+import React, { ComponentType, useMemo } from 'react';
 
 import { Entry, Tuple } from './interfaces';
 import { useReducer } from './reducer';
@@ -24,5 +24,5 @@ export function styledComponent<T extends Tuple>(
 
   Booleon.displayName = 'Booleon.styled';
 
-  return memo(Booleon);
+  return Booleon;
 }
