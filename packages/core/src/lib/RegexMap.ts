@@ -47,16 +47,6 @@ export class RegexMap<T extends Tuple> {
     }, {});
   }
 
-  private fastHash(str: string) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = (hash << 5) - hash + char;
-      hash = hash & hash;
-    }
-    return hash;
-  }
-
   private regexp(key: string, idx: string[], cb: T[number][1]) {
     const rgx = new RegExp(`^${idx.join('')}`);
     const match = key.match(rgx);
@@ -89,15 +79,14 @@ export class RegexMap<T extends Tuple> {
       .join('')}}`;
   }
 
-  public compile<P>(props: P) {
-    const id = `bl-${this.fastHash(Object.keys(props).join(''))}`;
+  public compile<P>(id: string, props: P) {
     const categorizedProps = this.categorize<P>(id, props);
     const classes = Object.keys(categorizedProps).reduce((acc, key) => {
       return (acc += key.match(/@media/g)
         ? `${key}{${this.compileClasses(id, key, categorizedProps)}}`
         : this.compileClasses(key, key, categorizedProps));
     }, '');
-    return [id, classes];
+    return classes;
   }
 
   private belongs(key: string) {

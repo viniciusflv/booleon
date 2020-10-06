@@ -9,25 +9,33 @@ export type TupleKey<T> = T extends readonly (readonly [infer K, Function])[]
     : never
   : never;
 
+export type TupleValue<T> = T extends readonly (readonly [infer K, Function])[]
+  ? K extends string
+    ? string
+    : K extends readonly string[]
+    ? boolean
+    : never
+  : never;
+
 export type Tuple = readonly (readonly [
   string | readonly string[],
-  Function,
+  (value: string | boolean) => string,
 ])[];
 
 export type Entry<T extends Tuple> = {
-  [key in TupleKey<T>]?: boolean | string;
+  [key in TupleKey<T>]?: TupleValue<T>;
 };
 
 type Prefix = { [key in MediaQueries | PseudoElements]?: boolean };
 
 type Prefixed<T = {}> = T & Prefix;
 
-type Props<T = {}> = Prefixed<
-  (T & React.HTMLProps<T>) | { [key in string]?: boolean | string | any }
->;
+type Props<T = {}> = Prefixed<T | { [key in string]?: boolean | string }>;
 
-export type Styled<T> = FC<Props<T>>;
+export type BooleonProps<T> = FC<Props<T>>;
+
+export type BooleonHtmlProps<T> = BooleonProps<T & React.HTMLProps<T>>;
 
 export type Booleon<E extends keyof React.ReactDOM, T = {}> = {
-  [key in E]: Styled<T>;
+  [key in E]: BooleonHtmlProps<T>;
 };

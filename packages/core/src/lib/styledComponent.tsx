@@ -1,21 +1,16 @@
-import React, { ComponentType, useMemo } from 'react';
+import React, { ComponentType } from 'react';
 
-import { Entry, Tuple } from './interfaces';
-import { useReducer } from './reducer';
+import { BooleonHtmlProps, Entry, Tuple } from './interfaces';
 import { RegexMap } from './RegexMap';
-import { uniqueClass, handleStyle } from './utils';
+import { useStyles } from './useStyles';
+import { uniqueClass } from './utils';
 
 export function styledComponent<T extends Tuple>(
   ReactComponent: ComponentType<any>,
   map: RegexMap<T>,
 ) {
   function Booleon({ className = '', ...props }) {
-    const [id, classes, htmlProps] = useMemo(
-      () => useReducer<Entry<T>, T>(props, map),
-      [props, map],
-    );
-
-    handleStyle(id, classes);
+    const [id, htmlProps] = useStyles<Entry<T>, T>(props, map);
 
     return (
       <ReactComponent {...htmlProps} className={uniqueClass(id, className)} />
@@ -24,5 +19,5 @@ export function styledComponent<T extends Tuple>(
 
   Booleon.displayName = 'Booleon.styled';
 
-  return Booleon;
+  return Booleon as BooleonHtmlProps<Entry<T>>;
 }

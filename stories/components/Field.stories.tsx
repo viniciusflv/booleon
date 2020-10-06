@@ -22,3 +22,26 @@ export const Checkbox = () => {
     </Field.Checkbox>
   );
 };
+
+export const Radio = () => {
+  return (
+    <div>
+      <Field.Radio
+        id="radio1"
+        name="radio"
+        onChange={({ target }) => {
+          console.log(target.checked);
+        }}>
+        Radio
+      </Field.Radio>
+      <Field.Radio
+        id="radio2"
+        name="radio"
+        onChange={({ target }) => {
+          console.log(target.checked);
+        }}>
+        Radio
+      </Field.Radio>
+    </div>
+  );
+};

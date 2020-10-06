@@ -11,24 +11,25 @@ import {
   sd_9,
 } from './constants';
 
+export const fastHash = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+  return hash;
+};
+
 export const uniqueClass = (...classes: string[]) =>
   Array.from(new Set(classes.filter(Boolean))).join(' ');
 
 export const divideIfNumber = (value: any, sulfix = '', divider = 100) =>
   isNaN(value) ? value : Number(value) / divider + sulfix;
 
-export function handleStyle(id: string, classes: string) {
-  let style = document.getElementById(id);
-  if (!style) {
-    style = document.createElement('style');
-    style.setAttribute('id', id);
-    document.head.appendChild(style);
-  }
-  if (classes !== style.innerHTML) style.innerHTML = classes;
-}
-
 const wrap = (bool?: boolean, value = '') =>
   bool ? `drop-shadow(${value})` : value;
+
 const concat = (bool?: boolean, value = '') => (bool ? value : '');
 
 const handler = (sd: string[][], inset?: boolean, drop?: boolean) =>
