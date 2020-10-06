@@ -7,7 +7,7 @@ import {
   transitionTuple,
 } from '../css';
 import { booleon } from '../lib/booleon';
-import { textTags } from '../lib/constants';
+import { TEXT_TAGS } from '../lib/constants';
 
 const tuples = [
   ...containerTuple,
@@ -18,6 +18,6 @@ const tuples = [
   ...transitionTuple,
 ];
 
-const Text = booleon<typeof textTags, typeof tuples>(textTags, tuples);
+const Text = booleon<typeof TEXT_TAGS, typeof tuples>(TEXT_TAGS, tuples);
 
 export default Text;

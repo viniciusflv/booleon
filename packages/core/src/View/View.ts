@@ -17,7 +17,7 @@ import {
   transitionTuple,
 } from '../css';
 import { booleon } from '../lib/booleon';
-import { viewTags } from '../lib/constants';
+import { VIEW_TAGS } from '../lib/constants';
 
 const tuples = [
   ...backgroundTuple,
@@ -38,6 +38,6 @@ const tuples = [
   ...transitionTuple,
 ] as const;
 
-const View = booleon<typeof viewTags, typeof tuples>(viewTags, tuples);
+const View = booleon<typeof VIEW_TAGS, typeof tuples>(VIEW_TAGS, tuples);
 
 export default View;

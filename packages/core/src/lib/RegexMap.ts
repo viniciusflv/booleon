@@ -1,9 +1,10 @@
 import {
   MediaQueries,
   PseudoElements,
-  mediaQueries,
-  pseudoElements,
+  MEDIA_QUERIES,
+  PSEUDO_ELEMENTS,
 } from './constants';
+import { REACT_PROPS } from './constants';
 import { Tuple } from './interfaces';
 import { prefix } from './regex';
 export class RegexMap<T extends Tuple> {
@@ -16,11 +17,11 @@ export class RegexMap<T extends Tuple> {
   }
 
   private pseudoMap(keyPrefix: PseudoElements) {
-    return new Map(pseudoElements).get(keyPrefix);
+    return new Map(PSEUDO_ELEMENTS).get(keyPrefix);
   }
 
   private mediaMap(keyPrefix: MediaQueries) {
-    return `@media${new Map(mediaQueries).get(keyPrefix)}`;
+    return `@media${new Map(MEDIA_QUERIES).get(keyPrefix)}`;
   }
 
   private categorize<P>(id: string, props: P) {
@@ -90,21 +91,15 @@ export class RegexMap<T extends Tuple> {
   }
 
   private belongs(key: string) {
-    return this.entry
-      .map(([idx]) =>
-        idx instanceof Array
-          ? Boolean(key.match(idx.join('')))
-          : key === idx || Boolean((key as string).match(this.prefixRegex)),
-      )
-      .includes(true);
+    return REACT_PROPS.includes(key);
   }
 
   public filter<P>(props: any) {
     return Object.keys(props).reduce(
       ([html, belong], key) => {
         this.belongs(key)
-          ? (belong = { ...belong, [key]: props[key] })
-          : (html = { ...html, [key]: props[key] });
+          ? (html = { ...html, [key]: props[key] })
+          : (belong = { ...belong, [key]: props[key] });
         return [html, belong];
       },
       [{}, {} as P],

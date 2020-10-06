@@ -1,14 +1,14 @@
 import {
-  sd_1,
-  sd_12,
-  sd_16,
-  sd_2,
-  sd_24,
-  sd_3,
-  sd_4,
-  sd_6,
-  sd_8,
-  sd_9,
+  SD_1,
+  SD_12,
+  SD_16,
+  SD_2,
+  SD_24,
+  SD_3,
+  SD_4,
+  SD_6,
+  SD_8,
+  SD_9,
 } from './constants';
 
 export const fastHash = (str: string) => {
@@ -49,25 +49,25 @@ const handler = (sd: string[][], inset?: boolean, drop?: boolean) =>
 export function shadow(value: number, inset?: boolean, drop?: boolean) {
   switch (value) {
     case 1:
-      return handler(sd_1, inset, drop);
+      return handler(SD_1, inset, drop);
     case 2:
-      return handler(sd_2, inset, drop);
+      return handler(SD_2, inset, drop);
     case 3:
-      return handler(sd_3, inset, drop);
+      return handler(SD_3, inset, drop);
     case 4:
-      return handler(sd_4, inset, drop);
+      return handler(SD_4, inset, drop);
     case 6:
-      return handler(sd_6, inset, drop);
+      return handler(SD_6, inset, drop);
     case 8:
-      return handler(sd_8, inset, drop);
+      return handler(SD_8, inset, drop);
     case 9:
-      return handler(sd_9, inset, drop);
+      return handler(SD_9, inset, drop);
     case 12:
-      return handler(sd_12, inset, drop);
+      return handler(SD_12, inset, drop);
     case 16:
-      return handler(sd_16, inset, drop);
+      return handler(SD_16, inset, drop);
     case 24:
-      return handler(sd_24, inset, drop);
+      return handler(SD_24, inset, drop);
     default:
       return '';
   }
