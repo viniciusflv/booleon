@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '@booleon/core';
+import { Text, View } from '../../../../core/src';
 
 const Radio: FC<any> = ({ id, children, ...props }) => {
   return (
@@ -12,19 +12,24 @@ const Radio: FC<any> = ({ id, children, ...props }) => {
         noappearance
         ol_none
         cr_pointer
-        w_200
-        h_200
+        w_50
+        h_50
         relative
         flex
-        b_rounded
+        b_circular
         cross_center
         main_center
-        fs_20
+        fs_50
         fc_fff
         bw_1
         bc_555
         bs_solid
         bg_d5d5d5
+        mr_10
+        ts_all
+        ease_in
+        ts_duration_500ms
+        hover__bg_fafafa
         checked__bg_00f
         focus__bc_00f
         checked__before__content='"•"'
@@ -32,7 +37,7 @@ const Radio: FC<any> = ({ id, children, ...props }) => {
         focus__sibling__fc_00f
       />
       {children ? (
-        <Text.label htmlFor={id} fsl_none cr_pointer fs_12 ff_sans>
+        <Text.label htmlFor={id} fsl_none cr_pointer fs_20 ff_sans>
           {children}
         </Text.label>
       ) : null}

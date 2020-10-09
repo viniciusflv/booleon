@@ -8,21 +8,21 @@ describe('Sizing', () => {
   describe('Height', () => {
     test('h_100', () => {
       const { getByTestId } = render(<View.div data-testid="h_100" h_100 />);
-      expect(getByTestId('h_100')).toHaveStyle('height: 1rem;');
+      expect(getByTestId('h_100')).toHaveStyle('height: 6.25rem;');
     });
 
     test('h_max_100', () => {
       const { getByTestId } = render(
         <View.div data-testid="h_max_100" h_max_100 />,
       );
-      expect(getByTestId('h_max_100')).toHaveStyle('max-height: 1rem;');
+      expect(getByTestId('h_max_100')).toHaveStyle('max-height: 6.25rem;');
     });
 
     test('h_min_100', () => {
       const { getByTestId } = render(
         <View.div data-testid="h_min_100" h_min_100 />,
       );
-      expect(getByTestId('h_min_100')).toHaveStyle('min-height: 1rem;');
+      expect(getByTestId('h_min_100')).toHaveStyle('min-height: 6.25rem;');
     });
 
     test('h_screen_30', () => {
@@ -109,21 +109,21 @@ describe('Sizing', () => {
   describe('Width', () => {
     test('w_100', () => {
       const { getByTestId } = render(<View.div data-testid="w_100" w_100 />);
-      expect(getByTestId('w_100')).toHaveStyle('width: 1rem;');
+      expect(getByTestId('w_100')).toHaveStyle('width: 6.25rem;');
     });
 
     test('w_max_100', () => {
       const { getByTestId } = render(
         <View.div data-testid="w_max_100" w_max_100 />,
       );
-      expect(getByTestId('w_max_100')).toHaveStyle('max-width: 1rem;');
+      expect(getByTestId('w_max_100')).toHaveStyle('max-width: 6.25rem;');
     });
 
     test('w_min_100', () => {
       const { getByTestId } = render(
         <View.div data-testid="w_min_100" w_min_100 />,
       );
-      expect(getByTestId('w_min_100')).toHaveStyle('min-width: 1rem;');
+      expect(getByTestId('w_min_100')).toHaveStyle('min-width: 6.25rem;');
     });
 
     test('w_screen_30', () => {

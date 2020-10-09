@@ -1,6 +1,6 @@
 import { Entry } from '../lib/interfaces';
 import { hexColor, lowerCase, number } from '../lib/regex';
-import { divideIfNumber } from '../lib/utils';
+import { rem } from '../lib/utils';
 
 const outlineTuple = [
   ['ol_none', () => 'outline:none;'],
@@ -10,7 +10,7 @@ const outlineTuple = [
   ],
   [
     ['olw_' as 'olw_NUMBER', `(${number})`],
-    (value: string) => `outline-width:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `outline-width:${rem(value)};`,
   ],
   [
     ['ols_' as 'ols_STYLE', `(${lowerCase})`],

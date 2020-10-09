@@ -6,7 +6,7 @@ const gridTuple = [
   [
     'areas',
     (areas: string) =>
-      `grid-template-areas:${areas.replace(/\n|\s+\s/gm, '')};`,
+      `grid-template-areas:${String(areas).replace(/\n|\s+\s/gm, '')};`,
   ],
   [
     ['rows_' as 'rows_FRACTIONS', `((${number}${lowerCase}|auto)(.*))`],

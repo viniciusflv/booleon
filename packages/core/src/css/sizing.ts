@@ -1,19 +1,31 @@
 import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
-import { divideIfNumber } from '../lib/utils';
+import { rem } from '../lib/utils';
 
 const sizingTuple = [
   [
     ['h_' as 'h_NUMBER', `(${number})`],
-    (value: string) => `height:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `height:${rem(value)};`,
   ],
   [
     ['h_max_' as 'h_max_NUMBER', `(${number})`],
-    (value: string) => `max-height:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `max-height:${rem(value)};`,
   ],
   [
     ['h_min_' as 'h_min_NUMBER', `(${number})`],
-    (value: string) => `min-height:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `min-height:${rem(value)};`,
+  ],
+  [
+    ['w_' as 'w_NUMBER', `(${number})`],
+    (value: string) => `width:${rem(value)};`,
+  ],
+  [
+    ['w_max_' as 'w_max_NUMBER', `(${number})`],
+    (value: string) => `max-width:${rem(value)};`,
+  ],
+  [
+    ['w_min_' as 'w_min_NUMBER', `(${number})`],
+    (value: string) => `min-width:${rem(value)};`,
   ],
   [
     ['h_screen_' as 'h_screen_NUMBER', `(${number})`],
@@ -26,18 +38,6 @@ const sizingTuple = [
   [
     ['h_min_screen_' as 'h_min_screen_NUMBER', `(${number})`],
     (value: string) => `min-height:${value}vh;`,
-  ],
-  [
-    ['w_' as 'w_NUMBER', `(${number})`],
-    (value: string) => `width:${divideIfNumber(value, 'rem')};`,
-  ],
-  [
-    ['w_max_' as 'w_max_NUMBER', `(${number})`],
-    (value: string) => `max-width:${divideIfNumber(value, 'rem')};`,
-  ],
-  [
-    ['w_min_' as 'w_min_NUMBER', `(${number})`],
-    (value: string) => `min-width:${divideIfNumber(value, 'rem')};`,
   ],
   [
     ['w_screen_' as 'w_screen_NUMBER', `(${number})`],

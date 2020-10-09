@@ -57,14 +57,14 @@ describe('Container', () => {
         const { getByTestId } = render(
           <View.div data-testid="top_666" top_666 />,
         );
-        expect(getByTestId('top_666')).toHaveStyle('top: 6.66rem;');
+        expect(getByTestId('top_666')).toHaveStyle('top: 41.625rem;');
       });
 
       test('top_neg_666', () => {
         const { getByTestId } = render(
           <View.div data-testid="top_neg_666" top_neg_666 />,
         );
-        expect(getByTestId('top_neg_666')).toHaveStyle('top: -6.66rem;');
+        expect(getByTestId('top_neg_666')).toHaveStyle('top: -41.625rem;');
       });
 
       test('top', () => {
@@ -85,14 +85,16 @@ describe('Container', () => {
         const { getByTestId } = render(
           <View.div data-testid="bottom_666" bottom_666 />,
         );
-        expect(getByTestId('bottom_666')).toHaveStyle('bottom: 6.66rem;');
+        expect(getByTestId('bottom_666')).toHaveStyle('bottom: 41.625rem;');
       });
 
       test('bottom_neg_666', () => {
         const { getByTestId } = render(
           <View.div data-testid="bottom_neg_666" bottom_neg_666 />,
         );
-        expect(getByTestId('bottom_neg_666')).toHaveStyle('bottom: -6.66rem;');
+        expect(getByTestId('bottom_neg_666')).toHaveStyle(
+          'bottom: -41.625rem;',
+        );
       });
 
       test('bottom', () => {
@@ -115,14 +117,14 @@ describe('Container', () => {
         const { getByTestId } = render(
           <View.div data-testid="left_666" left_666 />,
         );
-        expect(getByTestId('left_666')).toHaveStyle('left: 6.66rem;');
+        expect(getByTestId('left_666')).toHaveStyle('left: 41.625rem;');
       });
 
       test('left_neg_666', () => {
         const { getByTestId } = render(
           <View.div data-testid="left_neg_666" left_neg_666 />,
         );
-        expect(getByTestId('left_neg_666')).toHaveStyle('left: -6.66rem;');
+        expect(getByTestId('left_neg_666')).toHaveStyle('left: -41.625rem;');
       });
 
       test('left', () => {
@@ -143,14 +145,14 @@ describe('Container', () => {
         const { getByTestId } = render(
           <View.div data-testid="right_666" right_666 />,
         );
-        expect(getByTestId('right_666')).toHaveStyle('right: 6.66rem;');
+        expect(getByTestId('right_666')).toHaveStyle('right: 41.625rem;');
       });
 
       test('right_neg_666', () => {
         const { getByTestId } = render(
           <View.div data-testid="right_neg_666" right_neg_666 />,
         );
-        expect(getByTestId('right_neg_666')).toHaveStyle('right: -6.66rem;');
+        expect(getByTestId('right_neg_666')).toHaveStyle('right: -41.625rem;');
       });
 
       test('right', () => {

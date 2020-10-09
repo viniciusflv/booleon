@@ -1,45 +1,45 @@
 import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
-import { divideIfNumber } from '../lib/utils';
+import { percentage, rem } from '../lib/utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 const containerTuple = [
   [['z_' as 'z_NUMBER', `(${number})`], (value: string) => `z-index:${value};`],
   [
     ['op_' as 'op_NUMBER', `(${number})`],
-    (value: string) => `opacity:${divideIfNumber(value)};`,
+    (value: string) => `opacity:${percentage(value)};`,
   ],
   [
     ['top_' as 'top_NUMBER', `(${number})`],
-    (value: string) => `top:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `top:${rem(value)};`,
   ],
   [
     ['bottom_' as 'bottom_NUMBER', `(${number})`],
-    (value: string) => `bottom:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `bottom:${rem(value)};`,
   ],
   [
     ['left_' as 'left_NUMBER', `(${number})`],
-    (value: string) => `left:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `left:${rem(value)};`,
   ],
   [
     ['right_' as 'right_NUMBER', `(${number})`],
-    (value: string) => `right:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `right:${rem(value)};`,
   ],
   [
     ['top_neg_' as 'top_neg_NUMBER', `(${number})`],
-    (value: string) => `top:-${divideIfNumber(value, 'rem')};`,
+    (value: string) => `top:-${rem(value)};`,
   ],
   [
     ['bottom_neg_' as 'bottom_neg_NUMBER', `(${number})`],
-    (value: string) => `bottom:-${divideIfNumber(value, 'rem')};`,
+    (value: string) => `bottom:-${rem(value)};`,
   ],
   [
     ['left_neg_' as 'left_neg_NUMBER', `(${number})`],
-    (value: string) => `left:-${divideIfNumber(value, 'rem')};`,
+    (value: string) => `left:-${rem(value)};`,
   ],
   [
     ['right_neg_' as 'right_neg_NUMBER', `(${number})`],
-    (value: string) => `right:-${divideIfNumber(value, 'rem')};`,
+    (value: string) => `right:-${rem(value)};`,
   ],
   ['z_max', () => `z-index:${MAX_SAFE_INTEGER};`],
   ['z_neg', () => 'z-index:-1;'],

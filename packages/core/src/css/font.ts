@@ -1,6 +1,6 @@
 import { Entry } from '../lib/interfaces';
 import { hexColor, letter, lowerCase, number } from '../lib/regex';
-import { divideIfNumber } from '../lib/utils';
+import { rem } from '../lib/utils';
 
 const fontTuple = [
   [
@@ -11,19 +11,19 @@ const fontTuple = [
   [['fc_' as 'fc_HEX', `(${hexColor})`], (value: string) => `color:#${value};`],
   [
     ['fs_' as 'fs_NUMBER', `(${number})`],
-    (value: string) => `font-size:${divideIfNumber(value, 'rem', 10)};`,
+    (value: string) => `font-size:${rem(value)};`,
   ],
   [
     ['ls_' as 'ls_NUMBER', `(${number})`],
-    (value: string) => `letter-spacing:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `letter-spacing:${rem(value)};`,
   ],
   [
     ['ls_neg_' as 'ls_neg_NUMBER', `(${number})`],
-    (value: string) => `letter-spacing:-${divideIfNumber(value, 'rem')};`,
+    (value: string) => `letter-spacing:-${rem(value)};`,
   ],
   [
     ['lh_' as 'lh_NUMBER', `(${number})`],
-    (value: string) => `line-height:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `line-height:${rem(value)};`,
   ],
   [
     ['fsl_' as 'fsl_SELECT', `(${lowerCase})`],

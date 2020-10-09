@@ -15,31 +15,48 @@ const Div = (props) => <div {...props} />;
 
 const DivStyled = View.styled(Div);
 
+const Styled = ({ bool }) => (
+  <>
+    <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
+    <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
+    <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
+    {/* <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
+    <DivStyled {...benchmarkProps(bool)}>styled</DivStyled> */}
+  </>
+);
+
+const Main = ({ bool }) => (
+  <>
+    <View.div {...benchmarkProps(bool)}>div</View.div>
+    <View.div {...benchmarkProps(bool)}>div</View.div>
+    <View.div {...benchmarkProps(bool)}>div</View.div>
+    {/* <View.div {...benchmarkProps(bool)}>div</View.div>
+    <View.div {...benchmarkProps(bool)}>div</View.div> */}
+  </>
+);
+
+const Multiple = ({ bool }) => (
+  <View.multiple {...benchmarkProps(bool)}>
+    <div>multiple</div>
+    <div>multiple</div>
+    <div>multiple</div>
+    {/* <div>multiple</div>
+    <div>multiple</div> */}
+  </View.multiple>
+);
+
 export const Default = () => {
   const [bool, setBool] = useState(true);
-  const [change, setChange] = useState(true);
   useEffect(() => {
     const timeout = setTimeout(() => setBool(!bool), 1000);
     return () => clearTimeout(timeout);
   }, [bool]);
 
-  useEffect(() => {
-    setChange(!change);
-  }, [bool]);
-
   return (
-    <div>
-      <View.multiple {...benchmarkProps(bool)}>
-        <div>multiple</div>
-        <div>multiple</div>
-        <div>multiple</div>
-      </View.multiple>
-      <View.div {...benchmarkProps(bool)}>div</View.div>
-      <View.div {...benchmarkProps(bool)}>div</View.div>
-      <View.div {...benchmarkProps(bool)}>div</View.div>
-      <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
-      <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
-      <DivStyled {...benchmarkProps(bool)}>styled</DivStyled>
-    </div>
+    <>
+      <Multiple bool={bool} />
+      <Main bool={bool} />
+      <Styled bool={bool} />
+    </>
   );
 };

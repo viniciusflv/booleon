@@ -24,8 +24,11 @@ export const fastHash = (str: string) => {
 export const uniqueClass = (...classes: string[]) =>
   Array.from(new Set(classes.filter(Boolean))).join(' ');
 
-export const divideIfNumber = (value: any, sulfix = '', divider = 100) =>
-  isNaN(value) ? value : Number(value) / divider + sulfix;
+export const rem = (value: any) =>
+  isNaN(value) ? value : Number(value) * 0.0625 + 'rem';
+
+export const percentage = (value: any) =>
+  isNaN(value) ? value : Number(value) / 100;
 
 const wrap = (bool?: boolean, value = '') =>
   bool ? `drop-shadow(${value})` : value;

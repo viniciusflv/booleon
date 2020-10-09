@@ -1,6 +1,6 @@
 import { Entry } from '../lib/interfaces';
 import { hexColor, lowerCase, number } from '../lib/regex';
-import { divideIfNumber } from '../lib/utils';
+import { rem } from '../lib/utils';
 
 const borderTuple = [
   [
@@ -65,39 +65,33 @@ const borderTuple = [
   ],
   [
     ['bw_' as 'bw_NUMBER', `(${number})`],
-    (value: string) => `border-width:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `border-width:${rem(value)};`,
   ],
   [
     ['btw_' as 'btw_NUMBER', `(${number})`],
-    (value: string) => `border-top-width:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `border-top-width:${rem(value)};`,
   ],
   [
     ['bbw_' as 'bbw_NUMBER', `(${number})`],
-    (value: string) => `border-bottom-width:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `border-bottom-width:${rem(value)};`,
   ],
   [
     ['blw_' as 'blw_NUMBER', `(${number})`],
-    (value: string) => `border-left-width:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `border-left-width:${rem(value)};`,
   ],
   [
     ['brw_' as 'brw_NUMBER', `(${number})`],
-    (value: string) => `border-right-width:${divideIfNumber(value, 'rem')};`,
+    (value: string) => `border-right-width:${rem(value)};`,
   ],
   [
     ['bxw_' as 'bxw_NUMBER', `(${number})`],
     (value: string) =>
-      `border-left-width:${divideIfNumber(
-        value,
-        'rem',
-      )};border-right-width:${divideIfNumber(value, 'rem')};`,
+      `border-left-width:${rem(value)};border-right-width:${rem(value)};`,
   ],
   [
     ['byw_' as 'byw_NUMBER', `(${number})`],
     (value: string) =>
-      `border-top-width:${divideIfNumber(
-        value,
-        'rem',
-      )};border-bottom-width:${divideIfNumber(value, 'rem')};`,
+      `border-top-width:${rem(value)};border-bottom-width:${rem(value)};`,
   ],
   ['b_collapse', () => 'border-collapse:collapse;'],
   ['b_separate', () => 'border-collapse:separate;'],

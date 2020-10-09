@@ -63,7 +63,7 @@ describe('Outline', () => {
 
   test('olw_10', () => {
     const { getByTestId } = render(<View.div data-testid="olw_10" olw_10 />);
-    expect(getByTestId('olw_10')).toHaveStyle('outline-width: 0.1rem;');
+    expect(getByTestId('olw_10')).toHaveStyle('outline-width: 0.625rem;');
   });
 
   test('olc_f00', () => {

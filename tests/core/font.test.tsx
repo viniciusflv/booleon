@@ -20,7 +20,7 @@ describe('Font', () => {
 
     test('fs_10', () => {
       const { getByTestId } = render(<View.div data-testid="fs_10" fs_10 />);
-      expect(getByTestId('fs_10')).toHaveStyle('font-size: 1rem;');
+      expect(getByTestId('fs_10')).toHaveStyle('font-size: 0.625rem;');
     });
 
     test('f_italic', () => {
@@ -161,19 +161,21 @@ describe('Font', () => {
   describe('Spacing', () => {
     test('ls_10', () => {
       const { getByTestId } = render(<View.div data-testid="ls_10" ls_10 />);
-      expect(getByTestId('ls_10')).toHaveStyle('letter-spacing: 0.1rem;');
+      expect(getByTestId('ls_10')).toHaveStyle('letter-spacing: 0.625rem;');
     });
 
     test('ls_neg_10', () => {
       const { getByTestId } = render(
         <View.div data-testid="ls_neg_10" ls_neg_10 />,
       );
-      expect(getByTestId('ls_neg_10')).toHaveStyle('letter-spacing: -0.1rem;');
+      expect(getByTestId('ls_neg_10')).toHaveStyle(
+        'letter-spacing: -0.625rem;',
+      );
     });
 
     test('lh_10', () => {
       const { getByTestId } = render(<View.div data-testid="lh_10" lh_10 />);
-      expect(getByTestId('lh_10')).toHaveStyle('line-height: 0.1rem;');
+      expect(getByTestId('lh_10')).toHaveStyle('line-height: 0.625rem;');
     });
   });
 

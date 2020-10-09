@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '@booleon/core';
+import { Text, View } from '../../../core/src';
 
 const Button: FC<any> = ({
   children,
@@ -30,8 +30,8 @@ const Button: FC<any> = ({
       bc_fff={outlined && white}
       b_rounded
       sd_1
-      py_10
-      px_25
+      py_16
+      px_50
       cr_pointer
       ts_all
       ease_in
@@ -46,8 +46,8 @@ const Button: FC<any> = ({
       {...props}>
       <Text.span
         fa_center
-        ls_10
-        fs_10
+        ls_2
+        fs_16
         fc_fff={!outlined || (white && outlined)}
         fc_555={(!outlined && white) || (outlined && noColor)}
         fc_0073E6={outlined && blue}

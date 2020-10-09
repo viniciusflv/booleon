@@ -209,7 +209,7 @@ export default (bool: boolean) => ({
   gl_f00: bool,
   gr_f00: bool,
   grid: bool,
-  areas: `"${bool}"`,
+  areas: bool,
   rows_1fr: bool,
   cols_1fr: bool,
   area_AREA: bool,

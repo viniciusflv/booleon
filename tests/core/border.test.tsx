@@ -128,39 +128,47 @@ describe('Border', () => {
   describe('Width', () => {
     test('bw_10', () => {
       const { getByTestId } = render(<View.div data-testid="bw_10" bw_10 />);
-      expect(getByTestId('bw_10')).toHaveStyle('border-width: 0.1rem;');
+      expect(getByTestId('bw_10')).toHaveStyle('border-width: 0.625rem;');
     });
 
     test('btw_10', () => {
       const { getByTestId } = render(<View.div data-testid="btw_10" btw_10 />);
-      expect(getByTestId('btw_10')).toHaveStyle('border-top-width: 0.1rem;');
+      expect(getByTestId('btw_10')).toHaveStyle('border-top-width: 0.625rem;');
     });
 
     test('bbw_10', () => {
       const { getByTestId } = render(<View.div data-testid="bbw_10" bbw_10 />);
-      expect(getByTestId('bbw_10')).toHaveStyle('border-bottom-width: 0.1rem;');
+      expect(getByTestId('bbw_10')).toHaveStyle(
+        'border-bottom-width: 0.625rem;',
+      );
     });
 
     test('blw_10', () => {
       const { getByTestId } = render(<View.div data-testid="blw_10" blw_10 />);
-      expect(getByTestId('blw_10')).toHaveStyle('border-left-width: 0.1rem;');
+      expect(getByTestId('blw_10')).toHaveStyle('border-left-width: 0.625rem;');
     });
 
     test('brw_10', () => {
       const { getByTestId } = render(<View.div data-testid="brw_10" brw_10 />);
-      expect(getByTestId('brw_10')).toHaveStyle('border-right-width: 0.1rem;');
+      expect(getByTestId('brw_10')).toHaveStyle(
+        'border-right-width: 0.625rem;',
+      );
     });
 
     test('bxw_10', () => {
       const { getByTestId } = render(<View.div data-testid="bxw_10" bxw_10 />);
-      expect(getByTestId('bxw_10')).toHaveStyle('border-right-width: 0.1rem;');
-      expect(getByTestId('bxw_10')).toHaveStyle('border-left-width: 0.1rem;');
+      expect(getByTestId('bxw_10')).toHaveStyle(
+        'border-right-width: 0.625rem;',
+      );
+      expect(getByTestId('bxw_10')).toHaveStyle('border-left-width: 0.625rem;');
     });
 
     test('byw_10', () => {
       const { getByTestId } = render(<View.div data-testid="byw_10" byw_10 />);
-      expect(getByTestId('byw_10')).toHaveStyle('border-top-width: 0.1rem;');
-      expect(getByTestId('byw_10')).toHaveStyle('border-bottom-width: 0.1rem;');
+      expect(getByTestId('byw_10')).toHaveStyle('border-top-width: 0.625rem;');
+      expect(getByTestId('byw_10')).toHaveStyle(
+        'border-bottom-width: 0.625rem;',
+      );
     });
   });
 
