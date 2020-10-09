@@ -1,16 +1,13 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '../../../core/src';
+import { Text, View } from '@booleon/core';
 
-const Button: FC<any> = ({
-  children,
-  blue,
-  green,
-  red,
-  white,
-  outlined,
-  ...props
-}) => {
+const Button: FC<
+  React.HTMLProps<any> &
+    {
+      [key in 'blue' | 'green' | 'red' | 'white' | 'outlined']?: boolean;
+    }
+> = ({ children, blue, green, red, white, outlined, ...props }) => {
   const noColor = !blue && !green && !red && !white;
   return (
     <View.button
@@ -22,7 +19,7 @@ const Button: FC<any> = ({
       bg_fff={!outlined && white}
       b_none
       bs_solid={outlined}
-      bw_10={outlined}
+      bw_1={outlined}
       bc_555={outlined && noColor}
       bc_0073E6={outlined && blue}
       bc_008563={outlined && green}
@@ -31,7 +28,7 @@ const Button: FC<any> = ({
       b_rounded
       sd_1
       py_16
-      px_50
+      w_min_150
       cr_pointer
       ts_all
       ease_in

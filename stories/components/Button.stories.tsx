@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
@@ -12,13 +12,7 @@ export default {
 };
 
 export const Default = () => {
-  const [state, setState] = useState(undefined);
-  const toggle = () => setState(!state);
-  return (
-    <Button blue={state} onClick={toggle}>
-      Default
-    </Button>
-  );
+  return <Button onClick={console.log}>Default</Button>;
 };
 
 export const Blue = () => {

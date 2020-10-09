@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '../../../../core/src';
+import { Text, View } from '@booleon/core';
 
-const Radio: FC<any> = ({ id, children, ...props }) => {
+const Radio: FC<React.HTMLProps<any> & { id: string }> = ({
+  id,
+  children,
+  ...props
+}) => {
   return (
     <View.div flex cross_center fc_555>
       <View.input
@@ -12,8 +16,8 @@ const Radio: FC<any> = ({ id, children, ...props }) => {
         noappearance
         ol_none
         cr_pointer
-        w_50
-        h_50
+        w_45
+        h_45
         relative
         flex
         b_circular

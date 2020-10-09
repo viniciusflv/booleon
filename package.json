@@ -14,7 +14,8 @@
     "format": "prettier-eslint --write $PWD/**/*.{ts,tsx}",
     "pub": "npm test && npm run bun && lerna publish",
     "bun": "run-p bundle:*",
-    "bundle:core": "lerna exec --scope=@booleon/core -- npm run build"
+    "bundle:core": "lerna exec --scope=@booleon/core -- npm run build",
+    "bundle:components": "lerna exec --scope=@booleon/components -- npm run build"
   },
   "husky": {
     "hooks": {
@@ -42,7 +43,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
-    "@booleon/core": "^0.1.4-alpha.0",
+    "@booleon/core": "^0.1.5-alpha.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-a11y": "^6.0.22",
@@ -54,6 +55,7 @@
     "@storybook/react": "^6.0.22",
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.8",
+    "@types/jest-axe": "^3.5.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
@@ -65,6 +67,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "jest-axe": "^4.0.0",
     "lerna": "^3.22.0",
     "lint-staged": "^10.4.0",
     "npm-run-all": "^4.1.5",
