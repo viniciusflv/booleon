@@ -11,6 +11,30 @@ export default {
   decorators: [withA11y, withKnobs],
 };
 
+export const Textarea = () => {
+  return (
+    <Field.Textarea
+      id="textarea"
+      onChange={({ target }) => {
+        console.log(target.value);
+      }}>
+      Textarea
+    </Field.Textarea>
+  );
+};
+
+export const Text = () => {
+  return (
+    <Field.Text
+      id="text"
+      onChange={({ target }) => {
+        console.log(target.value);
+      }}>
+      Text
+    </Field.Text>
+  );
+};
+
 export const Checkbox = () => {
   return (
     <Field.Checkbox
