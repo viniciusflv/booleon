@@ -1,5 +1,6 @@
 export const PSEUDO_ELEMENTS = [
-  ['focus' as 'focus__PROP', ':focus:focus-within'],
+  ['focus' as 'focus__PROP', ':focus'],
+  ['within' as 'within__PROP', ':focus-within'],
   ['after' as 'after__PROP', ':after'],
   ['before' as 'before__PROP', ':before'],
   ['active' as 'active__PROP', ':active'],

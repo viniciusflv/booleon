@@ -11,10 +11,24 @@ export default {
   decorators: [withA11y, withKnobs],
 };
 
+export const File = () => {
+  return (
+    <Field.File
+      id="File"
+      placeholder="Selecione o arquivo"
+      onChange={({ target }) => {
+        console.log(target.files);
+      }}>
+      File
+    </Field.File>
+  );
+};
+
 export const Textarea = () => {
   return (
     <Field.Textarea
       id="textarea"
+      placeholder="Digite o texto"
       onChange={({ target }) => {
         console.log(target.value);
       }}>
@@ -27,6 +41,7 @@ export const Text = () => {
   return (
     <Field.Text
       id="text"
+      placeholder="Digite o texto"
       onChange={({ target }) => {
         console.log(target.value);
       }}>
