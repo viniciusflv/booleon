@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { View, Text } from '../../../../../core/src';
+import { View, Text } from '@booleon/core';
 
 const Box: FC<any> = ({ id, type, placeholder, children, ...props }) => {
   const FieldBox = type === 'textarea' ? View.textarea : View.input;
@@ -18,10 +18,13 @@ const Box: FC<any> = ({ id, type, placeholder, children, ...props }) => {
       within__bc_0073E6
       within__fc_0073E6>
       {children ? (
+        // @ts-expect-error
         <Text.legend ml_12>
           <Text.label htmlFor={id} fsl_none cr_pointer fs_20 ff_sans>
             {children}
           </Text.label>
+          {/*
+          // @ts-expect-error */}
         </Text.legend>
       ) : null}
       <FieldBox
