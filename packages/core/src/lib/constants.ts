@@ -283,7 +283,6 @@ export const REACT_PROPS = [
   'className',
   'colSpan',
   'cols',
-  // 'content',
   'contentEditable',
   'contextMenu',
   'controls',
@@ -308,7 +307,6 @@ export const REACT_PROPS = [
   'frameBorder',
   'headers',
   'height',
-  // 'hidden',
   'high',
   'href',
   'hrefLang',
@@ -632,28 +630,22 @@ export const REACT_PROPS = [
   'yChannelSelector',
   'z',
   'zoomAndPan',
-  // Clipboard Events
   'onCopy',
   'onCut',
   'onPaste',
-  // Composition Events
   'onCompositionEnd',
   'onCompositionStart',
   'onCompositionUpdate',
-  // Keyboard Events
   'onKeyDown',
   'onKeyPress',
   'onKeyUp',
-  // Focus Events
   'onFocus',
   'onBlur',
-  // Form Events
   'onChange',
   'onInput',
   'onInvalid',
   'onReset',
   'onSubmit',
-  // Mouse Events
   'onClick',
   'onContextMenu',
   'onDoubleClick',
@@ -672,7 +664,6 @@ export const REACT_PROPS = [
   'onMouseOut',
   'onMouseOver',
   'onMouseUp',
-  // Pointer Events
   'onPointerDown',
   'onPointerMove',
   'onPointerUp',
@@ -683,18 +674,13 @@ export const REACT_PROPS = [
   'onPointerLeave',
   'onPointerOver',
   'onPointerOut',
-  // Selection Events
   'onSelect',
-  // Touch Events
   'onTouchCancel',
   'onTouchEnd',
   'onTouchMove',
   'onTouchStart',
-  // UI Events
   'onScroll',
-  // Wheel Events
   'onWheel',
-  // Media Events
   'onAbort',
   'onCanPlay',
   'onCanPlayThrough',
@@ -718,15 +704,11 @@ export const REACT_PROPS = [
   'onTimeUpdate',
   'onVolumeChange',
   'onWaiting',
-  // Image Events
   'onLoad',
   'onError',
-  // Animation Events
   'onAnimationStart',
   'onAnimationEnd',
   'onAnimationIteration',
-  // Transition Events
   'onTransitionEnd',
-  // Other Events
   'onToggle',
 ];
