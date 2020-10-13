@@ -42,7 +42,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
-    "@booleon/core": "^0.1.6-alpha.0",
+    "@booleon/core": "0.1.7-alpha.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-a11y": "^6.0.22",
