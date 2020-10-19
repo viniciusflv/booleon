@@ -1,7 +1,6 @@
-import { Entry } from '../lib/interfaces';
 import { hexColor } from '../lib/regex';
 
-const backgroundTuple = [
+export const backgroundTuple = [
   [
     ['bg_' as 'bg_HEX', `(${hexColor})`],
     (value: string) => `background-color:#${value};`,
@@ -17,7 +16,3 @@ const backgroundTuple = [
   ['bg_local', () => 'background-attachment:local;'],
   ['bg_scroll', () => 'background-attachment:scroll;'],
 ] as const;
-
-type BackgroundProps = Entry<typeof backgroundTuple>;
-
-export { BackgroundProps, backgroundTuple };

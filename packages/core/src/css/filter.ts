@@ -1,8 +1,7 @@
-import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
 import { percentage, shadow } from '../lib/utils';
 
-const filterTuple = [
+export const filterTuple = [
   [
     ['ft_blur_' as 'ft_blur_NUMBER', `(${number})`],
     (value: string) => `filter:blur(${value}rem);`,
@@ -41,7 +40,3 @@ const filterTuple = [
   ],
   ['ft_invert', () => 'filter:invert(100%);'],
 ] as const;
-
-type FilterProps = Entry<typeof filterTuple>;
-
-export { filterTuple, FilterProps };

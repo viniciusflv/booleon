@@ -1,8 +1,7 @@
-import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
 import { rem } from '../lib/utils';
 
-const sizingTuple = [
+export const sizingTuple = [
   [
     ['h_' as 'h_NUMBER', `(${number})`],
     (value: string) => `height:${rem(value)};`,
@@ -70,7 +69,3 @@ const sizingTuple = [
   ['w_max_screen', () => 'max-width:100vw;'],
   ['w_min_screen', () => 'min-width:100vw;'],
 ] as const;
-
-type SizingProps = Entry<typeof sizingTuple>;
-
-export { SizingProps, sizingTuple };

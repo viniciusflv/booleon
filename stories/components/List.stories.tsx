@@ -14,7 +14,7 @@ export default {
 export const Dotted = () => {
   return (
     <List.Dotted>
-      <List.Item>Item</List.Item>
+      <List.Item fs_50>Item</List.Item>
       <List.Item>Item</List.Item>
       <List.Item>Item</List.Item>
       <List.Item>Item</List.Item>

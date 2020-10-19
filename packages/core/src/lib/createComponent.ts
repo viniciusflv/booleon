@@ -7,7 +7,7 @@ import { uniqueClass } from './utils';
 
 export function createComponent<
   T extends Tuple,
-  E extends keyof React.ReactDOM
+  E extends keyof React.ReactDOM | string
 >(element: E, map: RegexMap<T>) {
   function Booleon({ className = '', ...props }) {
     const [id, htmlProps] = useStyles<Entry<T>, T>(props, map);

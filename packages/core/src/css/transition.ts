@@ -1,8 +1,8 @@
-import { Entry } from '../lib/interfaces';
 import { lowerCase, number } from '../lib/regex';
+
 const colors = 'background-color,border-color,color,fill,stroke';
 
-const transitionTuple = [
+export const transitionTuple = [
   [
     ['ts_delay_' as 'ts_delay_TIME', `(${number}${lowerCase})`],
     (value: string) => `transition-delay:${value};`,
@@ -26,7 +26,3 @@ const transitionTuple = [
     () => 'transition-timing-function:cubic-bezier(0.4,0,0.2,1);',
   ],
 ] as const;
-
-type TransitionProps = Entry<typeof transitionTuple>;
-
-export { transitionTuple, TransitionProps };

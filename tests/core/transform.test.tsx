@@ -8,17 +8,17 @@ describe('Transform', () => {
   describe('Scale', () => {
     test('sl_1', () => {
       const { getByTestId } = render(<View.div data-testid="sl_1" sl_1 />);
-      expect(getByTestId('sl_1')).toHaveStyle('transform: scale(1rem,1rem);');
+      expect(getByTestId('sl_1')).toHaveStyle('transform: scale(0.01,0.01);');
     });
 
     test('slx_1', () => {
       const { getByTestId } = render(<View.div data-testid="slx_1" slx_1 />);
-      expect(getByTestId('slx_1')).toHaveStyle('transform: scaleX(1rem);');
+      expect(getByTestId('slx_1')).toHaveStyle('transform: scaleX(0.01);');
     });
 
     test('sly_1', () => {
       const { getByTestId } = render(<View.div data-testid="sly_1" sly_1 />);
-      expect(getByTestId('sly_1')).toHaveStyle('transform: scaleY(1rem);');
+      expect(getByTestId('sly_1')).toHaveStyle('transform: scaleY(0.01);');
     });
 
     test('sl_neg_1', () => {
@@ -26,7 +26,7 @@ describe('Transform', () => {
         <View.div data-testid="sl_neg_1" sl_neg_1 />,
       );
       expect(getByTestId('sl_neg_1')).toHaveStyle(
-        'transform: scale(-1rem,-1rem);',
+        'transform: scale(-0.01,-0.01);',
       );
     });
 
@@ -34,14 +34,14 @@ describe('Transform', () => {
       const { getByTestId } = render(
         <View.div data-testid="slx_neg_1" slx_neg_1 />,
       );
-      expect(getByTestId('slx_neg_1')).toHaveStyle('transform: scaleX(-1rem);');
+      expect(getByTestId('slx_neg_1')).toHaveStyle('transform: scaleX(-0.01);');
     });
 
     test('sly_neg_1', () => {
       const { getByTestId } = render(
         <View.div data-testid="sly_neg_1" sly_neg_1 />,
       );
-      expect(getByTestId('sly_neg_1')).toHaveStyle('transform: scaleY(-1rem);');
+      expect(getByTestId('sly_neg_1')).toHaveStyle('transform: scaleY(-0.01);');
     });
   });
 

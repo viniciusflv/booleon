@@ -11,6 +11,9 @@ export default {
 };
 
 export const Default = () => {
-  const bg_img = 'https://www.w3schools.com/cssref/img_tree.gif';
-  return <View.div data-testid="bg_img" bg_img={bg_img} />;
+  return (
+    <View.div relative bg_0f0 kf_scale kf_duration_1s kf_iteration_infinite>
+      aaa
+    </View.div>
+  );
 };

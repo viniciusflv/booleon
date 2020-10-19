@@ -1,6 +1,4 @@
-import { Entry } from '../lib/interfaces';
-
-const cursorTuple = [
+export const cursorTuple = [
   ['cr_auto', () => 'cursor:auto;'],
   ['cr_default', () => 'cursor:default;'],
   ['cr_pointer', () => 'cursor:pointer;'],
@@ -24,7 +22,3 @@ const cursorTuple = [
   ['cr_events', () => 'pointer-events:auto;'],
   ['cr_url', (cr_url: string) => `cursor:url(${cr_url}),auto;`],
 ] as const;
-
-type CursorProps = Entry<typeof cursorTuple>;
-
-export { CursorProps, cursorTuple };

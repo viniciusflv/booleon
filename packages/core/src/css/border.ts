@@ -1,8 +1,105 @@
-import { Entry } from '../lib/interfaces';
 import { hexColor, lowerCase, number } from '../lib/regex';
 import { rem } from '../lib/utils';
 
-const borderTuple = [
+type bs_STYLE =
+  | 'bs_none'
+  | 'bs_hidden'
+  | 'bs_dotted'
+  | 'bs_dashed'
+  | 'bs_solid'
+  | 'bs_double'
+  | 'bs_groove'
+  | 'bs_ridge'
+  | 'bs_inset'
+  | 'bs_outset'
+  | 'bs_initial'
+  | 'bs_inherit';
+
+type bts_STYLE =
+  | 'bts_none'
+  | 'bts_hidden'
+  | 'bts_dotted'
+  | 'bts_dashed'
+  | 'bts_solid'
+  | 'bts_double'
+  | 'bts_groove'
+  | 'bts_ridge'
+  | 'bts_inset'
+  | 'bts_outset'
+  | 'bts_initial'
+  | 'bts_inherit';
+
+type bbs_STYLE =
+  | 'bbs_none'
+  | 'bbs_hidden'
+  | 'bbs_dotted'
+  | 'bbs_dashed'
+  | 'bbs_solid'
+  | 'bbs_double'
+  | 'bbs_groove'
+  | 'bbs_ridge'
+  | 'bbs_inset'
+  | 'bbs_outset'
+  | 'bbs_initial'
+  | 'bbs_inherit';
+
+type bls_STYLE =
+  | 'bls_none'
+  | 'bls_hidden'
+  | 'bls_dotted'
+  | 'bls_dashed'
+  | 'bls_solid'
+  | 'bls_double'
+  | 'bls_groove'
+  | 'bls_ridge'
+  | 'bls_inset'
+  | 'bls_outset'
+  | 'bls_initial'
+  | 'bls_inherit';
+
+type brs_STYLE =
+  | 'brs_none'
+  | 'brs_hidden'
+  | 'brs_dotted'
+  | 'brs_dashed'
+  | 'brs_solid'
+  | 'brs_double'
+  | 'brs_groove'
+  | 'brs_ridge'
+  | 'brs_inset'
+  | 'brs_outset'
+  | 'brs_initial'
+  | 'brs_inherit';
+
+type bxs_STYLE =
+  | 'bxs_none'
+  | 'bxs_hidden'
+  | 'bxs_dotted'
+  | 'bxs_dashed'
+  | 'bxs_solid'
+  | 'bxs_double'
+  | 'bxs_groove'
+  | 'bxs_ridge'
+  | 'bxs_inset'
+  | 'bxs_outset'
+  | 'bxs_initial'
+  | 'bxs_inherit';
+
+type bys_STYLE =
+  | 'bys_none'
+  | 'bys_hidden'
+  | 'bys_dotted'
+  | 'bys_dashed'
+  | 'bys_solid'
+  | 'bys_double'
+  | 'bys_groove'
+  | 'bys_ridge'
+  | 'bys_inset'
+  | 'bys_outset'
+  | 'bys_initial'
+  | 'bys_inherit';
+
+export const borderTuple = [
   [
     ['bc_' as 'bc_HEX', `(${hexColor})`],
     (value: string) => `border-color:#${value};`,
@@ -34,32 +131,32 @@ const borderTuple = [
       `border-top-color:#${value};border-bottom-color:#${value};`,
   ],
   [
-    ['bs_' as 'bs_STYLE', `(${lowerCase})`],
+    ['bs_' as bs_STYLE, `(${lowerCase})`],
     (value: string) => `border-style:${value};`,
   ],
   [
-    ['bts_' as 'bts_STYLE', `(${lowerCase})`],
+    ['bts_' as bts_STYLE, `(${lowerCase})`],
     (value: string) => `border-top-style:${value};`,
   ],
   [
-    ['bbs_' as 'bbs_STYLE', `(${lowerCase})`],
+    ['bbs_' as bbs_STYLE, `(${lowerCase})`],
     (value: string) => `border-bottom-style:${value};`,
   ],
   [
-    ['bls_' as 'bls_STYLE', `(${lowerCase})`],
+    ['bls_' as bls_STYLE, `(${lowerCase})`],
     (value: string) => `border-left-style:${value};`,
   ],
   [
-    ['brs_' as 'brs_STYLE', `(${lowerCase})`],
+    ['brs_' as brs_STYLE, `(${lowerCase})`],
     (value: string) => `border-right-style:${value};`,
   ],
   [
-    ['bxs_' as 'bxs_STYLE', `(${lowerCase})`],
+    ['bxs_' as bxs_STYLE, `(${lowerCase})`],
     (value: string) =>
       `border-left-style:${value};border-right-style:${value};`,
   ],
   [
-    ['bys_' as 'bys_STYLE', `(${lowerCase})`],
+    ['bys_' as bys_STYLE, `(${lowerCase})`],
     (value: string) =>
       `border-top-style:${value};border-bottom-style:${value};`,
   ],
@@ -166,7 +263,3 @@ const borderTuple = [
     () => 'border-top-right-radius:.5rem;border-top-left-radius:.5rem;',
   ],
 ] as const;
-
-type BorderProps = Entry<typeof borderTuple>;
-
-export { BorderProps, borderTuple };

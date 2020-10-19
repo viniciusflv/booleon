@@ -1,6 +1,4 @@
-import { Entry } from '../lib/interfaces';
-
-const flexTuple = [
+export const flexTuple = [
   ['flex', () => 'display:flex;'],
   ['grow', () => 'flex-grow:1;'],
   ['col', () => 'flex-direction:column;'],
@@ -19,7 +17,3 @@ const flexTuple = [
   ['main_end', () => 'justify-content:flex-end;'],
   ['cross_end', () => 'align-items:flex-end;'],
 ] as const;
-
-type FlexProps = Entry<typeof flexTuple>;
-
-export { flexTuple, FlexProps };

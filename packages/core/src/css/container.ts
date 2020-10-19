@@ -1,9 +1,8 @@
-import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
 import { percentage, rem } from '../lib/utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
-const containerTuple = [
+export const containerTuple = [
   [['z_' as 'z_NUMBER', `(${number})`], (value: string) => `z-index:${value};`],
   [
     ['op_' as 'op_NUMBER', `(${number})`],
@@ -58,12 +57,16 @@ const containerTuple = [
   ['relative', () => 'position:relative;'],
   ['sticky', () => 'position:sticky;'],
   ['top', () => 'top:0;'],
+  ['top_full', () => 'top:100%;'],
   ['top_neg', () => 'top:-100%;'],
   ['right', () => 'right:0;'],
+  ['right_full', () => 'right:100%;'],
   ['right_neg', () => 'right:-100%;'],
   ['bottom', () => 'bottom:0;'],
+  ['bottom_full', () => 'bottom:100%;'],
   ['bottom_neg', () => 'bottom:-100%;'],
   ['left', () => 'left:0;'],
+  ['left_full', () => 'left:100%;'],
   ['left_neg', () => 'left:-100%;'],
   ['inset', () => 'left:0;top:0;right:0;bottom:0;'],
   ['inset_x', () => 'left:0;right:0;'],
@@ -85,7 +88,3 @@ const containerTuple = [
     (value: string) => `content:${typeof value === 'string' ? value : '""'};`,
   ],
 ] as const;
-
-type ContainerProps = Entry<typeof containerTuple>;
-
-export { ContainerProps, containerTuple };

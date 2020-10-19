@@ -1,4 +1,5 @@
 import {
+  animationTuple,
   backgroundTuple,
   borderTuple,
   containerTuple,
@@ -20,6 +21,7 @@ import { booleon } from '../lib/booleon';
 import { VIEW_TAGS } from '../lib/constants';
 
 const tuples = [
+  ...animationTuple,
   ...backgroundTuple,
   ...borderTuple,
   ...containerTuple,

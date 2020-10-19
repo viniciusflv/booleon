@@ -1,8 +1,22 @@
-import { Entry } from '../lib/interfaces';
 import { hexColor, lowerCase, number } from '../lib/regex';
 import { rem } from '../lib/utils';
 
-const outlineTuple = [
+type ols_STYLE =
+  | 'ols_auto'
+  | 'ols_none'
+  | 'ols_dotted'
+  | 'ols_dashed'
+  | 'ols_solid'
+  | 'ols_double'
+  | 'ols_groove'
+  | 'ols_ridge'
+  | 'ols_inset'
+  | 'ols_outset'
+  | 'ols_inherit'
+  | 'ols_initial'
+  | 'ols_unset';
+
+export const outlineTuple = [
   ['ol_none', () => 'outline:none;'],
   [
     ['olc_' as 'olc_HEX', `(${hexColor})`],
@@ -13,11 +27,7 @@ const outlineTuple = [
     (value: string) => `outline-width:${rem(value)};`,
   ],
   [
-    ['ols_' as 'ols_STYLE', `(${lowerCase})`],
+    ['ols_' as ols_STYLE, `(${lowerCase})`],
     (value: string) => `outline-style:${value};`,
   ],
 ] as const;
-
-type OutlineProps = Entry<typeof outlineTuple>;
-
-export { outlineTuple, OutlineProps };

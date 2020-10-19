@@ -1,7 +1,6 @@
-import { Entry } from '../lib/interfaces';
 import { letter, lowerCase, number } from '../lib/regex';
 
-const gridTuple = [
+export const gridTuple = [
   ['grid', () => 'display:grid;'],
   [
     'areas',
@@ -45,7 +44,3 @@ const gridTuple = [
     (value: string) => `grid-row-end:${value};`,
   ],
 ] as const;
-
-type GridProps = Entry<typeof gridTuple>;
-
-export { gridTuple, GridProps };

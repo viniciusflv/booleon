@@ -63,7 +63,7 @@ export class RegexMap<T extends Tuple> {
     return key === idx ? cb(value) : '';
   }
 
-  private compileCss(key: string, value: string | boolean) {
+  public compileCss(key: string, value: string | boolean) {
     if (!value) return '';
     return this.entry.reduce((acc, [idx, cb]) => {
       acc +=

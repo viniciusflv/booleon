@@ -5,7 +5,7 @@ import { RegexMap } from './RegexMap';
 import { styledComponent } from './styledComponent';
 
 export function booleon<
-  E extends readonly (keyof React.ReactDOM)[],
+  E extends readonly (keyof React.ReactDOM | string)[],
   T extends Tuple
 >(elements: E, tuples: T) {
   const map = new RegexMap(tuples);

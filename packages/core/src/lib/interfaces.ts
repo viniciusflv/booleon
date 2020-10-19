@@ -36,6 +36,6 @@ export type BooleonProps<T> = FC<Props<T>>;
 
 export type BooleonHtmlProps<T> = BooleonProps<T & React.HTMLProps<T>>;
 
-export type Booleon<E extends keyof React.ReactDOM, T = {}> = {
+export type Booleon<E extends keyof React.ReactDOM | string, T = {}> = {
   [key in E]: BooleonHtmlProps<T>;
 };

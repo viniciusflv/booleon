@@ -1,9 +1,8 @@
-import { Entry } from '../lib/interfaces';
 import { hexColor } from '../lib/regex';
 
 const lg = (linear: string) => `background-image:linear-gradient(${linear});`;
 
-const gradientTuple = [
+export const gradientTuple = [
   [
     ['gx_' as 'gx_HEX', `(${hexColor})`],
     (value: string) => lg(`to right,#${value},transparent,#${value}`),
@@ -29,7 +28,3 @@ const gradientTuple = [
     (value: string) => lg(`to right,transparent,#${value}`),
   ],
 ] as const;
-
-type GradientProps = Entry<typeof gradientTuple>;
-
-export { gradientTuple, GradientProps };

@@ -9,7 +9,7 @@
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:watch": "jest --watch",
-    "dev": "start-storybook -p 6006",
+    "dev": "start-storybook -p 6066",
     "build": "build-storybook -c .storybook -o build/dist",
     "format": "prettier-eslint --write $PWD/**/*.{ts,tsx}",
     "pub": "npm test && npm run bun && lerna publish",
@@ -75,6 +75,6 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-loader": "^7.0.5",
     "tsdx": "^0.14.0",
-    "typescript": "^3.9.3"
+    "typescript": "^4.0.3"
   }
 }

@@ -1,30 +1,32 @@
-import { Entry } from '../lib/interfaces';
 import { lowerCase, number } from '../lib/regex';
+import { rem, percentage } from '../lib/utils';
 
-const transformTuple = [
+export const transformTuple = [
   [
     ['sl_' as 'sl_NUMBER', `(${number})`],
-    (value: string) => `transform:scale(${value}rem,${value}rem);`,
+    (value: string) =>
+      `transform:scale(${percentage(value)},${percentage(value)});`,
   ],
   [
     ['slx_' as 'slx_NUMBER', `(${number})`],
-    (value: string) => `transform:scaleX(${value}rem);`,
+    (value: string) => `transform:scaleX(${percentage(value)});`,
   ],
   [
     ['sly_' as 'sly_NUMBER', `(${number})`],
-    (value: string) => `transform:scaleY(${value}rem);`,
+    (value: string) => `transform:scaleY(${percentage(value)});`,
   ],
   [
     ['sl_neg_' as 'sl_neg_NUMBER', `(${number})`],
-    (value: string) => `transform:scale(-${value}rem,-${value}rem);`,
+    (value: string) =>
+      `transform:scale(-${percentage(value)},-${percentage(value)});`,
   ],
   [
     ['slx_neg_' as 'slx_neg_NUMBER', `(${number})`],
-    (value: string) => `transform:scaleX(-${value}rem);`,
+    (value: string) => `transform:scaleX(-${percentage(value)});`,
   ],
   [
     ['sly_neg_' as 'sly_neg_NUMBER', `(${number})`],
-    (value: string) => `transform:scaleY(-${value}rem);`,
+    (value: string) => `transform:scaleY(-${percentage(value)});`,
   ],
   [
     ['rt_' as 'rt_NUMBER', `(${number})`],
@@ -60,27 +62,27 @@ const transformTuple = [
   ],
   [
     ['tl_' as 'tl_NUMBER', `(${number})`],
-    (value: string) => `transform:translate(${value}rem,${value}rem);`,
+    (value: string) => `transform:translate(${rem(value)},${rem(value)});`,
   ],
   [
     ['tlx_' as 'tlx_NUMBER', `(${number})`],
-    (value: string) => `transform:translateX(${value}rem);`,
+    (value: string) => `transform:translateX(${rem(value)});`,
   ],
   [
     ['tly_' as 'tly_NUMBER', `(${number})`],
-    (value: string) => `transform:translateY(${value}rem);`,
+    (value: string) => `transform:translateY(${rem(value)});`,
   ],
   [
     ['tl_neg_' as 'tl_neg_NUMBER', `(${number})`],
-    (value: string) => `transform:translate(-${value}rem,-${value}rem);`,
+    (value: string) => `transform:translate(-${rem(value)},-${rem(value)});`,
   ],
   [
     ['tlx_neg_' as 'tlx_neg_NUMBER', `(${number})`],
-    (value: string) => `transform:translateX(-${value}rem);`,
+    (value: string) => `transform:translateX(-${rem(value)});`,
   ],
   [
     ['tly_neg_' as 'tly_neg_NUMBER', `(${number})`],
-    (value: string) => `transform:translateY(-${value}rem);`,
+    (value: string) => `transform:translateY(-${rem(value)});`,
   ],
   [
     ['ori_' as 'ori_NUMBER', `((${lowerCase})(.*))`],
@@ -99,7 +101,3 @@ const transformTuple = [
   ['tly_full_neg', () => 'transform:translateY(-100%);'],
   ['tly_half_neg', () => 'transform:translateY(-50%);'],
 ] as const;
-
-type TransformProps = Entry<typeof transformTuple>;
-
-export { transformTuple, TransformProps };

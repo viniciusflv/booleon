@@ -1,8 +1,33 @@
-import { Entry } from '../lib/interfaces';
 import { hexColor, letter, lowerCase, number } from '../lib/regex';
 import { rem } from '../lib/utils';
 
-const fontTuple = [
+type fsl_SELECT =
+  | 'fsl_none'
+  | 'fsl_auto'
+  | 'fsl_text'
+  | 'fsl_contain'
+  | 'fsl_all'
+  | 'fsl_inherit'
+  | 'fsl_initial'
+  | 'fsl_unset';
+
+type fa_ALIGN =
+  | 'fa_left'
+  | 'fa_right'
+  | 'fa_center'
+  | 'fa_justify'
+  | 'fa_initial'
+  | 'fa_inherit';
+
+type ft_TRANSFORM =
+  | 'ft_none'
+  | 'ft_capitalize'
+  | 'ft_uppercase'
+  | 'ft_lowercase'
+  | 'ft_initial'
+  | 'ft_inherit';
+
+export const fontTuple = [
   [
     ['fb_' as 'fb_HEX', `(${hexColor})`],
     (value: string) =>
@@ -26,15 +51,15 @@ const fontTuple = [
     (value: string) => `line-height:${rem(value)};`,
   ],
   [
-    ['fsl_' as 'fsl_SELECT', `(${lowerCase})`],
+    ['fsl_' as fsl_SELECT, `(${lowerCase})`],
     (value: string) => `user-select:${value};`,
   ],
   [
-    ['fa_' as 'fa_ALIGN', `(${lowerCase})`],
+    ['fa_' as fa_ALIGN, `(${lowerCase})`],
     (value: string) => `text-align:${value};`,
   ],
   [
-    ['ft_' as 'ft_TRANSFORM', `(${lowerCase})`],
+    ['ft_' as ft_TRANSFORM, `(${lowerCase})`],
     (value: string) => `text-transform:${value};`,
   ],
   [
@@ -74,7 +99,3 @@ const fontTuple = [
     () => 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap;',
   ],
 ] as const;
-
-type FontProps = Entry<typeof fontTuple>;
-
-export { fontTuple, FontProps };

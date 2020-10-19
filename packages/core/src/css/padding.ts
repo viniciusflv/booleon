@@ -1,8 +1,7 @@
-import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
 import { rem } from '../lib/utils';
 
-const paddingTuple = [
+export const paddingTuple = [
   [
     ['p_' as 'p_NUMBER', `(${number})`],
     (value: string) => `padding:${rem(value)};`,
@@ -34,7 +33,3 @@ const paddingTuple = [
       `padding-top:${rem(value)};padding-bottom:${rem(value)};`,
   ],
 ] as const;
-
-type PaddingProps = Entry<typeof paddingTuple>;
-
-export { PaddingProps, paddingTuple };

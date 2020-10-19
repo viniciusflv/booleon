@@ -1,8 +1,7 @@
-import { Entry } from '../lib/interfaces';
 import { number } from '../lib/regex';
 import { rem } from '../lib/utils';
 
-const marginTuple = [
+export const marginTuple = [
   [
     ['m_' as 'm_NUMBER', `(${number}|auto)`],
     (value: string) => `margin:${rem(value)};`,
@@ -32,7 +31,3 @@ const marginTuple = [
     (value: string) => `margin-top:${rem(value)};margin-bottom:${rem(value)};`,
   ],
 ] as const;
-
-type MarginProps = Entry<typeof marginTuple>;
-
-export { MarginProps, marginTuple };

@@ -1,7 +1,6 @@
-import { Entry } from '../lib/interfaces';
 import { shadow } from '../lib/utils';
 
-const shadowTuple = [
+export const shadowTuple = [
   ['sd_1', () => `box-shadow:${shadow(1)};`],
   ['sd_2', () => `box-shadow:${shadow(2)};`],
   ['sd_3', () => `box-shadow:${shadow(3)};`],
@@ -23,7 +22,3 @@ const shadowTuple = [
   ['sdi_16', () => `box-shadow:${shadow(16, true)};`],
   ['sdi_24', () => `box-shadow:${shadow(24, true)};`],
 ] as const;
-
-type ShadowProps = Entry<typeof shadowTuple>;
-
-export { shadowTuple, ShadowProps };
