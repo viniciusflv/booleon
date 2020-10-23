@@ -1,2 +1,2 @@
-export * from './View';
-export * from './Text';
+export * from './lib';
+export * from './types';
