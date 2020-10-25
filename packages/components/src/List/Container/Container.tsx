@@ -1,6 +1,6 @@
 import React, { Children, cloneElement, FC } from 'react';
 
-import { View } from '@booleon/core';
+import { View } from '../../../../base/src';
 
 const Container: FC<any> = ({ type, children }) => {
   const Tag = type === 'numbered' ? View.ol : View.ul;

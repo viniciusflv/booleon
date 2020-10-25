@@ -12,7 +12,7 @@ export function usePropsReducer<P, M extends BooleonModule>(
   return useMemo(
     () =>
       Object.keys(props).reduce((acc, key) => {
-        const [, , prefixes, newKey] = key?.match(prefixRegex) || [];
+        const [, , prefixes, newKey] = prefixRegex?.exec(key) || [];
         return prefixes && newKey
           ? {
               ...acc,

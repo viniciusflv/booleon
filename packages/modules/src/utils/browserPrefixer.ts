@@ -1,4 +1,4 @@
-const enum CSSPrefixFlags {
+enum CSSPrefixFlags {
   '-webkit-' = 1 << 0,
   '-moz-' = 1 << 1,
   '-ms-' = 1 << 2,

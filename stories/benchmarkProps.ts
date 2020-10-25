@@ -116,7 +116,7 @@ export default (bool: boolean) => ({
   rz: bool,
   rzy: bool,
   rzx: bool,
-  content: bool,
+  content: bool ? '' : undefined,
   cr_auto: bool,
   cr_default: bool,
   cr_pointer: bool,

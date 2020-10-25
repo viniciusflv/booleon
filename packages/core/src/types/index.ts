@@ -66,6 +66,7 @@ export type MediaQueries = typeof MEDIA_QUERIES[number][0];
 
 /**
  * Map key value types from @type {BooleonModule}
+ * with @type {MediaQueries} @type {PseudoElements}
  */
 export type BooleonProps<M extends BooleonModule> =
   | {
@@ -76,11 +77,20 @@ export type BooleonProps<M extends BooleonModule> =
     }
   | { [key in string]?: BooleonModuleValues<M> };
 
+/**
+ * @type {BooleonProps} and @type {React.HTMLProps<M>}
+ */
 export type BooleonHtmlProps<M extends BooleonModule> = React.HTMLProps<M> &
   BooleonProps<M>;
 
+/**
+ * @type {BooleonHtmlProps} @type {FunctionComponent}
+ */
 export type BooleonFC<M extends BooleonModule> = React.FC<BooleonHtmlProps<M>>;
 
+/**
+ * Map elements with @type {BooleonFC}
+ */
 export type BooleonComponent<
   E extends keyof React.ReactDOM | string,
   M extends BooleonModule

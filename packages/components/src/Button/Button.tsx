@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '@booleon/core';
+import { Text, View } from '../../../base/src';
 
 const Button: FC<
   React.HTMLProps<any> &

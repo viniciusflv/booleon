@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text } from '@booleon/core';
+import { Text } from '../../../../base/src';
 
 const Item: FC<any> = ({ children, marker, ...props }) => {
   return (

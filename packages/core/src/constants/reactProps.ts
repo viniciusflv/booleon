@@ -451,4 +451,4 @@ export const REACT_PROPS = [
   'onAnimationIteration',
   'onTransitionEnd',
   'onToggle',
-];
+] as const;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { withKnobs } from '@storybook/addon-knobs';
 
-import { View } from '../../packages/base/src';
+import { View, ViewProps } from '../../packages/base/src';
 
 export default {
   title: 'Core / View',
@@ -10,9 +10,12 @@ export default {
   decorators: [withKnobs],
 };
 
+const Ax: React.FC<ViewProps> = (props) => <View.div {...props}>aaa</View.div>;
+
 export const Default = () => {
   return (
-    <View.div
+    <Ax
+      f_italic
       content="sadsad"
       relative
       bg_0f0
@@ -20,6 +23,6 @@ export const Default = () => {
       kf_duration_1s
       kf_iteration_infinite>
       aaa
-    </View.div>
+    </Ax>
   );
 };

@@ -1,4 +1,4 @@
-const enum CSSPrefixFlags {
+enum CSSPrefixFlags {
   '-webkit-' = 1 << 0,
   '-moz-' = 1 << 1,
   '-ms-' = 1 << 2,
@@ -65,7 +65,7 @@ export function cssValuePrefixFlags(property: string, value: string): number {
   }
 }
 
-export function styleDeclaration(property = '', value = '') {
+function styleDeclaration(property = '', value = '') {
   let cssText = '';
 
   /* Resolve aliases, e.g. `gap` -> `grid-gap` */
@@ -90,4 +90,17 @@ export function styleDeclaration(property = '', value = '') {
   cssText += `${property}:${value};`;
 
   return cssText;
+}
+
+function getAttrValue(str: string) {
+  const cssPropRegex = /(?<attr>.*):(?<value>.*);/;
+  const { attr, value } = cssPropRegex.exec(str)?.groups || {};
+  return [attr, value];
+}
+
+export function useBrowserPrefixer(...str: string[]) {
+  if (str.map(Boolean).includes(false)) return '';
+  return str.length < 2
+    ? styleDeclaration(...getAttrValue(str[0]))
+    : styleDeclaration(...str);
 }

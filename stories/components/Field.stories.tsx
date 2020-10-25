@@ -1,86 +1,86 @@
-// import React from 'react';
+import React from 'react';
 
-// import { withA11y } from '@storybook/addon-a11y';
-// import { withKnobs } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
+import { withKnobs } from '@storybook/addon-knobs';
 
-// import { Field } from '../../packages/components/src';
+import { Field } from '../../packages/components/src';
 
-// export default {
-//   title: 'Components / Field',
-//   component: Field.Checkbox,
-//   decorators: [withA11y, withKnobs],
-// };
+export default {
+  title: 'Components / Field',
+  component: Field.Checkbox,
+  decorators: [withA11y, withKnobs],
+};
 
-// export const File = () => {
-//   return (
-//     <Field.File
-//       id="File"
-//       placeholder="Selecione o arquivo"
-//       onChange={({ target }) => {
-//         console.log(target.files);
-//       }}>
-//       File
-//     </Field.File>
-//   );
-// };
+export const File = () => {
+  return (
+    <Field.File
+      id="File"
+      placeholder="Selecione o arquivo"
+      onChange={({ target }) => {
+        console.log(target.files);
+      }}>
+      File
+    </Field.File>
+  );
+};
 
-// export const Textarea = () => {
-//   return (
-//     <Field.Textarea
-//       id="textarea"
-//       placeholder="Digite o texto"
-//       onChange={({ target }) => {
-//         console.log(target.value);
-//       }}>
-//       Textarea
-//     </Field.Textarea>
-//   );
-// };
+export const Textarea = () => {
+  return (
+    <Field.Textarea
+      id="textarea"
+      placeholder="Digite o texto"
+      onChange={({ target }) => {
+        console.log(target.value);
+      }}>
+      Textarea
+    </Field.Textarea>
+  );
+};
 
-// export const Text = () => {
-//   return (
-//     <Field.Text
-//       id="text"
-//       placeholder="Digite o texto"
-//       onChange={({ target }) => {
-//         console.log(target.value);
-//       }}>
-//       Text
-//     </Field.Text>
-//   );
-// };
+export const Text = () => {
+  return (
+    <Field.Text
+      id="text"
+      placeholder="Digite o texto"
+      onChange={({ target }) => {
+        console.log(target.value);
+      }}>
+      Text
+    </Field.Text>
+  );
+};
 
-// export const Checkbox = () => {
-//   return (
-//     <Field.Checkbox
-//       id="checkbox"
-//       onChange={({ target }) => {
-//         console.log(target.checked);
-//       }}>
-//       Checkbox
-//     </Field.Checkbox>
-//   );
-// };
+export const Checkbox = () => {
+  return (
+    <Field.Checkbox
+      id="checkbox"
+      onChange={({ target }) => {
+        console.log(target.checked);
+      }}>
+      Checkbox
+    </Field.Checkbox>
+  );
+};
 
-// export const Radio = () => {
-//   return (
-//     <div>
-//       <Field.Radio
-//         id="radio1"
-//         name="radio"
-//         onChange={({ target }) => {
-//           console.log(target.checked);
-//         }}>
-//         Radio
-//       </Field.Radio>
-//       <Field.Radio
-//         id="radio2"
-//         name="radio"
-//         onChange={({ target }) => {
-//           console.log(target.checked);
-//         }}>
-//         Radio
-//       </Field.Radio>
-//     </div>
-//   );
-// };
+export const Radio = () => {
+  return (
+    <div>
+      <Field.Radio
+        id="radio1"
+        name="radio"
+        onChange={({ target }) => {
+          console.log(target.checked);
+        }}>
+        Radio
+      </Field.Radio>
+      <Field.Radio
+        id="radio2"
+        name="radio"
+        onChange={({ target }) => {
+          console.log(target.checked);
+        }}>
+        Radio
+      </Field.Radio>
+    </div>
+  );
+};
