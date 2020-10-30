@@ -8,7 +8,7 @@ export function usePropsFilter<P>(props: Props): [Props, P] {
     () =>
       Object.keys(props).reduce(
         ([html, belong], key) => {
-          REACT_PROPS.includes(key)
+          REACT_PROPS.includes(key as typeof REACT_PROPS[number])
             ? (html = { ...html, [key]: props[key] })
             : (belong = { ...belong, [key]: props[key] });
           return [html, belong];
