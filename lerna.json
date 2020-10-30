@@ -2,6 +2,7 @@
   "version": "0.1.7-alpha.0",
   "npmClient": "npm",
   "packages": [
-    "packages/*"
+    "packages/core",
+    "packages/modules"
   ]
 }
