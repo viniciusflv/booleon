@@ -14,5 +14,4 @@ export const TEXT_MODULE = [
   ...margin,
   ...transform,
   ...transition,
-  ['abc', () => 'display:inline;'],
 ] as const;

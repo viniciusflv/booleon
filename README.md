@@ -1,4 +1,4 @@
-<p align="center" style="color: #343a40">
+<!-- <p align="center" style="color: #343a40">
   <img src="./booleon.svg" width="100%" height="144">
   <h1 align="center">booleon</h1>
   <p align="center" style="font-size: 1.2rem;">Highly typed declarative CSS-in-JS</p>
@@ -287,4 +287,4 @@ Emotion came to fill those gaps. Using `@emotion/core` css, you can add styles w
    <div>(555) 765-4321</div>
   </div>
 </div>
-```
+``` -->
