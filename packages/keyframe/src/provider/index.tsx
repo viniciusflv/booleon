@@ -8,7 +8,11 @@ import React, {
 } from 'react';
 
 import { BooleonModule, BooleonProps } from '../../../core/src';
-import { useCssCompiler, useStyleAppender } from '../../../core/src/hooks';
+import {
+  useCssCompiler,
+  useStyleAppender,
+  useFastHash,
+} from '../../../core/src/hooks';
 
 const KeyframeContext = createContext<any>({});
 
@@ -32,7 +36,7 @@ export const KeyframeProvider: FC<any> = ({ children, ...props }) => {
     if (animation?.length) {
       const name = Object.keys(props)[0];
       const keyframe = `@keyframes ${name} {${animation}}`;
-      useStyleAppender(name, keyframe);
+      useStyleAppender(`bl-${name}-${useFastHash(animation)}`, keyframe);
     }
   }, [selectors]);
 
