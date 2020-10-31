@@ -15,7 +15,9 @@
     "pub": "npm test && npm run bun && lerna publish",
     "bun": "run-p bundle:*",
     "bundle:core": "lerna exec --scope=@booleon/core -- npm run build",
-    "bundle:modules": "lerna exec --scope=@booleon/modules -- npm run build"
+    "bundle:modules": "lerna exec --scope=@booleon/modules -- npm run build",
+    "bundle:base": "lerna exec --scope=@booleon/base -- npm run build",
+    "bundle:keyframe": "lerna exec --scope=@booleon/keyframe -- npm run build"
   },
   "husky": {
     "hooks": {
@@ -43,7 +45,8 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
-    "@booleon/core": "0.1.7-alpha.0",
+    "@booleon/core": "^0.2.2-alpha.0",
+    "@booleon/modules": "^0.2.1-alpha.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-a11y": "^6.0.22",

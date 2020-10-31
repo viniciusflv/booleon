@@ -1,4 +1,4 @@
-import { container, transform, transition } from '../../../modules/src';
+import { container, transform, transition } from '@booleon/modules';
 
 export const KEYFRAME_MODULE = [
   ...container,

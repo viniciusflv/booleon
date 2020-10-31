@@ -7,12 +7,13 @@ import React, {
   FC,
 } from 'react';
 
-import { BooleonModule, BooleonProps } from '../../../core/src';
 import {
+  BooleonModule,
+  BooleonProps,
   useCssCompiler,
   useStyleAppender,
   useFastHash,
-} from '../../../core/src/hooks';
+} from '@booleon/core';
 
 const KeyframeContext = createContext<any>({});
 

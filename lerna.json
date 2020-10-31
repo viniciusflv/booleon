@@ -3,6 +3,8 @@
   "npmClient": "npm",
   "packages": [
     "packages/core",
-    "packages/modules"
+    "packages/modules",
+    "packages/base",
+    "packages/keyframe"
   ]
 }

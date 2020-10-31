@@ -16,7 +16,7 @@ import {
   sizing,
   transform,
   transition,
-} from '../../../modules/src';
+} from '@booleon/modules';
 
 export const VIEW_MODULE = [
   ...animation,

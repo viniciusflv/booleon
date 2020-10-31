@@ -1,4 +1,5 @@
-import { booleon, BooleonHtmlProps } from '../../../core/src';
+import { booleon, BooleonHtmlProps } from '@booleon/core';
+
 import { VIEW_MODULE } from './module';
 import { VIEW_TAGS } from './tags';
 

@@ -5,7 +5,7 @@ import {
   margin,
   transform,
   transition,
-} from '../../../modules/src';
+} from '@booleon/modules';
 
 export const TEXT_MODULE = [
   ...container,
