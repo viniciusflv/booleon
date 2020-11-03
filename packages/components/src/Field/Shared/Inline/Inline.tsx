@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '../../../../../base/src';
+import { Text, View } from '@booleon/base';
 
 const Inline: FC<
   React.HTMLProps<any> & { id: string; type: 'radio' | 'checkbox' | string }

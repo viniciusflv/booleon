@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { View, Text } from '../../../../../base/src';
+import { View, Text } from '@booleon/base';
 
 const Box: FC<any> = ({ id, type, placeholder, children, ...props }) => {
   const FieldBox = type === 'textarea' ? View.textarea : View.input;
