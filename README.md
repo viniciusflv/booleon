@@ -7,7 +7,7 @@
 
 Booleon is a `DX` focused `React library` for, a highly typed `declarative`, styling, using component `boolean` properties. Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
 
-* [@booleon/base](#)
-* [@booleon/core](#)
-* [@booleon/keyframe](#)
-* [@booleon/modules](#)
+* [@booleon/base](https://github.com/viniciusflv/booleon/tree/master/packages/base)
+* [@booleon/core](https://github.com/viniciusflv/booleon/tree/master/packages/core)
+* [@booleon/keyframe](https://github.com/viniciusflv/booleon/tree/master/packages/keyframe)
+* [@booleon/modules](https://github.com/viniciusflv/booleon/tree/master/packages/modules)
