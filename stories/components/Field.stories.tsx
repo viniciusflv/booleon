@@ -7,7 +7,7 @@ import { Field } from '../../packages/components/src';
 
 export default {
   title: 'Components / Field',
-  component: Field.Checkbox,
+  component: Field,
   decorators: [withA11y, withKnobs],
 };
 
@@ -16,11 +16,11 @@ export const File = () => {
     <Field.File
       id="File"
       placeholder="Selecione o arquivo"
+      label="File"
       onChange={({ target }) => {
         console.log(target.files);
-      }}>
-      File
-    </Field.File>
+      }}
+    />
   );
 };
 
@@ -29,11 +29,11 @@ export const Textarea = () => {
     <Field.Textarea
       id="textarea"
       placeholder="Digite o texto"
+      label="Textarea"
       onChange={({ target }) => {
         console.log(target.value);
-      }}>
-      Textarea
-    </Field.Textarea>
+      }}
+    />
   );
 };
 
@@ -42,10 +42,13 @@ export const Text = () => {
     <Field.Text
       id="text"
       placeholder="Digite o texto"
+      label="Text"
       onChange={({ target }) => {
         console.log(target.value);
       }}>
-      Text
+      <option>option 1</option>
+      <option>option 2</option>
+      <option>option 3</option>
     </Field.Text>
   );
 };
@@ -54,11 +57,11 @@ export const Checkbox = () => {
   return (
     <Field.Checkbox
       id="checkbox"
+      label="Checkbox"
       onChange={({ target }) => {
         console.log(target.checked);
-      }}>
-      Checkbox
-    </Field.Checkbox>
+      }}
+    />
   );
 };
 
@@ -68,19 +71,35 @@ export const Radio = () => {
       <Field.Radio
         id="radio1"
         name="radio"
+        label="Radio"
         onChange={({ target }) => {
           console.log(target.checked);
-        }}>
-        Radio
-      </Field.Radio>
+        }}
+      />
       <Field.Radio
         id="radio2"
         name="radio"
+        label="Radio"
         onChange={({ target }) => {
           console.log(target.checked);
-        }}>
-        Radio
-      </Field.Radio>
+        }}
+      />
     </div>
+  );
+};
+
+export const Select = () => {
+  return (
+    <Field.Select
+      id="select"
+      label="Select"
+      placeholder="Selecione a opção"
+      onChange={({ target }) => {
+        console.log(target.value);
+      }}>
+      <option>option 1</option>
+      <option>option 2</option>
+      <option>option 3</option>
+    </Field.Select>
   );
 };

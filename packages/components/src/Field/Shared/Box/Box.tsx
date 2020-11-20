@@ -2,8 +2,13 @@ import React, { FC } from 'react';
 
 import { View, Text } from '@booleon/base';
 
-const Box: FC<any> = ({ id, type, placeholder, children, ...props }) => {
-  const FieldBox = type === 'textarea' ? View.textarea : View.input;
+const Box: FC<any> = ({ id, type, label, placeholder, children, ...props }) => {
+  const FieldBox =
+    type === 'textarea'
+      ? View.textarea
+      : type === 'select'
+      ? View.select
+      : View.input;
   return (
     <View.fieldset
       relative
@@ -17,19 +22,20 @@ const Box: FC<any> = ({ id, type, placeholder, children, ...props }) => {
       w_max_250
       within__bc_0073E6
       within__fc_0073E6>
-      {children ? (
+      {label ? (
         <Text.legend ml_12>
           <Text.label htmlFor={id} fsl_none cr_pointer fs_20 ff_sans>
-            {children}
+            {label}
           </Text.label>
         </Text.legend>
       ) : null}
       <FieldBox
         {...props}
         id={id}
+        list={`options-${id}`}
         type={type}
         placeholder={placeholder}
-        noappearance
+        noappearance={type !== 'select'}
         ol_none
         bw_1
         b_none
@@ -39,8 +45,12 @@ const Box: FC<any> = ({ id, type, placeholder, children, ...props }) => {
         fc_555
         fs_20
         ff_sans
-        w_full
-      />
+        w_full>
+        {children && type === 'select' ? children : null}
+      </FieldBox>
+      {children && type === 'text' ? (
+        <View.datalist id={`options-${id}`}>{children}</View.datalist>
+      ) : null}
       {type === 'file' && placeholder ? (
         <View.div
           z_neg

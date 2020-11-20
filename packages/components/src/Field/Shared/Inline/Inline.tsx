@@ -4,7 +4,7 @@ import { Text, View } from '@booleon/base';
 
 const Inline: FC<
   React.HTMLProps<any> & { id: string; type: 'radio' | 'checkbox' | string }
-> = ({ id, type, children, ...props }) => {
+> = ({ id, type, label, ...props }) => {
   return (
     <View.div flex cross_center fc_555>
       <View.input
@@ -40,9 +40,9 @@ const Inline: FC<
         before__absolute
         focus__sibling__fc_00f
       />
-      {children ? (
+      {label ? (
         <Text.label htmlFor={id} fsl_none cr_pointer fs_20 ff_sans>
-          {children}
+          {label}
         </Text.label>
       ) : null}
     </View.div>

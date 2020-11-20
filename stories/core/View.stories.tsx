@@ -2,7 +2,8 @@ import React from 'react';
 
 import { withKnobs } from '@storybook/addon-knobs';
 
-import { View, ViewProps } from '../../packages/base/src';
+import { View } from '../../packages/base/src';
+import { useThemes, themes, root } from '../../packages/theme/src';
 
 export default {
   title: 'Core / View',
@@ -10,19 +11,17 @@ export default {
   decorators: [withKnobs],
 };
 
-const Ax: React.FC<ViewProps> = (props) => <View.div {...props}>aaa</View.div>;
-
 export const Default = () => {
+  const [theme, setTheme] = useThemes(root, themes, 'light');
   return (
-    <Ax
-      f_italic
-      content="sadsad"
-      relative
-      bg_0f0
-      kf_scale
-      kf_duration_1s
-      kf_iteration_infinite>
-      aaa
-    </Ax>
+    <div
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      style={{
+        fontFamily: 'var(--fonts-arial)',
+        color: 'var(--colors-primary)',
+        backgroundColor: 'var(--colors-secondary)',
+      }}>
+      should be blue
+    </div>
   );
 };
