@@ -1,14 +1,14 @@
-import { BooleonModule, Tuple } from '../types';
-import { useBrowserPrefixer } from './useBrowserPrefixer';
+import { BooleonModule, Tuple, BooleonCallback } from '../types';
+import { browserPrefixer } from './browserPrefixer';
 
-export function useCssCompiler<M extends BooleonModule>(
+export function cssCompiler<M extends BooleonModule>(
   key: string,
   value: string | boolean,
   module: M,
 ) {
   if (!value) return '';
 
-  function regexIndexer(key: string, idx: Tuple<string>, cb: M[number][1]) {
+  function regexIndexer(key: string, idx: Tuple<string>, cb: BooleonCallback) {
     const rgx = new RegExp(`^${idx.join('')}`);
     const match = rgx.exec(key);
     return match ? cb(match[1].replace(/_/g, ' ')) : '';
@@ -20,11 +20,11 @@ export function useCssCompiler<M extends BooleonModule>(
     idx: string,
     cb: M[number][1],
   ) {
-    return key === idx ? cb(value) : '';
+    return key === idx ? cb(String(value)) : '';
   }
 
   return module.reduce((acc, [idx, cb]) => {
-    acc += useBrowserPrefixer(
+    acc += browserPrefixer(
       idx instanceof Array
         ? regexIndexer(key, idx, cb)
         : strIndexer(key, value, idx as string, cb),
