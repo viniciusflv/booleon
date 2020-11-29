@@ -1,2 +1,2 @@
-export * from './reactProps';
 export * from './prefixes';
+export * from './reactProps';
