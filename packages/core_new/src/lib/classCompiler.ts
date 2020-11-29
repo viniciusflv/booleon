@@ -35,7 +35,7 @@ export function classCompiler(reducedProps: Props<string, string>) {
       ],
       [
         breakpoint,
-        (breakpoint: string) => `@media${breakpoint}{${className}{${css}}}`,
+        (breakpoint: string) => `@media${breakpoint}{.${className}{${css}}}`,
       ],
       [!(pseudoElements || breakpoint), () => `.${className}{${css}}`],
     ]));

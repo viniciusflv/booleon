@@ -1,7 +1,7 @@
-import { Props } from '../types';
+import { Props, BooleonModule } from '../types';
 import { cssCompiler } from './cssCompiler';
 
-export function propsReducer<P, M extends readonly any[]>(
+export function propsReducer<P extends Props, M extends BooleonModule>(
   props: P,
   module: M,
 ): Props<string, string> {

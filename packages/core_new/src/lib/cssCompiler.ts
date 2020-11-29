@@ -20,7 +20,7 @@ export function cssCompiler<M extends BooleonModule>(
     idx: string,
     cb: M[number][1],
   ) {
-    return key === idx ? cb(String(value)) : '';
+    return key === idx ? cb(value) : '';
   }
 
   return module.reduce((acc, [idx, cb]) => {

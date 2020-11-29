@@ -1,0 +1,56 @@
+import { propsReducer } from './propsReducer';
+
+test('propsReducer', () => {
+  const res = propsReducer(
+    {
+      flex: true,
+      xs__flex: true,
+      sm__flex: true,
+      md__flex: true,
+      lg__flex: true,
+      xl__flex: true,
+      focus__flex: true,
+      within__flex: true,
+      after__flex: true,
+      before__flex: true,
+      active__flex: true,
+      checked__flex: true,
+      disabled__flex: true,
+      hover__flex: true,
+      visited__flex: true,
+      child__flex: true,
+      last__flex: true,
+      first__flex: true,
+      sibling__flex: true,
+      odd__flex: true,
+      even__flex: true,
+      focus__within__after__before__active__checked__disabled__hover__visited__child__last__first__sibling__odd__even__flex: true,
+    },
+    [['flex', () => 'display:flex;']],
+  );
+  expect(res).toStrictEqual({
+    css: 'display:flex;',
+    xs: 'display:flex;',
+    sm: 'display:flex;',
+    md: 'display:flex;',
+    lg: 'display:flex;',
+    xl: 'display:flex;',
+    active: 'display:flex;',
+    after: 'display:flex;',
+    before: 'display:flex;',
+    checked: 'display:flex;',
+    child: 'display:flex;',
+    disabled: 'display:flex;',
+    even: 'display:flex;',
+    first: 'display:flex;',
+    focus: 'display:flex;',
+    hover: 'display:flex;',
+    last: 'display:flex;',
+    odd: 'display:flex;',
+    sibling: 'display:flex;',
+    visited: 'display:flex;',
+    within: 'display:flex;',
+    focus__within__after__before__active__checked__disabled__hover__visited__child__last__first__sibling__odd__even:
+      'display:flex;',
+  });
+});

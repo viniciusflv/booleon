@@ -32,6 +32,7 @@ rules:
     - warn
     - newlinesBetween: always
       groups:
+      - /^react/
       - /react/
       - /boolean/
       - module

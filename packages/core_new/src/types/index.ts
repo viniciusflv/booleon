@@ -28,8 +28,7 @@ export type Props<K extends string | number = string, V = any> = {
 export type BooleonIndexer = string | Tuple<string>;
 
 /** Function that runs once @type {Props} matches @type {BooleonIndexer} */
-export type BooleonCallback = (() => string) | ((value: string) => string);
-// | ((value: boolean) => string);
+export type BooleonCallback = (value?: string | boolean | undefined) => string;
 
 /**
  * Key value structure similar to a @type {Map} entry
@@ -56,18 +55,9 @@ export type BooleonModuleKeys<T> = T extends readonly (readonly [
   : never;
 
 /**
- * Map @type {BooleonCallback} and returns a string and/or boolean type
+ * @type {BooleonCallback} arg is a string and/or boolean type
  */
-export type BooleonModuleValues<T> = T extends readonly (readonly [
-  infer K,
-  BooleonCallback,
-])[]
-  ? K extends string
-    ? string
-    : K extends readonly string[]
-    ? boolean
-    : never
-  : never;
+export type BooleonModuleValues = boolean | string;
 
 /**
  * Pseudo elements prefixer
@@ -84,23 +74,26 @@ export type MediaQueries = typeof MEDIA_QUERIES[number][0];
  * with @type {MediaQueries} @type {PseudoElements}
  */
 export type BooleonProps<M extends BooleonModule> =
-  | Props<string, BooleonModuleValues<M>>
+  | Props<string, BooleonModuleValues>
   | Props<
       | `${MediaQueries | PseudoElements}__${BooleonModuleKeys<M>}`
       | BooleonModuleKeys<M>,
-      BooleonModuleValues<M>
+      BooleonModuleValues
     >;
 
 /**
- * @type {BooleonProps} and @type {React.HTMLProps<M>}
+ * @type {BooleonProps} and @type {React.HTMLProps<any>}
  */
-export type BooleonHtmlProps<M extends BooleonModule> = React.HTMLProps<M> &
-  BooleonProps<M>;
+export type BooleonHtmlProps<M> = M extends BooleonModule
+  ? React.HTMLProps<any> & BooleonProps<M>
+  : never;
 
 /**
  * @type {BooleonHtmlProps} @type {FunctionComponent}
  */
-export type BooleonFC<M extends BooleonModule> = React.FC<BooleonHtmlProps<M>>;
+export type BooleonFC<M> = M extends BooleonModule
+  ? React.FC<BooleonHtmlProps<M>>
+  : never;
 
 /**
  * Map elements with @type {BooleonFC}
