@@ -1,14 +1,15 @@
-import { lowerCase, number } from '../constants';
+import { LOWER_CASE, NUMBER } from '../constants';
+import { Time } from '../types';
 
 const colors = 'background-color,border-color,color,fill,stroke';
 
 export const transition = [
   [
-    ['ts_delay_' as 'ts_delay_TIME', `(${number}${lowerCase})`],
+    ['ts_delay_' as `ts_delay_${Time}`, `(${NUMBER}${LOWER_CASE})`],
     (value: string) => `transition-delay:${value};`,
   ],
   [
-    ['ts_duration_' as 'ts_duration_TIME', `(${number}${lowerCase})`],
+    ['ts_duration_' as `ts_duration_${Time}`, `(${NUMBER}${LOWER_CASE})`],
     (value: string) => `transition-duration:${value};`,
   ],
   ['ts', () => `transition-property:${colors},opacity,box-shadow,transform;`],

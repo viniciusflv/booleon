@@ -1,33 +1,19 @@
-import { hexColor, lowerCase, number } from '../constants';
+import { HEX_COLOR, LOWER_CASE, NUMBER } from '../constants';
+import { OutlineStyle } from '../types';
 import { rem } from '../utils';
-
-type ols_STYLE =
-  | 'ols_auto'
-  | 'ols_none'
-  | 'ols_dotted'
-  | 'ols_dashed'
-  | 'ols_solid'
-  | 'ols_double'
-  | 'ols_groove'
-  | 'ols_ridge'
-  | 'ols_inset'
-  | 'ols_outset'
-  | 'ols_inherit'
-  | 'ols_initial'
-  | 'ols_unset';
 
 export const outline = [
   ['ol_none', () => 'outline:none;'],
   [
-    ['olc_' as 'olc_HEX', `(${hexColor})`],
+    ['olc_' as 'olc_HEX', `(${HEX_COLOR})`],
     (value: string) => `outline-color:#${value};`,
   ],
   [
-    ['olw_' as 'olw_NUMBER', `(${number})`],
+    ['olw_' as 'olw_NUMBER', `(${NUMBER})`],
     (value: string) => `outline-width:${rem(value)};`,
   ],
   [
-    ['ols_' as ols_STYLE, `(${lowerCase})`],
+    ['ols_' as `ols_${OutlineStyle}`, `(${LOWER_CASE})`],
     (value: string) => `outline-style:${value};`,
   ],
 ] as const;

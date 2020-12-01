@@ -1,69 +1,47 @@
-import { hexColor, letter, lowerCase, number } from '../constants';
+import { HEX_COLOR, LETTER, LOWER_CASE, NUMBER } from '../constants';
+import { TextAlign, TextTransform, UserSelect } from '../types';
 import { rem } from '../utils';
-
-type fsl_SELECT =
-  | 'fsl_none'
-  | 'fsl_auto'
-  | 'fsl_text'
-  | 'fsl_contain'
-  | 'fsl_all'
-  | 'fsl_inherit'
-  | 'fsl_initial'
-  | 'fsl_unset';
-
-type fa_ALIGN =
-  | 'fa_left'
-  | 'fa_right'
-  | 'fa_center'
-  | 'fa_justify'
-  | 'fa_initial'
-  | 'fa_inherit';
-
-type ft_TRANSFORM =
-  | 'ft_none'
-  | 'ft_capitalize'
-  | 'ft_uppercase'
-  | 'ft_lowercase'
-  | 'ft_initial'
-  | 'ft_inherit';
 
 export const font = [
   [
-    ['fb_' as 'fb_HEX', `(${hexColor})`],
+    ['fb_' as 'fb_HEX', `(${HEX_COLOR})`],
     (value: string) =>
       `text-shadow:-1px 0 #${value},0 1px #${value},1px 0 #${value},0 -1px #${value};`,
   ],
-  [['fc_' as 'fc_HEX', `(${hexColor})`], (value: string) => `color:#${value};`],
   [
-    ['fs_' as 'fs_NUMBER', `(${number})`],
+    ['fc_' as 'fc_HEX', `(${HEX_COLOR})`],
+    (value: string) => `color:#${value};`,
+  ],
+  [
+    ['fs_' as `fs_${number}`, `(${NUMBER})`],
     (value: string) => `font-size:${rem(value)};`,
   ],
   [
-    ['ls_' as 'ls_NUMBER', `(${number})`],
+    ['ls_' as `ls_${number}`, `(${NUMBER})`],
     (value: string) => `letter-spacing:${rem(value)};`,
   ],
   [
-    ['ls_neg_' as 'ls_neg_NUMBER', `(${number})`],
+    ['ls_neg_' as `ls_neg_${number}`, `(${NUMBER})`],
     (value: string) => `letter-spacing:-${rem(value)};`,
   ],
   [
-    ['lh_' as 'lh_NUMBER', `(${number})`],
+    ['lh_' as `lh_${number}`, `(${NUMBER})`],
     (value: string) => `line-height:${rem(value)};`,
   ],
   [
-    ['fsl_' as fsl_SELECT, `(${lowerCase})`],
+    ['fsl_' as `fsl_${UserSelect}`, `(${LOWER_CASE})`],
     (value: string) => `user-select:${value};`,
   ],
   [
-    ['fa_' as fa_ALIGN, `(${lowerCase})`],
+    ['fa_' as `fa_${TextAlign}`, `(${LOWER_CASE})`],
     (value: string) => `text-align:${value};`,
   ],
   [
-    ['ft_' as ft_TRANSFORM, `(${lowerCase})`],
+    ['ft_' as `ft_${TextTransform}`, `(${LOWER_CASE})`],
     (value: string) => `text-transform:${value};`,
   ],
   [
-    ['ff_' as 'ff_FAMILY', `(${letter}).*`],
+    ['ff_' as `ff_${string}`, `(${LETTER}).*`],
     (value: string) => `font-family:${value};`,
   ],
   ['ff_sans', () => 'font-family:sans-serif;'],
@@ -89,7 +67,7 @@ export const font = [
   ['f_no_underline', () => 'text-decoration:none;'],
   ['f_wrap_space', () => 'white-space:normal;'],
   ['f_wrap_word', () => 'overflow-wrap:break-word;'],
-  ['f_wrap_letter', () => 'word-break:break-all;'],
+  ['f_wrap_LETTER', () => 'word-break:break-all;'],
   [
     'f_no_wrap',
     () => 'white-space:nowrap;word-break:normal;overflow-wrap:normal;',

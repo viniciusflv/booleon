@@ -26,11 +26,11 @@ const cssPropertyAliases = new Map([
   ['text-combine-upright', '-ms-text-combine-horizontal'],
 ]);
 
-export function cssPropertyAlias(property: string): string | undefined {
+function cssPropertyAlias(property: string): string | undefined {
   return cssPropertyAliases.get(property);
 }
 
-export function cssPropertyPrefixFlags(property: string): number {
+function cssPropertyPrefixFlags(property: string): number {
   const matches = /^(?:(text-(?:decoration$|e|or|si)|back(?:ground-cl|d|f)|box-d|(?:mask(?:$|-[ispro]|-cl)))|(tab-|column(?!-s)|text-align-l)|(ap)|(u|hy))/i.exec(
     property,
   );
@@ -43,7 +43,7 @@ export function cssPropertyPrefixFlags(property: string): number {
   else return CSSPrefixFlags['-ms-'] | CSSPrefixFlags['-webkit-'];
 }
 
-export function cssValuePrefixFlags(property: string, value: string): number {
+function cssValuePrefixFlags(property: string, value: string): number {
   const matches = /^(?:(pos)|(background-i)|((?:max-|min-)?(?:block-s|inl|he|widt))|(dis))/i.exec(
     property,
   );

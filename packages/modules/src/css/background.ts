@@ -1,8 +1,8 @@
-import { hexColor } from '../constants';
+import { HEX_COLOR } from '../constants';
 
 export const background = [
   [
-    ['bg_' as 'bg_HEX', `(${hexColor})`],
+    ['bg_' as 'bg_HEX', `(${HEX_COLOR})`],
     (value: string) => `background-color:#${value};`,
   ],
   ['bg_img', (value: string) => `background-image:url(${value});`],
