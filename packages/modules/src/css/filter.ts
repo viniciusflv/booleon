@@ -1,7 +1,6 @@
 import { NUMBER } from '../constants';
 import { Shadows } from '../types';
-import { percentage } from '../utils';
-import { handleShadow } from '../utils/handleShadow';
+import { percentage, handleShadow } from '../utils';
 
 export const filter = [
   [

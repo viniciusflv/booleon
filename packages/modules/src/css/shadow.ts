@@ -1,6 +1,6 @@
 import { NUMBER } from '../constants';
 import { Shadows } from '../types';
-import { handleShadow } from '../utils/handleShadow';
+import { handleShadow } from '../utils';
 
 export const shadow = [
   [

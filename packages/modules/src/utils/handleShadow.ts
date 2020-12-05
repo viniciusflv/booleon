@@ -30,29 +30,23 @@ const handler = (sd: string[][], inset?: boolean, drop?: boolean) =>
     )
     .join(concat(!drop, ','));
 
-export function handleShadow(value: number, inset?: boolean, drop?: boolean) {
-  switch (value) {
-    case 1:
-      return handler(SD_1, inset, drop);
-    case 2:
-      return handler(SD_2, inset, drop);
-    case 3:
-      return handler(SD_3, inset, drop);
-    case 4:
-      return handler(SD_4, inset, drop);
-    case 6:
-      return handler(SD_6, inset, drop);
-    case 8:
-      return handler(SD_8, inset, drop);
-    case 9:
-      return handler(SD_9, inset, drop);
-    case 12:
-      return handler(SD_12, inset, drop);
-    case 16:
-      return handler(SD_16, inset, drop);
-    case 24:
-      return handler(SD_24, inset, drop);
-    default:
-      return '';
-  }
+export function handleShadow(
+  value: any,
+  inset?: boolean,
+  drop?: boolean,
+): string {
+  return isNaN(value)
+    ? ''
+    : {
+        1: handler(SD_1, inset, drop),
+        2: handler(SD_2, inset, drop),
+        3: handler(SD_3, inset, drop),
+        4: handler(SD_4, inset, drop),
+        6: handler(SD_6, inset, drop),
+        8: handler(SD_8, inset, drop),
+        9: handler(SD_9, inset, drop),
+        12: handler(SD_12, inset, drop),
+        16: handler(SD_16, inset, drop),
+        24: handler(SD_24, inset, drop),
+      }[Number(value)];
 }
