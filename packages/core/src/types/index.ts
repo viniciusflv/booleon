@@ -28,7 +28,7 @@ export type Props<K extends string | number = string, V = any> = {
 export type BooleonIndexer = string | Tuple<string>;
 
 /** Function that runs once @type {Props} matches @type {BooleonIndexer} */
-export type BooleonCallback = (value?: string | boolean | undefined) => string;
+export type BooleonCallback = (value?: any) => string;
 
 /**
  * Key value structure similar to a @type {Map} entry
@@ -38,7 +38,10 @@ export type BooleonCallback = (value?: string | boolean | undefined) => string;
  *  [['match', '_(regex)'], (regexGroupValue) => `customCss: ${regexGroupValue};`]
  * ]
  * */
-export type BooleonModule = Tuple<readonly [BooleonIndexer, BooleonCallback]>;
+export type BooleonModule = readonly (readonly [
+  BooleonIndexer,
+  BooleonCallback,
+])[];
 
 /**
  * Extract @type {BooleonIndexer} and returns a string literal type
@@ -69,6 +72,8 @@ export type PseudoElements = typeof PSEUDO_ELEMENTS[number][0];
  */
 export type MediaQueries = typeof MEDIA_QUERIES[number][0];
 
+export type Keyframe = `kf__${'from' | 'to'}`;
+
 /**
  * Map key value types from @type {BooleonModule}
  * with @type {MediaQueries} @type {PseudoElements}
@@ -76,17 +81,15 @@ export type MediaQueries = typeof MEDIA_QUERIES[number][0];
 export type BooleonProps<M extends BooleonModule> =
   | Props<string, BooleonModuleValues>
   | Props<
-      | `${MediaQueries | PseudoElements}__${BooleonModuleKeys<M>}`
-      | BooleonModuleKeys<M>,
+      `${Keyframe}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
       BooleonModuleValues
     >;
 
 /**
  * @type {BooleonProps} and @type {React.HTMLProps<any>}
  */
-export type BooleonHtmlProps<M> = M extends BooleonModule
-  ? React.HTMLProps<any> & BooleonProps<M>
-  : never;
+export type BooleonHtmlProps<M extends BooleonModule> = React.HTMLProps<any> &
+  BooleonProps<M>;
 
 /**
  * @type {BooleonHtmlProps} @type {FunctionComponent}

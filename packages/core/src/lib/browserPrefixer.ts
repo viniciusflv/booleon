@@ -1,3 +1,5 @@
+// https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
+
 enum CSSPrefixFlags {
   '-webkit-' = 1 << 0,
   '-moz-' = 1 << 1,

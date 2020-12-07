@@ -1,16 +1,14 @@
 import React from 'react';
 
-import { BooleonHtmlProps, BooleonModule, ConcatTuples } from '../types';
+import { BooleonHtmlProps, BooleonModule } from '../types';
 import { useBooleon } from './useBooleon';
 
 export function hocBooleon<M extends BooleonModule[]>(
   WrappedComponent: React.ComponentType,
   ...modules: M
 ) {
-  const BooleonComponent: React.FC<
-    BooleonHtmlProps<ConcatTuples<M[number]>>
-  > = (props: BooleonHtmlProps<ConcatTuples<M[number]>>) => (
-    <WrappedComponent {...useBooleon(props, ...modules)} />
-  );
+  const BooleonComponent: React.FC<BooleonHtmlProps<M[number]>> = (
+    props: BooleonHtmlProps<M[number]>,
+  ) => <WrappedComponent {...useBooleon(props, ...modules)} />;
   return BooleonComponent;
 }

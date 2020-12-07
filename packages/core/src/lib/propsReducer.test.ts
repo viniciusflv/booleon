@@ -24,6 +24,8 @@ test('propsReducer', () => {
       sibling__flex: true,
       odd__flex: true,
       even__flex: true,
+      kf__0__flex: true,
+      kf__100__flex: true,
       focus__within__after__before__active__checked__disabled__hover__visited__child__last__first__sibling__odd__even__flex: true,
     },
     [['flex', () => 'display:flex;']],
@@ -50,6 +52,7 @@ test('propsReducer', () => {
     sibling: 'display:flex;',
     visited: 'display:flex;',
     within: 'display:flex;',
+    kf: '0% {display:flex;}100% {display:flex;}',
     focus__within__after__before__active__checked__disabled__hover__visited__child__last__first__sibling__odd__even:
       'display:flex;',
   });

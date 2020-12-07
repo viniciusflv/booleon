@@ -26,9 +26,15 @@ export function classCompiler(reducedProps: Props<string, string>) {
 
   const classes = Object.keys(reducedProps).reduce((acc, key) => {
     const css = reducedProps[key];
+    const keyframe = key.startsWith('kf');
     const pseudoElements = pseudoMap(key as PseudoElements);
     const breakpoint = mediaMap(key as MediaQueries);
     return (acc += runIfHasValue([
+      [
+        keyframe,
+        () =>
+          `@keyframes ${className} {${css}}.${className}{animation-name:${className};}`,
+      ],
       [
         pseudoElements,
         (pseudoElements: string) => `.${className}${pseudoElements}{${css}}`,
@@ -37,7 +43,10 @@ export function classCompiler(reducedProps: Props<string, string>) {
         breakpoint,
         (breakpoint: string) => `@media${breakpoint}{.${className}{${css}}}`,
       ],
-      [!(pseudoElements || breakpoint), () => `.${className}{${css}}`],
+      [
+        !(keyframe || pseudoElements || breakpoint),
+        () => `.${className}{${css}}`,
+      ],
     ]));
   }, '');
 
