@@ -72,7 +72,9 @@ export type PseudoElements = typeof PSEUDO_ELEMENTS[number][0];
  */
 export type MediaQueries = typeof MEDIA_QUERIES[number][0];
 
-export type Keyframe = `kf__${'from' | 'to'}`;
+export type Keyframe = 'from' | 'to';
+
+export type Prefix = PseudoElements | MediaQueries | Keyframe;
 
 /**
  * Map key value types from @type {BooleonModule}
@@ -81,7 +83,7 @@ export type Keyframe = `kf__${'from' | 'to'}`;
 export type BooleonProps<M extends BooleonModule> =
   | Props<string, BooleonModuleValues>
   | Props<
-      `${Keyframe}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
+      `${Prefix}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
       BooleonModuleValues
     >;
 

@@ -9,11 +9,11 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
 
   return Object.keys(props).reduce((acc, key) => {
     const [, , prefixes, newKey] = prefixRegex?.exec(key) || [];
-    if (key.startsWith('kf__')) {
-      const selector = prefixes.split('__')[1];
+    if (key.match(/(from|to)__/)) {
+      const selector = prefixes.split('__')[0];
       return {
         ...acc,
-        ['kf']:
+        kf:
           (acc['kf'] ?? '') +
           `${
             isNaN(Number(selector)) ? selector : `${selector}%`
