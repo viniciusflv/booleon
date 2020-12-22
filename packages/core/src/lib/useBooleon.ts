@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 
 import { BooleonModule, Props } from '../types';
 import { classCompiler } from './classCompiler';
-import { concatTuples } from './concatTuples';
 import { filterProps } from './filterProps';
 import { propsReducer } from './propsReducer';
 import { styleAppender } from './styleAppender';
@@ -12,11 +11,10 @@ export function useBooleon<P extends Props, M extends BooleonModule[]>(
   props: P,
   ...modules: M
 ) {
-  const module = useMemo(() => concatTuples(...modules), [modules]);
   const [htmlProps, booleonProps] = useMemo(() => filterProps(props), [props]);
 
   const className = useMemo(() => {
-    const reducedProps = propsReducer(booleonProps, module as M[number]);
+    const reducedProps = propsReducer(booleonProps, modules.flat());
     const [id, css] = classCompiler(reducedProps);
 
     styleAppender(id, css);

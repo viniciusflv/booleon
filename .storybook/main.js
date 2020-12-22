@@ -1,7 +1,7 @@
 module.exports = {
   stories: ["../stories/**/*.stories.tsx"],
   addons: [
-    '@storybook/addon-backgrounds/register',
+    '@storybook/addon-backgrounds',
     "@storybook/addon-storysource",
     '@storybook/addon-knobs/register',
     '@storybook/addon-a11y',

@@ -1,6 +1,5 @@
 export * from './browserPrefixer';
 export * from './classCompiler';
-export * from './concatTuples';
 export * from './cssCompiler';
 export * from './filterProps';
 export * from './hocBooleon';
