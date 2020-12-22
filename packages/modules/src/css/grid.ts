@@ -21,27 +21,27 @@ export const grid = [
     (value: string) => `grid-area:${value};`,
   ],
   [
-    ['cols_span_' as `cols_span_${number}`, `(${NUMBER})`],
+    ['cols_span_' as 'cols_span_NUMBER', `(${NUMBER})`],
     (value: string) => `grid-column:span ${value} / span ${value};`,
   ],
   [
-    ['rows_span_' as `rows_span_${number}`, `(${NUMBER})`],
+    ['rows_span_' as 'rows_span_NUMBER', `(${NUMBER})`],
     (value: string) => `grid-row:span ${value} / span ${value};`,
   ],
   [
-    ['cols_start_' as `cols_start_${number}`, `(${NUMBER})`],
+    ['cols_start_' as 'cols_start_NUMBER', `(${NUMBER})`],
     (value: string) => `grid-column-start:${value};`,
   ],
   [
-    ['cols_end_' as `cols_end_${number}`, `(${NUMBER})`],
+    ['cols_end_' as 'cols_end_NUMBER', `(${NUMBER})`],
     (value: string) => `grid-column-end:${value};`,
   ],
   [
-    ['rows_start_' as `rows_start_${number}`, `(${NUMBER})`],
+    ['rows_start_' as 'rows_start_NUMBER', `(${NUMBER})`],
     (value: string) => `grid-row-start:${value};`,
   ],
   [
-    ['rows_end_' as `rows_end_${number}`, `(${NUMBER})`],
+    ['rows_end_' as 'rows_end_NUMBER', `(${NUMBER})`],
     (value: string) => `grid-row-end:${value};`,
   ],
 ] as const;

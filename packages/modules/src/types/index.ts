@@ -1,8 +1,8 @@
 export type MeasurementUnits = 'px' | 'pt' | 'em' | 'rem' | 'vw' | 'vh' | '%';
 
-export type NumberUnit = `${number}${MeasurementUnits}`;
+export type NumberUnit = `NUMBER${MeasurementUnits}`;
 
-export type Time = `${number}${'s' | 'ms'}`;
+export type Time = `NUMBER${'s' | 'ms'}`;
 
 export type BorderStyle =
   | 'none'
@@ -44,7 +44,7 @@ export type TextTransform =
   | 'initial'
   | 'inherit';
 
-export type Fractions = `${number}${'fr'}` | NumberUnit | 'auto';
+export type Fractions = `NUMBER${'fr'}` | NumberUnit | 'auto';
 
 export type OutlineStyle =
   | 'auto'

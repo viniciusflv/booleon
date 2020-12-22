@@ -33,15 +33,15 @@ Key must be `string` or `array of strings`. If is an array, the joined value wil
 export const outline = [
   ['ol_none', () => 'outline:none;'],
   [
-    ['olc_' as 'olc_HEX', `(${hexColor})`], // olc_([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})
+    ['olc_' as 'olc_HEX', `(${HEX_COLOR})`], // olc_([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})
     (value: string) => `outline-color:#${value};`,
   ],
   [
-    ['olw_' as 'olw_NUMBER', `(${number})`],
+    ['olw_' as 'olw_NUMBER', `(${NUMBER})`],
     (value: string) => `outline-width:${rem(value)};`,
   ],
   [
-    ['ols_' as ols_STYLE, `(${lowerCase})`],
+    ['ols_' as ols_STYLE, `(${LOWERCASE})`],
     (value: string) => `outline-style:${value};`,
   ],
 ] as const;

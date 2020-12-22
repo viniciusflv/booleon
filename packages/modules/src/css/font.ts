@@ -13,19 +13,19 @@ export const font = [
     (value: string) => `color:#${value};`,
   ],
   [
-    ['fs_' as `fs_${number}`, `(${NUMBER})`],
+    ['fs_' as 'fs_NUMBER', `(${NUMBER})`],
     (value: string) => `font-size:${rem(value)};`,
   ],
   [
-    ['ls_' as `ls_${number}`, `(${NUMBER})`],
+    ['ls_' as 'ls_NUMBER', `(${NUMBER})`],
     (value: string) => `letter-spacing:${rem(value)};`,
   ],
   [
-    ['ls_neg_' as `ls_neg_${number}`, `(${NUMBER})`],
+    ['ls_neg_' as 'ls_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `letter-spacing:-${rem(value)};`,
   ],
   [
-    ['lh_' as `lh_${number}`, `(${NUMBER})`],
+    ['lh_' as 'lh_NUMBER', `(${NUMBER})`],
     (value: string) => `line-height:${rem(value)};`,
   ],
   [

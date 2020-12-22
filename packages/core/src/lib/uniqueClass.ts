@@ -1,3 +1,2 @@
-export function uniqueClass(...classes: string[]) {
-  return Array.from(new Set(classes.filter(Boolean))).join(' ');
-}
+export const uniqueClass = (...classes: string[]) =>
+  Array.from(new Set(classes.filter(Boolean))).join(' ');

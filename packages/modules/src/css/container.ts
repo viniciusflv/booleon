@@ -3,44 +3,41 @@ import { percentage, rem } from '../utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 export const container = [
+  [['z_' as 'z_NUMBER', `(${NUMBER})`], (value: string) => `z-index:${value};`],
   [
-    ['z_' as `z_${number}`, `(${NUMBER})`],
-    (value: string) => `z-index:${value};`,
-  ],
-  [
-    ['op_' as `op_${number}`, `(${NUMBER})`],
+    ['op_' as 'op_NUMBER', `(${NUMBER})`],
     (value: string) => `opacity:${percentage(value)};`,
   ],
   [
-    ['top_' as `top_${number}`, `(${NUMBER})`],
+    ['top_' as 'top_NUMBER', `(${NUMBER})`],
     (value: string) => `top:${rem(value)};`,
   ],
   [
-    ['bottom_' as `bottom_${number}`, `(${NUMBER})`],
+    ['bottom_' as 'bottom_NUMBER', `(${NUMBER})`],
     (value: string) => `bottom:${rem(value)};`,
   ],
   [
-    ['left_' as `left_${number}`, `(${NUMBER})`],
+    ['left_' as 'left_NUMBER', `(${NUMBER})`],
     (value: string) => `left:${rem(value)};`,
   ],
   [
-    ['right_' as `right_${number}`, `(${NUMBER})`],
+    ['right_' as 'right_NUMBER', `(${NUMBER})`],
     (value: string) => `right:${rem(value)};`,
   ],
   [
-    ['top_neg_' as `top_neg_${number}`, `(${NUMBER})`],
+    ['top_neg_' as 'top_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `top:-${rem(value)};`,
   ],
   [
-    ['bottom_neg_' as `bottom_neg_${number}`, `(${NUMBER})`],
+    ['bottom_neg_' as 'bottom_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `bottom:-${rem(value)};`,
   ],
   [
-    ['left_neg_' as `left_neg_${number}`, `(${NUMBER})`],
+    ['left_neg_' as 'left_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `left:-${rem(value)};`,
   ],
   [
-    ['right_neg_' as `right_neg_${number}`, `(${NUMBER})`],
+    ['right_neg_' as 'right_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `right:-${rem(value)};`,
   ],
   ['z_max', () => `z-index:${MAX_SAFE_INTEGER};`],

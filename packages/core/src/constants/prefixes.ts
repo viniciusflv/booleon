@@ -16,6 +16,16 @@ export const PSEUDO_ELEMENTS = [
   ['even', ':nth-child(even)'],
 ] as const;
 
+export const KEYFRAMES = [
+  ['from', '0%'],
+  ['quarter', '25%'],
+  ['third', '33%'],
+  ['half', '50%'],
+  ['x2third', '66%'],
+  ['x3quarter', '75%'],
+  ['to', '100%'],
+] as const;
+
 export const MEDIA_QUERIES = [
   ['xs', '(min-width: 640px)'],
   ['sm', '(min-width: 768px)'],

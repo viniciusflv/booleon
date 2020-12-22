@@ -1,15 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { hocBooleon } from '../../packages/core/src';
-import { font, animation, transform } from '../../packages/modules/src';
+import {
+  animation,
+  background,
+  border,
+  container,
+  cursor,
+  filter,
+  flex,
+  font,
+  gradient,
+  grid,
+  spacing,
+  outline,
+  shadow,
+  sizing,
+  transform,
+  transition,
+} from '../../packages/modules/src';
+import benchmarkProps from '../benchmarkProps';
 
 const Text = hocBooleon(
   (props) => <span {...props} />,
-  font,
-  transform,
   animation,
+  background,
+  border,
+  container,
+  cursor,
+  filter,
+  flex,
+  font,
+  gradient,
+  grid,
+  spacing,
+  outline,
+  shadow,
+  sizing,
+  transform,
+  transition,
 );
 
 export default {
@@ -19,14 +50,10 @@ export default {
 };
 
 export const Default = () => {
-  return (
-    <Text
-      from__rt_360
-      ani_duration_1s
-      ani_iteration_infinite
-      ani_forwards
-      ani_ease_in_out>
-      AAA
-    </Text>
-  );
+  const [bool, setBool] = useState(true);
+  useEffect(() => {
+    const timeout = setTimeout(() => setBool(!bool), 1000);
+    return () => clearTimeout(timeout);
+  }, [bool]);
+  return <Text {...benchmarkProps(bool)}>AAA</Text>;
 };

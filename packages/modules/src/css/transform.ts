@@ -4,85 +4,85 @@ import { rem, percentage } from '../utils';
 
 export const transform = [
   [
-    ['sl_' as `sl_${number}`, `(${NUMBER})`],
+    ['sl_' as 'sl_NUMBER', `(${NUMBER})`],
     (value: string) =>
       `transform:scale(${percentage(value)},${percentage(value)});`,
   ],
   [
-    ['slx_' as `slx_${number}`, `(${NUMBER})`],
+    ['slx_' as 'slx_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:scaleX(${percentage(value)});`,
   ],
   [
-    ['sly_' as `sly_${number}`, `(${NUMBER})`],
+    ['sly_' as 'sly_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:scaleY(${percentage(value)});`,
   ],
   [
-    ['sl_neg_' as `sl_neg_${number}`, `(${NUMBER})`],
+    ['sl_neg_' as 'sl_neg_NUMBER', `(${NUMBER})`],
     (value: string) =>
       `transform:scale(-${percentage(value)},-${percentage(value)});`,
   ],
   [
-    ['slx_neg_' as `slx_neg_${number}`, `(${NUMBER})`],
+    ['slx_neg_' as 'slx_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:scaleX(-${percentage(value)});`,
   ],
   [
-    ['sly_neg_' as `sly_neg_${number}`, `(${NUMBER})`],
+    ['sly_neg_' as 'sly_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:scaleY(-${percentage(value)});`,
   ],
   [
-    ['rt_' as `rt_${number}`, `(${NUMBER})`],
+    ['rt_' as 'rt_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:rotate(${value}deg);`,
   ],
   [
-    ['rt_neg_' as `rt_neg_${number}`, `(${NUMBER})`],
+    ['rt_neg_' as 'rt_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:rotate(-${value}deg);`,
   ],
   [
-    ['sk_' as `sk_${number}`, `(${NUMBER})`],
+    ['sk_' as 'sk_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:skew(${value}deg,${value}deg);`,
   ],
   [
-    ['skx_' as `skx_${number}`, `(${NUMBER})`],
+    ['skx_' as 'skx_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:skewX(${value}deg);`,
   ],
   [
-    ['sky_' as `sky_${number}`, `(${NUMBER})`],
+    ['sky_' as 'sky_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:skewY(${value}deg);`,
   ],
   [
-    ['sk_neg_' as `sk_neg_${number}`, `(${NUMBER})`],
+    ['sk_neg_' as 'sk_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:skew(-${value}deg,-${value}deg);`,
   ],
   [
-    ['skx_neg_' as `skx_neg_${number}`, `(${NUMBER})`],
+    ['skx_neg_' as 'skx_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:skewX(-${value}deg);`,
   ],
   [
-    ['sky_neg_' as `sky_neg_${number}`, `(${NUMBER})`],
+    ['sky_neg_' as 'sky_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:skewY(-${value}deg);`,
   ],
   [
-    ['tl_' as `tl_${number}`, `(${NUMBER})`],
+    ['tl_' as 'tl_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:translate(${rem(value)},${rem(value)});`,
   ],
   [
-    ['tlx_' as `tlx_${number}`, `(${NUMBER})`],
+    ['tlx_' as 'tlx_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:translateX(${rem(value)});`,
   ],
   [
-    ['tly_' as `tly_${number}`, `(${NUMBER})`],
+    ['tly_' as 'tly_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:translateY(${rem(value)});`,
   ],
   [
-    ['tl_neg_' as `tl_neg_${number}`, `(${NUMBER})`],
+    ['tl_neg_' as 'tl_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:translate(-${rem(value)},-${rem(value)});`,
   ],
   [
-    ['tlx_neg_' as `tlx_neg_${number}`, `(${NUMBER})`],
+    ['tlx_neg_' as 'tlx_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:translateX(-${rem(value)});`,
   ],
   [
-    ['tly_neg_' as `tly_neg_${number}`, `(${NUMBER})`],
+    ['tly_neg_' as 'tly_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `transform:translateY(-${rem(value)});`,
   ],
   [

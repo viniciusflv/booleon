@@ -4,11 +4,11 @@ import { handleShadow } from '../utils';
 
 export const shadow = [
   [
-    ['sd_' as `sd_${Shadows}`, `${NUMBER}`],
+    ['sd_' as `sd_${Shadows}`, `(${NUMBER})`],
     (value: string) => `box-shadow:${handleShadow(Number(value))};`,
   ],
   [
-    ['sdi_' as `sdi_${Shadows}`, `${NUMBER}`],
+    ['sdi_' as `sdi_${Shadows}`, `(${NUMBER})`],
     (value: string) => `box-shadow:${handleShadow(Number(value), true)};`,
   ],
 ] as const;

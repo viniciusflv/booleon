@@ -3,7 +3,7 @@ import { Time } from '../types';
 
 export const animation = [
   [
-    ['kf_' as `kf_${string}`, `(${LOWER_CASE})$`],
+    ['ani_' as 'ani_NAME', `(${LOWER_CASE})$`],
     (value: string) => `animation-name: ${value};`,
   ],
   [
@@ -11,7 +11,7 @@ export const animation = [
     (value: string) => `animation-duration: ${value};`,
   ],
   [
-    ['ani_iteration_' as `ani_iteration_${number}`, `(${NUMBER})`],
+    ['ani_iteration_' as 'ani_iteration_NUMBER', `(${NUMBER})`],
     (value: string) => `animation-iteration-count: ${value};`,
   ],
   ['ani_iteration_infinite', () => 'animation-iteration-count:infinite;'],

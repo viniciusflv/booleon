@@ -103,6 +103,8 @@ function getAttrValue(str: string) {
 export function browserPrefixer(...str: string[]) {
   if (str.map(Boolean).includes(false)) return '';
   return str.length < 2
-    ? styleDeclaration(...getAttrValue(str[0]))
+    ? str[0].match(/(?<attr>.*):(?<value>.*);/)
+      ? styleDeclaration(...getAttrValue(str[0]))
+      : str[0]
     : styleDeclaration(...str);
 }

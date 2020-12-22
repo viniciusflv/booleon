@@ -1,54 +1,31 @@
-import { MEDIA_QUERIES, PSEUDO_ELEMENTS } from '../constants';
 import { stringHash } from '../lib/stringHash';
-import { MediaQueries, Props, PseudoElements } from '../types';
+import { ReducedProps } from '../types';
 
-const pseudoMap = (keyPrefix: PseudoElements) => {
-  const map = new Map(PSEUDO_ELEMENTS);
-  return keyPrefix
-    .split('__')
-    .reduce((acc, key: PseudoElements) => (acc += map.get(key) ?? ''), '');
-};
-
-const mediaMap = (keyPrefix: MediaQueries) => {
-  return new Map(MEDIA_QUERIES).get(keyPrefix);
-};
-
-const runIfHasValue = (values: any[]) => {
-  return values.reduce((acc, [value, cb]) => {
-    if (value) acc += cb(value);
-    return acc;
-  }, '');
-};
-
-export function classCompiler(reducedProps: Props<string, string>) {
+export function classCompiler(reducedProps: ReducedProps) {
   const id = stringHash(Object.values(reducedProps).join(''));
   const className = `bl-${id}`;
+  const { keyframe, medias = {}, pseudo = {}, css = '' } = reducedProps;
 
-  const classes = Object.keys(reducedProps).reduce((acc, key) => {
-    const css = reducedProps[key];
-    const keyframe = key.startsWith('kf');
-    const pseudoElements = pseudoMap(key as PseudoElements);
-    const breakpoint = mediaMap(key as MediaQueries);
-    return (acc += runIfHasValue([
-      [
-        keyframe,
-        () =>
-          `@keyframes ${className} {${css}}.${className}{animation-name:${className};}`,
-      ],
-      [
-        pseudoElements,
-        (pseudoElements: string) => `.${className}${pseudoElements}{${css}}`,
-      ],
-      [
-        breakpoint,
-        (breakpoint: string) => `@media${breakpoint}{.${className}{${css}}}`,
-      ],
-      [
-        !(keyframe || pseudoElements || breakpoint),
-        () => `.${className}{${css}}`,
-      ],
-    ]));
-  }, '');
+  const keyframes = keyframe
+    ? `@keyframes ${className}{${Object.keys(keyframe).reduce(
+        (acc, key) => (acc += `${key}{${keyframe[key]}}`),
+        '',
+      )}}`
+    : '';
+
+  const mediaQueries = Object.keys(medias).reduce(
+    (acc, key) => (acc += `@media${key}{.${className}{${medias[key]}}}`),
+    '',
+  );
+
+  const pseudoElements = Object.keys(pseudo).reduce(
+    (acc, key) => (acc += `.${className}${key}{${pseudo[key]}}`),
+    '',
+  );
+
+  const style = `.${className}{${css}}`;
+
+  const classes = keyframes + mediaQueries + pseudoElements + style;
 
   return [className, classes];
 }

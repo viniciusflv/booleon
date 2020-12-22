@@ -1,20 +1,4 @@
-import { PSEUDO_ELEMENTS, MEDIA_QUERIES } from '../constants';
-
-/** Union | to intersection & */
-export type UnionToIntersection<U> = (
-  U extends any ? (arg: U) => any : never
-) extends (arg: infer I) => void
-  ? I
-  : never;
-
-/** Union | to Tuple */
-export type UnionToTuple<T> = UnionToIntersection<
-  T extends any ? (t: T) => T : never
-> extends (_: any) => infer W
-  ? readonly [...UnionToTuple<Exclude<T, W>>, W]
-  : readonly [];
-
-export type ConcatTuples<M extends readonly any[]> = UnionToTuple<M[number]>;
+import { PSEUDO_ELEMENTS, MEDIA_QUERIES, KEYFRAMES } from '../constants';
 
 /** Readonly Array */
 export type Tuple<T> = readonly T[];
@@ -40,7 +24,7 @@ export type BooleonCallback = (value?: any) => string;
  * */
 export type BooleonModule = readonly (readonly [
   BooleonIndexer,
-  BooleonCallback,
+  BooleonCallback | readonly [BooleonCallback, BooleonModule],
 ])[];
 
 /**
@@ -66,15 +50,34 @@ export type BooleonModuleValues = boolean | string;
  * Pseudo elements prefixer
  */
 export type PseudoElements = typeof PSEUDO_ELEMENTS[number][0];
+export type PseudoElementsValues = typeof PSEUDO_ELEMENTS[number][1];
 
 /**
  * Media queries prefixer
  */
 export type MediaQueries = typeof MEDIA_QUERIES[number][0];
+export type MediaQueriesValues = typeof MEDIA_QUERIES[number][1];
 
-export type Keyframe = 'from' | 'to';
+/**
+ * Keyframes prefixer
+ */
+export type Keyframes = typeof KEYFRAMES[number][0];
+export type KeyframesValues = typeof KEYFRAMES[number][1];
 
-export type Prefix = PseudoElements | MediaQueries | Keyframe;
+/**
+ * Props Prefixes
+ */
+export type Prefixes = PseudoElements | MediaQueries | Keyframes;
+
+/**
+ * Structured compiled css
+ */
+export type ReducedProps = {
+  css: string;
+  pseudo: Props<PseudoElementsValues | string, string>;
+  medias: Props<MediaQueriesValues, string>;
+  keyframe: Props<KeyframesValues, string>;
+};
 
 /**
  * Map key value types from @type {BooleonModule}
@@ -83,7 +86,7 @@ export type Prefix = PseudoElements | MediaQueries | Keyframe;
 export type BooleonProps<M extends BooleonModule> =
   | Props<string, BooleonModuleValues>
   | Props<
-      `${Prefix}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
+      `${Prefixes}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
       BooleonModuleValues
     >;
 

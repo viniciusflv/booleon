@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { BooleonModule, BooleonHtmlProps } from '../types';
+import { BooleonModule, Props } from '../types';
 import { classCompiler } from './classCompiler';
 import { concatTuples } from './concatTuples';
 import { filterProps } from './filterProps';
@@ -8,30 +8,24 @@ import { propsReducer } from './propsReducer';
 import { styleAppender } from './styleAppender';
 import { uniqueClass } from './uniqueClass';
 
-/**
- * @param props @type {BooleonProps} and @type {React.HTMLProps<M>}
- * @param modules @type {BooleonModule[]}
- * @returns @type {React.HTMLProps<any>}
- */
-export function useBooleon<
-  P extends BooleonHtmlProps<any>,
-  M extends BooleonModule[]
->(props: P, ...modules: M) {
+export function useBooleon<P extends Props, M extends BooleonModule[]>(
+  props: P,
+  ...modules: M
+) {
   const module = useMemo(() => concatTuples(...modules), [modules]);
-
   const [htmlProps, booleonProps] = useMemo(() => filterProps(props), [props]);
 
-  const reducedProps = useMemo(
-    () => propsReducer(booleonProps, module as M[number]),
-    [booleonProps, module],
-  );
+  const className = useMemo(() => {
+    const reducedProps = propsReducer(booleonProps, module as M[number]);
+    const [id, css] = classCompiler(reducedProps);
 
-  const [id, css] = useMemo(() => classCompiler(reducedProps), [reducedProps]);
+    styleAppender(id, css);
 
-  styleAppender(id, css);
+    return id;
+  }, [booleonProps]);
 
   return {
     ...htmlProps,
-    className: uniqueClass(id, props.className ?? ''),
+    className: uniqueClass(className, props.className ?? ''),
   };
 }
