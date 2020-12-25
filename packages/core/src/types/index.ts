@@ -85,10 +85,7 @@ export type ReducedProps = {
  */
 export type BooleonProps<M extends BooleonModule> =
   | Props<string, BooleonModuleValues>
-  | Props<
-      `${Prefixes}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
-      BooleonModuleValues
-    >;
+  | Props<Prefixes | BooleonModuleKeys<M>, BooleonModuleValues>;
 
 /**
  * @type {BooleonProps} and @type {React.HTMLProps<any>}

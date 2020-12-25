@@ -1,9 +1,6 @@
-import { stringHash } from '../lib/stringHash';
 import { ReducedProps } from '../types';
 
-export function classCompiler(reducedProps: ReducedProps) {
-  const id = stringHash(Object.values(reducedProps).join(''));
-  const className = `bl-${id}`;
+export function classCompiler(className: string, reducedProps: ReducedProps) {
   const { keyframe, medias = {}, pseudo = {}, css = '' } = reducedProps;
 
   const keyframes = keyframe
@@ -27,5 +24,5 @@ export function classCompiler(reducedProps: ReducedProps) {
 
   const classes = keyframes + mediaQueries + pseudoElements + style;
 
-  return [className, classes];
+  return classes;
 }
