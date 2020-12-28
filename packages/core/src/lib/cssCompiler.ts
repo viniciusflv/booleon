@@ -27,7 +27,6 @@ export function cssCompiler<M extends BooleonModule>(
           : (cb as BooleonCallback)(match[1].replace(/_/g, ' '))
         : '';
     } catch (error) {
-      console.log(key, idx, match);
       return '';
     }
   }
