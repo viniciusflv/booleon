@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Text, View } from '@booleon/base';
+import { ButtonStyled, TextStyle } from './styles';
 
 const Button: FC<
   React.HTMLProps<any> &
@@ -10,7 +10,7 @@ const Button: FC<
 > = ({ children, blue, green, red, white, outlined, ...props }) => {
   const noColor = !blue && !green && !red && !white;
   return (
-    <View.button
+    <ButtonStyled
       bg_transparent={outlined}
       bg_555={!outlined && noColor}
       bg_0073E6={!outlined && blue}
@@ -41,7 +41,7 @@ const Button: FC<
       disabled__cr_disallowed
       disabled__sd_1
       {...props}>
-      <Text.span
+      <TextStyle
         fa_center
         ls_2
         fs_16
@@ -53,8 +53,8 @@ const Button: FC<
         fw_bold
         ff_sans>
         {children}
-      </Text.span>
-    </View.button>
+      </TextStyle>
+    </ButtonStyled>
   );
 };
 

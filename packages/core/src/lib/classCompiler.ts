@@ -22,7 +22,7 @@ export function classCompiler(className: string, reducedProps: ReducedProps) {
 
   const style = `.${className}{${css}}`;
 
-  const classes = keyframes + mediaQueries + pseudoElements + style;
+  const classes = style + keyframes + pseudoElements + mediaQueries;
 
   return classes;
 }

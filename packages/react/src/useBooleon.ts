@@ -20,9 +20,10 @@ export function useBooleon<P extends Props, M extends BooleonModule[]>(
   const className = useMemo(() => {
     const id = stringHash(JSON.stringify(booleonProps));
     const className = `bl-${id}`;
+    const reducedProps = propsReducer(booleonProps, modules.flat());
+    console.log(reducedProps, booleonProps);
 
     styleAppender(className, () => {
-      const reducedProps = propsReducer(booleonProps, modules.flat());
       return classCompiler(className, reducedProps);
     });
 

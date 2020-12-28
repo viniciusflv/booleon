@@ -9,19 +9,19 @@ import {
 } from '../types';
 import { cssCompiler } from './cssCompiler';
 
-const handlePrefix = ({
+const accumulate = ({
   acc,
   entrie,
   css,
 }: {
-  acc: Props<string, string>;
+  acc: any;
   entrie?: string;
   css: string;
 }) => {
   return entrie
     ? {
         ...acc,
-        [entrie]: acc?.[entrie] ?? '' + css,
+        [entrie]: (acc?.[entrie] ?? '') + css,
       }
     : acc;
 };
@@ -40,7 +40,7 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
       const prefixes = prefix.split('__');
       return {
         ...acc,
-        pseudo: handlePrefix({
+        pseudo: accumulate({
           acc: acc?.pseudo,
           css: cssCompiler(prop, props[key], module),
           entrie: prefixes.reduce(
@@ -48,18 +48,22 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
             '',
           ),
         }),
-        keyframe: handlePrefix({
+        keyframe: accumulate({
           acc: acc?.keyframe,
           css: cssCompiler(prop, props[key], module),
           entrie: keyframeMap.get(prefixes[0] as Keyframes),
         }),
-        medias: handlePrefix({
+        medias: accumulate({
           acc: acc?.medias,
           css: cssCompiler(prop, props[key], module),
           entrie: mediasMap.get(prefixes[0] as MediaQueries),
         }),
       };
     }
-    return { ...acc, css: cssCompiler(key, props[key], module) };
+    return accumulate({
+      acc: acc,
+      css: cssCompiler(key, props[key], module),
+      entrie: 'css',
+    });
   }, {} as ReducedProps);
 }
