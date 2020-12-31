@@ -16,9 +16,7 @@ import {
 } from '../../../modules/src';
 
 export const ButtonStyled = hocBooleon(
-  function ButtonStyled(props) {
-    return <button {...props} />;
-  },
+  (props) => <button {...props} />,
   background,
   border,
   shadow,
@@ -30,6 +28,4 @@ export const ButtonStyled = hocBooleon(
   outline,
 );
 
-export const TextStyle = hocBooleon(function TextStyle(props) {
-  return <span {...props} />;
-}, font);
+export const TextStyle = hocBooleon((props) => <span {...props} />, font);

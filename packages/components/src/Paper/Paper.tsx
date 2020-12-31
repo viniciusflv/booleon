@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import { View, ViewProps } from '@booleon/base';
+import { PaperStyled } from './styles';
 
-const Paper: FC<ViewProps> = ({ children, ...props }) => {
+const Paper: FC<any> = ({ children, ...props }) => {
   return (
-    <View.section bg_fff b_edge sd_3 hover__sd_6 {...props}>
+    <PaperStyled bg_fff b_edge sd_3 hover__sd_6 {...props}>
       {children}
-    </View.section>
+    </PaperStyled>
   );
 };
 

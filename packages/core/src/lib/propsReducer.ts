@@ -34,10 +34,12 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
   const pseudoMap = new Map(PSEUDO_ELEMENTS);
   const keyframeMap = new Map(KEYFRAMES);
   const mediasMap = new Map(MEDIA_QUERIES);
+  let animation: any;
   return Object.keys(props).reduce((acc, key) => {
     const { prefix, prop } = key.match(prefixRegex)?.groups ?? {};
     if (prefix) {
       const prefixes = prefix.split('__');
+      animation ??= prefixes[0] === 'kf' ? prop : null;
       return {
         ...acc,
         pseudo: accumulate({
@@ -48,11 +50,13 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
             '',
           ),
         }),
-        keyframe: accumulate({
-          acc: acc?.keyframe,
-          css: cssCompiler(prop, props[key], module),
-          entrie: keyframeMap.get(prefixes[0] as Keyframes),
-        }),
+        keyframe: {
+          [animation]: accumulate({
+            acc: acc?.keyframe?.[animation],
+            css: cssCompiler(prop, props[key], module),
+            entrie: keyframeMap.get(prefixes[0] as Keyframes),
+          }),
+        },
         medias: accumulate({
           acc: acc?.medias,
           css: cssCompiler(prop, props[key], module),

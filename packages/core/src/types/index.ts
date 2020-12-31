@@ -76,7 +76,7 @@ export type ReducedProps = {
   css: string;
   pseudo: Props<PseudoElementsValues | string, string>;
   medias: Props<MediaQueriesValues, string>;
-  keyframe: Props<KeyframesValues, string>;
+  keyframe: Props<string, Props<KeyframesValues, string>>;
 };
 
 /**

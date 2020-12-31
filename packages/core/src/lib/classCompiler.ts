@@ -1,13 +1,19 @@
 import { ReducedProps } from '../types';
 
 export function classCompiler(className: string, reducedProps: ReducedProps) {
-  const { keyframe, medias = {}, pseudo = {}, css = '' } = reducedProps;
+  const { keyframe = {}, medias = {}, pseudo = {}, css = '' } = reducedProps;
 
-  const keyframes = keyframe
-    ? `@keyframes ${className}{${Object.keys(keyframe).reduce(
-        (acc, key) => (acc += `${key}{${keyframe[key]}}`),
+  const keyframes = Object.values(keyframe).find(Boolean)
+    ? Object.keys(keyframe).reduce(
+        (acc, name) =>
+          (acc += `@keyframes ${name}{${Object.keys(
+            keyframe?.[name] ?? {},
+          ).reduce(
+            (acc, key) => (acc += `${key}{${keyframe?.[name]?.[key]}}`),
+            '',
+          )}}`),
         '',
-      )}}`
+      )
     : '';
 
   const mediaQueries = Object.keys(medias).reduce(

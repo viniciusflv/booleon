@@ -5,9 +5,12 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 test('useBooleon', () => {
-  const MyComponent = (props: any) => (
-    <div {...useBooleon(props, [['flex', () => 'display:flex;']])} />
-  );
+  const MyComponent = (props: any) => {
+    const [className, htmlProps] = useBooleon(props, [
+      ['flex', () => 'display:flex;'],
+    ]);
+    return <div className={className} {...htmlProps} />;
+  };
   const { getByTestId } = render(<MyComponent data-testid="useBooleon" flex />);
   expect(getByTestId('useBooleon')).toHaveStyle('display: flex;');
 });

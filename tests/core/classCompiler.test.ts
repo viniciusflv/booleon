@@ -4,13 +4,15 @@ test('classCompiler', () => {
   const css = classCompiler('bl-1247526574', {
     css: 'display:flex;',
     keyframe: {
-      '0%': 'display:flex;',
-      '100%': 'display:flex;',
-      '25%': 'display:flex;',
-      '33%': 'display:flex;',
-      '50%': 'display:flex;',
-      '66%': 'display:flex;',
-      '75%': 'display:flex;',
+      customAnimationName: {
+        '0%': 'display:flex;',
+        '100%': 'display:flex;',
+        '25%': 'display:flex;',
+        '33%': 'display:flex;',
+        '50%': 'display:flex;',
+        '66%': 'display:flex;',
+        '75%': 'display:flex;',
+      },
     },
     medias: {
       '(min-width: 1024px)': 'display:flex;',
@@ -40,7 +42,7 @@ test('classCompiler', () => {
     },
   });
   expect(css).toMatch(
-    '.bl-1247526574{display:flex;}@keyframes bl-1247526574{0%{display:flex;}100%{display:flex;}25%{display:flex;}33%{display:flex;}50%{display:flex;}66%{display:flex;}75%{display:flex;}}.bl-1247526574+*{display:flex;}.bl-1247526574:active{display:flex;}.bl-1247526574:after{display:flex;}.bl-1247526574:before{display:flex;}.bl-1247526574:checked{display:flex;}.bl-1247526574:disabled{display:flex;}.bl-1247526574:first-child{display:flex;}.bl-1247526574:focus{display:flex;}.bl-1247526574:focus-within{display:flex;}.bl-1247526574:focus:focus-within:after:before:active:checked:disabled:hover:visited>*:last-child:first-child+*:nth-child(odd):nth-child(even){display:flex;}.bl-1247526574:hover{display:flex;}.bl-1247526574:last-child{display:flex;}.bl-1247526574:nth-child(even){display:flex;}.bl-1247526574:nth-child(odd){display:flex;}.bl-1247526574:visited{display:flex;}.bl-1247526574>*{display:flex;}@media(min-width: 1024px){.bl-1247526574{display:flex;}}@media(min-width: 1440px){.bl-1247526574{display:flex;}}@media(min-width: 1920px){.bl-1247526574{display:flex;}}@media(min-width: 640px){.bl-1247526574{display:flex;}}@media(min-width: 768px){.bl-1247526574{display:flex;}}',
+    '.bl-1247526574{display:flex;}@keyframes customAnimationName{0%{display:flex;}100%{display:flex;}25%{display:flex;}33%{display:flex;}50%{display:flex;}66%{display:flex;}75%{display:flex;}}.bl-1247526574+*{display:flex;}.bl-1247526574:active{display:flex;}.bl-1247526574:after{display:flex;}.bl-1247526574:before{display:flex;}.bl-1247526574:checked{display:flex;}.bl-1247526574:disabled{display:flex;}.bl-1247526574:first-child{display:flex;}.bl-1247526574:focus{display:flex;}.bl-1247526574:focus-within{display:flex;}.bl-1247526574:focus:focus-within:after:before:active:checked:disabled:hover:visited>*:last-child:first-child+*:nth-child(odd):nth-child(even){display:flex;}.bl-1247526574:hover{display:flex;}.bl-1247526574:last-child{display:flex;}.bl-1247526574:nth-child(even){display:flex;}.bl-1247526574:nth-child(odd){display:flex;}.bl-1247526574:visited{display:flex;}.bl-1247526574>*{display:flex;}@media(min-width: 1024px){.bl-1247526574{display:flex;}}@media(min-width: 1440px){.bl-1247526574{display:flex;}}@media(min-width: 1920px){.bl-1247526574{display:flex;}}@media(min-width: 640px){.bl-1247526574{display:flex;}}@media(min-width: 768px){.bl-1247526574{display:flex;}}',
   );
   expect(css).toMatch('.bl-1247526574{display:flex;}');
   expect(css).toMatch(

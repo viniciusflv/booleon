@@ -24,6 +24,7 @@ test('propsReducer', () => {
       sibling__flex: true,
       odd__flex: true,
       even__flex: true,
+      kf__customAnimationName: true,
       from__flex: true,
       quarter__flex: true,
       third__flex: true,
@@ -38,13 +39,15 @@ test('propsReducer', () => {
   expect(res).toStrictEqual({
     css: 'display:flex;',
     keyframe: {
-      '0%': 'display:flex;',
-      '100%': 'display:flex;',
-      '25%': 'display:flex;',
-      '33%': 'display:flex;',
-      '50%': 'display:flex;',
-      '66%': 'display:flex;',
-      '75%': 'display:flex;',
+      customAnimationName: {
+        '0%': 'display:flex;',
+        '100%': 'display:flex;',
+        '25%': 'display:flex;',
+        '33%': 'display:flex;',
+        '50%': 'display:flex;',
+        '66%': 'display:flex;',
+        '75%': 'display:flex;',
+      },
     },
     medias: {
       '(min-width: 1024px)': 'display:flex;',

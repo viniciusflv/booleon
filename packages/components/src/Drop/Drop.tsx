@@ -1,57 +1,53 @@
 import React, { FC, ReactNode } from 'react';
 
-import { View, ViewProps } from '@booleon/base';
-import { Keyframe } from '@booleon/keyframe';
+import { PaperStyled, InputStyled, WrapperStyle } from './styles';
 
-import { Paper } from '../Paper';
-
-const Drop: FC<ViewProps & { trigger: ReactNode; click?: boolean }> = ({
+const Drop: FC<any & { trigger: ReactNode; click?: boolean }> = ({
   children,
   trigger,
   click,
   ...props
 }: any) => {
   return (
-    <View.div
+    <WrapperStyle
       relative
       cr_pointer
+      child__cr_pointer
       focus__child__visible={!click}
-      focus__child__kf_drop={!click}
+      focus__child__ani_name_drop={!click}
       within__child__visible={!click}
-      within__child__kf_drop={!click}
+      within__child__ani_name_drop={!click}
       hover__child__visible={!click}
-      hover__child__kf_drop={!click}>
+      hover__child__ani_name_drop={!click}>
       {trigger}
       {click ? (
-        <View.input
+        <InputStyled
           type="checkbox"
           op_0
-          cr_pointer
           absolute
           inset
           w_full
           h_full
           checked__sibling__visible
-          checked__sibling__kf_drop
+          checked__sibling__ani_name_drop
         />
       ) : null}
-      <Keyframe.provider drop>
-        <Keyframe.state top />
-        <Keyframe.state top_full />
-      </Keyframe.provider>
-      <Paper
+      <PaperStyled
         {...props}
         flex
         col
         absolute
         invisible
+        kf__drop
+        from__top
+        to__top_full
+        ani_forwards
         ani_duration_300ms
         ani_iteration_1
-        ani_forwards
         ani_ease_in_out>
         {children}
-      </Paper>
-    </View.div>
+      </PaperStyled>
+    </WrapperStyle>
   );
 };
 

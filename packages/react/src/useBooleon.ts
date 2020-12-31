@@ -9,13 +9,17 @@ import {
   classCompiler,
   styleAppender,
   stringHash,
+  BooleonProps,
 } from '../../core/src';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
   props: P,
   ...modules: M
-) {
-  const [htmlProps, booleonProps] = useMemo(() => filterProps(props), [props]);
+): [string, Props, BooleonProps<M[number]>] {
+  const [{ className: id = '', ...htmlProps }, booleonProps] = useMemo(
+    () => filterProps(props),
+    [props],
+  );
 
   const className = useMemo(() => {
     const id = stringHash(JSON.stringify(booleonProps));
@@ -29,8 +33,5 @@ export function useBooleon<P extends Props, M extends BooleonModule[]>(
     return className;
   }, [booleonProps]);
 
-  return {
-    ...htmlProps,
-    className: uniqueClass(className, props.className ?? ''),
-  };
+  return [uniqueClass(className, id), htmlProps, booleonProps];
 }
