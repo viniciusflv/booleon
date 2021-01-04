@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { hocBooleon } from '../../packages/react/src/hocBooleon';
+import { hocBooleon } from '../../packages/react/src';
 import { render } from '@testing-library/react';
 
 import { cursor } from '../../packages/modules/src/lib/cursor';
