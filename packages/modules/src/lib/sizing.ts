@@ -1,6 +1,15 @@
 import { NUMBER } from '../constants';
 import { rem } from '../utils';
 
+/**
+ * Module for `sizing` options
+ * @example
+ * const Component = styledBooleon.div(sizing);
+ * @example
+ * ```jsx
+ * <Component h_10 w_10 />
+ * ```
+ */
 export const sizing = [
   [
     ['h_' as 'h_NUMBER', `(${NUMBER})`],

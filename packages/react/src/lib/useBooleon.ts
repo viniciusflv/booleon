@@ -10,7 +10,7 @@ import {
   styleAppender,
   stringHash,
   BooleonProps,
-} from '../../core/src';
+} from '../../../core/src';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
   props: P,

@@ -1,5 +1,20 @@
 import { LOWER_CASE, NUMBER } from '../constants';
 
+/**
+ * Module for `animation` options
+ * @example
+ * const Component = styledBooleon.div(animation);
+ * @example
+ * ```jsx
+ * <Component
+ *  kf__myAnimation
+ *  from__top
+ *  to__top_full
+ *  ani_name_myAnimation
+ *  ani_iteration_infinite
+ * />
+ * ```
+ */
 export const animation = [
   [
     ['ani_name_' as 'ani_name_NAME', `(${LOWER_CASE})$`],

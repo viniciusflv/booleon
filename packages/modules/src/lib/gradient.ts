@@ -2,6 +2,15 @@ import { HEX_COLOR } from '../constants';
 
 const lg = (linear: string) => `background-image:linear-gradient(${linear});`;
 
+/**
+ * Module for `gradient` options
+ * @example
+ * const Component = styledBooleon.div(gradient);
+ * @example
+ * ```jsx
+ * <Component gx_fff />
+ * ```
+ */
 export const gradient = [
   [
     ['gx_' as 'gx_HEX', `(${HEX_COLOR})`],

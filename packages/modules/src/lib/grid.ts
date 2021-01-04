@@ -1,5 +1,14 @@
 import { LETTER, LOWER_CASE, NUMBER } from '../constants';
 
+/**
+ * Module for `grid` options
+ * @example
+ * const Component = styledBooleon.div(grid);
+ * @example
+ * ```jsx
+ * <Component grid rows_1fr_auto_1px area_myArea />
+ * ```
+ */
 export const grid = [
   ['grid', () => 'display:grid;'],
   [

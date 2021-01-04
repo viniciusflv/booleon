@@ -2,6 +2,15 @@ import { HEX_COLOR, LETTER, LOWER_CASE, NUMBER } from '../constants';
 import { TextAlign, TextTransform, UserSelect } from '../types';
 import { rem } from '../utils';
 
+/**
+ * Module for `font` options
+ * @example
+ * const Component = styledBooleon.div(font);
+ * @example
+ * ```jsx
+ * <Component ff_sans fc_fff />
+ * ```
+ */
 export const font = [
   [
     ['fb_' as 'fb_HEX', `(${HEX_COLOR})`],

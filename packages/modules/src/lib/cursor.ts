@@ -1,3 +1,12 @@
+/**
+ * Module for `cursor` options
+ * @example
+ * const Component = styledBooleon.div(cursor);
+ * @example
+ * ```jsx
+ * <Component cr_pointer />
+ * ```
+ */
 export const cursor = [
   ['cr_auto', () => 'cursor:auto;'],
   ['cr_default', () => 'cursor:default;'],

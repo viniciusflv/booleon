@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { hocBooleon } from '../../../react/src/hocBooleon';
+import { styledBooleon } from '../../../react/src';
 
 import {
   background,
@@ -15,8 +13,7 @@ import {
   font,
 } from '../../../modules/src';
 
-export const ButtonStyled = hocBooleon(
-  (props) => <button {...props} />,
+export const ButtonStyled = styledBooleon.button(
   background,
   border,
   shadow,
@@ -28,4 +25,4 @@ export const ButtonStyled = hocBooleon(
   outline,
 );
 
-export const TextStyle = hocBooleon((props) => <span {...props} />, font);
+export const TextStyle = styledBooleon.span(font);

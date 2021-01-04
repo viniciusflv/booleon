@@ -2,6 +2,21 @@ import { LOWER_CASE, NUMBER } from '../constants';
 import { TransformOrigin } from '../types';
 import { rem, percentage } from '../utils';
 
+/**
+ * Module for `transform` options
+ * @example
+ * const Component = styledBooleon.div(transform);
+ * @example
+ * ```jsx
+ * <Component
+ *  sl_10
+ *  rt_10
+ *  sk_10
+ *  tl_10
+ *  ori_top
+ * />
+ * ```
+ */
 export const transform = [
   [
     ['sl_' as 'sl_NUMBER', `(${NUMBER})`],

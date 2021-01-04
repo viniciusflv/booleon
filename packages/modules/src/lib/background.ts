@@ -1,5 +1,14 @@
 import { HEX_COLOR } from '../constants';
 
+/**
+ * Module for `background` options
+ * @example
+ * const Component = styledBooleon.div(background);
+ * @example
+ * ```jsx
+ * <Component bg_fff />
+ * ```
+ */
 export const background = [
   [
     ['bg_' as 'bg_HEX', `(${HEX_COLOR})`],

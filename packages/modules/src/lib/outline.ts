@@ -2,6 +2,15 @@ import { HEX_COLOR, LOWER_CASE, NUMBER } from '../constants';
 import { OutlineStyle } from '../types';
 import { rem } from '../utils';
 
+/**
+ * Module for `outline` options
+ * @example
+ * const Component = styledBooleon.div(outline);
+ * @example
+ * ```jsx
+ * <Component ols_solid olw_12 olc_fff />
+ * ```
+ */
 export const outline = [
   ['ol_none', () => 'outline:none;'],
   [

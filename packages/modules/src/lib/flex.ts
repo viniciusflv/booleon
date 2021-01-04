@@ -1,3 +1,12 @@
+/**
+ * Module for `flex` options
+ * @example
+ * const Component = styledBooleon.div(flex);
+ * @example
+ * ```jsx
+ * <Component flex main_center cross_center />
+ * ```
+ */
 export const flex = [
   ['flex', () => 'display:flex;'],
   ['grow', () => 'flex-grow:1;'],

@@ -1,6 +1,15 @@
 import { NUMBER } from '../constants';
 import { rem } from '../utils';
 
+/**
+ * Module for `spacing` options
+ * @example
+ * const Component = styledBooleon.div(spacing);
+ * @example
+ * ```jsx
+ * <Component p_10 m_10 />
+ * ```
+ */
 export const spacing = [
   [
     ['m_' as 'm_NUMBER', `(${NUMBER}|auto)`],

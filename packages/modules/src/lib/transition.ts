@@ -2,6 +2,20 @@ import { LOWER_CASE, NUMBER } from '../constants';
 
 const colors = 'background-color,border-color,color,fill,stroke';
 
+/**
+ * Module for `transition` options
+ * @example
+ * const Component = styledBooleon.div(transition);
+ * @example
+ * ```jsx
+ * <Component
+ *  ts_all
+ *  ts_delay_1s
+ *  ts_duration_500ms
+ *  ts_ease_in_out
+ * />
+ * ```
+ */
 export const transition = [
   [
     ['ts_delay_' as 'ts_delay_TIME', `(${NUMBER}${LOWER_CASE})`],

@@ -106,4 +106,4 @@ export type BooleonFC<M> = M extends BooleonModule
 export type BooleonComponent<
   E extends keyof React.ReactDOM | string,
   M extends BooleonModule
-> = Props<E, BooleonFC<M>>;
+> = Props<E, (...modules: M[]) => BooleonFC<M>>;

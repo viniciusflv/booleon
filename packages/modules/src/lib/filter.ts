@@ -2,6 +2,15 @@ import { NUMBER } from '../constants';
 import { ShadowsFilter } from '../types';
 import { percentage, handleShadow } from '../utils';
 
+/**
+ * Module for `filter` options
+ * @example
+ * const Component = styledBooleon.div(filter);
+ * @example
+ * ```jsx
+ * <Component ft_blur_12 ft_opacity_90 />
+ * ```
+ */
 export const filter = [
   [
     ['ft_', '(.*)'],

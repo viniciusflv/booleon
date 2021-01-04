@@ -10,6 +10,15 @@ import {
 } from '../types';
 import { rem } from '../utils';
 
+/**
+ * Module for `border` options
+ * @example
+ * const Component = styledBooleon.div(border);
+ * @example
+ * ```jsx
+ * <Component bc_fff b_circular />
+ * ```
+ */
 export const border = [
   [
     ['bc_' as 'bc_HEX', `(${HEX_COLOR})`],

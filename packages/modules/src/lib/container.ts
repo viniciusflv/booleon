@@ -2,6 +2,16 @@ import { NUMBER } from '../constants';
 import { percentage, rem } from '../utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
+
+/**
+ * Module for `positioning`, `overflow` and `visibility` options
+ * @example
+ * const Component = styledBooleon.div(container);
+ * @example
+ * ```jsx
+ * <Component z_100 op_90 top absolute hidden />
+ * ```
+ */
 export const container = [
   [['z_' as 'z_NUMBER', `(${NUMBER})`], (value: string) => `z-index:${value};`],
   [
