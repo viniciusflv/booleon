@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import { Text } from '../../../../base/src';
+import { LiStyled } from './styles';
 
 const Item: FC<any> = ({ children, marker, ...props }) => {
   return (
-    <Text.li li_none relative before__content={`"${marker}"`} {...props}>
+    <LiStyled li_none relative before__content={`"${marker}"`} {...props}>
       {children}
-    </Text.li>
+    </LiStyled>
   );
 };
 
