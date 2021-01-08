@@ -1,3 +1,4 @@
 export * from './hocBooleon';
-export * from './useBooleon';
 export * from './styledBooleon';
+export * from './useBooleon';
+export * from './useTheme';

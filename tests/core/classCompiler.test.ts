@@ -1,7 +1,7 @@
 import { classCompiler } from '../../packages/core/src';
 
 test('classCompiler', () => {
-  const css = classCompiler('bl-1247526574', {
+  const css = classCompiler('.bl-1247526574', {
     css: 'display:flex;',
     keyframe: {
       customAnimationName: {

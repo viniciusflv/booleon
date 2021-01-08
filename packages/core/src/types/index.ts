@@ -67,7 +67,7 @@ export type KeyframesValues = typeof KEYFRAMES[number][1];
 /**
  * Props Prefixes
  */
-export type Prefixes = PseudoElements | MediaQueries | Keyframes;
+export type Prefixes = PseudoElements | MediaQueries | Keyframes | 'dark__PROP';
 
 /**
  * Structured compiled css

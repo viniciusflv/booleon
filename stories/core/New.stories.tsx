@@ -1,59 +1,34 @@
-// import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-// import { withKnobs } from '@storybook/addon-knobs';
+import { styledBooleon, useTheme } from '../../packages/react/src';
 
-// import { hocBooleon } from '../../packages/core/src';
-// import {
-//   animation,
-//   background,
-//   border,
-//   container,
-//   cursor,
-//   filter,
-//   flex,
-//   font,
-//   gradient,
-//   grid,
-//   spacing,
-//   outline,
-//   shadow,
-//   sizing,
-//   transform,
-//   transition,
-// } from '../../packages/modules/src';
-// import benchmarkProps from '../benchmarkProps';
+import {
+  spacing,
+  sizing,
+  background,
+  border,
+  shadow,
+} from '../../packages/modules/src';
 
-// const Text = hocBooleon(
-//   (props) => <span {...props} />,
-//   animation,
-//   background,
-//   border,
-//   container,
-//   cursor,
-//   filter,
-//   flex,
-//   font,
-//   gradient,
-//   grid,
-//   spacing,
-//   outline,
-//   shadow,
-//   sizing,
-//   transform,
-//   transition,
-// );
+export default {
+  title: 'Core / New',
+};
 
-// export default {
-//   title: 'Core / New',
-//   component: Text,
-//   decorators: [withKnobs],
-// };
+const Div = styledBooleon.div(background, spacing, sizing, border, shadow);
 
-// export const Default = () => {
-//   const [bool, setBool] = useState(true);
-//   useEffect(() => {
-//     const timeout = setTimeout(() => setBool(!bool), 1000);
-//     return () => clearTimeout(timeout);
-//   }, [bool]);
-//   return <Text {...benchmarkProps(bool)}>AAA</Text>;
-// };
+export const Default = () => {
+  const { toggleTheme } = useTheme();
+  return (
+    <Div
+      sd_8
+      h_400
+      w_400
+      b_edge
+      btr_rounded
+      bbl_rounded
+      bg_d5d5d5
+      dark__bg_2f2f2f
+      onClick={toggleTheme}
+    />
+  );
+};

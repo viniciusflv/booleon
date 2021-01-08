@@ -1,4 +1,3 @@
-export * from './booleon';
 export * from './browserPrefixer';
 export * from './classCompiler';
 export * from './cssCompiler';

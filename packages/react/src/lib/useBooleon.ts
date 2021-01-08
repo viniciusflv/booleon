@@ -9,29 +9,34 @@ import {
   classCompiler,
   styleAppender,
   stringHash,
-  BooleonProps,
 } from '../../../core/src';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
   props: P,
   ...modules: M
-): [string, Props, BooleonProps<M[number]>] {
-  const [{ className: id = '', ...htmlProps }, booleonProps] = useMemo(
-    () => filterProps(props),
-    [props],
-  );
+): [string, Props] {
+  const [
+    { className: id = '', ...htmlProps },
+    lightProps,
+    darkProps,
+  ] = useMemo(() => filterProps(props), [props]);
 
   const className = useMemo(() => {
-    const id = stringHash(JSON.stringify(booleonProps));
-    const className = `bl-${id}`;
+    const hash = stringHash(JSON.stringify({ ...lightProps, ...darkProps }));
+    return `bl-${hash}`;
+  }, [lightProps, darkProps]);
 
-    styleAppender(className, () => {
-      const reducedProps = propsReducer(booleonProps, modules.flat());
-      return classCompiler(className, reducedProps);
-    });
+  const lightClasses = useMemo(() => {
+    const reducedLight = propsReducer(lightProps, modules.flat());
+    return classCompiler(`.${className}`, reducedLight);
+  }, [lightProps]);
 
-    return className;
-  }, [booleonProps]);
+  const darkClasses = useMemo(() => {
+    const reducedDark = propsReducer(darkProps, modules.flat());
+    return classCompiler(`body[data-theme='dark'] .${className}`, reducedDark);
+  }, [darkProps]);
 
-  return [uniqueClass(className, id), htmlProps, booleonProps];
+  styleAppender(className, lightClasses + darkClasses);
+
+  return [uniqueClass(className, id), htmlProps];
 }

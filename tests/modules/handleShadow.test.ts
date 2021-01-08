@@ -23,7 +23,7 @@ describe('handleShadow', () => {
       '0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12),0 1px 8px 0 rgba(0,0,0,0.20)',
     );
     expect(sd_4).toBe(
-      '0 4px 5px 0 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.20)',
+      '0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.20)',
     );
     expect(sd_6).toBe(
       '0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.20)',
@@ -67,7 +67,7 @@ describe('handleShadow', () => {
       '0 3px 4px 0 rgba(0,0,0,0.14) inset,0 3px 3px -2px rgba(0,0,0,0.12) inset,0 1px 8px 0 rgba(0,0,0,0.20) inset',
     );
     expect(sdi_4).toBe(
-      '0 4px 5px 0 0 rgba(0,0,0,0.14) inset,0 1px 10px 0 rgba(0,0,0,0.12) inset,0 2px 4px -1px rgba(0,0,0,0.20) inset',
+      '0 4px 5px 0 rgba(0,0,0,0.14) inset,0 1px 10px 0 rgba(0,0,0,0.12) inset,0 2px 4px -1px rgba(0,0,0,0.20) inset',
     );
     expect(sdi_6).toBe(
       '0 6px 10px 0 rgba(0,0,0,0.14) inset,0 1px 18px 0 rgba(0,0,0,0.12) inset,0 3px 5px -1px rgba(0,0,0,0.20) inset',
@@ -111,7 +111,7 @@ describe('handleShadow', () => {
       'drop-shadow(0 3px 4px rgba(0,0,0,0.14))drop-shadow(0 3px 3px rgba(0,0,0,0.12))drop-shadow(0 1px 8px rgba(0,0,0,0.20))',
     );
     expect(sd_4).toBe(
-      'drop-shadow(0 4px 5px 0 rgba(0,0,0,0.14))drop-shadow(0 1px 10px rgba(0,0,0,0.12))drop-shadow(0 2px 4px rgba(0,0,0,0.20))',
+      'drop-shadow(0 4px 5px rgba(0,0,0,0.14))drop-shadow(0 1px 10px rgba(0,0,0,0.12))drop-shadow(0 2px 4px rgba(0,0,0,0.20))',
     );
     expect(sd_6).toBe(
       'drop-shadow(0 6px 10px rgba(0,0,0,0.14))drop-shadow(0 1px 18px rgba(0,0,0,0.12))drop-shadow(0 3px 5px rgba(0,0,0,0.20))',
@@ -155,7 +155,7 @@ describe('handleShadow', () => {
       'drop-shadow(0 3px 4px rgba(0,0,0,0.14) inset)drop-shadow(0 3px 3px rgba(0,0,0,0.12) inset)drop-shadow(0 1px 8px rgba(0,0,0,0.20) inset)',
     );
     expect(sdi_4).toBe(
-      'drop-shadow(0 4px 5px 0 rgba(0,0,0,0.14) inset)drop-shadow(0 1px 10px rgba(0,0,0,0.12) inset)drop-shadow(0 2px 4px rgba(0,0,0,0.20) inset)',
+      'drop-shadow(0 4px 5px rgba(0,0,0,0.14) inset)drop-shadow(0 1px 10px rgba(0,0,0,0.12) inset)drop-shadow(0 2px 4px rgba(0,0,0,0.20) inset)',
     );
     expect(sdi_6).toBe(
       'drop-shadow(0 6px 10px rgba(0,0,0,0.14) inset)drop-shadow(0 1px 18px rgba(0,0,0,0.12) inset)drop-shadow(0 3px 5px rgba(0,0,0,0.20) inset)',

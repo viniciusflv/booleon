@@ -268,7 +268,7 @@ describe('Border', () => {
       const { getByTestId } = render(
         <BorderComponent data-testid="b_circular" b_circular />,
       );
-      expect(getByTestId('b_circular')).toHaveStyle('border-radius: 100px;');
+      expect(getByTestId('b_circular')).toHaveStyle('border-radius: 100%;');
     });
 
     test('btr_circular', () => {
@@ -276,7 +276,7 @@ describe('Border', () => {
         <BorderComponent data-testid="btr_circular" btr_circular />,
       );
       expect(getByTestId('btr_circular')).toHaveStyle(
-        'border-top-right-radius: 100px;',
+        'border-top-right-radius: 100%;',
       );
     });
 
@@ -285,7 +285,7 @@ describe('Border', () => {
         <BorderComponent data-testid="btl_circular" btl_circular />,
       );
       expect(getByTestId('btl_circular')).toHaveStyle(
-        'border-top-left-radius: 100px;',
+        'border-top-left-radius: 100%;',
       );
     });
 
@@ -294,7 +294,7 @@ describe('Border', () => {
         <BorderComponent data-testid="bbr_circular" bbr_circular />,
       );
       expect(getByTestId('bbr_circular')).toHaveStyle(
-        'border-bottom-right-radius: 100px;',
+        'border-bottom-right-radius: 100%;',
       );
     });
 
@@ -303,7 +303,7 @@ describe('Border', () => {
         <BorderComponent data-testid="bbl_circular" bbl_circular />,
       );
       expect(getByTestId('bbl_circular')).toHaveStyle(
-        'border-bottom-left-radius: 100px;',
+        'border-bottom-left-radius: 100%;',
       );
     });
 
@@ -312,10 +312,10 @@ describe('Border', () => {
         <BorderComponent data-testid="br_circular" br_circular />,
       );
       expect(getByTestId('br_circular')).toHaveStyle(
-        'border-top-right-radius: 100px;',
+        'border-top-right-radius: 100%;',
       );
       expect(getByTestId('br_circular')).toHaveStyle(
-        'border-bottom-right-radius: 100px;',
+        'border-bottom-right-radius: 100%;',
       );
     });
 
@@ -324,10 +324,10 @@ describe('Border', () => {
         <BorderComponent data-testid="bl_circular" bl_circular />,
       );
       expect(getByTestId('bl_circular')).toHaveStyle(
-        'border-top-left-radius: 100px;',
+        'border-top-left-radius: 100%;',
       );
       expect(getByTestId('bl_circular')).toHaveStyle(
-        'border-bottom-left-radius: 100px;',
+        'border-bottom-left-radius: 100%;',
       );
     });
 
@@ -336,10 +336,10 @@ describe('Border', () => {
         <BorderComponent data-testid="bb_circular" bb_circular />,
       );
       expect(getByTestId('bb_circular')).toHaveStyle(
-        'border-bottom-right-radius: 100px;',
+        'border-bottom-right-radius: 100%;',
       );
       expect(getByTestId('bb_circular')).toHaveStyle(
-        'border-bottom-left-radius: 100px;',
+        'border-bottom-left-radius: 100%;',
       );
     });
 
@@ -348,10 +348,10 @@ describe('Border', () => {
         <BorderComponent data-testid="bt_circular" bt_circular />,
       );
       expect(getByTestId('bt_circular')).toHaveStyle(
-        'border-top-right-radius: 100px;',
+        'border-top-right-radius: 100%;',
       );
       expect(getByTestId('bt_circular')).toHaveStyle(
-        'border-top-left-radius: 100px;',
+        'border-top-left-radius: 100%;',
       );
     });
   });
