@@ -3,7 +3,7 @@ import { LOWER_CASE, NUMBER } from '../constants';
 /**
  * Module for `animation` options
  * @example
- * const Component = styledBooleon.div(animation);
+ * const Component = booleon.div(animation);
  * @example
  * ```jsx
  * <Component

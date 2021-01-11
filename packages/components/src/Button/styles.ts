@@ -1,4 +1,4 @@
-import { styledBooleon } from '../../../react/src';
+import { booleon } from '../../../react/src';
 
 import {
   background,
@@ -13,7 +13,7 @@ import {
   font,
 } from '../../../modules/src';
 
-export const ButtonStyled = styledBooleon.button(
+export const ButtonStyled = booleon.button(
   background,
   border,
   shadow,
@@ -25,4 +25,4 @@ export const ButtonStyled = styledBooleon.button(
   outline,
 );
 
-export const TextStyle = styledBooleon.span(font);
+export const TextStyle = booleon.span(font);

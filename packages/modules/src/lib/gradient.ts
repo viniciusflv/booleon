@@ -5,7 +5,7 @@ const lg = (linear: string) => `background-image:linear-gradient(${linear});`;
 /**
  * Module for `gradient` options
  * @example
- * const Component = styledBooleon.div(gradient);
+ * const Component = booleon.div(gradient);
  * @example
  * ```jsx
  * <Component gx_fff />

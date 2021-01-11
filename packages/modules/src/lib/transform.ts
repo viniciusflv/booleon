@@ -5,7 +5,7 @@ import { rem, percentage } from '../utils';
 /**
  * Module for `transform` options
  * @example
- * const Component = styledBooleon.div(transform);
+ * const Component = booleon.div(transform);
  * @example
  * ```jsx
  * <Component

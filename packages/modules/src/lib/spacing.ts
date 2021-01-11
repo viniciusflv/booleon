@@ -4,7 +4,7 @@ import { rem } from '../utils';
 /**
  * Module for `spacing` options
  * @example
- * const Component = styledBooleon.div(spacing);
+ * const Component = booleon.div(spacing);
  * @example
  * ```jsx
  * <Component p_10 m_10 />

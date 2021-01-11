@@ -1,7 +1,7 @@
 /**
  * Module for `flex` options
  * @example
- * const Component = styledBooleon.div(flex);
+ * const Component = booleon.div(flex);
  * @example
  * ```jsx
  * <Component flex main_center cross_center />

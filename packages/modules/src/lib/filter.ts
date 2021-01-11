@@ -5,7 +5,7 @@ import { percentage, handleShadow } from '../utils';
 /**
  * Module for `filter` options
  * @example
- * const Component = styledBooleon.div(filter);
+ * const Component = booleon.div(filter);
  * @example
  * ```jsx
  * <Component ft_blur_12 ft_opacity_90 />

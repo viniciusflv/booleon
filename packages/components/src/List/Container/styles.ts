@@ -1,7 +1,7 @@
-import { styledBooleon } from '../../../../react/src';
+import { booleon } from '../../../../react/src';
 
 import { spacing, font } from '../../../../modules/src';
 
-export const OlStyled = styledBooleon.ol(spacing, font);
+export const OlStyled = booleon.ol(spacing, font);
 
-export const UlStyle = styledBooleon.ul(spacing, font);
+export const UlStyle = booleon.ul(spacing, font);

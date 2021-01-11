@@ -3,7 +3,7 @@ import { HEX_COLOR } from '../constants';
 /**
  * Module for `background` options
  * @example
- * const Component = styledBooleon.div(background);
+ * const Component = booleon.div(background);
  * @example
  * ```jsx
  * <Component bg_fff />

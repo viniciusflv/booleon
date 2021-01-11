@@ -5,7 +5,7 @@ import { rem } from '../utils';
 /**
  * Module for `outline` options
  * @example
- * const Component = styledBooleon.div(outline);
+ * const Component = booleon.div(outline);
  * @example
  * ```jsx
  * <Component ols_solid olw_12 olc_fff />

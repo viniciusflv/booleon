@@ -5,7 +5,7 @@ import { rem } from '../utils';
 /**
  * Module for `font` options
  * @example
- * const Component = styledBooleon.div(font);
+ * const Component = booleon.div(font);
  * @example
  * ```jsx
  * <Component ff_sans fc_fff />

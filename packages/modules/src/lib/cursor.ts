@@ -1,7 +1,7 @@
 /**
  * Module for `cursor` options
  * @example
- * const Component = styledBooleon.div(cursor);
+ * const Component = booleon.div(cursor);
  * @example
  * ```jsx
  * <Component cr_pointer />

@@ -5,7 +5,7 @@ const colors = 'background-color,border-color,color,fill,stroke';
 /**
  * Module for `transition` options
  * @example
- * const Component = styledBooleon.div(transition);
+ * const Component = booleon.div(transition);
  * @example
  * ```jsx
  * <Component

@@ -1,5 +1,5 @@
-import { styledBooleon } from '../../../../../react/src';
+import { booleon } from '../../../../../react/src';
 
 import { container, font } from '../../../../../modules/src';
 
-export const LiStyled = styledBooleon.ol(container, font);
+export const LiStyled = booleon.ol(container, font);

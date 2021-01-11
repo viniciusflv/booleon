@@ -6,7 +6,7 @@ const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 /**
  * Module for `positioning`, `overflow` and `visibility` options
  * @example
- * const Component = styledBooleon.div(container);
+ * const Component = booleon.div(container);
  * @example
  * ```jsx
  * <Component z_100 op_90 top absolute hidden />

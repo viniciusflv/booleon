@@ -1,4 +1,4 @@
-import { styledBooleon } from '../../../react/src';
+import { booleon } from '../../../react/src';
 
 import {
   animation,
@@ -10,7 +10,7 @@ import {
 } from '../../../modules/src';
 import { Paper } from '../Paper';
 
-export const PaperStyled = styledBooleon(
+export const PaperStyled = booleon(
   Paper,
   animation,
   spacing,
@@ -19,6 +19,6 @@ export const PaperStyled = styledBooleon(
   container,
 );
 
-export const InputStyled = styledBooleon.input(container, sizing, animation);
+export const InputStyled = booleon.input(container, sizing, animation);
 
-export const WrapperStyle = styledBooleon.div(container, cursor, animation);
+export const WrapperStyle = booleon.div(container, cursor, animation);

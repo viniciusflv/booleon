@@ -3,7 +3,7 @@ import { LETTER, LOWER_CASE, NUMBER } from '../constants';
 /**
  * Module for `grid` options
  * @example
- * const Component = styledBooleon.div(grid);
+ * const Component = booleon.div(grid);
  * @example
  * ```jsx
  * <Component grid rows_1fr_auto_1px area_myArea />

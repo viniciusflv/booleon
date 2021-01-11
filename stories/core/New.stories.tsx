@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styledBooleon, useTheme } from '../../packages/react/src';
+import { booleon, useTheme } from '../../packages/react/src';
 
 import {
   spacing,
@@ -14,7 +14,7 @@ export default {
   title: 'Core / New',
 };
 
-const Div = styledBooleon.div(background, spacing, sizing, border, shadow);
+const Div = booleon.div(background, spacing, sizing, border, shadow);
 
 export const Default = () => {
   const { toggleTheme } = useTheme();
