@@ -1,4 +1,5 @@
-import { HEX_COLOR } from '../constants';
+import { COLOR } from '../constants';
+import { handleColor } from '../utils';
 
 /**
  * Module for `background` options
@@ -11,8 +12,11 @@ import { HEX_COLOR } from '../constants';
  */
 export const background = [
   [
-    ['bg_' as 'bg_HEX', `(${HEX_COLOR})`],
-    (value: string) => `background-color:#${value};`,
+    [
+      'bg_' as 'bg_HEX' | 'bg_RED_GREEN_BLUE' | 'bg_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `background-color:${handleColor(value)};`,
   ],
   ['bg_img', (value: string) => `background-image:url(${value});`],
   ['bg_transparent', () => 'background-color:transparent;'],

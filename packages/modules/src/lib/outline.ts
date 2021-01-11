@@ -1,6 +1,6 @@
-import { HEX_COLOR, LOWER_CASE, NUMBER } from '../constants';
+import { COLOR, LOWER_CASE, NUMBER } from '../constants';
 import { OutlineStyle } from '../types';
-import { rem } from '../utils';
+import { rem, handleColor } from '../utils';
 
 /**
  * Module for `outline` options
@@ -14,8 +14,11 @@ import { rem } from '../utils';
 export const outline = [
   ['ol_none', () => 'outline:none;'],
   [
-    ['olc_' as 'olc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `outline-color:#${value};`,
+    [
+      'olc_' as 'olc_HEX' | 'olc_RED_GREEN_BLUE' | 'olc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `outline-color:${handleColor(value)};`,
   ],
   [
     ['olw_' as 'olw_NUMBER', `(${NUMBER})`],

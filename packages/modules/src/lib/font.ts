@@ -1,6 +1,6 @@
-import { HEX_COLOR, LETTER, LOWER_CASE, NUMBER } from '../constants';
+import { COLOR, LETTER, LOWER_CASE, NUMBER } from '../constants';
 import { TextAlign, TextTransform, UserSelect } from '../types';
-import { rem } from '../utils';
+import { rem, handleColor } from '../utils';
 
 /**
  * Module for `font` options
@@ -13,13 +13,21 @@ import { rem } from '../utils';
  */
 export const font = [
   [
-    ['fb_' as 'fb_HEX', `(${HEX_COLOR})`],
+    [
+      'fb_' as 'fb_HEX' | 'fb_RED_GREEN_BLUE' | 'fb_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
     (value: string) =>
-      `text-shadow:-1px 0 #${value},0 1px #${value},1px 0 #${value},0 -1px #${value};`,
+      `text-shadow:-1px 0 ${handleColor(value)},0 1px ${handleColor(
+        value,
+      )},1px 0 ${handleColor(value)},0 -1px ${handleColor(value)};`,
   ],
   [
-    ['fc_' as 'fc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `color:#${value};`,
+    [
+      'fc_' as 'fc_HEX' | 'fc_RED_GREEN_BLUE' | 'fc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `color:${handleColor(value)};`,
   ],
   [
     ['fs_' as 'fs_NUMBER', `(${NUMBER})`],

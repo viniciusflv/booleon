@@ -1,4 +1,4 @@
-import { HEX_COLOR, LOWER_CASE, NUMBER } from '../constants';
+import { COLOR, LOWER_CASE, NUMBER } from '../constants';
 import {
   bs_BorderStyle,
   bts_BorderStyle,
@@ -8,7 +8,7 @@ import {
   bxs_BorderStyle,
   bys_BorderStyle,
 } from '../types';
-import { rem } from '../utils';
+import { rem, handleColor } from '../utils';
 
 /**
  * Module for `border` options
@@ -21,34 +21,59 @@ import { rem } from '../utils';
  */
 export const border = [
   [
-    ['bc_' as 'bc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `border-color:#${value};`,
+    [
+      'bc_' as 'bc_HEX' | 'bc_RED_GREEN_BLUE' | 'bc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `border-color:${handleColor(value)};`,
   ],
   [
-    ['btc_' as 'btc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `border-top-color:#${value};`,
+    [
+      'btc_' as 'btc_HEX' | 'btc_RED_GREEN_BLUE' | 'btc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `border-top-color:${handleColor(value)};`,
   ],
   [
-    ['bbc_' as 'bbc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `border-bottom-color:#${value};`,
+    [
+      'bbc_' as 'bbc_HEX' | 'bbc_RED_GREEN_BLUE' | 'bbc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `border-bottom-color:${handleColor(value)};`,
   ],
   [
-    ['blc_' as 'blc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `border-left-color:#${value};`,
+    [
+      'blc_' as 'blc_HEX' | 'blc_RED_GREEN_BLUE' | 'blc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `border-left-color:${handleColor(value)};`,
   ],
   [
-    ['brc_' as 'brc_HEX', `(${HEX_COLOR})`],
-    (value: string) => `border-right-color:#${value};`,
+    [
+      'brc_' as 'brc_HEX' | 'brc_RED_GREEN_BLUE' | 'brc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
+    (value: string) => `border-right-color:${handleColor(value)};`,
   ],
   [
-    ['bxc_' as 'bxc_HEX', `(${HEX_COLOR})`],
+    [
+      'bxc_' as 'bxc_HEX' | 'bxc_RED_GREEN_BLUE' | 'bxc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
     (value: string) =>
-      `border-right-color:#${value};border-left-color:#${value};`,
+      `border-right-color:${handleColor(value)};border-left-color:${handleColor(
+        value,
+      )};`,
   ],
   [
-    ['byc_' as 'byc_HEX', `(${HEX_COLOR})`],
+    [
+      'byc_' as 'byc_HEX' | 'byc_RED_GREEN_BLUE' | 'byc_RED_GREEN_BLUE_OPACITY',
+      `(${COLOR})`,
+    ],
     (value: string) =>
-      `border-top-color:#${value};border-bottom-color:#${value};`,
+      `border-top-color:${handleColor(value)};border-bottom-color:${handleColor(
+        value,
+      )};`,
   ],
   [
     ['bs_' as bs_BorderStyle, `(${LOWER_CASE})`],
