@@ -1,10 +1,30 @@
 import { useState, useCallback, useEffect } from 'react';
 
+function useDarkListener() {
+  let isDark = false;
+  let listener = (cb: (isDark: boolean) => void) => cb(false);
+  try {
+    const match = window?.matchMedia('(prefers-color-scheme: dark)');
+    isDark = match?.matches;
+    listener = (cb: (isDark: boolean) => void) =>
+      match.addEventListener('change', ({ matches: isDark }) => cb(isDark));
+  } catch (error) {
+    //
+  }
+  return [isDark, listener] as const;
+}
+
 export function useTheme() {
-  const [theme, setTheme] = useState('light');
+  const [isDark, darkListener] = useDarkListener();
+  const preferedColorScheme = isDark ? 'dark' : 'light';
+  const [theme, setTheme] = useState<string>(preferedColorScheme);
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  }, []);
+
+  useEffect(() => {
+    darkListener((isDark) => setTheme(isDark ? 'dark' : 'light'));
   }, []);
 
   useEffect(() => {
