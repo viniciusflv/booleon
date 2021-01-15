@@ -7,6 +7,9 @@ extends:
   - "plugin:react/recommended"
   - "plugin:@typescript-eslint/recommended"
   - "plugin:@typescript-eslint/eslint-recommended"
+settings: 
+  react: 
+    version: "detect"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly

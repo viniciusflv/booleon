@@ -39,7 +39,7 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
     const { prefix, prop } = key.match(prefixRegex)?.groups ?? {};
     if (prefix) {
       const prefixes = prefix.split('__');
-      animation ??= prefixes[0] === 'kf' ? prop : null;
+      animation = animation ? animation : prefixes[0] === 'kf' ? prop : null;
       return {
         ...acc,
         pseudo: accumulate({

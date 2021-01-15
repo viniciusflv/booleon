@@ -3,7 +3,10 @@ import React, { FC } from 'react';
 import { Text, View } from '@booleon/base';
 
 const Inline: FC<
-  React.HTMLProps<any> & { id: string; type: 'radio' | 'checkbox' | string }
+  React.HTMLProps<any> & {
+    id: string;
+    type: 'radio' | 'checkbox' | string;
+  }
 > = ({ id, type, children, ...props }) => {
   return (
     <View.div flex cross_center fc_555>
