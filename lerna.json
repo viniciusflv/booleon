@@ -2,6 +2,8 @@
   "version": "1.0.0-alpha.0",
   "npmClient": "npm",
   "packages": [
-    "packages/*"
+    "packages/core",
+    "packages/modules",
+    "packages/react"
   ]
 }

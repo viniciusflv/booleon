@@ -9,7 +9,7 @@ import {
   classCompiler,
   styleAppender,
   stringHash,
-} from '../../../core/src';
+} from '@booleon/core';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
   props: P,

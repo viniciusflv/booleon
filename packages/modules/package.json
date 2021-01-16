@@ -1,7 +1,7 @@
 {
   "name": "@booleon/modules",
   "version": "1.0.0-alpha.0",
-  "description": "react components",
+  "description": "css booleon modules",
   "author": "Vinícius Victorino",
   "license": "MIT",
   "private": false,

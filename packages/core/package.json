@@ -1,7 +1,7 @@
 {
   "name": "@booleon/core",
   "version": "1.0.0-alpha.0",
-  "description": "react components",
+  "description": "booleon css compiler functions",
   "author": "Vinícius Victorino",
   "license": "MIT",
   "private": false,

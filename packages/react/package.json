@@ -1,14 +1,14 @@
 {
   "name": "@booleon/react",
   "version": "1.0.0-alpha.0",
-  "description": "react components",
+  "description": "react styling lib",
   "author": "Vinícius Victorino",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/core.esm.js",
   "peerDependencies": {
-    "@booleon/core": "^0.2.2-alpha.0",
+    "@booleon/core": "^1.0.0-alpha.0",
     "react": "^16.13.1"
   },
   "devDependencies": {
