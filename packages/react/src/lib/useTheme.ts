@@ -9,7 +9,7 @@ function useDarkListener() {
     listener = (cb: (isDark: boolean) => void) =>
       match.addEventListener('change', ({ matches: isDark }) => cb(isDark));
   } catch (error) {
-    //
+    // SSR
   }
   return [isDark, listener] as const;
 }

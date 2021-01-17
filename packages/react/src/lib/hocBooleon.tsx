@@ -11,8 +11,13 @@ export function hocBooleon<M extends BooleonModule[]>(
   const BooleonComponent: React.FC<BooleonHtmlProps<M[number]>> = (
     props: BooleonHtmlProps<M[number]>,
   ) => {
-    const [className, htmlProps] = useBooleon(props, ...modules);
-    return <WrappedComponent className={className} {...htmlProps} />;
+    const [className, htmlProps, ssr] = useBooleon(props, ...modules);
+    return (
+      <>
+        {ssr}
+        <WrappedComponent className={className} {...htmlProps} />
+      </>
+    );
   };
   return BooleonComponent;
 }
