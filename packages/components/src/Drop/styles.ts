@@ -1,5 +1,3 @@
-import { booleon } from '../../../react/src';
-
 import {
   animation,
   spacing,
@@ -7,7 +5,9 @@ import {
   flex,
   container,
   cursor,
-} from '../../../modules/src';
+} from '@booleon/modules';
+import { booleon } from '@booleon/react';
+
 import { Paper } from '../Paper';
 
 export const PaperStyled = booleon(

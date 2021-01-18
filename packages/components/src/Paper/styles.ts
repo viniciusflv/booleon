@@ -1,5 +1,4 @@
-import { booleon } from '../../../react/src';
-
-import { background, border, shadow } from '../../../modules/src';
+import { background, border, shadow } from '@booleon/modules';
+import { booleon } from '@booleon/react';
 
 export const PaperStyled = booleon.section(background, border, shadow);

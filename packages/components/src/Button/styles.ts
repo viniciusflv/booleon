@@ -1,5 +1,3 @@
-import { booleon } from '../../../react/src';
-
 import {
   background,
   border,
@@ -11,7 +9,8 @@ import {
   transition,
   outline,
   font,
-} from '../../../modules/src';
+} from '@booleon/modules';
+import { booleon } from '@booleon/react';
 
 export const ButtonStyled = booleon.button(
   background,

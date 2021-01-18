@@ -36,8 +36,7 @@ rules:
     - newlinesBetween: always
       groups:
       - /^react/
-      - /react/
-      - /boolean/
+      - /^@boolean/
       - module
       - - parent
         - sibling
