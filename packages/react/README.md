@@ -13,11 +13,6 @@ Booleon is a `DX` focused `React library` for, a highly typed `declarative`, sty
 ![NPM version](https://badgen.net/bundlephobia/min/@booleon/base)
 ![NPM version](https://badgen.net/bundlephobia/minzip/@booleon/base)
 
-* [Get Started](#get-started)
-* [Complex Usage](#complex-usage)
-* [Inspirations](#inspirations)
-* [Motivations](#motivations)
-
 # Get Started
 
 ## Instalation

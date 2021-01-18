@@ -6,7 +6,9 @@
   "license": "MIT",
   "private": false,
   "peerDependencies": {
-    "@booleon/core": "0.1.7-alpha.0",
+    "@booleon/core": "^1.1.0-alpha.0",
+    "@booleon/modules": "^1.1.0-alpha.0",
+    "@booleon/react": "^1.1.0-alpha.0",
     "react": "^16.13.1"
   },
   "devDependencies": {

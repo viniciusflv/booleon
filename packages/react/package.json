@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/core.esm.js",
   "peerDependencies": {
-    "@booleon/core": "^1.0.0-alpha.0",
+    "@booleon/core": "^1.1.0-alpha.0",
     "react": "^16.13.1"
   },
   "devDependencies": {

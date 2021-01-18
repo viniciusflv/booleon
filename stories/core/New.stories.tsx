@@ -2,31 +2,13 @@ import React from 'react';
 
 import { booleon, useTheme } from '../../packages/react/src';
 
-import {
-  flex,
-  spacing,
-  sizing,
-  background,
-  border,
-  shadow,
-  animation,
-  transform,
-} from '../../packages/modules/src';
+import modules from '../../packages/modules/src';
 
 export default {
   title: 'Core / New',
 };
 
-const Div = booleon.div(
-  flex,
-  background,
-  spacing,
-  sizing,
-  border,
-  shadow,
-  animation,
-  transform,
-);
+const Div = booleon.div(...modules);
 
 export const Default = () => {
   const { toggleTheme } = useTheme();

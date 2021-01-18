@@ -1,16 +1,16 @@
-import React from 'react';
+// import React from 'react';
 
-import { withA11y } from '@storybook/addon-a11y';
-import { withKnobs } from '@storybook/addon-knobs';
+// import { withA11y } from '@storybook/addon-a11y';
+// import { withKnobs } from '@storybook/addon-knobs';
 
-import { Paper } from '../../packages/components/src';
+// import { Paper } from '../../packages/components/src';
 
-export default {
-  title: 'Components / Paper',
-  component: Paper,
-  decorators: [withA11y, withKnobs],
-};
+// export default {
+//   title: 'Components / Paper',
+//   component: Paper,
+//   decorators: [withA11y, withKnobs],
+// };
 
-export const Default = () => {
-  return <Paper p_12>Default</Paper>;
-};
+// export const Default = () => {
+//   return <Paper p_12>Default</Paper>;
+// };
