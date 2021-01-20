@@ -3,7 +3,6 @@
   "npmClient": "npm",
   "packages": [
     "packages/core",
-    "packages/modules",
-    "packages/react"
+    "packages/modules"
   ]
 }
