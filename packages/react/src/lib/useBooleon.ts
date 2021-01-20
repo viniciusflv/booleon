@@ -8,7 +8,8 @@ import {
   propsReducer,
   classCompiler,
   stringHash,
-} from '../../../core/src';
+} from '@booleon/core';
+
 import { reactStyleAppender } from './reactStyleAppender';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(

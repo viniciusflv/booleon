@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styleAppender } from '../../../core/src/lib/styleAppender';
+import { styleAppender } from '@booleon/core';
 
 export function reactStyleAppender(className: string, cb: () => string) {
   try {
