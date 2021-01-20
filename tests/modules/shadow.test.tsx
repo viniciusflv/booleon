@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { hocBooleon } from '../../packages/react/src';
 import { render } from '@testing-library/react';
 
 import { shadow } from '../../packages/modules/src/lib/shadow';
+import { hocBooleon } from '../../packages/react/src';
 
 describe('Shadow', () => {
   let ShadowComponent;

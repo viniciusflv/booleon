@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { hocBooleon } from '../../packages/react/src';
 import { render } from '@testing-library/react';
 
 import { border } from '../../packages/modules/src/lib/border';
+import { hocBooleon } from '../../packages/react/src';
 
 describe('Border', () => {
   let BorderComponent;

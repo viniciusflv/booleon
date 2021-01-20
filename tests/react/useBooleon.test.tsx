@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { useBooleon } from '../../packages/react/src';
 import { render } from '@testing-library/react';
+
+import { useBooleon } from '../../packages/react/src';
 import '@testing-library/jest-dom';
 
 test('useBooleon', () => {

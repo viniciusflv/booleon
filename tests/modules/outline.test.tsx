@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { hocBooleon } from '../../packages/react/src';
 import { render } from '@testing-library/react';
 
 import { outline } from '../../packages/modules/src/lib/outline';
+import { hocBooleon } from '../../packages/react/src';
 
 describe('Outline', () => {
   let OutlineComponent;
