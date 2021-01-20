@@ -15,8 +15,7 @@
     "pub": "npm test && npm run bun && lerna publish",
     "bun": "run-p bun:*",
     "bun:core": "lerna exec --scope=@booleon/core -- npm run build",
-    "bun:modules": "lerna exec --scope=@booleon/modules -- npm run build",
-    "bun:react": "lerna exec --scope=@booleon/react -- npm run build"
+    "bun:modules": "lerna exec --scope=@booleon/modules -- npm run build"
   },
   "husky": {
     "hooks": {
