@@ -5,7 +5,7 @@
   <hr />
 </p>
 
-Booleon is a `DX` focused `React library` for, a highly typed `declarative`, styling, using component `boolean` properties. Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
+Booleon React is a `DX` focused `library` for, a highly typed `declarative`, styling, using component `boolean` properties. Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
 
 ![NPM version](https://badgen.net/npm/v/@booleon/base)
 ![NPM version](https://badgen.net/github/commits/viniciusflv/booleon)

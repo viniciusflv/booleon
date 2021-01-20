@@ -12,9 +12,7 @@ describe('SSR', () => {
       ['flex', () => 'display:flex;'],
     ] as const);
     const string = ReactDOM.renderToString(<MyComponent flex />);
-    expect(string).toBe(
-      '<style data-booleon="bl--1587999785">.bl--1587999785{display:flex;}</style><section class="bl--1587999785"></section>',
-    );
+    expect(string).toMatchSnapshot();
   });
 
   test('renderToStaticMarkup', () => {
@@ -22,9 +20,7 @@ describe('SSR', () => {
       ['flex', () => 'display:flex;'],
     ] as const);
     const string = ReactDOM.renderToStaticMarkup(<MyComponent flex />);
-    expect(string).toBe(
-      '<style data-booleon="bl--1587999785">.bl--1587999785{display:flex;}</style><section class="bl--1587999785"></section>',
-    );
+    expect(string).toMatchSnapshot();
   });
 
   test('renderToNodeStream', async (done) => {
@@ -39,9 +35,7 @@ describe('SSR', () => {
       stream.on('error', reject);
     });
 
-    expect(string).toBe(
-      '<style data-booleon="bl--1587999785">.bl--1587999785{display:flex;}</style><section class="bl--1587999785"></section>',
-    );
+    expect(string).toMatchSnapshot();
 
     done();
   });
@@ -60,9 +54,7 @@ describe('SSR', () => {
       staticStream.on('error', reject);
     });
 
-    expect(string).toBe(
-      '<style data-booleon="bl--1587999785">.bl--1587999785{display:flex;}</style><section class="bl--1587999785"></section>',
-    );
+    expect(string).toMatchSnapshot();
 
     done();
   });

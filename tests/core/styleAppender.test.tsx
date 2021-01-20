@@ -7,7 +7,7 @@ import { styleAppender } from '../../packages/core/src';
 import '@testing-library/jest-dom';
 
 test('styleAppender', () => {
-  styleAppender('flex', '.flex{display:flex;}');
+  styleAppender('flex', () => '.flex{display:flex;}');
   const { getByTestId } = render(
     <div data-testid="styleAppender" className="flex" />,
   );

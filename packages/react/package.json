@@ -1,12 +1,16 @@
 {
   "name": "@booleon/react",
   "version": "1.1.1-alpha.0",
-  "description": "react styling lib",
+  "description": "Booleon React is a DX focused library for, a highly typed declarative, styling, using component boolean properties.Works by mapping a pre-defined entry of css with keys thatcan be static string or dynamic RegEx.",
   "author": "Vinícius Victorino",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
-  "module": "dist/core.esm.js",
+  "module": "dist/react.esm.js",
+  "dependencies": {
+    "@booleon/core": "^1.1.0-alpha.0",
+    "react": "^16.13.1"
+  },
   "peerDependencies": {
     "@booleon/core": "^1.1.0-alpha.0",
     "react": "^16.13.1"

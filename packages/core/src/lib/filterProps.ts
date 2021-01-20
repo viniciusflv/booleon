@@ -1,29 +1,27 @@
 import { REACT_PROPS } from '../constants';
-import { Props, BooleonProps } from '../types';
+import { Props } from '../types';
 
-export function filterProps<P extends Props, M extends readonly any[]>(
+export function filterProps<P extends Props>(
   props: P,
-): [
-  Partial<Pick<P, typeof REACT_PROPS[number]>>,
-  BooleonProps<M>,
-  BooleonProps<M>,
-] {
+  themes = ['dark'],
+): Props {
   return Object.keys(props).reduce(
-    ([html, light, dark], key) => {
+    (acc, key) => {
       if (REACT_PROPS.includes(key as typeof REACT_PROPS[number])) {
-        html = { ...html, [key]: props[key] };
-      } else if (props[key]) {
-        if (key.startsWith('dark__')) {
-          dark = { ...dark, [key.replace('dark__', '')]: props[key] };
+        acc.htmlProps = { ...acc.htmlProps, [key]: props[key] };
+      } else {
+        const { prefix } = /(?<prefix>.*)__(.*)/g.exec(key)?.groups ?? {};
+        if (themes.includes(prefix)) {
+          acc[prefix] = {
+            ...acc[prefix],
+            [key.replace(`${prefix}__`, '')]: props[key],
+          };
+        } else {
+          acc.booleonProps = { ...acc.booleonProps, [key]: props[key] };
         }
-        light = { ...light, [key]: props[key] };
       }
-      return [html, light, dark];
+      return acc;
     },
-    [{}, {}, {}] as [
-      Partial<Pick<P, typeof REACT_PROPS[number]>>,
-      BooleonProps<M>,
-      BooleonProps<M>,
-    ],
+    { htmlProps: {}, booleonProps: {} },
   );
 }

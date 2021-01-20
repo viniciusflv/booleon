@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SSR renderToNodeStream 1`] = `"<style data-booleon=\\"bl-1980822999\\">.bl-1980822999{display:flex;}</style><section class=\\"bl-1980822999\\"></section>"`;
+
+exports[`SSR renderToStaticMarkup 1`] = `"<style data-booleon=\\"bl-1980822999\\">.bl-1980822999{display:flex;}</style><section class=\\"bl-1980822999\\"></section>"`;
+
+exports[`SSR renderToStaticNodeStream 1`] = `"<style data-booleon=\\"bl-1980822999\\">.bl-1980822999{display:flex;}</style><section class=\\"bl-1980822999\\"></section>"`;
+
+exports[`SSR renderToString 1`] = `"<style data-booleon=\\"bl-1980822999\\">.bl-1980822999{display:flex;}</style><section class=\\"bl-1980822999\\"></section>"`;

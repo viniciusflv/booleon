@@ -1,12 +1,12 @@
 {
   "name": "@booleon/modules",
   "version": "1.1.1-alpha.0",
-  "description": "css booleon modules",
+  "description": "Booleon CSS modules",
   "author": "Vinícius Victorino",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
-  "module": "dist/core.esm.js",
+  "module": "dist/modules.esm.js",
   "peerDependencies": {
     "react": "^16.13.1"
   },

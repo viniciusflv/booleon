@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { booleon, useTheme } from '../../packages/react/src';
 import { render } from '@testing-library/react';
+
+import { booleon, useTheme } from '../../packages/react/src';
 import '@testing-library/jest-dom';
 
 test('useTheme', () => {

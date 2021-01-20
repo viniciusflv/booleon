@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
 
-import { reactStyleAppender } from './reactStyleAppender';
-
 import {
   uniqueClass,
   Props,
@@ -10,43 +8,36 @@ import {
   propsReducer,
   classCompiler,
   stringHash,
-} from '@booleon/core';
+} from '../../../core/src';
+import { reactStyleAppender } from './reactStyleAppender';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
   props: P,
   ...modules: M
 ) {
-  const [
-    { className: id = '', ...htmlProps },
-    lightProps,
-    darkProps,
-  ] = useMemo(() => filterProps(props), [props]);
+  const {
+    htmlProps: { className = '', ...htmlProps },
+    booleonProps,
+    ...booleonThemes
+  } = useMemo(() => filterProps(props), [props]);
+  const hash = stringHash(JSON.stringify({ booleonProps, booleonThemes }));
+  const id = `bl-${hash}`;
 
-  const className = useMemo(() => {
-    const hash = stringHash(JSON.stringify({ ...lightProps, ...darkProps }));
-    return `bl-${hash}`;
-  }, [lightProps, darkProps]);
+  const ssr = reactStyleAppender(id, () => {
+    let acc = '';
 
-  const lightClasses = useMemo(() => {
-    if (Object.values(lightProps).length) {
-      const reducedLight = propsReducer(lightProps, modules.flat());
-      return classCompiler(`.${className}`, reducedLight);
+    const reducedBooleon = propsReducer(booleonProps, modules.flat());
+    acc += classCompiler(`.${id}`, reducedBooleon);
+
+    if (booleonThemes) {
+      Object.keys(booleonThemes).forEach((key) => {
+        const reducedTheme = propsReducer(booleonThemes[key], modules.flat());
+        acc += classCompiler(`body[data-theme='${key}'] .${id}`, reducedTheme);
+      });
     }
-    return '';
-  }, [lightProps]);
 
-  const darkClasses = useMemo(() => {
-    if (Object.values(darkProps).length) {
-      const reducedDark = propsReducer(darkProps, modules.flat());
-      return classCompiler(
-        `body[data-theme='dark'] .${className}`,
-        reducedDark,
-      );
-    }
-    return '';
-  }, [darkProps]);
+    return acc;
+  });
 
-  const ssr = reactStyleAppender(className, lightClasses + darkClasses);
-
-  return [uniqueClass(className, id), htmlProps, ssr] as const;
+  return [uniqueClass(id, className), htmlProps, ssr];
 }
