@@ -13,11 +13,11 @@ describe('Background', () => {
     BackgroundComponent = hocBooleon((props) => <div {...props} />, background);
   });
 
-  test('bg_HEX', () => {
+  test('bg_color_HEX', () => {
     const { getByTestId } = render(
-      <BackgroundComponent data-testid="bg_HEX" bg_fff />,
+      <BackgroundComponent data-testid="bg_color_HEX" bg_color_fff />,
     );
-    expect(getByTestId('bg_HEX')).toHaveStyle('background-color: #fff;');
+    expect(getByTestId('bg_color_HEX')).toHaveStyle('background-color: #fff;');
   });
 
   test('bg_img', () => {

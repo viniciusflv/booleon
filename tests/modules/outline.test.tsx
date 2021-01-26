@@ -13,73 +13,83 @@ describe('Outline', () => {
     OutlineComponent = hocBooleon((props) => <div {...props} />, outline);
   });
 
-  test('ols_solid', () => {
+  test('ol_style_solid', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_solid" ols_solid />,
+      <OutlineComponent data-testid="ol_style_solid" ol_style_solid />,
     );
-    expect(getByTestId('ols_solid')).toHaveStyle('outline-style: solid;');
+    expect(getByTestId('ol_style_solid')).toHaveStyle('outline-style: solid;');
   });
 
-  test('ols_dashed', () => {
+  test('ol_style_dashed', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_dashed" ols_dashed />,
+      <OutlineComponent data-testid="ol_style_dashed" ol_style_dashed />,
     );
-    expect(getByTestId('ols_dashed')).toHaveStyle('outline-style: dashed;');
+    expect(getByTestId('ol_style_dashed')).toHaveStyle(
+      'outline-style: dashed;',
+    );
   });
 
-  test('ols_dotted', () => {
+  test('ol_style_dotted', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_dotted" ols_dotted />,
+      <OutlineComponent data-testid="ol_style_dotted" ol_style_dotted />,
     );
-    expect(getByTestId('ols_dotted')).toHaveStyle('outline-style: dotted;');
+    expect(getByTestId('ol_style_dotted')).toHaveStyle(
+      'outline-style: dotted;',
+    );
   });
 
-  test('ols_double', () => {
+  test('ol_style_double', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_double" ols_double />,
+      <OutlineComponent data-testid="ol_style_double" ol_style_double />,
     );
-    expect(getByTestId('ols_double')).toHaveStyle('outline-style: double;');
+    expect(getByTestId('ol_style_double')).toHaveStyle(
+      'outline-style: double;',
+    );
   });
 
-  test('ols_groove', () => {
+  test('ol_style_groove', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_groove" ols_groove />,
+      <OutlineComponent data-testid="ol_style_groove" ol_style_groove />,
     );
-    expect(getByTestId('ols_groove')).toHaveStyle('outline-style: groove;');
+    expect(getByTestId('ol_style_groove')).toHaveStyle(
+      'outline-style: groove;',
+    );
   });
 
-  test('ols_ridge', () => {
+  test('ol_style_ridge', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_ridge" ols_ridge />,
+      <OutlineComponent data-testid="ol_style_ridge" ol_style_ridge />,
     );
-    expect(getByTestId('ols_ridge')).toHaveStyle('outline-style: ridge;');
+    expect(getByTestId('ol_style_ridge')).toHaveStyle('outline-style: ridge;');
   });
 
-  test('ols_inset', () => {
+  test('ol_style_inset', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_inset" ols_inset />,
+      <OutlineComponent data-testid="ol_style_inset" ol_style_inset />,
     );
-    expect(getByTestId('ols_inset')).toHaveStyle('outline-style: inset;');
+    expect(getByTestId('ol_style_inset')).toHaveStyle('outline-style: inset;');
   });
 
-  test('ols_outset', () => {
+  test('ol_style_outset', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ols_outset" ols_outset />,
+      <OutlineComponent data-testid="ol_style_outset" ol_style_outset />,
     );
-    expect(getByTestId('ols_outset')).toHaveStyle('outline-style: outset;');
+    expect(getByTestId('ol_style_outset')).toHaveStyle(
+      'outline-style: outset;',
+    );
   });
 
-  test('olw_10', () => {
+  test('ol_width_10', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="olw_10" olw_10 />,
+      <OutlineComponent data-testid="ol_width_10" ol_width_10 />,
     );
-    expect(getByTestId('olw_10')).toHaveStyle('outline-width: 0.625rem;');
+    expect(getByTestId('ol_width_10')).toHaveStyle('outline-width: 0.625rem;');
   });
 
-  test('olc_f00', () => {
+  test('ol_color_f00', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="olc_f00" olc_f00 />,
+      <OutlineComponent data-testid="ol_color_f00" ol_color_f00 />,
     );
-    expect(getByTestId('olc_f00')).toHaveStyle('outline-color: #f00;');
+    expect(getByTestId('ol_color_f00')).toHaveStyle('outline-color: #f00;');
   });
 });

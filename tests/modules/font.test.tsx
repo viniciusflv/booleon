@@ -14,186 +14,196 @@ describe('Font', () => {
   });
 
   describe('Style', () => {
-    test('fb_000', () => {
+    test('ft_border_000', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fb_000" fb_000 />,
+        <FontComponent data-testid="ft_border_000" ft_border_000 />,
       );
-      expect(getByTestId('fb_000')).toHaveStyle(
+      expect(getByTestId('ft_border_000')).toHaveStyle(
         'text-shadow:-1px 0 #000,0 1px #000,1px 0 #000,0 -1px #000;',
       );
     });
 
-    test('fc_f00', () => {
+    test('ft_color_f00', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fc_f00" fc_f00 />,
+        <FontComponent data-testid="ft_color_f00" ft_color_f00 />,
       );
-      expect(getByTestId('fc_f00')).toHaveStyle('color: #f00;');
+      expect(getByTestId('ft_color_f00')).toHaveStyle('color: #f00;');
     });
 
-    test('fs_10', () => {
+    test('ft_size_10', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fs_10" fs_10 />,
+        <FontComponent data-testid="ft_size_10" ft_size_10 />,
       );
-      expect(getByTestId('fs_10')).toHaveStyle('font-size: 0.625rem;');
+      expect(getByTestId('ft_size_10')).toHaveStyle('font-size: 0.625rem;');
     });
 
-    test('f_italic', () => {
+    test('ft_italic', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_italic" f_italic />,
+        <FontComponent data-testid="ft_italic" ft_italic />,
       );
-      expect(getByTestId('f_italic')).toHaveStyle('font-style: italic;');
+      expect(getByTestId('ft_italic')).toHaveStyle('font-style: italic;');
     });
   });
 
   describe('Family', () => {
-    test('ff_Fira_Code', () => {
+    test('ft_family_Fira_Code', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ff_Fira_Code" ff_Fira_Code />,
+        <FontComponent data-testid="ft_family_Fira_Code" ft_family_Fira_Code />,
       );
-      expect(getByTestId('ff_Fira_Code')).toHaveStyle(
+      expect(getByTestId('ft_family_Fira_Code')).toHaveStyle(
         'font-family: Fira Code;',
       );
     });
 
-    test('ff_sans', () => {
+    test('ft_family_sans', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ff_sans" ff_sans />,
+        <FontComponent data-testid="ft_family_sans" ft_family_sans />,
       );
-      expect(getByTestId('ff_sans')).toHaveStyle('font-family: sans-serif;');
+      expect(getByTestId('ft_family_sans')).toHaveStyle(
+        'font-family: sans-serif;',
+      );
     });
 
-    test('ff_serif', () => {
+    test('ft_family_serif', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ff_serif" ff_serif />,
+        <FontComponent data-testid="ft_family_serif" ft_family_serif />,
       );
-      expect(getByTestId('ff_serif')).toHaveStyle('font-family: serif;');
+      expect(getByTestId('ft_family_serif')).toHaveStyle('font-family: serif;');
     });
 
-    test('ff_mono', () => {
+    test('ft_family_mono', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ff_mono" ff_mono />,
+        <FontComponent data-testid="ft_family_mono" ft_family_mono />,
       );
-      expect(getByTestId('ff_mono')).toHaveStyle('font-family: monospace;');
+      expect(getByTestId('ft_family_mono')).toHaveStyle(
+        'font-family: monospace;',
+      );
     });
   });
 
   describe('User Select', () => {
-    test('fsl_none', () => {
+    test('ft_select_none', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fsl_none" fsl_none />,
+        <FontComponent data-testid="ft_select_none" ft_select_none />,
       );
-      expect(getByTestId('fsl_none')).toHaveStyle('user-select: none;');
+      expect(getByTestId('ft_select_none')).toHaveStyle('user-select: none;');
     });
 
-    test('fsl_text', () => {
+    test('ft_select_text', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fsl_text" fsl_text />,
+        <FontComponent data-testid="ft_select_text" ft_select_text />,
       );
-      expect(getByTestId('fsl_text')).toHaveStyle('user-select: text;');
+      expect(getByTestId('ft_select_text')).toHaveStyle('user-select: text;');
     });
 
-    test('fsl_all', () => {
+    test('ft_select_all', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fsl_all" fsl_all />,
+        <FontComponent data-testid="ft_select_all" ft_select_all />,
       );
-      expect(getByTestId('fsl_all')).toHaveStyle('user-select: all;');
+      expect(getByTestId('ft_select_all')).toHaveStyle('user-select: all;');
     });
 
-    test('fsl_auto', () => {
+    test('ft_select_auto', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fsl_auto" fsl_auto />,
+        <FontComponent data-testid="ft_select_auto" ft_select_auto />,
       );
-      expect(getByTestId('fsl_auto')).toHaveStyle('user-select: auto;');
+      expect(getByTestId('ft_select_auto')).toHaveStyle('user-select: auto;');
     });
   });
 
   describe('Weight', () => {
-    test('fw_lightest', () => {
+    test('ft_weight_lightest', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_lightest" fw_lightest />,
+        <FontComponent data-testid="ft_weight_lightest" ft_weight_lightest />,
       );
-      expect(getByTestId('fw_lightest')).toHaveStyle('font-weight: 100;');
+      expect(getByTestId('ft_weight_lightest')).toHaveStyle(
+        'font-weight: 100;',
+      );
     });
 
-    test('fw_lighter', () => {
+    test('ft_weight_lighter', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_lighter" fw_lighter />,
+        <FontComponent data-testid="ft_weight_lighter" ft_weight_lighter />,
       );
-      expect(getByTestId('fw_lighter')).toHaveStyle('font-weight: 200;');
+      expect(getByTestId('ft_weight_lighter')).toHaveStyle('font-weight: 200;');
     });
 
-    test('fw_light', () => {
+    test('ft_weight_light', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_light" fw_light />,
+        <FontComponent data-testid="ft_weight_light" ft_weight_light />,
       );
-      expect(getByTestId('fw_light')).toHaveStyle('font-weight: 300;');
+      expect(getByTestId('ft_weight_light')).toHaveStyle('font-weight: 300;');
     });
 
-    test('fw_normal', () => {
+    test('ft_weight_normal', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_normal" fw_normal />,
+        <FontComponent data-testid="ft_weight_normal" ft_weight_normal />,
       );
-      expect(getByTestId('fw_normal')).toHaveStyle('font-weight: 400;');
+      expect(getByTestId('ft_weight_normal')).toHaveStyle('font-weight: 400;');
     });
 
-    test('fw_medium', () => {
+    test('ft_weight_medium', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_medium" fw_medium />,
+        <FontComponent data-testid="ft_weight_medium" ft_weight_medium />,
       );
-      expect(getByTestId('fw_medium')).toHaveStyle('font-weight: 500;');
+      expect(getByTestId('ft_weight_medium')).toHaveStyle('font-weight: 500;');
     });
 
-    test('fw_semibold', () => {
+    test('ft_weight_semibold', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_semibold" fw_semibold />,
+        <FontComponent data-testid="ft_weight_semibold" ft_weight_semibold />,
       );
-      expect(getByTestId('fw_semibold')).toHaveStyle('font-weight: 600;');
+      expect(getByTestId('ft_weight_semibold')).toHaveStyle(
+        'font-weight: 600;',
+      );
     });
 
-    test('fw_bold', () => {
+    test('ft_weight_bold', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_bold" fw_bold />,
+        <FontComponent data-testid="ft_weight_bold" ft_weight_bold />,
       );
-      expect(getByTestId('fw_bold')).toHaveStyle('font-weight: 700;');
+      expect(getByTestId('ft_weight_bold')).toHaveStyle('font-weight: 700;');
     });
 
-    test('fw_bolder', () => {
+    test('ft_weight_bolder', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_bolder" fw_bolder />,
+        <FontComponent data-testid="ft_weight_bolder" ft_weight_bolder />,
       );
-      expect(getByTestId('fw_bolder')).toHaveStyle('font-weight: 800;');
+      expect(getByTestId('ft_weight_bolder')).toHaveStyle('font-weight: 800;');
     });
 
-    test('fw_black', () => {
+    test('ft_weight_black', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fw_black" fw_black />,
+        <FontComponent data-testid="ft_weight_black" ft_weight_black />,
       );
-      expect(getByTestId('fw_black')).toHaveStyle('font-weight: 900;');
+      expect(getByTestId('ft_weight_black')).toHaveStyle('font-weight: 900;');
     });
   });
 
   describe('Spacing', () => {
-    test('ls_10', () => {
+    test('ft_spacing_10', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ls_10" ls_10 />,
+        <FontComponent data-testid="ft_spacing_10" ft_spacing_10 />,
       );
-      expect(getByTestId('ls_10')).toHaveStyle('letter-spacing: 0.625rem;');
+      expect(getByTestId('ft_spacing_10')).toHaveStyle(
+        'letter-spacing: 0.625rem;',
+      );
     });
 
-    test('ls_neg_10', () => {
+    test('ft_spacing_neg_10', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ls_neg_10" ls_neg_10 />,
+        <FontComponent data-testid="ft_spacing_neg_10" ft_spacing_neg_10 />,
       );
-      expect(getByTestId('ls_neg_10')).toHaveStyle(
+      expect(getByTestId('ft_spacing_neg_10')).toHaveStyle(
         'letter-spacing: -0.625rem;',
       );
     });
 
-    test('lh_10', () => {
+    test('ft_height_10', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="lh_10" lh_10 />,
+        <FontComponent data-testid="ft_height_10" ft_height_10 />,
       );
-      expect(getByTestId('lh_10')).toHaveStyle('line-height: 0.625rem;');
+      expect(getByTestId('ft_height_10')).toHaveStyle('line-height: 0.625rem;');
     });
   });
 
@@ -241,122 +251,135 @@ describe('Font', () => {
   });
 
   describe('Align', () => {
-    test('fa_left', () => {
+    test('ft_align_left', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fa_left" fa_left />,
+        <FontComponent data-testid="ft_align_left" ft_align_left />,
       );
-      expect(getByTestId('fa_left')).toHaveStyle('text-align: left;');
+      expect(getByTestId('ft_align_left')).toHaveStyle('text-align: left;');
     });
 
-    test('fa_center', () => {
+    test('ft_align_center', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fa_center" fa_center />,
+        <FontComponent data-testid="ft_align_center" ft_align_center />,
       );
-      expect(getByTestId('fa_center')).toHaveStyle('text-align: center;');
+      expect(getByTestId('ft_align_center')).toHaveStyle('text-align: center;');
     });
 
-    test('fa_right', () => {
+    test('ft_align_right', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fa_right" fa_right />,
+        <FontComponent data-testid="ft_align_right" ft_align_right />,
       );
-      expect(getByTestId('fa_right')).toHaveStyle('text-align: right;');
+      expect(getByTestId('ft_align_right')).toHaveStyle('text-align: right;');
     });
 
-    test('fa_justify', () => {
+    test('ft_align_justify', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="fa_justify" fa_justify />,
+        <FontComponent data-testid="ft_align_justify" ft_align_justify />,
       );
-      expect(getByTestId('fa_justify')).toHaveStyle('text-align: justify;');
+      expect(getByTestId('ft_align_justify')).toHaveStyle(
+        'text-align: justify;',
+      );
     });
   });
 
   describe('Transform', () => {
-    test('ft_uppercase', () => {
+    test('ft_transform_uppercase', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ft_uppercase" ft_uppercase />,
+        <FontComponent
+          data-testid="ft_transform_uppercase"
+          ft_transform_uppercase
+        />,
       );
-      expect(getByTestId('ft_uppercase')).toHaveStyle(
+      expect(getByTestId('ft_transform_uppercase')).toHaveStyle(
         'text-transform: uppercase;',
       );
     });
 
-    test('ft_lowercase', () => {
+    test('ft_transform_lowercase', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ft_lowercase" ft_lowercase />,
+        <FontComponent
+          data-testid="ft_transform_lowercase"
+          ft_transform_lowercase
+        />,
       );
-      expect(getByTestId('ft_lowercase')).toHaveStyle(
+      expect(getByTestId('ft_transform_lowercase')).toHaveStyle(
         'text-transform: lowercase;',
       );
     });
 
-    test('ft_normal', () => {
+    test('ft_transform_normal', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ft_normal" ft_normal />,
+        <FontComponent data-testid="ft_transform_normal" ft_transform_normal />,
       );
-      expect(getByTestId('ft_normal')).toHaveStyle('text-transform: normal;');
+      expect(getByTestId('ft_transform_normal')).toHaveStyle(
+        'text-transform: normal;',
+      );
     });
 
-    test('ft_capitalize', () => {
+    test('ft_transform_capitalize', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="ft_capitalize" ft_capitalize />,
+        <FontComponent
+          data-testid="ft_transform_capitalize"
+          ft_transform_capitalize
+        />,
       );
-      expect(getByTestId('ft_capitalize')).toHaveStyle(
+      expect(getByTestId('ft_transform_capitalize')).toHaveStyle(
         'text-transform: capitalize;',
       );
     });
   });
 
   describe('Decoration', () => {
-    test('f_underline', () => {
+    test('ft_underline', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_underline" f_underline />,
+        <FontComponent data-testid="ft_underline" ft_underline />,
       );
-      expect(getByTestId('f_underline')).toHaveStyle(
+      expect(getByTestId('ft_underline')).toHaveStyle(
         'text-decoration: underline;',
       );
     });
 
-    test('f_line_through', () => {
+    test('ft_line_through', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_line_through" f_line_through />,
+        <FontComponent data-testid="ft_line_through" ft_line_through />,
       );
-      expect(getByTestId('f_line_through')).toHaveStyle(
+      expect(getByTestId('ft_line_through')).toHaveStyle(
         'text-decoration: line-through;',
       );
     });
 
-    test('f_no_underline', () => {
+    test('ft_no_underline', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_no_underline" f_no_underline />,
+        <FontComponent data-testid="ft_no_underline" ft_no_underline />,
       );
-      expect(getByTestId('f_no_underline')).toHaveStyle(
+      expect(getByTestId('ft_no_underline')).toHaveStyle(
         'text-decoration: none;',
       );
     });
   });
 
   describe('Wrap', () => {
-    test('f_wrap_space', () => {
+    test('ft_wrap_space', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_wrap_space" f_wrap_space />,
+        <FontComponent data-testid="ft_wrap_space" ft_wrap_space />,
       );
-      expect(getByTestId('f_wrap_space')).toHaveStyle('white-space: normal;');
+      expect(getByTestId('ft_wrap_space')).toHaveStyle('white-space: normal;');
     });
 
-    test('f_wrap_word', () => {
+    test('ft_wrap_word', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_wrap_word" f_wrap_word />,
+        <FontComponent data-testid="ft_wrap_word" ft_wrap_word />,
       );
-      expect(getByTestId('f_wrap_word')).toHaveStyle(
+      expect(getByTestId('ft_wrap_word')).toHaveStyle(
         'overflow-wrap: break-word;',
       );
     });
 
-    test('f_wrap_letter', () => {
+    test('ft_wrap_letter', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_wrap_letter" f_wrap_letter />,
+        <FontComponent data-testid="ft_wrap_letter" ft_wrap_letter />,
       );
-      expect(getByTestId('f_wrap_letter')).toHaveStyle(
+      expect(getByTestId('ft_wrap_letter')).toHaveStyle(
         'word-break: break-all;',
       );
     });
@@ -365,9 +388,9 @@ describe('Font', () => {
       const { getByTestId } = render(
         <FontComponent
           data-testid="f_no_wrap"
-          f_wrap_word
-          f_wrap_letter
-          f_no_wrap
+          ft_wrap_word
+          ft_wrap_letter
+          ft_no_wrap
         />,
       );
       expect(getByTestId('f_no_wrap')).toHaveStyle('white-space: nowrap;');
@@ -377,7 +400,7 @@ describe('Font', () => {
 
     test('f_truncate', () => {
       const { getByTestId } = render(
-        <FontComponent data-testid="f_truncate" f_truncate />,
+        <FontComponent data-testid="f_truncate" ft_truncate />,
       );
       expect(getByTestId('f_truncate')).toHaveStyle('overflow: hidden;');
       expect(getByTestId('f_truncate')).toHaveStyle('text-overflow: ellipsis;');

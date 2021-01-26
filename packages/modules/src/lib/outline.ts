@@ -8,24 +8,27 @@ import { rem, handleColor } from '../utils';
  * const Component = booleon.div(outline);
  * @example
  * ```jsx
- * <Component ols_solid olw_12 olc_fff />
+ * <Component ol_style_solid ol_width_12 ol_color_fff />
  * ```
  */
 export const outline = [
   ['ol_none', () => 'outline:none;'],
   [
     [
-      'olc_' as 'olc_HEX' | 'olc_RED_GREEN_BLUE' | 'olc_RED_GREEN_BLUE_OPACITY',
+      'ol_color_' as
+        | 'ol_color_HEX'
+        | 'ol_color_RED_GREEN_BLUE'
+        | 'ol_color_RED_GREEN_BLUE_OPACITY',
       `(${COLOR})`,
     ],
     (value: string) => `outline-color:${handleColor(value)};`,
   ],
   [
-    ['olw_' as 'olw_NUMBER', `(${NUMBER})`],
+    ['ol_width_' as 'ol_width_NUMBER', `(${NUMBER})`],
     (value: string) => `outline-width:${rem(value)};`,
   ],
   [
-    ['ols_' as OutlineStyle, `(${LOWER_CASE})`],
+    ['ol_style_' as OutlineStyle, `(${LOWER_CASE})`],
     (value: string) => `outline-style:${value};`,
   ],
 ] as const;

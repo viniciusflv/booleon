@@ -40,5 +40,5 @@ export function useBooleon<P extends Props, M extends BooleonModule[]>(
     return acc;
   });
 
-  return [uniqueClass(id, className), htmlProps, ssr];
+  return [uniqueClass(id, className), htmlProps as Props, ssr] as const;
 }

@@ -1,141 +1,141 @@
-export type bs_BorderStyle =
-  | 'bs_none'
-  | 'bs_hidden'
-  | 'bs_dotted'
-  | 'bs_dashed'
-  | 'bs_solid'
-  | 'bs_double'
-  | 'bs_groove'
-  | 'bs_ridge'
-  | 'bs_inset'
-  | 'bs_outset'
-  | 'bs_initial'
-  | 'bs_inherit';
+export type bd_style =
+  | 'bd_style_none'
+  | 'bd_style_hidden'
+  | 'bd_style_dotted'
+  | 'bd_style_dashed'
+  | 'bd_style_solid'
+  | 'bd_style_double'
+  | 'bd_style_groove'
+  | 'bd_style_ridge'
+  | 'bd_style_inset'
+  | 'bd_style_outset'
+  | 'bd_style_initial'
+  | 'bd_style_inherit';
 
-export type bts_BorderStyle =
-  | 'bts_none'
-  | 'bts_hidden'
-  | 'bts_dotted'
-  | 'bts_dashed'
-  | 'bts_solid'
-  | 'bts_double'
-  | 'bts_groove'
-  | 'bts_ridge'
-  | 'bts_inset'
-  | 'bts_outset'
-  | 'bts_initial'
-  | 'bts_inherit';
+export type bdt_style =
+  | 'bdt_style_none'
+  | 'bdt_style_hidden'
+  | 'bdt_style_dotted'
+  | 'bdt_style_dashed'
+  | 'bdt_style_solid'
+  | 'bdt_style_double'
+  | 'bdt_style_groove'
+  | 'bdt_style_ridge'
+  | 'bdt_style_inset'
+  | 'bdt_style_outset'
+  | 'bdt_style_initial'
+  | 'bdt_style_inherit';
 
-export type bbs_BorderStyle =
-  | 'bbs_none'
-  | 'bbs_hidden'
-  | 'bbs_dotted'
-  | 'bbs_dashed'
-  | 'bbs_solid'
-  | 'bbs_double'
-  | 'bbs_groove'
-  | 'bbs_ridge'
-  | 'bbs_inset'
-  | 'bbs_outset'
-  | 'bbs_initial'
-  | 'bbs_inherit';
+export type bdb_style =
+  | 'bdb_style_none'
+  | 'bdb_style_hidden'
+  | 'bdb_style_dotted'
+  | 'bdb_style_dashed'
+  | 'bdb_style_solid'
+  | 'bdb_style_double'
+  | 'bdb_style_groove'
+  | 'bdb_style_ridge'
+  | 'bdb_style_inset'
+  | 'bdb_style_outset'
+  | 'bdb_style_initial'
+  | 'bdb_style_inherit';
 
-export type bls_BorderStyle =
-  | 'bls_none'
-  | 'bls_hidden'
-  | 'bls_dotted'
-  | 'bls_dashed'
-  | 'bls_solid'
-  | 'bls_double'
-  | 'bls_groove'
-  | 'bls_ridge'
-  | 'bls_inset'
-  | 'bls_outset'
-  | 'bls_initial'
-  | 'bls_inherit';
+export type bdl_style =
+  | 'bdl_style_none'
+  | 'bdl_style_hidden'
+  | 'bdl_style_dotted'
+  | 'bdl_style_dashed'
+  | 'bdl_style_solid'
+  | 'bdl_style_double'
+  | 'bdl_style_groove'
+  | 'bdl_style_ridge'
+  | 'bdl_style_inset'
+  | 'bdl_style_outset'
+  | 'bdl_style_initial'
+  | 'bdl_style_inherit';
 
-export type brs_BorderStyle =
-  | 'brs_none'
-  | 'brs_hidden'
-  | 'brs_dotted'
-  | 'brs_dashed'
-  | 'brs_solid'
-  | 'brs_double'
-  | 'brs_groove'
-  | 'brs_ridge'
-  | 'brs_inset'
-  | 'brs_outset'
-  | 'brs_initial'
-  | 'brs_inherit';
+export type bdr_style =
+  | 'bdr_style_none'
+  | 'bdr_style_hidden'
+  | 'bdr_style_dotted'
+  | 'bdr_style_dashed'
+  | 'bdr_style_solid'
+  | 'bdr_style_double'
+  | 'bdr_style_groove'
+  | 'bdr_style_ridge'
+  | 'bdr_style_inset'
+  | 'bdr_style_outset'
+  | 'bdr_style_initial'
+  | 'bdr_style_inherit';
 
-export type bxs_BorderStyle =
-  | 'bxs_none'
-  | 'bxs_hidden'
-  | 'bxs_dotted'
-  | 'bxs_dashed'
-  | 'bxs_solid'
-  | 'bxs_double'
-  | 'bxs_groove'
-  | 'bxs_ridge'
-  | 'bxs_inset'
-  | 'bxs_outset'
-  | 'bxs_initial'
-  | 'bxs_inherit';
+export type bdx_style =
+  | 'bdx_style_none'
+  | 'bdx_style_hidden'
+  | 'bdx_style_dotted'
+  | 'bdx_style_dashed'
+  | 'bdx_style_solid'
+  | 'bdx_style_double'
+  | 'bdx_style_groove'
+  | 'bdx_style_ridge'
+  | 'bdx_style_inset'
+  | 'bdx_style_outset'
+  | 'bdx_style_initial'
+  | 'bdx_style_inherit';
 
-export type bys_BorderStyle =
-  | 'bys_none'
-  | 'bys_hidden'
-  | 'bys_dotted'
-  | 'bys_dashed'
-  | 'bys_solid'
-  | 'bys_double'
-  | 'bys_groove'
-  | 'bys_ridge'
-  | 'bys_inset'
-  | 'bys_outset'
-  | 'bys_initial'
-  | 'bys_inherit';
+export type bdy_style =
+  | 'bdy_style_none'
+  | 'bdy_style_hidden'
+  | 'bdy_style_dotted'
+  | 'bdy_style_dashed'
+  | 'bdy_style_solid'
+  | 'bdy_style_double'
+  | 'bdy_style_groove'
+  | 'bdy_style_ridge'
+  | 'bdy_style_inset'
+  | 'bdy_style_outset'
+  | 'bdy_style_initial'
+  | 'bdy_style_inherit';
 
 export type UserSelect =
-  | 'fsl_none'
-  | 'fsl_auto'
-  | 'fsl_text'
-  | 'fsl_contain'
-  | 'fsl_all'
-  | 'fsl_inherit'
-  | 'fsl_initial'
-  | 'fsl_unset';
+  | 'ft_select_none'
+  | 'ft_select_auto'
+  | 'ft_select_text'
+  | 'ft_select_contain'
+  | 'ft_select_all'
+  | 'ft_select_inherit'
+  | 'ft_select_initial'
+  | 'ft_select_unset';
 
 export type TextAlign =
-  | 'fa_left'
-  | 'fa_right'
-  | 'fa_center'
-  | 'fa_justify'
-  | 'fa_initial'
-  | 'fa_inherit';
+  | 'ft_align_left'
+  | 'ft_align_right'
+  | 'ft_align_center'
+  | 'ft_align_justify'
+  | 'ft_align_initial'
+  | 'ft_align_inherit';
 
 export type TextTransform =
-  | 'ft_none'
-  | 'ft_capitalize'
-  | 'ft_uppercase'
-  | 'ft_lowercase'
-  | 'ft_initial'
-  | 'ft_inherit';
+  | 'ft_transform_none'
+  | 'ft_transform_capitalize'
+  | 'ft_transform_uppercase'
+  | 'ft_transform_lowercase'
+  | 'ft_transform_initial'
+  | 'ft_transform_inherit';
 
 export type OutlineStyle =
-  | 'ols_auto'
-  | 'ols_none'
-  | 'ols_dotted'
-  | 'ols_dashed'
-  | 'ols_solid'
-  | 'ols_double'
-  | 'ols_groove'
-  | 'ols_ridge'
-  | 'ols_inset'
-  | 'ols_outset'
-  | 'ols_inherit'
-  | 'ols_initial'
-  | 'ols_unset';
+  | 'ol_style_auto'
+  | 'ol_style_none'
+  | 'ol_style_dotted'
+  | 'ol_style_dashed'
+  | 'ol_style_solid'
+  | 'ol_style_double'
+  | 'ol_style_groove'
+  | 'ol_style_ridge'
+  | 'ol_style_inset'
+  | 'ol_style_outset'
+  | 'ol_style_inherit'
+  | 'ol_style_initial'
+  | 'ol_style_unset';
 
 export type Shadows =
   | 'sd_1'

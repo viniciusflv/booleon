@@ -8,13 +8,16 @@ import { rem, handleColor } from '../utils';
  * const Component = booleon.div(font);
  * @example
  * ```jsx
- * <Component ff_sans fc_fff />
+ * <Component ft_family_sans ft_color_fff />
  * ```
  */
 export const font = [
   [
     [
-      'fb_' as 'fb_HEX' | 'fb_RED_GREEN_BLUE' | 'fb_RED_GREEN_BLUE_OPACITY',
+      'ft_border_' as
+        | 'ft_border_HEX'
+        | 'ft_border_RED_GREEN_BLUE'
+        | 'ft_border_RED_GREEN_BLUE_OPACITY',
       `(${COLOR})`,
     ],
     (value: string) =>
@@ -24,73 +27,76 @@ export const font = [
   ],
   [
     [
-      'fc_' as 'fc_HEX' | 'fc_RED_GREEN_BLUE' | 'fc_RED_GREEN_BLUE_OPACITY',
+      'ft_color_' as
+        | 'ft_color_HEX'
+        | 'ft_color_RED_GREEN_BLUE'
+        | 'ft_color_RED_GREEN_BLUE_OPACITY',
       `(${COLOR})`,
     ],
     (value: string) => `color:${handleColor(value)};`,
   ],
   [
-    ['fs_' as 'fs_NUMBER', `(${NUMBER})`],
+    ['ft_size_' as 'ft_size_NUMBER', `(${NUMBER})`],
     (value: string) => `font-size:${rem(value)};`,
   ],
   [
-    ['ls_' as 'ls_NUMBER', `(${NUMBER})`],
+    ['ft_spacing_' as 'ft_spacing_NUMBER', `(${NUMBER})`],
     (value: string) => `letter-spacing:${rem(value)};`,
   ],
   [
-    ['ls_neg_' as 'ls_neg_NUMBER', `(${NUMBER})`],
+    ['ft_spacing_neg_' as 'ft_spacing_neg_NUMBER', `(${NUMBER})`],
     (value: string) => `letter-spacing:-${rem(value)};`,
   ],
   [
-    ['lh_' as 'lh_NUMBER', `(${NUMBER})`],
+    ['ft_height_' as 'ft_height_NUMBER', `(${NUMBER})`],
     (value: string) => `line-height:${rem(value)};`,
   ],
   [
-    ['fsl_' as UserSelect, `(${LOWER_CASE})`],
+    ['ft_select_' as UserSelect, `(${LOWER_CASE})`],
     (value: string) => `user-select:${value};`,
   ],
   [
-    ['fa_' as TextAlign, `(${LOWER_CASE})`],
+    ['ft_align_' as TextAlign, `(${LOWER_CASE})`],
     (value: string) => `text-align:${value};`,
   ],
   [
-    ['ft_' as TextTransform, `(${LOWER_CASE})`],
+    ['ft_transform_' as TextTransform, `(${LOWER_CASE})`],
     (value: string) => `text-transform:${value};`,
   ],
   [
-    ['ff_' as 'ff_FAMILY', `(${LETTER}).*`],
+    ['ft_family_' as 'ft_family_FAMILY', `(${LETTER}).*`],
     (value: string) => `font-family:${value};`,
   ],
-  ['ff_sans', () => 'font-family:sans-serif;'],
-  ['ff_serif', () => 'font-family:serif;'],
-  ['ff_mono', () => 'font-family:monospace;'],
-  ['f_italic', () => 'font-style:italic;'],
-  ['fw_lightest', () => 'font-weight:100;'],
-  ['fw_lighter', () => 'font-weight:200;'],
-  ['fw_light', () => 'font-weight:300;'],
-  ['fw_normal', () => 'font-weight:400;'],
-  ['fw_medium', () => 'font-weight:500;'],
-  ['fw_semibold', () => 'font-weight:600;'],
-  ['fw_bold', () => 'font-weight:700;'],
-  ['fw_bolder', () => 'font-weight:800;'],
-  ['fw_black', () => 'font-weight:900;'],
+  ['ft_family_sans', () => 'font-family:sans-serif;'],
+  ['ft_family_serif', () => 'font-family:serif;'],
+  ['ft_family_mono', () => 'font-family:monospace;'],
+  ['ft_italic', () => 'font-style:italic;'],
+  ['ft_weight_lightest', () => 'font-weight:100;'],
+  ['ft_weight_lighter', () => 'font-weight:200;'],
+  ['ft_weight_light', () => 'font-weight:300;'],
+  ['ft_weight_normal', () => 'font-weight:400;'],
+  ['ft_weight_medium', () => 'font-weight:500;'],
+  ['ft_weight_semibold', () => 'font-weight:600;'],
+  ['ft_weight_bold', () => 'font-weight:700;'],
+  ['ft_weight_bolder', () => 'font-weight:800;'],
+  ['ft_weight_black', () => 'font-weight:900;'],
   ['li_none', () => 'list-style-type:none;'],
   ['li_disc', () => 'list-style-type:disc;'],
   ['li_decimal', () => 'list-style-type:decimal;'],
   ['li_inside', () => 'list-style-position:inside;'],
   ['li_outside', () => 'list-style-position:outside;'],
-  ['f_underline', () => 'text-decoration:underline;'],
-  ['f_line_through', () => 'text-decoration:line-through;'],
-  ['f_no_underline', () => 'text-decoration:none;'],
-  ['f_wrap_space', () => 'white-space:normal;'],
-  ['f_wrap_word', () => 'overflow-wrap:break-word;'],
-  ['f_wrap_letter', () => 'word-break:break-all;'],
+  ['ft_underline', () => 'text-decoration:underline;'],
+  ['ft_line_through', () => 'text-decoration:line-through;'],
+  ['ft_no_underline', () => 'text-decoration:none;'],
+  ['ft_wrap_space', () => 'white-space:normal;'],
+  ['ft_wrap_word', () => 'overflow-wrap:break-word;'],
+  ['ft_wrap_letter', () => 'word-break:break-all;'],
   [
-    'f_no_wrap',
+    'ft_no_wrap',
     () => 'white-space:nowrap;word-break:normal;overflow-wrap:normal;',
   ],
   [
-    'f_truncate',
+    'ft_truncate',
     () => 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap;',
   ],
 ] as const;

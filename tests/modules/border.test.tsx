@@ -1,221 +1,246 @@
 import React from 'react';
-import '@testing-library/jest-dom';
 
 import { render } from '@testing-library/react';
 
 import { border } from '../../packages/modules/src/lib/border';
-import { hocBooleon } from '../../packages/react/src';
+import { booleon } from '../../packages/react/src';
+import '@testing-library/jest-dom';
 
+const BorderComponent = booleon.div(border);
 describe('Border', () => {
-  let BorderComponent;
-
-  beforeAll(() => {
-    BorderComponent = hocBooleon((props) => <div {...props} />, border);
-  });
-
   describe('Color', () => {
-    test('bc_HEX', () => {
+    test('bd_color_fff', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bc_HEX" bc_fff />,
+        <BorderComponent data-testid="bd_color_fff" bd_color_fff />,
       );
-      expect(getByTestId('bc_HEX')).toHaveStyle('border-color: #fff;');
+      expect(getByTestId('bd_color_fff')).toHaveStyle('border-color: #fff;');
     });
 
-    test('btc_HEX', () => {
+    test('bdt_color_HEX', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="btc_HEX" btc_fff />,
+        <BorderComponent data-testid="bdt_color_HEX" bdt_color_fff />,
       );
-      expect(getByTestId('btc_HEX')).toHaveStyle('border-top-color: #fff;');
+      expect(getByTestId('bdt_color_HEX')).toHaveStyle(
+        'border-top-color: #fff;',
+      );
     });
 
-    test('bbc_HEX', () => {
+    test('bdb_color_HEX', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bbc_HEX" bbc_fff />,
+        <BorderComponent data-testid="bdb_color_HEX" bdb_color_fff />,
       );
-      expect(getByTestId('bbc_HEX')).toHaveStyle('border-bottom-color: #fff;');
+      expect(getByTestId('bdb_color_HEX')).toHaveStyle(
+        'border-bottom-color: #fff;',
+      );
     });
 
-    test('blc_HEX', () => {
+    test('bdl_color_HEX', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="blc_HEX" blc_fff />,
+        <BorderComponent data-testid="bdl_color_HEX" bdl_color_fff />,
       );
-      expect(getByTestId('blc_HEX')).toHaveStyle('border-left-color: #fff;');
+      expect(getByTestId('bdl_color_HEX')).toHaveStyle(
+        'border-left-color: #fff;',
+      );
     });
 
-    test('brc_HEX', () => {
+    test('bdr_color_HEX', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="brc_HEX" brc_fff />,
+        <BorderComponent data-testid="bdr_color_HEX" bdr_color_fff />,
       );
-      expect(getByTestId('brc_HEX')).toHaveStyle('border-right-color: #fff;');
+      expect(getByTestId('bdr_color_HEX')).toHaveStyle(
+        'border-right-color: #fff;',
+      );
     });
 
-    test('bxc_HEX', () => {
+    test('bdx_color_HEX', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bxc_HEX" bxc_fff />,
+        <BorderComponent data-testid="bdx_color_HEX" bdx_color_fff />,
       );
-      expect(getByTestId('bxc_HEX')).toHaveStyle('border-right-color: #fff;');
-      expect(getByTestId('bxc_HEX')).toHaveStyle('border-left-color: #fff;');
+      expect(getByTestId('bdx_color_HEX')).toHaveStyle(
+        'border-right-color: #fff;',
+      );
+      expect(getByTestId('bdx_color_HEX')).toHaveStyle(
+        'border-left-color: #fff;',
+      );
     });
 
-    test('byc_HEX', () => {
+    test('bdy_color_HEX', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="byc_HEX" byc_fff />,
+        <BorderComponent data-testid="bdy_color_HEX" bdy_color_fff />,
       );
-      expect(getByTestId('byc_HEX')).toHaveStyle('border-top-color: #fff;');
-      expect(getByTestId('byc_HEX')).toHaveStyle('border-bottom-color: #fff;');
+      expect(getByTestId('bdy_color_HEX')).toHaveStyle(
+        'border-top-color: #fff;',
+      );
+      expect(getByTestId('bdy_color_HEX')).toHaveStyle(
+        'border-bottom-color: #fff;',
+      );
     });
   });
 
   describe('Style', () => {
-    test('bs_dashed', () => {
+    test('bd_style_dashed', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bs_dashed" bs_dashed />,
+        <BorderComponent data-testid="bd_style_dashed" bd_style_dashed />,
       );
-      expect(getByTestId('bs_dashed')).toHaveStyle('border-style: dashed;');
+      expect(getByTestId('bd_style_dashed')).toHaveStyle(
+        'border-style: dashed;',
+      );
     });
 
-    test('bts_dotted', () => {
+    test('bdt_style_dotted', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bts_dotted" bts_dotted />,
+        <BorderComponent data-testid="bdt_style_dotted" bdt_style_dotted />,
       );
-      expect(getByTestId('bts_dotted')).toHaveStyle(
+      expect(getByTestId('bdt_style_dotted')).toHaveStyle(
         'border-top-style: dotted;',
       );
     });
 
-    test('bbs_dotted', () => {
+    test('bdb_style_dotted', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bbs_dotted" bbs_dotted />,
+        <BorderComponent data-testid="bdb_style_dotted" bdb_style_dotted />,
       );
-      expect(getByTestId('bbs_dotted')).toHaveStyle(
+      expect(getByTestId('bdb_style_dotted')).toHaveStyle(
         'border-bottom-style: dotted;',
       );
     });
 
-    test('bls_dotted', () => {
+    test('bdl_style_dotted', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bls_dotted" bls_dotted />,
+        <BorderComponent data-testid="bdl_style_dotted" bdl_style_dotted />,
       );
-      expect(getByTestId('bls_dotted')).toHaveStyle(
+      expect(getByTestId('bdl_style_dotted')).toHaveStyle(
         'border-left-style: dotted;',
       );
     });
 
-    test('brs_dotted', () => {
+    test('bdr_style_dotted', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="brs_dotted" brs_dotted />,
+        <BorderComponent data-testid="bdr_style_dotted" bdr_style_dotted />,
       );
-      expect(getByTestId('brs_dotted')).toHaveStyle(
+      expect(getByTestId('bdr_style_dotted')).toHaveStyle(
         'border-right-style: dotted;',
       );
     });
 
-    test('bxs_dotted', () => {
+    test('bdx_style_dotted', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bxs_dotted" bxs_dotted />,
+        <BorderComponent data-testid="bdx_style_dotted" bdx_style_dotted />,
       );
-      expect(getByTestId('bxs_dotted')).toHaveStyle(
+      expect(getByTestId('bdx_style_dotted')).toHaveStyle(
         'border-right-style: dotted;',
       );
-      expect(getByTestId('bxs_dotted')).toHaveStyle(
+      expect(getByTestId('bdx_style_dotted')).toHaveStyle(
         'border-left-style: dotted;',
       );
     });
 
-    test('bys_dotted', () => {
+    test('bdy_style_dotted', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bys_dotted" bys_dotted />,
+        <BorderComponent data-testid="bdy_style_dotted" bdy_style_dotted />,
       );
-      expect(getByTestId('bys_dotted')).toHaveStyle(
+      expect(getByTestId('bdy_style_dotted')).toHaveStyle(
         'border-top-style: dotted;',
       );
-      expect(getByTestId('bys_dotted')).toHaveStyle(
+      expect(getByTestId('bdy_style_dotted')).toHaveStyle(
         'border-bottom-style: dotted;',
       );
     });
   });
 
   describe('Width', () => {
-    test('bw_10', () => {
+    test('bd_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bw_10" bw_10 />,
+        <BorderComponent data-testid="bd_width_10" bd_width_10 />,
       );
-      expect(getByTestId('bw_10')).toHaveStyle('border-width: 0.625rem;');
+      expect(getByTestId('bd_width_10')).toHaveStyle('border-width: 0.625rem;');
     });
 
-    test('btw_10', () => {
+    test('bdt_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="btw_10" btw_10 />,
+        <BorderComponent data-testid="bdt_width_10" bdt_width_10 />,
       );
-      expect(getByTestId('btw_10')).toHaveStyle('border-top-width: 0.625rem;');
+      expect(getByTestId('bdt_width_10')).toHaveStyle(
+        'border-top-width: 0.625rem;',
+      );
     });
 
-    test('bbw_10', () => {
+    test('bdb_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bbw_10" bbw_10 />,
+        <BorderComponent data-testid="bdb_width_10" bdb_width_10 />,
       );
-      expect(getByTestId('bbw_10')).toHaveStyle(
+      expect(getByTestId('bdb_width_10')).toHaveStyle(
         'border-bottom-width: 0.625rem;',
       );
     });
 
-    test('blw_10', () => {
+    test('bdl_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="blw_10" blw_10 />,
+        <BorderComponent data-testid="bdl_width_10" bdl_width_10 />,
       );
-      expect(getByTestId('blw_10')).toHaveStyle('border-left-width: 0.625rem;');
+      expect(getByTestId('bdl_width_10')).toHaveStyle(
+        'border-left-width: 0.625rem;',
+      );
     });
 
-    test('brw_10', () => {
+    test('bdr_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="brw_10" brw_10 />,
+        <BorderComponent data-testid="bdr_width_10" bdr_width_10 />,
       );
-      expect(getByTestId('brw_10')).toHaveStyle(
+      expect(getByTestId('bdr_width_10')).toHaveStyle(
         'border-right-width: 0.625rem;',
       );
     });
 
-    test('bxw_10', () => {
+    test('bdx_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bxw_10" bxw_10 />,
+        <BorderComponent data-testid="bdx_width_10" bdx_width_10 />,
       );
-      expect(getByTestId('bxw_10')).toHaveStyle(
+      expect(getByTestId('bdx_width_10')).toHaveStyle(
         'border-right-width: 0.625rem;',
       );
-      expect(getByTestId('bxw_10')).toHaveStyle('border-left-width: 0.625rem;');
+      expect(getByTestId('bdx_width_10')).toHaveStyle(
+        'border-left-width: 0.625rem;',
+      );
     });
 
-    test('byw_10', () => {
+    test('bdy_width_10', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="byw_10" byw_10 />,
+        <BorderComponent data-testid="bdy_width_10" bdy_width_10 />,
       );
-      expect(getByTestId('byw_10')).toHaveStyle('border-top-width: 0.625rem;');
-      expect(getByTestId('byw_10')).toHaveStyle(
+      expect(getByTestId('bdy_width_10')).toHaveStyle(
+        'border-top-width: 0.625rem;',
+      );
+      expect(getByTestId('bdy_width_10')).toHaveStyle(
         'border-bottom-width: 0.625rem;',
       );
     });
   });
 
-  test('b_collapse', () => {
+  test('bd_collapse', () => {
     const { getByTestId } = render(
-      <BorderComponent data-testid="b_collapse" b_collapse />,
+      <BorderComponent data-testid="bd_collapse" bd_collapse />,
     );
-    expect(getByTestId('b_collapse')).toHaveStyle('border-collapse: collapse;');
+    expect(getByTestId('bd_collapse')).toHaveStyle(
+      'border-collapse: collapse;',
+    );
   });
 
-  test('b_separate', () => {
+  test('bd_separate', () => {
     const { getByTestId } = render(
-      <BorderComponent data-testid="b_separate" b_separate />,
+      <BorderComponent data-testid="bd_separate" bd_separate />,
     );
-    expect(getByTestId('b_separate')).toHaveStyle('border-collapse: separate;');
+    expect(getByTestId('bd_separate')).toHaveStyle(
+      'border-collapse: separate;',
+    );
   });
 
   describe('None', () => {
-    test('b_none', () => {
+    test('bd_none', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="b_none" b_none />,
+        <BorderComponent data-testid="bd_none" bd_none />,
       );
-      expect(getByTestId('b_none')).toHaveStyle('border: none;');
+      expect(getByTestId('bd_none')).toHaveStyle('border: none;');
     });
 
     test('bt_none', () => {
@@ -225,11 +250,11 @@ describe('Border', () => {
       expect(getByTestId('bt_none')).toHaveStyle('border-top: none;');
     });
 
-    test('bb_none', () => {
+    test('bbd_none', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bb_none" bb_none />,
+        <BorderComponent data-testid="bbd_none" bbd_none />,
       );
-      expect(getByTestId('bb_none')).toHaveStyle('border-bottom: none;');
+      expect(getByTestId('bbd_none')).toHaveStyle('border-bottom: none;');
     });
 
     test('bl_none', () => {
@@ -263,281 +288,95 @@ describe('Border', () => {
     });
   });
 
-  describe('Circular', () => {
-    test('b_circular', () => {
+  describe('Radius', () => {
+    test('bd_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="b_circular" b_circular />,
+        <BorderComponent data-testid="bd_radius_100$" bd_radius_100$ />,
       );
-      expect(getByTestId('b_circular')).toHaveStyle('border-radius: 100%;');
+      expect(getByTestId('bd_radius_100$')).toHaveStyle('border-radius: 100%;');
     });
 
-    test('btr_circular', () => {
+    test('bdtr_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="btr_circular" btr_circular />,
+        <BorderComponent data-testid="bdtr_radius_100$" bdtr_radius_100$ />,
       );
-      expect(getByTestId('btr_circular')).toHaveStyle(
+      expect(getByTestId('bdtr_radius_100$')).toHaveStyle(
         'border-top-right-radius: 100%;',
       );
     });
 
-    test('btl_circular', () => {
+    test('bdtl_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="btl_circular" btl_circular />,
+        <BorderComponent data-testid="bdtl_radius_100$" bdtl_radius_100$ />,
       );
-      expect(getByTestId('btl_circular')).toHaveStyle(
+      expect(getByTestId('bdtl_radius_100$')).toHaveStyle(
         'border-top-left-radius: 100%;',
       );
     });
 
-    test('bbr_circular', () => {
+    test('bdbr_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bbr_circular" bbr_circular />,
+        <BorderComponent data-testid="bdbr_radius_100$" bdbr_radius_100$ />,
       );
-      expect(getByTestId('bbr_circular')).toHaveStyle(
+      expect(getByTestId('bdbr_radius_100$')).toHaveStyle(
         'border-bottom-right-radius: 100%;',
       );
     });
 
-    test('bbl_circular', () => {
+    test('bdbl_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bbl_circular" bbl_circular />,
+        <BorderComponent data-testid="bdbl_radius_100$" bdbl_radius_100$ />,
       );
-      expect(getByTestId('bbl_circular')).toHaveStyle(
+      expect(getByTestId('bdbl_radius_100$')).toHaveStyle(
         'border-bottom-left-radius: 100%;',
       );
     });
 
-    test('br_circular', () => {
+    test('bdr_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="br_circular" br_circular />,
+        <BorderComponent data-testid="bdr_radius_100$" bdr_radius_100$ />,
       );
-      expect(getByTestId('br_circular')).toHaveStyle(
+      expect(getByTestId('bdr_radius_100$')).toHaveStyle(
         'border-top-right-radius: 100%;',
       );
-      expect(getByTestId('br_circular')).toHaveStyle(
+      expect(getByTestId('bdr_radius_100$')).toHaveStyle(
         'border-bottom-right-radius: 100%;',
       );
     });
 
-    test('bl_circular', () => {
+    test('bdl_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bl_circular" bl_circular />,
+        <BorderComponent data-testid="bdl_radius_100$" bdl_radius_100$ />,
       );
-      expect(getByTestId('bl_circular')).toHaveStyle(
+      expect(getByTestId('bdl_radius_100$')).toHaveStyle(
         'border-top-left-radius: 100%;',
       );
-      expect(getByTestId('bl_circular')).toHaveStyle(
+      expect(getByTestId('bdl_radius_100$')).toHaveStyle(
         'border-bottom-left-radius: 100%;',
       );
     });
 
-    test('bb_circular', () => {
+    test('bdb_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bb_circular" bb_circular />,
+        <BorderComponent data-testid="bdb_radius_100$" bdb_radius_100$ />,
       );
-      expect(getByTestId('bb_circular')).toHaveStyle(
+      expect(getByTestId('bdb_radius_100$')).toHaveStyle(
         'border-bottom-right-radius: 100%;',
       );
-      expect(getByTestId('bb_circular')).toHaveStyle(
+      expect(getByTestId('bdb_radius_100$')).toHaveStyle(
         'border-bottom-left-radius: 100%;',
       );
     });
 
-    test('bt_circular', () => {
+    test('bdt_radius_100$', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bt_circular" bt_circular />,
+        <BorderComponent data-testid="bdt_radius_100$" bdt_radius_100$ />,
       );
-      expect(getByTestId('bt_circular')).toHaveStyle(
+      expect(getByTestId('bdt_radius_100$')).toHaveStyle(
         'border-top-right-radius: 100%;',
       );
-      expect(getByTestId('bt_circular')).toHaveStyle(
+      expect(getByTestId('bdt_radius_100$')).toHaveStyle(
         'border-top-left-radius: 100%;',
-      );
-    });
-  });
-
-  describe('Rounded', () => {
-    test('b_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="b_rounded" b_rounded />,
-      );
-      expect(getByTestId('b_rounded')).toHaveStyle('border-radius: 5rem;');
-    });
-
-    test('btr_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="btr_rounded" btr_rounded />,
-      );
-      expect(getByTestId('btr_rounded')).toHaveStyle(
-        'border-top-right-radius: 5rem;',
-      );
-    });
-
-    test('btl_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="btl_rounded" btl_rounded />,
-      );
-      expect(getByTestId('btl_rounded')).toHaveStyle(
-        'border-top-left-radius: 5rem;',
-      );
-    });
-
-    test('bbr_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bbr_rounded" bbr_rounded />,
-      );
-      expect(getByTestId('bbr_rounded')).toHaveStyle(
-        'border-bottom-right-radius: 5rem;',
-      );
-    });
-
-    test('bbl_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bbl_rounded" bbl_rounded />,
-      );
-      expect(getByTestId('bbl_rounded')).toHaveStyle(
-        'border-bottom-left-radius: 5rem;',
-      );
-    });
-
-    test('br_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="br_rounded" br_rounded />,
-      );
-      expect(getByTestId('br_rounded')).toHaveStyle(
-        'border-top-right-radius: 5rem;',
-      );
-      expect(getByTestId('br_rounded')).toHaveStyle(
-        'border-bottom-right-radius: 5rem;',
-      );
-    });
-
-    test('bl_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bl_rounded" bl_rounded />,
-      );
-      expect(getByTestId('bl_rounded')).toHaveStyle(
-        'border-top-left-radius: 5rem;',
-      );
-      expect(getByTestId('bl_rounded')).toHaveStyle(
-        'border-bottom-left-radius: 5rem;',
-      );
-    });
-
-    test('bb_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bb_rounded" bb_rounded />,
-      );
-      expect(getByTestId('bb_rounded')).toHaveStyle(
-        'border-bottom-right-radius: 5rem;',
-      );
-      expect(getByTestId('bb_rounded')).toHaveStyle(
-        'border-bottom-left-radius: 5rem;',
-      );
-    });
-
-    test('bt_rounded', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bt_rounded" bt_rounded />,
-      );
-      expect(getByTestId('bt_rounded')).toHaveStyle(
-        'border-top-right-radius: 5rem;',
-      );
-      expect(getByTestId('bt_rounded')).toHaveStyle(
-        'border-top-left-radius: 5rem;',
-      );
-    });
-  });
-
-  describe('Edge', () => {
-    test('b_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="b_edge" b_edge />,
-      );
-      expect(getByTestId('b_edge')).toHaveStyle('border-radius: .5rem;');
-    });
-
-    test('btr_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="btr_edge" btr_edge />,
-      );
-      expect(getByTestId('btr_edge')).toHaveStyle(
-        'border-top-right-radius: .5rem;',
-      );
-    });
-
-    test('btl_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="btl_edge" btl_edge />,
-      );
-      expect(getByTestId('btl_edge')).toHaveStyle(
-        'border-top-left-radius: .5rem;',
-      );
-    });
-
-    test('bbr_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bbr_edge" bbr_edge />,
-      );
-      expect(getByTestId('bbr_edge')).toHaveStyle(
-        'border-bottom-right-radius: .5rem;',
-      );
-    });
-
-    test('bbl_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bbl_edge" bbl_edge />,
-      );
-      expect(getByTestId('bbl_edge')).toHaveStyle(
-        'border-bottom-left-radius: .5rem;',
-      );
-    });
-
-    test('br_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="br_edge" br_edge />,
-      );
-      expect(getByTestId('br_edge')).toHaveStyle(
-        'border-top-right-radius: .5rem;',
-      );
-      expect(getByTestId('br_edge')).toHaveStyle(
-        'border-bottom-right-radius: .5rem;',
-      );
-    });
-
-    test('bl_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bl_edge" bl_edge />,
-      );
-      expect(getByTestId('bl_edge')).toHaveStyle(
-        'border-top-left-radius: .5rem;',
-      );
-      expect(getByTestId('bl_edge')).toHaveStyle(
-        'border-bottom-left-radius: .5rem;',
-      );
-    });
-
-    test('bb_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bb_edge" bb_edge />,
-      );
-      expect(getByTestId('bb_edge')).toHaveStyle(
-        'border-bottom-right-radius: .5rem;',
-      );
-      expect(getByTestId('bb_edge')).toHaveStyle(
-        'border-bottom-left-radius: .5rem;',
-      );
-    });
-
-    test('bt_edge', () => {
-      const { getByTestId } = render(
-        <BorderComponent data-testid="bt_edge" bt_edge />,
-      );
-      expect(getByTestId('bt_edge')).toHaveStyle(
-        'border-top-right-radius: .5rem;',
-      );
-      expect(getByTestId('bt_edge')).toHaveStyle(
-        'border-top-left-radius: .5rem;',
       );
     });
   });
