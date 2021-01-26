@@ -1,5 +1,6 @@
 import { NUMBER } from '../constants';
-import { rem } from '../utils';
+import { handleSize } from '../utils/handleSize';
+import { sym } from '../utils/sym';
 
 /**
  * Module for `spacing` options
@@ -10,63 +11,40 @@ import { rem } from '../utils';
  * <Component p_10 m_10 />
  * ```
  */
-export const spacing = [
-  [
-    ['m_' as 'm_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin:${rem(value)};`,
-  ],
-  [
-    ['mt_' as 'mt_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin-top:${rem(value)};`,
-  ],
-  [
-    ['mb_' as 'mb_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin-bottom:${rem(value)};`,
-  ],
-  [
-    ['ml_' as 'ml_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin-left:${rem(value)};`,
-  ],
-  [
-    ['mr_' as 'mr_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin-right:${rem(value)};`,
-  ],
-  [
-    ['mx_' as 'mx_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin-left:${rem(value)};margin-right:${rem(value)};`,
-  ],
-  [
-    ['my_' as 'my_NUMBER', `(${NUMBER}|auto)`],
-    (value: string) => `margin-top:${rem(value)};margin-bottom:${rem(value)};`,
-  ],
-  [
-    ['p_' as 'p_NUMBER', `(${NUMBER})`],
-    (value: string) => `padding:${rem(value)};`,
-  ],
-  [
-    ['pt_' as 'pt_NUMBER', `(${NUMBER})`],
-    (value: string) => `padding-top:${rem(value)};`,
-  ],
-  [
-    ['pb_' as 'pb_NUMBER', `(${NUMBER})`],
-    (value: string) => `padding-bottom:${rem(value)};`,
-  ],
-  [
-    ['pl_' as 'pl_NUMBER', `(${NUMBER})`],
-    (value: string) => `padding-left:${rem(value)};`,
-  ],
-  [
-    ['pr_' as 'pr_NUMBER', `(${NUMBER})`],
-    (value: string) => `padding-right:${rem(value)};`,
-  ],
-  [
-    ['px_' as 'px_NUMBER', `(${NUMBER})`],
-    (value: string) =>
-      `padding-left:${rem(value)};padding-right:${rem(value)};`,
-  ],
-  [
-    ['py_' as 'py_NUMBER', `(${NUMBER})`],
-    (value: string) =>
-      `padding-top:${rem(value)};padding-bottom:${rem(value)};`,
-  ],
-] as const;
+export const spacing = {
+  m_auto: () => 'margin:auto;',
+  mt_auto: () => 'margin-top:auto;',
+  mb_auto: () => 'margin-bottom:auto;',
+  ml_auto: () => 'margin-left:auto;',
+  mr_auto: () => 'margin-right:auto;',
+  mx_auto: () => 'margin-right:auto;margin-left:auto;',
+  my_auto: () => 'margin-top:auto;margin-bottom:auto;',
+  [sym<'m_NUMBER'>(`m_(${NUMBER})`)]: (value: string) =>
+    `margin:${handleSize(value)};`,
+  [sym<'mt_NUMBER'>(`mt_(${NUMBER})`)]: (value: string) =>
+    `margin-top:${handleSize(value)};`,
+  [sym<'mb_NUMBER'>(`mb_(${NUMBER})`)]: (value: string) =>
+    `margin-bottom:${handleSize(value)};`,
+  [sym<'ml_NUMBER'>(`ml_(${NUMBER})`)]: (value: string) =>
+    `margin-left:${handleSize(value)};`,
+  [sym<'mr_NUMBER'>(`mr_(${NUMBER})`)]: (value: string) =>
+    `margin-right:${handleSize(value)};`,
+  [sym<'mx_NUMBER'>(`mx_(${NUMBER})`)]: (value: string) =>
+    `margin-right:${handleSize(value)};margin-left:${handleSize(value)};`,
+  [sym<'my_NUMBER'>(`my_(${NUMBER})`)]: (value: string) =>
+    `margin-top:${handleSize(value)};margin-bottom:${handleSize(value)};`,
+  [sym<'p_NUMBER'>(`p_(${NUMBER})`)]: (value: string) =>
+    `padding:${handleSize(value)};`,
+  [sym<'pt_NUMBER'>(`pt_(${NUMBER})`)]: (value: string) =>
+    `padding-top:${handleSize(value)};`,
+  [sym<'pb_NUMBER'>(`pb_(${NUMBER})`)]: (value: string) =>
+    `padding-bottom:${handleSize(value)};`,
+  [sym<'pl_NUMBER'>(`pl_(${NUMBER})`)]: (value: string) =>
+    `padding-left:${handleSize(value)};`,
+  [sym<'pr_NUMBER'>(`pr_(${NUMBER})`)]: (value: string) =>
+    `padding-right:${handleSize(value)};`,
+  [sym<'px_NUMBER'>(`px_(${NUMBER})`)]: (value: string) =>
+    `padding-right:${handleSize(value)};padding-left:${handleSize(value)};`,
+  [sym<'py_NUMBER'>(`py_(${NUMBER})`)]: (value: string) =>
+    `padding-top:${handleSize(value)};padding-bottom:${handleSize(value)};`,
+};

@@ -1,4 +1,4 @@
-import { LETTER, LOWER_CASE, NUMBER } from '../constants';
+import { sym } from '../utils/sym';
 
 /**
  * Module for `grid` options
@@ -9,47 +9,25 @@ import { LETTER, LOWER_CASE, NUMBER } from '../constants';
  * <Component grid rows_1fr_auto_1px area_myArea />
  * ```
  */
-export const grid = [
-  ['grid', () => 'display:grid;'],
-  [
-    'areas',
-    (areas: string) =>
-      `grid-template-areas:${String(areas).replace(/\n|\s+\s/gm, '')};`,
-  ],
-  [
-    ['rows_' as 'rows_FRACTIONS', `((${NUMBER}${LOWER_CASE}|auto)(.*))`],
-    (value: string) => `grid-template-rows:${value};`,
-  ],
-  [
-    ['cols_' as 'cols_FRACTIONS', `((${NUMBER}${LOWER_CASE}|auto)(.*))`],
-    (value: string) => `grid-template-columns:${value};`,
-  ],
-  [
-    ['area_' as 'area_AREA', `(${LETTER})`],
-    (value: string) => `grid-area:${value};`,
-  ],
-  [
-    ['cols_span_' as 'cols_span_NUMBER', `(${NUMBER})`],
-    (value: string) => `grid-column:span ${value} / span ${value};`,
-  ],
-  [
-    ['rows_span_' as 'rows_span_NUMBER', `(${NUMBER})`],
-    (value: string) => `grid-row:span ${value} / span ${value};`,
-  ],
-  [
-    ['cols_start_' as 'cols_start_NUMBER', `(${NUMBER})`],
-    (value: string) => `grid-column-start:${value};`,
-  ],
-  [
-    ['cols_end_' as 'cols_end_NUMBER', `(${NUMBER})`],
-    (value: string) => `grid-column-end:${value};`,
-  ],
-  [
-    ['rows_start_' as 'rows_start_NUMBER', `(${NUMBER})`],
-    (value: string) => `grid-row-start:${value};`,
-  ],
-  [
-    ['rows_end_' as 'rows_end_NUMBER', `(${NUMBER})`],
-    (value: string) => `grid-row-end:${value};`,
-  ],
-] as const;
+export const grid = {
+  grid: () => 'display:grid;',
+  areas: (areas: string) =>
+    `grid-template-areas:${String(areas).replace(/\n|\s+\s/gm, '')};`,
+  [sym<'rows_FRACTIONS'>('rows_(.*)')]: (value: string) =>
+    `grid-template-rows:${value};`,
+  [sym<'cols_FRACTIONS'>('cols_(.*)')]: (value: string) =>
+    `grid-template-columns:${value};`,
+  [sym<'area_AREA'>('area_(.*)')]: (value: string) => `grid-area:${value};`,
+  [sym<'cols_span_NUMBER'>('cols_span_(.*)')]: (value: string) =>
+    `grid-column:span ${value} / span ${value};`,
+  [sym<'rows_span_NUMBER'>('rows_span_(.*)')]: (value: string) =>
+    `grid-row:span ${value} / span ${value};`,
+  [sym<'cols_start_NUMBER'>('cols_start_(.*)')]: (value: string) =>
+    `grid-column-start:${value};`,
+  [sym<'cols_end_NUMBER'>('cols_end_(.*)')]: (value: string) =>
+    `grid-column-end:${value};`,
+  [sym<'rows_start_NUMBER'>('rows_start_(.*)')]: (value: string) =>
+    `grid-row-start:${value};`,
+  [sym<'rows_end_NUMBER'>('rows_end_(.*)')]: (value: string) =>
+    `grid-row-end:${value};`,
+};
