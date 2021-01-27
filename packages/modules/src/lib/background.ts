@@ -1,5 +1,4 @@
-import { handleColor } from '../utils';
-import { sym } from '../utils/sym';
+import { handleColor, sym } from '../utils';
 
 /**
  * Module for `background` options

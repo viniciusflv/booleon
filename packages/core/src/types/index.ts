@@ -4,7 +4,7 @@ import { PSEUDO_ELEMENTS, MEDIA_QUERIES, KEYFRAMES } from '../constants';
 export type Tuple<T> = readonly T[];
 
 /** Generic React Props */
-export type Props<K extends string | number = string, V = any> = {
+export type Props<K extends string | number | symbol = string, V = any> = {
   [key in K]?: V;
 };
 
@@ -12,34 +12,24 @@ export type Props<K extends string | number = string, V = any> = {
 export type BooleonIndexer = string | Tuple<string>;
 
 /** Function that runs once @type {Props} matches @type {BooleonIndexer} */
-export type BooleonCallback = (value?: any) => string;
+export type BooleonCallback = (value?: any) => any;
 
 /**
  * Key value structure similar to a @type {Map} entry
  * @example
- * [
- *  ['match', () => 'css'],
- *  [['match', '_(regex)'], (regexGroupValue) => `customCss: ${regexGroupValue};`]
- * ]
+ * {
+ *  [Symbol('key_(.*)')]: (value: string) => `css-${value}`
+ *  key: () => 'css'
+ * }
  * */
-export type BooleonModule = readonly (readonly [
-  BooleonIndexer,
-  BooleonCallback | readonly [BooleonCallback, BooleonModule],
-])[];
+export type BooleonModule = {
+  [key in string]: BooleonCallback;
+};
 
 /**
  * Extract @type {BooleonIndexer} and returns a string literal type
  */
-export type BooleonModuleKeys<T> = T extends readonly (readonly [
-  infer K,
-  BooleonCallback,
-])[]
-  ? K extends string
-    ? K
-    : K extends readonly string[]
-    ? K[0]
-    : never
-  : never;
+export type BooleonModuleKeys<T> = keyof T;
 
 /**
  * @type {BooleonCallback} arg is a string and/or boolean type
@@ -90,7 +80,10 @@ export type BooleonProps<M extends BooleonModule> =
 /**
  * @type {BooleonProps} and @type {React.HTMLProps<any>}
  */
-export type BooleonHtmlProps<M extends BooleonModule> = React.HTMLProps<any> &
+export type BooleonHtmlProps<M extends BooleonModule> = Omit<
+  React.HTMLProps<any>,
+  'content'
+> &
   BooleonProps<M>;
 
 /**

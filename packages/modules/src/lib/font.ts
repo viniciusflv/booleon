@@ -1,4 +1,4 @@
-import { handleColor } from '../utils';
+import { handleColor, rem } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
 
@@ -19,13 +19,13 @@ export const font = {
   [sym<'ft_color_COLOR'>('ft_color_(.*)')]: (value: string) =>
     `color:${handleColor(value)};`,
   [sym<'ft_size_NUMBER'>('ft_size_(.*)')]: (value: string) =>
-    `font-size:${handleSize(value)};`,
+    `font-size:${handleSize(value, rem)};`,
   [sym<'ft_spacing_NUMBER'>('ft_spacing_(.*)')]: (value: string) =>
-    `letter-spacing:${handleSize(value)};`,
+    `letter-spacing:${handleSize(value, rem)};`,
   [sym<'ft_height_NUMBER'>('ft_height_(.*)')]: (value: string) =>
-    `line-height:${handleSize(value)};`,
+    `line-height:${handleSize(value, rem)};`,
   [sym<'ft_family_FAMILY'>('ft_family_(.*)')]: (value: string) =>
-    `font-family:${value};`,
+    `font-family:${value.replace(/_/g, ' ')};`,
   ft_family_sans: () => 'font-family:sans-serif;',
   ft_family_serif: () => 'font-family:serif;',
   ft_family_mono: () => 'font-family:monospace;',
@@ -44,6 +44,7 @@ export const font = {
   ft_align_initial: () => 'text-align:initial;',
   ft_align_inherit: () => 'text-align:inherit;',
   ft_transform_none: () => 'text-transform:none;',
+  ft_transform_normal: () => 'text-transform:normal;',
   ft_transform_capitalize: () => 'text-transform:capitalize;',
   ft_transform_uppercase: () => 'text-transform:uppercase;',
   ft_transform_lowercase: () => 'text-transform:lowercase;',

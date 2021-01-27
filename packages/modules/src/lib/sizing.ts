@@ -1,4 +1,4 @@
-import { NUMBER } from '../constants';
+import { rem } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
 
@@ -12,22 +12,22 @@ import { sym } from '../utils/sym';
  * ```
  */
 export const sizing = {
-  [sym<'h_NUMBER'>(`h_(${NUMBER})`)]: (value: string) =>
-    `height:${handleSize(value)};`,
-  [sym<'h_max_NUMBER'>(`h_max_(${NUMBER})`)]: (value: string) =>
-    `max-height:${handleSize(value)};`,
-  [sym<'h_min_NUMBER'>(`h_min_(${NUMBER})`)]: (value: string) =>
-    `min-height:${handleSize(value)};`,
-  [sym<'h_min_NUMBER'>(`h_min_(${NUMBER})`)]: (value: string) =>
-    `min-height:${handleSize(value)};`,
-  [sym<'w_NUMBER'>(`w_(${NUMBER})`)]: (value: string) =>
-    `width:${handleSize(value)};`,
-  [sym<'w_max_NUMBER'>(`w_max_(${NUMBER})`)]: (value: string) =>
-    `max-width:${handleSize(value)};`,
-  [sym<'w_min_NUMBER'>(`w_min_(${NUMBER})`)]: (value: string) =>
-    `min-width:${handleSize(value)};`,
-  [sym<'w_min_NUMBER'>(`w_min_(${NUMBER})`)]: (value: string) =>
-    `min-width:${handleSize(value)};`,
+  [sym<'h_NUMBER'>('h_(.*)')]: (value: string) =>
+    `height:${handleSize(value, rem)};`,
+  [sym<'h_max_NUMBER'>('h_max_(.*)')]: (value: string) =>
+    `max-height:${handleSize(value, rem)};`,
+  [sym<'h_min_NUMBER'>('h_min_(.*)')]: (value: string) =>
+    `min-height:${handleSize(value, rem)};`,
+  [sym<'h_min_NUMBER'>('h_min_(.*)')]: (value: string) =>
+    `min-height:${handleSize(value, rem)};`,
+  [sym<'w_NUMBER'>('w_(.*)')]: (value: string) =>
+    `width:${handleSize(value, rem)};`,
+  [sym<'w_max_NUMBER'>('w_max_(.*)')]: (value: string) =>
+    `max-width:${handleSize(value, rem)};`,
+  [sym<'w_min_NUMBER'>('w_min_(.*)')]: (value: string) =>
+    `min-width:${handleSize(value, rem)};`,
+  [sym<'w_min_NUMBER'>('w_min_(.*)')]: (value: string) =>
+    `min-width:${handleSize(value, rem)};`,
   h_full: () => 'height:100%;',
   h_max_full: () => 'max-height:100%;',
   h_min_full: () => 'min-height:100%;',

@@ -8,8 +8,7 @@ import {
   propsReducer,
   classCompiler,
   stringHash,
-} from '@booleon/core';
-
+} from '../../../core/src';
 import { reactStyleAppender } from './reactStyleAppender';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
@@ -27,12 +26,18 @@ export function useBooleon<P extends Props, M extends BooleonModule[]>(
   const ssr = reactStyleAppender(id, () => {
     let acc = '';
 
-    const reducedBooleon = propsReducer(booleonProps, modules.flat());
+    const reducedBooleon = propsReducer(
+      booleonProps,
+      Object.assign({}, ...modules),
+    );
     acc += classCompiler(`.${id}`, reducedBooleon);
 
     if (booleonThemes) {
       Object.keys(booleonThemes).forEach((key) => {
-        const reducedTheme = propsReducer(booleonThemes[key], modules.flat());
+        const reducedTheme = propsReducer(
+          booleonThemes[key],
+          Object.assign({}, ...modules),
+        );
         acc += classCompiler(`body[data-theme='${key}'] .${id}`, reducedTheme);
       });
     }

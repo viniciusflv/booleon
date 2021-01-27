@@ -11,7 +11,7 @@ export default {
   title: 'Benchmark',
 };
 
-const Booleon = booleon.div(...modules);
+const Booleon = booleon.div(modules);
 const Emotion = emotion.div<any>`
   ${({ flex }) => flex && 'display:flex;'}
   ${({ grow }) => grow && 'flex-grow:1;'}

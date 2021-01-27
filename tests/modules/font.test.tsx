@@ -4,14 +4,10 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 import { font } from '../../packages/modules/src/lib/font';
-import { hocBooleon } from '../../packages/react/src';
+import { booleon } from '../../packages/react/src';
 
 describe('Font', () => {
-  let FontComponent;
-
-  beforeAll(() => {
-    FontComponent = hocBooleon((props) => <div {...props} />, font);
-  });
+  const FontComponent = booleon.div(font);
 
   describe('Style', () => {
     test('ft_border_000', () => {

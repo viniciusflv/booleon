@@ -4,14 +4,10 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 import { grid } from '../../packages/modules/src/lib/grid';
-import { hocBooleon } from '../../packages/react/src';
+import { booleon } from '../../packages/react/src';
 
 describe('Grid', () => {
-  let GridComponent;
-
-  beforeAll(() => {
-    GridComponent = hocBooleon((props) => <div {...props} />, grid);
-  });
+  const GridComponent = booleon.div(grid);
 
   test('rows', () => {
     const { getByTestId } = render(

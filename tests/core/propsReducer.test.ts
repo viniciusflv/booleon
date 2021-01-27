@@ -1,4 +1,5 @@
 import { propsReducer } from '../../packages/core/src';
+import { flex } from '../../packages/modules/src';
 
 test('propsReducer', () => {
   const res = propsReducer(
@@ -34,7 +35,7 @@ test('propsReducer', () => {
       to__flex: true,
       focus__within__after__before__active__checked__disabled__hover__visited__child__last__first__sibling__odd__even__flex: true,
     },
-    [['flex', () => 'display:flex;']],
+    flex,
   );
   expect(res).toStrictEqual({
     css: 'display:flex;',

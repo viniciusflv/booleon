@@ -149,11 +149,11 @@ describe('Border', () => {
   });
 
   describe('Width', () => {
-    test('bd_width_10', () => {
+    test('bd_width_10px', () => {
       const { getByTestId } = render(
-        <BorderComponent data-testid="bd_width_10" bd_width_10 />,
+        <BorderComponent data-testid="bd_width_10px" bd_width_10px />,
       );
-      expect(getByTestId('bd_width_10')).toHaveStyle('border-width: 0.625rem;');
+      expect(getByTestId('bd_width_10px')).toHaveStyle('border-width: 10px;');
     });
 
     test('bdt_width_10', () => {

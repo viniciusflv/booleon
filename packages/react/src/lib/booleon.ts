@@ -1,5 +1,4 @@
-import { BooleonModule } from '@booleon/core';
-
+import { BooleonModule } from '../../../core/src';
 import { DOM_ELEMENTS } from '../constants';
 import { createBooleon } from './createBooleon';
 import { hocBooleon } from './hocBooleon';

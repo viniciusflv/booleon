@@ -4,29 +4,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
+import modules from '../../packages/modules/src/lib';
 import { booleon } from '../../packages/react/src';
+
+const MyComponent = booleon.section(modules);
 
 describe('SSR', () => {
   test('renderToString', () => {
-    const MyComponent = booleon.section([
-      ['flex', () => 'display:flex;'],
-    ] as const);
     const string = ReactDOM.renderToString(<MyComponent flex />);
     expect(string).toMatchSnapshot();
   });
 
   test('renderToStaticMarkup', () => {
-    const MyComponent = booleon.section([
-      ['flex', () => 'display:flex;'],
-    ] as const);
     const string = ReactDOM.renderToStaticMarkup(<MyComponent flex />);
     expect(string).toMatchSnapshot();
   });
 
   test('renderToNodeStream', async (done) => {
-    const MyComponent = booleon.section([
-      ['flex', () => 'display:flex;'],
-    ] as const);
     const stream = ReactDOM.renderToNodeStream(<MyComponent flex />);
     const string = await new Promise((resolve, reject) => {
       let received = '';
@@ -41,9 +35,6 @@ describe('SSR', () => {
   });
 
   test('renderToStaticNodeStream', async (done) => {
-    const MyComponent = booleon.section([
-      ['flex', () => 'display:flex;'],
-    ] as const);
     const staticStream = ReactDOM.renderToStaticNodeStream(
       <MyComponent flex />,
     );

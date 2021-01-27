@@ -4,15 +4,10 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 import { background } from '../../packages/modules/src/lib/background';
-import { hocBooleon } from '../../packages/react/src';
+import { booleon } from '../../packages/react/src';
 
+const BackgroundComponent = booleon.div(background);
 describe('Background', () => {
-  let BackgroundComponent;
-
-  beforeAll(() => {
-    BackgroundComponent = hocBooleon((props) => <div {...props} />, background);
-  });
-
   test('bg_color_HEX', () => {
     const { getByTestId } = render(
       <BackgroundComponent data-testid="bg_color_HEX" bg_color_fff />,

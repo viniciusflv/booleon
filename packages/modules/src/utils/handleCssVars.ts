@@ -4,7 +4,7 @@ export function handleCssVars(
   cb: (values: string) => string,
 ) {
   if (values.startsWith('var')) {
-    return `var(--${values.replace('var', scope).replace(/\s/g, '-')})`;
+    return `var(--${values.replace('var', scope).replace(/_/g, '-')})`;
   }
   return cb(values);
 }

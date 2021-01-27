@@ -1,11 +1,10 @@
 import { handleCssVars } from './handleCssVars';
-import { rem } from './rem';
 
-export function handleSize(value: string, addUnit = true) {
+export function handleSize(value: string, cb?: (str: string) => string) {
   return handleCssVars('sizes', value, () => {
     const size = value.replace('neg_', '-').replace('$', '%');
     const number = Number(size);
     const nan = isNaN(number);
-    return nan ? size : addUnit ? rem(size) : size;
+    return nan ? size : cb ? cb(size) : size;
   });
 }

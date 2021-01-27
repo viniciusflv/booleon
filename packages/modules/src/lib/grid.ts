@@ -14,9 +14,9 @@ export const grid = {
   areas: (areas: string) =>
     `grid-template-areas:${String(areas).replace(/\n|\s+\s/gm, '')};`,
   [sym<'rows_FRACTIONS'>('rows_(.*)')]: (value: string) =>
-    `grid-template-rows:${value};`,
+    `grid-template-rows:${value.replace(/_/g, ' ')};`,
   [sym<'cols_FRACTIONS'>('cols_(.*)')]: (value: string) =>
-    `grid-template-columns:${value};`,
+    `grid-template-columns:${value.replace(/_/g, ' ')};`,
   [sym<'area_AREA'>('area_(.*)')]: (value: string) => `grid-area:${value};`,
   [sym<'cols_span_NUMBER'>('cols_span_(.*)')]: (value: string) =>
     `grid-column:span ${value} / span ${value};`,

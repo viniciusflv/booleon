@@ -1,4 +1,4 @@
-import { sym } from '../utils/sym';
+import { sym } from '../utils';
 
 /**
  * Module for `animation` options
@@ -20,8 +20,8 @@ export const animation = {
   [sym<'ani_iteration_NUMBER'>('ani_iteration_(.*)')]: (value: string) =>
     `animation-iteration-count:${value};`,
   ani_iteration_infinite: () => 'animation-iteration-count:infinite;',
-  ani_pause: () => 'animation-play-state: paused;',
-  ani_play: () => 'animation-play-state: running;',
+  ani_pause: () => 'animation-play-state:paused;',
+  ani_play: () => 'animation-play-state:running;',
   ani_forwards: () => 'animation-fill-mode:forwards;',
   ani_backwards: () => 'animation-fill-mode:backwards;',
   ani_linear: () => 'animation-timing-function:linear;',

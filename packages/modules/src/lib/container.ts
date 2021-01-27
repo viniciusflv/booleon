@@ -1,6 +1,4 @@
-import { percentage } from '../utils';
-import { handleSize } from '../utils/handleSize';
-import { sym } from '../utils/sym';
+import { percentage, rem, handleSize, sym } from '../utils';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 
@@ -14,17 +12,18 @@ const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
  * ```
  */
 export const container = {
-  [sym<'z_NUMBER'>('z_(.*)')]: (value: string) => `z-index:${value};`,
+  [sym<'z_NUMBER'>('z_(.*)')]: (value: string) =>
+    `z-index:${handleSize(value)};`,
   [sym<'op_NUMBER'>('op_(.*)')]: (value: string) =>
-    `opacity:${percentage(value)};`,
+    `opacity:${handleSize(value, percentage)};`,
   [sym<'top_NUMBER'>('top_(.*)')]: (value: string) =>
-    `top:${handleSize(value)};`,
+    `top:${handleSize(value, rem)};`,
   [sym<'bottom_NUMBER'>('bottom_(.*)')]: (value: string) =>
-    `bottom:${handleSize(value)};`,
+    `bottom:${handleSize(value, rem)};`,
   [sym<'left_NUMBER'>('left_(.*)')]: (value: string) =>
-    `left:${handleSize(value)};`,
+    `left:${handleSize(value, rem)};`,
   [sym<'right_NUMBER'>('right_(.*)')]: (value: string) =>
-    `right:${handleSize(value)};`,
+    `right:${handleSize(value, rem)};`,
   z_max: () => `z-index:${MAX_SAFE_INTEGER};`,
   z_auto: () => 'z-index:auto;',
   sc_auto: () => 'overflow:auto;',
@@ -59,6 +58,6 @@ export const container = {
   rz: () => 'resize:both;',
   rzy: () => 'resize:vertical;',
   rzx: () => 'resize:horizontal;',
-  content: () => (value: string) =>
+  content: (value: string) =>
     `content:${typeof value === 'string' ? value : '""'};`,
 };

@@ -60,68 +60,70 @@ describe('Transform', () => {
   });
 
   describe('Skew', () => {
-    test('sk_30', () => {
+    test('sk_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="sk_30" sk_30 />,
+        <TransformComponent data-testid="sk_30deg" sk_30deg />,
       );
-      expect(getByTestId('sk_30')).toHaveStyle('transform: skew(30deg,30deg);');
+      expect(getByTestId('sk_30deg')).toHaveStyle(
+        'transform: skew(30deg,30deg);',
+      );
     });
 
-    test('skx_30', () => {
+    test('skx_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="skx_30" skx_30 />,
+        <TransformComponent data-testid="skx_30deg" skx_30deg />,
       );
-      expect(getByTestId('skx_30')).toHaveStyle('transform: skewX(30deg);');
+      expect(getByTestId('skx_30deg')).toHaveStyle('transform: skewX(30deg);');
     });
 
-    test('sky_30', () => {
+    test('sky_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="sky_30" sky_30 />,
+        <TransformComponent data-testid="sky_30deg" sky_30deg />,
       );
-      expect(getByTestId('sky_30')).toHaveStyle('transform: skewY(30deg);');
+      expect(getByTestId('sky_30deg')).toHaveStyle('transform: skewY(30deg);');
     });
 
-    test('sk_neg_30', () => {
+    test('sk_neg_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="sk_neg_30" sk_neg_30 />,
+        <TransformComponent data-testid="sk_neg_30deg" sk_neg_30deg />,
       );
-      expect(getByTestId('sk_neg_30')).toHaveStyle(
+      expect(getByTestId('sk_neg_30deg')).toHaveStyle(
         'transform: skew(-30deg,-30deg);',
       );
     });
 
-    test('skx_neg_30', () => {
+    test('skx_neg_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="skx_neg_30" skx_neg_30 />,
+        <TransformComponent data-testid="skx_neg_30deg" skx_neg_30deg />,
       );
-      expect(getByTestId('skx_neg_30')).toHaveStyle(
+      expect(getByTestId('skx_neg_30deg')).toHaveStyle(
         'transform: skewX(-30deg);',
       );
     });
 
-    test('sky_neg_30', () => {
+    test('sky_neg_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="sky_neg_30" sky_neg_30 />,
+        <TransformComponent data-testid="sky_neg_30deg" sky_neg_30deg />,
       );
-      expect(getByTestId('sky_neg_30')).toHaveStyle(
+      expect(getByTestId('sky_neg_30deg')).toHaveStyle(
         'transform: skewY(-30deg);',
       );
     });
   });
 
   describe('Rotate', () => {
-    test('rt_30', () => {
+    test('rt_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="rt_30" rt_30 />,
+        <TransformComponent data-testid="rt_30deg" rt_30deg />,
       );
-      expect(getByTestId('rt_30')).toHaveStyle('transform: rotate(30deg);');
+      expect(getByTestId('rt_30deg')).toHaveStyle('transform: rotate(30deg);');
     });
 
-    test('rt_neg_30', () => {
+    test('rt_neg_30deg', () => {
       const { getByTestId } = render(
-        <TransformComponent data-testid="rt_neg_30" rt_neg_30 />,
+        <TransformComponent data-testid="rt_neg_30deg" rt_neg_30deg />,
       );
-      expect(getByTestId('rt_neg_30')).toHaveStyle(
+      expect(getByTestId('rt_neg_30deg')).toHaveStyle(
         'transform: rotate(-30deg);',
       );
     });
@@ -206,77 +208,39 @@ describe('Transform', () => {
 
   describe('Translate', () => {
     describe('Full', () => {
-      test('tl_full', () => {
+      test('tl_100$', () => {
         const { getByTestId } = render(
-          <TransformComponent data-testid="tl_full" tl_full />,
+          <TransformComponent data-testid="tl_100$" tl_100$ />,
         );
-        expect(getByTestId('tl_full')).toHaveStyle(
+        expect(getByTestId('tl_100$')).toHaveStyle(
           'transform:translate(100%,100%);',
         );
       });
 
-      test('tl_full_neg', () => {
+      test('tl_neg_100$', () => {
         const { getByTestId } = render(
-          <TransformComponent data-testid="tl_full_neg" tl_full_neg />,
+          <TransformComponent data-testid="tl_neg_100$" tl_neg_100$ />,
         );
-        expect(getByTestId('tl_full_neg')).toHaveStyle(
+        expect(getByTestId('tl_neg_100$')).toHaveStyle(
           'transform:translate(-100%,-100%);',
         );
       });
 
-      test('tlx_full', () => {
+      test('tlx_100$', () => {
         const { getByTestId } = render(
-          <TransformComponent data-testid="tlx_full" tlx_full />,
+          <TransformComponent data-testid="tlx_100$" tlx_100$ />,
         );
-        expect(getByTestId('tlx_full')).toHaveStyle(
+        expect(getByTestId('tlx_100$')).toHaveStyle(
           'transform: translateX(100%);',
         );
       });
 
-      test('tly_full_neg', () => {
+      test('tly_neg_100$', () => {
         const { getByTestId } = render(
-          <TransformComponent data-testid="tly_full_neg" tly_full_neg />,
+          <TransformComponent data-testid="tly_neg_100$" tly_neg_100$ />,
         );
-        expect(getByTestId('tly_full_neg')).toHaveStyle(
+        expect(getByTestId('tly_neg_100$')).toHaveStyle(
           'transform: translateY(-100%);',
-        );
-      });
-    });
-
-    describe('Half', () => {
-      test('tl_half', () => {
-        const { getByTestId } = render(
-          <TransformComponent data-testid="tl_half" tl_half />,
-        );
-        expect(getByTestId('tl_half')).toHaveStyle(
-          'transform: translate(50%,50%);',
-        );
-      });
-
-      test('tl_half_neg', () => {
-        const { getByTestId } = render(
-          <TransformComponent data-testid="tl_half_neg" tl_half_neg />,
-        );
-        expect(getByTestId('tl_half_neg')).toHaveStyle(
-          'transform: translate(-50%,-50%);',
-        );
-      });
-
-      test('tlx_half', () => {
-        const { getByTestId } = render(
-          <TransformComponent data-testid="tlx_half" tlx_half />,
-        );
-        expect(getByTestId('tlx_half')).toHaveStyle(
-          'transform: translateX(50%);',
-        );
-      });
-
-      test('tly_half_neg', () => {
-        const { getByTestId } = render(
-          <TransformComponent data-testid="tly_half_neg" tly_half_neg />,
-        );
-        expect(getByTestId('tly_half_neg')).toHaveStyle(
-          'transform: translateY(-50%);',
         );
       });
     });

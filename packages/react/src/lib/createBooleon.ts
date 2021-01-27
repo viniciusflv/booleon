@@ -1,7 +1,6 @@
 import { createElement } from 'react';
 
-import { BooleonModule } from '@booleon/core';
-
+import { BooleonModule } from '../../../core/src';
 import { DOM_ELEMENTS } from '../constants';
 import { hocBooleon } from './hocBooleon';
 

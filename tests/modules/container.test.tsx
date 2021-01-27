@@ -3,16 +3,11 @@ import '@testing-library/jest-dom';
 
 import { render } from '@testing-library/react';
 
-import { container } from '../../packages/modules/src/lib/container';
-import { hocBooleon } from '../../packages/react/src';
+import { container } from '../../packages/modules/src';
+import { booleon } from '../../packages/react/src';
 
+const ContainerComponent = booleon.div(container);
 describe('Container', () => {
-  let ContainerComponent;
-
-  beforeAll(() => {
-    ContainerComponent = hocBooleon((props) => <div {...props} />, container);
-  });
-
   describe('Content', () => {
     test('content default', () => {
       const { getByTestId } = render(
@@ -52,11 +47,11 @@ describe('Container', () => {
       expect(getByTestId('z_max')).toHaveStyle(`z-index: ${MAX_SAFE_INTEGER};`);
     });
 
-    test('z_neg', () => {
+    test('z_neg_1', () => {
       const { getByTestId } = render(
-        <ContainerComponent data-testid="z_neg" z_neg />,
+        <ContainerComponent data-testid="z_neg_1" z_neg_1 />,
       );
-      expect(getByTestId('z_neg')).toHaveStyle('z-index: -1;');
+      expect(getByTestId('z_neg_1')).toHaveStyle('z-index: -1;');
     });
 
     test('z_auto', () => {
@@ -90,11 +85,11 @@ describe('Container', () => {
         expect(getByTestId('top')).toHaveStyle('top: 0;');
       });
 
-      test('top_neg', () => {
+      test('top_neg_100$', () => {
         const { getByTestId } = render(
-          <ContainerComponent data-testid="top_neg" top_neg />,
+          <ContainerComponent data-testid="top_neg_100$" top_neg_100$ />,
         );
-        expect(getByTestId('top_neg')).toHaveStyle('top: -100%;');
+        expect(getByTestId('top_neg_100$')).toHaveStyle('top: -100%;');
       });
     });
 
@@ -122,11 +117,11 @@ describe('Container', () => {
         expect(getByTestId('bottom')).toHaveStyle('bottom: 0;');
       });
 
-      test('bottom_neg', () => {
+      test('bottom_neg_100$', () => {
         const { getByTestId } = render(
-          <ContainerComponent data-testid="bottom_neg" bottom_neg />,
+          <ContainerComponent data-testid="bottom_neg_100$" bottom_neg_100$ />,
         );
-        expect(getByTestId('bottom_neg')).toHaveStyle('bottom: -100%;');
+        expect(getByTestId('bottom_neg_100$')).toHaveStyle('bottom: -100%;');
       });
     });
 
@@ -152,11 +147,11 @@ describe('Container', () => {
         expect(getByTestId('left')).toHaveStyle('left: 0;');
       });
 
-      test('left_neg', () => {
+      test('left_neg_100$', () => {
         const { getByTestId } = render(
-          <ContainerComponent data-testid="left_neg" left_neg />,
+          <ContainerComponent data-testid="left_neg_100$" left_neg_100$ />,
         );
-        expect(getByTestId('left_neg')).toHaveStyle('left: -100%;');
+        expect(getByTestId('left_neg_100$')).toHaveStyle('left: -100%;');
       });
     });
 
@@ -182,11 +177,11 @@ describe('Container', () => {
         expect(getByTestId('right')).toHaveStyle('right: 0;');
       });
 
-      test('right_neg', () => {
+      test('right_neg_100$', () => {
         const { getByTestId } = render(
-          <ContainerComponent data-testid="right_neg" right_neg />,
+          <ContainerComponent data-testid="right_neg_100$" right_neg_100$ />,
         );
-        expect(getByTestId('right_neg')).toHaveStyle('right: -100%;');
+        expect(getByTestId('right_neg_100$')).toHaveStyle('right: -100%;');
       });
     });
 

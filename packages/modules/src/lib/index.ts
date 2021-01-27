@@ -34,21 +34,23 @@ export {
   transition,
 };
 
-export default [
-  animation,
-  background,
-  border,
-  container,
-  cursor,
-  filter,
-  flex,
-  font,
-  gradient,
-  grid,
-  outline,
-  shadow,
-  sizing,
-  spacing,
-  transform,
-  transition,
-] as const;
+const modules = {
+  ...animation,
+  ...background,
+  ...border,
+  ...container,
+  ...cursor,
+  // ...filter,
+  ...flex,
+  ...font,
+  ...gradient,
+  ...grid,
+  ...outline,
+  ...shadow,
+  ...sizing,
+  ...spacing,
+  ...transform,
+  ...transition,
+};
+
+export default modules;

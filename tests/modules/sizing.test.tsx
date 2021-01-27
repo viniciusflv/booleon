@@ -35,25 +35,25 @@ describe('Sizing', () => {
       expect(getByTestId('h_min_100')).toHaveStyle('min-height: 6.25rem;');
     });
 
-    test('h_screen_30', () => {
+    test('h_30vh', () => {
       const { getByTestId } = render(
-        <SizingComponent data-testid="h_screen_30" h_screen_30 />,
+        <SizingComponent data-testid="h_30vh" h_30vh />,
       );
-      expect(getByTestId('h_screen_30')).toHaveStyle('height: 30vh;');
+      expect(getByTestId('h_30vh')).toHaveStyle('height: 30vh;');
     });
 
-    test('h_max_screen_30', () => {
+    test('h_max_30vh', () => {
       const { getByTestId } = render(
-        <SizingComponent data-testid="h_max_screen_30" h_max_screen_30 />,
+        <SizingComponent data-testid="h_max_30vh" h_max_30vh />,
       );
-      expect(getByTestId('h_max_screen_30')).toHaveStyle('max-height: 30vh;');
+      expect(getByTestId('h_max_30vh')).toHaveStyle('max-height: 30vh;');
     });
 
-    test('h_min_screen_30', () => {
+    test('h_min_30vh', () => {
       const { getByTestId } = render(
-        <SizingComponent data-testid="h_min_screen_30" h_min_screen_30 />,
+        <SizingComponent data-testid="h_min_30vh" h_min_30vh />,
       );
-      expect(getByTestId('h_min_screen_30')).toHaveStyle('min-height: 30vh;');
+      expect(getByTestId('h_min_30vh')).toHaveStyle('min-height: 30vh;');
     });
 
     test('h_full', () => {
@@ -142,25 +142,25 @@ describe('Sizing', () => {
       expect(getByTestId('w_min_100')).toHaveStyle('min-width: 6.25rem;');
     });
 
-    test('w_screen_30', () => {
+    test('w_30vw', () => {
       const { getByTestId } = render(
-        <SizingComponent data-testid="w_screen_30" w_screen_30 />,
+        <SizingComponent data-testid="w_30vw" w_30vw />,
       );
-      expect(getByTestId('w_screen_30')).toHaveStyle('width: 30vw;');
+      expect(getByTestId('w_30vw')).toHaveStyle('width: 30vw;');
     });
 
-    test('w_max_screen_30', () => {
+    test('w_max_30vw', () => {
       const { getByTestId } = render(
-        <SizingComponent data-testid="w_max_screen_30" w_max_screen_30 />,
+        <SizingComponent data-testid="w_max_30vw" w_max_30vw />,
       );
-      expect(getByTestId('w_max_screen_30')).toHaveStyle('max-width: 30vw;');
+      expect(getByTestId('w_max_30vw')).toHaveStyle('max-width: 30vw;');
     });
 
-    test('w_min_screen_30', () => {
+    test('w_min_30vw', () => {
       const { getByTestId } = render(
-        <SizingComponent data-testid="w_min_screen_30" w_min_screen_30 />,
+        <SizingComponent data-testid="w_min_30vw" w_min_30vw />,
       );
-      expect(getByTestId('w_min_screen_30')).toHaveStyle('min-width: 30vw;');
+      expect(getByTestId('w_min_30vw')).toHaveStyle('min-width: 30vw;');
     });
 
     test('w_full', () => {

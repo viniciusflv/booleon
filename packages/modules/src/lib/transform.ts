@@ -1,3 +1,4 @@
+import { percentage } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
 
@@ -18,11 +19,14 @@ import { sym } from '../utils/sym';
  */
 export const transform = {
   [sym<'sl_NUMBER'>('sl_(.*)')]: (value: string) =>
-    `transform:scale(${handleSize(value)},${handleSize(value)});`,
+    `transform:scale(${handleSize(value, percentage)},${handleSize(
+      value,
+      percentage,
+    )});`,
   [sym<'slx_NUMBER'>('slx_(.*)')]: (value: string) =>
-    `transform:scaleX(${handleSize(value)});`,
+    `transform:scaleX(${handleSize(value, percentage)});`,
   [sym<'sly_NUMBER'>('sly_(.*)')]: (value: string) =>
-    `transform:scaleY(${handleSize(value)});`,
+    `transform:scaleY(${handleSize(value, percentage)});`,
   [sym<'rt_NUMBER'>('rt_(.*)')]: (value: string) =>
     `transform:rotate(${handleSize(value)});`,
   [sym<'sk_NUMBER'>('sk_(.*)')]: (value: string) =>
@@ -37,11 +41,6 @@ export const transform = {
     `transform:translateX(${handleSize(value)});`,
   [sym<'tly_NUMBER'>('tly_(.*)')]: (value: string) =>
     `transform:translateY(${handleSize(value)});`,
-  ori_top: () => 'transform-origin:top;',
-  ori_bottom: () => 'transform-origin:bottom;',
-  ori_left: () => 'transform-origin:left;',
-  ori_right: () => 'transform-origin:right;',
-  ori_inherit: () => 'transform-origin:inherit;',
-  ori_initial: () => 'transform-origin:initial;',
-  ori_unset: () => 'transform-origin:unset;',
+  [sym<'ori_VALUE'>('ori_(.*)')]: (value: string) =>
+    `transform-origin:${value.replace(/_/g, ' ')};`,
 };
