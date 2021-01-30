@@ -1,22 +1,24 @@
 import { filterProps } from '../../packages/core/src';
 
-test('cssCompiler', () => {
-  const { htmlProps, booleonProps } = filterProps({
-    notReactHtmlProp: true,
-    className: 'flex',
+test('filterProps', () => {
+  const [booleonProps, forwardProps] = filterProps({
+    red: true,
+    id: true,
   });
-  expect(htmlProps).toStrictEqual({
-    className: 'flex',
-  });
+
   expect(booleonProps).toStrictEqual({
-    notReactHtmlProp: true,
+    red: true,
   });
-  expect(htmlProps).not.toStrictEqual({
-    notReactHtmlProp: true,
-    className: 'flex',
+
+  expect(forwardProps).toStrictEqual({
+    id: true,
   });
+
   expect(booleonProps).not.toStrictEqual({
-    notReactHtmlProp: true,
-    className: 'flex',
+    id: true,
+  });
+
+  expect(forwardProps).not.toStrictEqual({
+    red: true,
   });
 });
