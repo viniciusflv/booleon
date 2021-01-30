@@ -8,11 +8,11 @@
   "main": "dist/index.js",
   "module": "dist/react.esm.js",
   "dependencies": {
-    "@booleon/core": "^1.2.0-alpha.0",
+    "@booleon/core": "^2.0.0-alpha.0",
     "react": "^16.13.1"
   },
   "peerDependencies": {
-    "@booleon/core": "^1.2.0-alpha.0",
+    "@booleon/core": "^2.0.0-alpha.0",
     "react": "^16.13.1"
   },
   "devDependencies": {

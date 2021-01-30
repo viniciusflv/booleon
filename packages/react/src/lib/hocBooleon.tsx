@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { BooleonHtmlProps, BooleonModule } from '../../../core/src';
+import { BooleonHtmlProps, BooleonModule } from '@booleon/core';
+
 import { useBooleon } from './useBooleon';
 
 export function hocBooleon<M extends BooleonModule[]>(

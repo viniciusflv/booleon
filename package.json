@@ -14,6 +14,7 @@
     "format": "prettier --write $PWD/**/*.{ts,tsx}",
     "pub": "npm test && npm run bun && lerna publish",
     "bun": "run-p bun:*",
+    "bun:react": "lerna exec --scope=@booleon/react -- npm run build",
     "bun:core": "lerna exec --scope=@booleon/core -- npm run build",
     "bun:modules": "lerna exec --scope=@booleon/modules -- npm run build"
   },
@@ -50,8 +51,8 @@
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@booleon/core": "^1.2.0-alpha.0",
-    "@booleon/modules": "^1.2.0-alpha.0",
+    "@booleon/core": "^2.0.0-alpha.0",
+    "@booleon/modules": "^2.0.0-alpha.0",
     "@booleon/react": "^1.2.1-alpha.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",

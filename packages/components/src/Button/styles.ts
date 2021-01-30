@@ -10,7 +10,8 @@ import {
   outline,
   font,
 } from '@booleon/modules';
-import { booleon } from '@booleon/react';
+
+import { booleon } from '../../../react/src';
 
 export const ButtonStyled = booleon.button(
   background,
