@@ -8,42 +8,35 @@ import {
   propsReducer,
   classCompiler,
   stringHash,
+  categorizeProps,
 } from '../../../core/src';
 import { reactStyleAppender } from './reactStyleAppender';
 
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
-  props: P,
+  { className = '', ...props }: P,
   ...modules: M
 ) {
-  const {
-    htmlProps: { className = '', ...htmlProps },
-    booleonProps,
-    ...booleonThemes
-  } = useMemo(() => filterProps(props), [props]);
-  const hash = stringHash(JSON.stringify({ booleonProps, booleonThemes }));
+  const [booleonProps, forwardProps] = useMemo(() => filterProps(props), [
+    props,
+  ]);
+  const hash = stringHash(JSON.stringify(booleonProps));
   const id = `bl-${hash}`;
 
   const ssr = reactStyleAppender(id, () => {
     let acc = '';
+    const booleonModules = Object.assign({}, ...modules);
+    const [lightProps, darkProps] = categorizeProps(booleonProps);
 
-    const reducedBooleon = propsReducer(
-      booleonProps,
-      Object.assign({}, ...modules),
-    );
+    const reducedBooleon = propsReducer(lightProps, booleonModules);
     acc += classCompiler(`.${id}`, reducedBooleon);
 
-    if (booleonThemes) {
-      Object.keys(booleonThemes).forEach((key) => {
-        const reducedTheme = propsReducer(
-          booleonThemes[key],
-          Object.assign({}, ...modules),
-        );
-        acc += classCompiler(`body[data-theme='${key}'] .${id}`, reducedTheme);
-      });
+    if (Object.values(darkProps).length) {
+      const reducedTheme = propsReducer(darkProps, booleonModules);
+      acc += classCompiler(`body[data-theme='dark'] .${id}`, reducedTheme);
     }
 
     return acc;
   });
 
-  return [uniqueClass(id, className), htmlProps as Props, ssr] as const;
+  return [uniqueClass(id, className), forwardProps as Props, ssr] as const;
 }
