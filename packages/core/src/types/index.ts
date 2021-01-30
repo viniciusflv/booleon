@@ -1,15 +1,9 @@
 import { PSEUDO_ELEMENTS, MEDIA_QUERIES, KEYFRAMES } from '../constants';
 
-/** Readonly Array */
-export type Tuple<T> = readonly T[];
-
 /** Generic React Props */
 export type Props<K extends string | number | symbol = string, V = any> = {
   [key in K]?: V;
 };
-
-/** Key that matches your react prop to return css */
-export type BooleonIndexer = string | Tuple<string>;
 
 /** Function that runs once @type {Props} matches @type {BooleonIndexer} */
 export type BooleonCallback = (value?: any) => any;
@@ -23,7 +17,7 @@ export type BooleonCallback = (value?: any) => any;
  * }
  * */
 export type BooleonModule = {
-  [key in string]: BooleonCallback;
+  [key in string | symbol]: BooleonCallback;
 };
 
 /**

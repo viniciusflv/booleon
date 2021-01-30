@@ -1,4 +1,5 @@
 export * from './browserPrefixer';
+export * from './categorizeProps';
 export * from './classCompiler';
 export * from './cssCompiler';
 export * from './filterProps';

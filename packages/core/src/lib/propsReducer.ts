@@ -29,7 +29,7 @@ const accumulate = ({
 export function propsReducer<P extends Props, M extends BooleonModule>(
   props: P,
   module: M,
-) {
+): ReducedProps {
   const prefixRegex = /(?<prefix>(.*)__)(?<prop>.*)/;
   const pseudoMap = new Map(PSEUDO_ELEMENTS);
   const keyframeMap = new Map(KEYFRAMES);

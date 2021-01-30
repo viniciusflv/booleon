@@ -445,7 +445,6 @@ export const REACT_PROPS = [
   'onVolumeChange',
   'onWaiting',
   'onLoad',
-  'onError',
   'onAnimationStart',
   'onAnimationEnd',
   'onAnimationIteration',
