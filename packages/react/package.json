@@ -1,6 +1,6 @@
 {
   "name": "@booleon/react",
-  "version": "1.2.1-alpha.0",
+  "version": "2.0.1-alpha.0",
   "description": "Booleon React is a DX focused library for, a highly typed declarative, styling, using component boolean properties.Works by mapping a pre-defined entry of css with keys thatcan be static string or dynamic RegEx.",
   "author": "Vinícius Victorino",
   "license": "MIT",
