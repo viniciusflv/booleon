@@ -1,6 +1,5 @@
 import { spacing, font } from '@booleon/modules';
-
-import { booleon } from '../../../../react';
+import { booleon } from '@booleon/react';
 
 export const OlStyled = booleon.ol(spacing, font);
 

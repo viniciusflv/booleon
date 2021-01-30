@@ -6,8 +6,8 @@ import {
   container,
   cursor,
 } from '@booleon/modules';
+import { booleon } from '@booleon/react';
 
-import { booleon } from '../../../react/src';
 import { Paper } from '../Paper';
 
 export const PaperStyled = booleon(

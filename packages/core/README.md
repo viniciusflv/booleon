@@ -31,22 +31,26 @@ yarn add @booleon/core
 // https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
 function browserPrefixer('position:sticky;'): 'position:-webkit-sticky;position:sticky;'
 
+function categorizeProps({
+  prop: true,
+  dark__prop: true,
+}): [{ prop: true, }, { dark__prop: true, }]
+
 function classCompiler('class', { css: 'css' }): '.class { css }'
 
-function cssCompiler('flex', true, [['flex', () => 'display:flex;']]): 'display:flex;'
+function cssCompiler('flex', true, { flex: () => 'display:flex;' }): 'display:flex;'
 
-function filterProps({ dark__custom_dark: true, custom: true, className: 'class' }): [
-    { className: 'class' },
-    { custom: true },
-    { custom_dark: true },
+function filterProps({ custom: true, id: 'id' }): [
+  { custom: true },
+  { id: 'id' },
 ]
 
-function propsReducer({ flex: true }, [['flex', () => 'display:flex;']]): { css: 'display:flex;' }
+function propsReducer({ flex: true }, { flex: () => 'display:flex;' }): { css: 'display:flex;' }
 
 // https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript#7616484
 function stringHash('stringHash'): -1573444417
 
-function styleAppender('className', 'css'): <style data-booleon="className">.className{css}</style>
+function styleAppender('className', () => 'css'): <style data-booleon="className">.className{css}</style>
 
 function uniqueClass('flex', 'flex', 'grid', 'grid'): 'flex grid'
 ```

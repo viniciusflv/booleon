@@ -1,5 +1,5 @@
 <p align="center" style="color: #343a40">
-  <img src="https://github.com/viniciusflv/booleon/raw/master/booleon.svg" viewBox="0 0 129.80448 115.59661" width="100%" height="144" />
+  <img src="https://raw.githubusercontent.com/viniciusflv/booleon/master/booleon.svg" viewBox="0 0 129.80448 115.59661" width="100%" height="144" />
   <h1 align="center">booleon/react</h1>
   <p align="center" style="font-size: 1.2rem;">Highly typed declarative CSS-in-JS</p>
   <hr />
@@ -29,10 +29,9 @@ yarn add @booleon/react
 
 ```jsx
 import { booleon } from '@booleon/react';
+import { background } from '@booleon/module';
 
-const module = ['bg_primary', () => 'background-color: red;'] as const
-
-export const ButtonStyled = booleon.button(module);
+export const ButtonStyled = booleon.button(background);
 ```
 
 ## Basic Usage
@@ -40,7 +39,7 @@ export const ButtonStyled = booleon.button(module);
 ```jsx
 export const MyComponent = () => {
   return (
-    <ButtonStyled bg_primary />
+    <ButtonStyled bg_color_f00 />
   )
 }
 ```
@@ -52,7 +51,7 @@ Only applies css if a `condition` is satisfied.
 ```jsx
 export const MyComponent = ({ color }) => {
   return (
-    <ButtonStyled bg_primary={color === 'primary'} />
+    <ButtonStyled bg_color_f00={color === 'red'} />
   )
 }
 ```
@@ -63,7 +62,7 @@ Add styles to `media queries`.
 ```jsx
 export const MyComponent = () => {
   return (
-    <ButtonStyled md__bg_primary />
+    <ButtonStyled md__bg_color_f00 />
   )
 }
 ```
@@ -75,7 +74,7 @@ Applies, possible nested, `pseudo elements`.
 ```jsx
 export const MyComponent = () => {
   return (
-    <ButtonStyled hover__bg_primary />
+    <ButtonStyled hover__bg_color_f00 />
   )
 }
 ```
@@ -112,7 +111,7 @@ import { useTheme } from '@booleon/react';
 export const MyComponent = () => {
   const { toggleTheme } = useTheme();
   return (
-    <ButtonStyled dark__bg_primary onClick={toggleTheme} />
+    <ButtonStyled dark__bg_color_f00 onClick={toggleTheme} />
   )
 }
 ```

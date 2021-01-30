@@ -1,5 +1,5 @@
 <p align="center" style="color: #343a40">
-  <img src="https://github.com/viniciusflv/booleon/raw/master/booleon.svg" viewBox="0 0 129.80448 115.59661" width="100%" height="144" />
+  <img src="https://raw.githubusercontent.com/viniciusflv/booleon/master/booleon.svg" viewBox="0 0 129.80448 115.59661" width="100%" height="144" />
   <h1 align="center">booleon/modules</h1>
   <p align="center" style="font-size: 1.2rem;">Key value entries of CSS</p>
   <hr />
@@ -27,42 +27,23 @@ yarn add @booleon/modules
 
 # Examples
 
-Key must be `string` or `array of strings`. If is an array, the joined value will be instanciated as a `new RegExp()` to be matched.
+Key also can be `Symbol` whose value will be instantiated as a `new RegExp()` to be matched.
 
 ```jsx
-export const outline = [
-  ['ol_none', () => 'outline:none;'],
-  [
-    ['olc_' as 'olc_HEX', `(${HEX_COLOR})`], // olc_([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})
-    (value: string) => `outline-color:#${value};`,
-  ],
-  [
-    ['olw_' as 'olw_NUMBER', `(${NUMBER})`],
-    (value: string) => `outline-width:${rem(value)};`,
-  ],
-  [
-    ['ols_' as ols_STYLE, `(${LOWERCASE})`],
-    (value: string) => `outline-style:${value};`,
-  ],
-] as const;
-```
-
-If the callback is an `Array` the values of the second item module will aggregate in the first item callback.
-
-```jsx
-// filter: blur(100rem) contrast(100%) invert(100%);
-export const filter = [
-  [
-    ['ft_', '(.*)'],
-    [
-      (value: string) => `filter:${value};`,
-      [
-        ['ft_invert', () => 'invert(100%)'],
-        ['ft_blur', () => 'blur(100rem)'],
-      ],
-    ],
-  ],
-] as const;
+export const background = {
+  [sym<'bg_color_COLOR'>('bg_color_(.*)')]: (value: string) =>
+    `background-color:${handleColor(value)};`,
+  bg_img: (value: string) => `background-image:url(${value});`,
+  bg_transparent: () => 'background-color:transparent;',
+  bg_repeat: () => 'background-repeat:repeat;',
+  bg_norepeat: () => 'background-repeat:no-repeat;',
+  bg_auto: () => 'background-size:auto;',
+  bg_cover: () => 'background-size:cover;',
+  bg_contain: () => 'background-size:contain;',
+  bg_fixed: () => 'background-attachment:fixed;',
+  bg_local: () => 'background-attachment:local;',
+  bg_scroll: () => 'background-attachment:scroll;',
+};
 ```
 
 # Available Modules
@@ -87,7 +68,7 @@ export const filter = [
 ## animation
   * ani_name_`NAME`
   * ani_duration_`TIME`
-  * ani_iteration_`TIME`
+  * ani_iteration_`NUMBER`
   * ani_iteration_infinite
   * ani_pause
   * ani_play
@@ -99,9 +80,7 @@ export const filter = [
   * ani_ease_out
   * ani_ease_in_out
 ## background
-  * bg_`HEX`
-  * bg_`RED_GREEN_BLUE`
-  * bg_`RED_GREEN_BLUE_OPACITY`
+  * bg_`COLOR`
   * bg_img
   * bg_transparent
   * bg_repeat
@@ -113,77 +92,122 @@ export const filter = [
   * bg_local
   * bg_scroll
 ## border
-  * bc_`HEX`
-  * bc_`RED_GREEN_BLUE`
-  * bc_`RED_GREEN_BLUE_OPACITY`
-  * btc_`HEX`
-  * btc_`RED_GREEN_BLUE`
-  * btc_`RED_GREEN_BLUE_OPACITY`
-  * bbc_`HEX`
-  * bbc_`RED_GREEN_BLUE`
-  * bbc_`RED_GREEN_BLUE_OPACITY`
-  * blc_`HEX`
-  * blc_`RED_GREEN_BLUE`
-  * blc_`RED_GREEN_BLUE_OPACITY`
-  * brc_`HEX`
-  * brc_`RED_GREEN_BLUE`
-  * brc_`RED_GREEN_BLUE_OPACITY`
-  * bxc_`HEX`
-  * bxc_`RED_GREEN_BLUE`
-  * bxc_`RED_GREEN_BLUE_OPACITY`
-  * byc_`HEX`
-  * byc_`RED_GREEN_BLUE`
-  * byc_`RED_GREEN_BLUE_OPACITY`
-  * bs_`STYLE`
-  * bts_`STYLE`
-  * bbs_`STYLE`
-  * bls_`STYLE`
-  * brs_`STYLE`
-  * bxs_`STYLE`
-  * bys_`STYLE`
-  * bw_`NUMBER`
-  * btw_`NUMBER`
-  * bbw_`NUMBER`
-  * blw_`NUMBER`
-  * brw_`NUMBER`
-  * bxw_`NUMBER`
-  * byw_`NUMBER`
-  * b_collapse
-  * b_separate
-  * b_none
-  * bt_none
-  * bb_none
-  * bl_none
-  * br_none
-  * bx_none
-  * by_none
-  * b_circular
-  * btr_circular
-  * btl_circular
-  * bbr_circular
-  * bbl_circular
-  * br_circular
-  * bl_circular
-  * bb_circular
-  * bt_circular
-  * b_rounded
-  * btr_rounded
-  * btl_rounded
-  * bbr_rounded
-  * bbl_rounded
-  * br_rounded
-  * bl_rounded
-  * bb_rounded
-  * bt_rounded
-  * b_edge
-  * btr_edge
-  * btl_edge
-  * bbr_edge
-  * bbl_edge
-  * br_edge
-  * bl_edge
-  * bb_edge
-  * bt_edge
+  * bd_color_`COLOR`
+  * bdt_color_`COLOR`
+  * bdb_color_`COLOR`
+  * bdl_color_`COLOR`
+  * bdr_color_`COLOR`
+  * bdx_color_`COLOR`
+  * bdy_color_`COLOR`
+  * bd_width_`NUMBER`
+  * bdt_width_`NUMBER`
+  * bdb_width_`NUMBER`
+  * bdl_width_`NUMBER`
+  * bdr_width_`NUMBER`
+  * bdx_width_`NUMBER`
+  * bdy_width_`NUMBER`
+  * bd_radius_`VALUE`
+  * bdtr_radius_`VALUE`
+  * bdtl_radius_`VALUE`
+  * bdt_radius_`VALUE`
+  * bdbr_radius_`VALUE`
+  * bdbl_radius_`VALUE`
+  * bdb_radius_`VALUE`
+  * bdl_radius_`VALUE`
+  * bdr_radius_`VALUE`
+  * bd_style_none
+  * bd_style_hidden
+  * bd_style_dotted
+  * bd_style_dashed
+  * bd_style_solid
+  * bd_style_double
+  * bd_style_groove
+  * bd_style_ridge
+  * bd_style_inset
+  * bd_style_outset
+  * bd_style_initial
+  * bd_style_inherit
+  * bdt_style_none
+  * bdt_style_hidden
+  * bdt_style_dotted
+  * bdt_style_dashed
+  * bdt_style_solid
+  * bdt_style_double
+  * bdt_style_groove
+  * bdt_style_ridge
+  * bdt_style_inset
+  * bdt_style_outset
+  * bdt_style_initial
+  * bdt_style_inherit
+  * bdb_style_none
+  * bdb_style_hidden
+  * bdb_style_dotted
+  * bdb_style_dashed
+  * bdb_style_solid
+  * bdb_style_double
+  * bdb_style_groove
+  * bdb_style_ridge
+  * bdb_style_inset
+  * bdb_style_outset
+  * bdb_style_initial
+  * bdb_style_inherit
+  * bdl_style_none
+  * bdl_style_hidden
+  * bdl_style_dotted
+  * bdl_style_dashed
+  * bdl_style_solid
+  * bdl_style_double
+  * bdl_style_groove
+  * bdl_style_ridge
+  * bdl_style_inset
+  * bdl_style_outset
+  * bdl_style_initial
+  * bdl_style_inherit
+  * bdr_style_none
+  * bdr_style_hidden
+  * bdr_style_dotted
+  * bdr_style_dashed
+  * bdr_style_solid
+  * bdr_style_double
+  * bdr_style_groove
+  * bdr_style_ridge
+  * bdr_style_inset
+  * bdr_style_outset
+  * bdr_style_initial
+  * bdr_style_inherit
+  * bdx_style_none
+  * bdx_style_hidden
+  * bdx_style_dotted
+  * bdx_style_dashed
+  * bdx_style_solid
+  * bdx_style_double
+  * bdx_style_groove
+  * bdx_style_ridge
+  * bdx_style_inset
+  * bdx_style_outset
+  * bdx_style_initial
+  * bdx_style_inherit
+  * bdy_style_none
+  * bdy_style_hidden
+  * bdy_style_dotted
+  * bdy_style_dashed
+  * bdy_style_solid
+  * bdy_style_double
+  * bdy_style_groove
+  * bdy_style_ridge
+  * bdy_style_inset
+  * bdy_style_outset
+  * bdy_style_initial
+  * bdy_style_inherit
+  * bd_collapse
+  * bd_separate
+  * bd_none
+  * bdt_none
+  * bdb_none
+  * bdl_none
+  * bdr_none
+  * bdx_none
+  * bdy_none
 ## container
   * z_`NUMBER`
   * op_`NUMBER`
@@ -191,12 +215,7 @@ export const filter = [
   * bottom_`NUMBER`
   * left_`NUMBER`
   * right_`NUMBER`
-  * top_neg_`NUMBER`
-  * bottom_neg_`NUMBER`
-  * left_neg_`NUMBER`
-  * right_neg_`NUMBER`
   * z_max
-  * z_neg
   * z_auto
   * sc_auto
   * sc_hidden
@@ -212,17 +231,9 @@ export const filter = [
   * relative
   * sticky
   * top
-  * top_full
-  * top_neg
   * right
-  * right_full
-  * right_neg
   * bottom
-  * bottom_full
-  * bottom_neg
   * left
-  * left_full
-  * left_neg
   * inset
   * inset_x
   * inset_y
@@ -263,16 +274,7 @@ export const filter = [
   * cr_events
   * cr_url
 ## filter
-  * ft_blur_`NUMBER`
-  * ft_bn_`NUMBER`
-  * ft_contrast_`NUMBER`
-  * ft_grayscale_`NUMBER`
-  * ft_hue_`NUMBER`
-  * ft_opacity_`NUMBER`
-  * ft_saturate_`NUMBER`
-  * ft_sepia_`NUMBER`
-  * ft_sd_`NUMBER`
-  * ft_invert
+  * ft_`VALUE`
 ## flex
   * flex
   * grow
@@ -292,65 +294,66 @@ export const filter = [
   * main_end
   * cross_end
 ## font
-  * fb_`HEX`
-  * fb_`RED_GREEN_BLUE`
-  * fb_`RED_GREEN_BLUE_OPACITY`
-  * fc_`HEX`
-  * fc_`RED_GREEN_BLUE`
-  * fc_`RED_GREEN_BLUE_OPACITY`
-  * fs_`NUMBER`
-  * ls_`NUMBER`
-  * ls_neg_`NUMBER`
-  * lh_`NUMBER`
-  * fsl_`SELECT`
-  * fa_`ALIGN`
-  * ft_`TRANSFORM`
-  * ff_`FAMILY`
-  * ff_sans
-  * ff_serif
-  * ff_mono
-  * f_italic
-  * fw_lightest
-  * fw_lighter
-  * fw_light
-  * fw_normal
-  * fw_medium
-  * fw_semibold
-  * fw_bold
-  * fw_bolder
-  * fw_black
+  * ft_border_`COLOR`
+  * ft_color_`COLOR`
+  * ft_size_`NUMBER`
+  * ft_spacing_`NUMBER`
+  * ft_height_`NUMBER`
+  * ft_family_`FAMILY`
+  * ft_family_sans
+  * ft_family_serif
+  * ft_family_mono
+  * ft_select_none
+  * ft_select_auto
+  * ft_select_text
+  * ft_select_contain
+  * ft_select_all
+  * ft_select_inherit
+  * ft_select_initial
+  * ft_select_unset
+  * ft_align_left
+  * ft_align_right
+  * ft_align_center
+  * ft_align_justify
+  * ft_align_initial
+  * ft_align_inherit
+  * ft_transform_none
+  * ft_transform_normal
+  * ft_transform_capitalize
+  * ft_transform_uppercase
+  * ft_transform_lowercase
+  * ft_transform_initial
+  * ft_transform_inherit
+  * ft_italic
+  * ft_weight_lightest
+  * ft_weight_lighter
+  * ft_weight_light
+  * ft_weight_normal
+  * ft_weight_medium
+  * ft_weight_semibold
+  * ft_weight_bold
+  * ft_weight_bolder
+  * ft_weight_black
   * li_none
   * li_disc
   * li_decimal
   * li_inside
   * li_outside
-  * f_underline
-  * f_line_through
-  * f_no_underline
-  * f_wrap_space
-  * f_wrap_word
-  * f_wrap_letter
-  * f_no_wrap
-  * f_truncate
+  * ft_underline
+  * ft_line_through
+  * ft_no_underline
+  * ft_wrap_space
+  * ft_wrap_word
+  * ft_wrap_letter
+  * ft_no_wrap
+  * ft_truncate
 ## gradient
-  * gx_`HEX`
-  * gx_`RED_GREEN_BLUE`
-  * gx_`RED_GREEN_BLUE_OPACITY`
-  * gy_`HEX`
-  * gy_`RED_GREEN_BLUE`
-  * gy_`RED_GREEN_BLUE_OPACITY`
-  * gt_`HEX`
-  * gt_`RED_GREEN_BLUE`
-  * gt_`RED_GREEN_BLUE_OPACITY`
-  * gb_`HEX`
-  * gb_`RED_GREEN_BLUE`
-  * gb_`RED_GREEN_BLUE_OPACITY`
-  * gl_`HEX`
-  * gl_`RED_GREEN_BLUE`
-  * gl_`RED_GREEN_BLUE_OPACITY`
-  * gr_`HEX`
-  * gr_`RED_GREEN_BLUE`
-  * gr_`RED_GREEN_BLUE_OPACITY`
+  * gx_`COLOR`
+  * gy_`COLOR`
+  * gt_`COLOR`
+  * gb_`COLOR`
+  * gl_`COLOR`
+  * gr_`COLOR`
 ## grid
   * rows_`FRACTIONS`
   * cols_`FRACTIONS`
@@ -364,12 +367,22 @@ export const filter = [
   * grid
   * areas
 ## outline
-  * olc_`HEX`
-  * olc_`RED_GREEN_BLUE`
-  * olc_`RED_GREEN_BLUE_OPACITY`
-  * olw_`NUMBER`
-  * ols_`STYLE`
+  * ol_color_`COLOR`
+  * ol_width_`NUMBER`
   * ol_none
+  * ol_style_auto
+  * ol_style_none
+  * ol_style_dotted
+  * ol_style_dashed
+  * ol_style_solid
+  * ol_style_double
+  * ol_style_groove
+  * ol_style_ridge
+  * ol_style_inset
+  * ol_style_outset
+  * ol_style_inherit
+  * ol_style_initial
+  * ol_style_unset
 ## shadow
   * sd_1
   * sd_2
@@ -395,15 +408,11 @@ export const filter = [
   * h_`NUMBER`
   * h_max_`NUMBER`
   * h_min_`NUMBER`
+  * h_min_`NUMBER`
   * w_`NUMBER`
   * w_max_`NUMBER`
   * w_min_`NUMBER`
-  * h_screen_`NUMBER`
-  * h_max_screen_`NUMBER`
-  * h_min_screen_`NUMBER`
-  * w_screen_`NUMBER`
-  * w_max_screen_`NUMBER`
-  * w_min_screen_`NUMBER`
+  * w_min_`NUMBER`
   * h_full
   * h_max_full
   * h_min_full
@@ -437,40 +446,26 @@ export const filter = [
   * pr_`NUMBER`
   * px_`NUMBER`
   * py_`NUMBER`
+  * m_auto
+  * mt_auto
+  * mb_auto
+  * ml_auto
+  * mr_auto
+  * mx_auto
+  * my_auto
+  
 ## transform
   * sl_`NUMBER`
   * slx_`NUMBER`
   * sly_`NUMBER`
-  * sl_neg_`NUMBER`
-  * slx_neg_`NUMBER`
-  * sly_neg_`NUMBER`
   * rt_`NUMBER`
-  * rt_neg_`NUMBER`
   * sk_`NUMBER`
   * skx_`NUMBER`
   * sky_`NUMBER`
-  * sk_neg_`NUMBER`
-  * skx_neg_`NUMBER`
-  * sky_neg_`NUMBER`
   * tl_`NUMBER`
   * tlx_`NUMBER`
   * tly_`NUMBER`
-  * tl_neg_`NUMBER`
-  * tlx_neg_`NUMBER`
-  * tly_neg_`NUMBER`
-  * ori_`NUMBER`
-  * tl_full
-  * tl_half
-  * tl_full_neg
-  * tl_half_neg
-  * tlx_full
-  * tlx_half
-  * tlx_full_neg
-  * tlx_half_neg
-  * tly_full
-  * tly_half
-  * tly_full_neg
-  * tly_half_neg
+  * ori_`VALUE`
 ## transition
   * ts_delay_`TIME`
   * ts_duration_`TIME`
