@@ -1,3 +1,4 @@
+import { COLOR, SIZE } from '../constants';
 import { handleColor, rem } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
@@ -12,9 +13,9 @@ import { sym } from '../utils/sym';
  * ```
  */
 export const outline = {
-  [sym<'ol_color_COLOR'>('ol_color_(.*)')]: (value: string) =>
+  [sym<'ol_color_COLOR'>(`^ol_color_(${COLOR})`)]: (value: string) =>
     `outline-color:${handleColor(value)};`,
-  [sym<'ol_width_NUMBER'>('ol_width_(.*)')]: (value: string) =>
+  [sym<'ol_width_SIZE'>(`^ol_width_(${SIZE})`)]: (value: string) =>
     `outline-width:${handleSize(value, rem)};`,
   ol_none: () => 'outline:none;',
   ol_style_auto: () => 'outline-style:auto;',

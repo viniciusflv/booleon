@@ -1,3 +1,4 @@
+import { LOWER_CASE, SIZE } from '../constants';
 import { percentage } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
@@ -18,29 +19,29 @@ import { sym } from '../utils/sym';
  * ```
  */
 export const transform = {
-  [sym<'sl_NUMBER'>('sl_(.*)')]: (value: string) =>
+  [sym<'sl_SIZE'>(`^sl_(${SIZE})`)]: (value: string) =>
     `transform:scale(${handleSize(value, percentage)},${handleSize(
       value,
       percentage,
     )});`,
-  [sym<'slx_NUMBER'>('slx_(.*)')]: (value: string) =>
+  [sym<'slx_SIZE'>(`^slx_(${SIZE})`)]: (value: string) =>
     `transform:scaleX(${handleSize(value, percentage)});`,
-  [sym<'sly_NUMBER'>('sly_(.*)')]: (value: string) =>
+  [sym<'sly_SIZE'>(`^sly_(${SIZE})`)]: (value: string) =>
     `transform:scaleY(${handleSize(value, percentage)});`,
-  [sym<'rt_NUMBER'>('rt_(.*)')]: (value: string) =>
+  [sym<'rt_SIZE'>(`^rt_(${SIZE})`)]: (value: string) =>
     `transform:rotate(${handleSize(value)});`,
-  [sym<'sk_NUMBER'>('sk_(.*)')]: (value: string) =>
+  [sym<'sk_SIZE'>(`^sk_(${SIZE})`)]: (value: string) =>
     `transform:skew(${handleSize(value)},${handleSize(value)});`,
-  [sym<'skx_NUMBER'>('skx_(.*)')]: (value: string) =>
+  [sym<'skx_SIZE'>(`^skx_(${SIZE})`)]: (value: string) =>
     `transform:skewX(${handleSize(value)});`,
-  [sym<'sky_NUMBER'>('sky_(.*)')]: (value: string) =>
+  [sym<'sky_SIZE'>(`^sky_(${SIZE})`)]: (value: string) =>
     `transform:skewY(${handleSize(value)});`,
-  [sym<'tl_NUMBER'>('tl_(.*)')]: (value: string) =>
+  [sym<'tl_SIZE'>(`^tl_(${SIZE})`)]: (value: string) =>
     `transform:translate(${handleSize(value)},${handleSize(value)});`,
-  [sym<'tlx_NUMBER'>('tlx_(.*)')]: (value: string) =>
+  [sym<'tlx_SIZE'>(`^tlx_(${SIZE})`)]: (value: string) =>
     `transform:translateX(${handleSize(value)});`,
-  [sym<'tly_NUMBER'>('tly_(.*)')]: (value: string) =>
+  [sym<'tly_SIZE'>(`^tly_(${SIZE})`)]: (value: string) =>
     `transform:translateY(${handleSize(value)});`,
-  [sym<'ori_VALUE'>('ori_(.*)')]: (value: string) =>
+  [sym<'ori_VALUE'>(`^ori_((${SIZE}|${LOWER_CASE}).*)`)]: (value: string) =>
     `transform-origin:${value.replace(/_/g, ' ')};`,
 };

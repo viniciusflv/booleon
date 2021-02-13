@@ -1,4 +1,4 @@
-import { LOWER_CASE, NUMBER } from '../constants';
+import { UNIT_NUMBER } from '../constants';
 import { sym } from '../utils/sym';
 
 const colors = 'background-color,border-color,color,fill,stroke';
@@ -18,12 +18,10 @@ const colors = 'background-color,border-color,color,fill,stroke';
  * ```
  */
 export const transition = {
-  [sym<'ts_delay_TIME'>(`ts_delay_(${NUMBER}${LOWER_CASE})`)]: (
-    value: string,
-  ) => `transition-delay:${value};`,
-  [sym<'ts_duration_TIME'>(`ts_duration_(${NUMBER}${LOWER_CASE})`)]: (
-    value: string,
-  ) => `transition-duration:${value};`,
+  [sym<'ts_delay_TIME'>(`^ts_delay_(${UNIT_NUMBER})`)]: (value: string) =>
+    `transition-delay:${value};`,
+  [sym<'ts_duration_TIME'>(`^ts_duration_(${UNIT_NUMBER})`)]: (value: string) =>
+    `transition-duration:${value};`,
   ts: () => `transition-property:${colors},opacity,box-shadow,transform;`,
   ts_none: () => 'transition-property:none;',
   ts_all: () => 'transition-property:all;',

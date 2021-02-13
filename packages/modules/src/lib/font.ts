@@ -1,3 +1,4 @@
+import { COLOR, LETTER, SIZE } from '../constants';
 import { handleColor, rem } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
@@ -12,19 +13,19 @@ import { sym } from '../utils/sym';
  * ```
  */
 export const font = {
-  [sym<'ft_border_COLOR'>('ft_border_(.*)')]: (value: string) =>
+  [sym<'ft_border_COLOR'>(`^ft_border_(${COLOR})`)]: (value: string) =>
     `text-shadow:-1px 0 ${handleColor(value)},0 1px ${handleColor(
       value,
     )},1px 0 ${handleColor(value)},0 -1px ${handleColor(value)};`,
-  [sym<'ft_color_COLOR'>('ft_color_(.*)')]: (value: string) =>
+  [sym<'ft_color_COLOR'>(`^ft_color_(${COLOR})`)]: (value: string) =>
     `color:${handleColor(value)};`,
-  [sym<'ft_size_NUMBER'>('ft_size_(.*)')]: (value: string) =>
+  [sym<'ft_size_SIZE'>(`^ft_size_(${SIZE})`)]: (value: string) =>
     `font-size:${handleSize(value, rem)};`,
-  [sym<'ft_spacing_NUMBER'>('ft_spacing_(.*)')]: (value: string) =>
+  [sym<'ft_spacing_SIZE'>(`^ft_spacing_(${SIZE})`)]: (value: string) =>
     `letter-spacing:${handleSize(value, rem)};`,
-  [sym<'ft_height_NUMBER'>('ft_height_(.*)')]: (value: string) =>
+  [sym<'ft_height_SIZE'>(`^ft_height_(${SIZE})`)]: (value: string) =>
     `line-height:${handleSize(value, rem)};`,
-  [sym<'ft_family_FAMILY'>('ft_family_(.*)')]: (value: string) =>
+  [sym<'ft_family_FAMILY'>(`^ft_family_(${LETTER})`)]: (value: string) =>
     `font-family:${value.replace(/_/g, ' ')};`,
   ft_family_sans: () => 'font-family:sans-serif;',
   ft_family_serif: () => 'font-family:serif;',

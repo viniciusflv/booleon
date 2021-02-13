@@ -1,3 +1,4 @@
+import { COLOR } from '../constants';
 import { handleColor } from '../utils';
 import { sym } from '../utils/sym';
 
@@ -13,16 +14,16 @@ const lg = (linear: string) => `background-image:linear-gradient(${linear});`;
  * ```
  */
 export const gradient = {
-  [sym<'gx_COLOR'>('gx_(.*)')]: (value: string) =>
+  [sym<'gx_COLOR'>(`^gx_(${COLOR})`)]: (value: string) =>
     lg(`to right,${handleColor(value)},transparent,${handleColor(value)}`),
-  [sym<'gy_COLOR'>('gy_(.*)')]: (value: string) =>
+  [sym<'gy_COLOR'>(`^gy_(${COLOR})`)]: (value: string) =>
     lg(`to top,${handleColor(value)},transparent,${handleColor(value)}`),
-  [sym<'gt_COLOR'>('gt_(.*)')]: (value: string) =>
+  [sym<'gt_COLOR'>(`^gt_(${COLOR})`)]: (value: string) =>
     lg(`to top,transparent,${handleColor(value)}`),
-  [sym<'gb_COLOR'>('gb_(.*)')]: (value: string) =>
+  [sym<'gb_COLOR'>(`^gb_(${COLOR})`)]: (value: string) =>
     lg(`to bottom,transparent,${handleColor(value)}`),
-  [sym<'gl_COLOR'>('gl_(.*)')]: (value: string) =>
+  [sym<'gl_COLOR'>(`^gl_(${COLOR})`)]: (value: string) =>
     lg(`to left,transparent,${handleColor(value)}`),
-  [sym<'gr_COLOR'>('gr_(.*)')]: (value: string) =>
+  [sym<'gr_COLOR'>(`^gr_(${COLOR})`)]: (value: string) =>
     lg(`to right,transparent,${handleColor(value)}`),
 };

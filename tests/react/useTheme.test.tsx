@@ -14,10 +14,10 @@ test('useTheme', () => {
     useEffect(() => {
       toggleTheme();
     }, []);
-    return <MyComponent data-testid="useTheme" dark__bg_color_black />;
+    return <MyComponent data-testid="useTheme" dark__bg_color_000 />;
   };
 
   const { getByTestId } = render(<WrappedComponent />);
 
-  expect(getByTestId('useTheme')).toHaveStyle('background-color:black;');
+  expect(getByTestId('useTheme')).toHaveStyle('background-color:#000;');
 });

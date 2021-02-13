@@ -1,4 +1,4 @@
-import { NUMBER } from '../constants';
+import { SIZE } from '../constants';
 import { rem } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
@@ -20,42 +20,42 @@ export const spacing = {
   mr_auto: () => 'margin-right:auto;',
   mx_auto: () => 'margin-right:auto;margin-left:auto;',
   my_auto: () => 'margin-top:auto;margin-bottom:auto;',
-  [sym<'m_NUMBER'>(`m_(${NUMBER})`)]: (value: string) =>
+  [sym<'^m_SIZE'>(`m_(${SIZE})`)]: (value: string) =>
     `margin:${handleSize(value, rem)};`,
-  [sym<'mt_NUMBER'>(`mt_(${NUMBER})`)]: (value: string) =>
+  [sym<'^mt_SIZE'>(`mt_(${SIZE})`)]: (value: string) =>
     `margin-top:${handleSize(value, rem)};`,
-  [sym<'mb_NUMBER'>(`mb_(${NUMBER})`)]: (value: string) =>
+  [sym<'^mb_SIZE'>(`mb_(${SIZE})`)]: (value: string) =>
     `margin-bottom:${handleSize(value, rem)};`,
-  [sym<'ml_NUMBER'>(`ml_(${NUMBER})`)]: (value: string) =>
+  [sym<'^ml_SIZE'>(`ml_(${SIZE})`)]: (value: string) =>
     `margin-left:${handleSize(value, rem)};`,
-  [sym<'mr_NUMBER'>(`mr_(${NUMBER})`)]: (value: string) =>
+  [sym<'^mr_SIZE'>(`mr_(${SIZE})`)]: (value: string) =>
     `margin-right:${handleSize(value, rem)};`,
-  [sym<'mx_NUMBER'>(`mx_(${NUMBER})`)]: (value: string) =>
+  [sym<'^mx_SIZE'>(`mx_(${SIZE})`)]: (value: string) =>
     `margin-right:${handleSize(value, rem)};margin-left:${handleSize(
       value,
       rem,
     )};`,
-  [sym<'my_NUMBER'>(`my_(${NUMBER})`)]: (value: string) =>
+  [sym<'^my_SIZE'>(`my_(${SIZE})`)]: (value: string) =>
     `margin-top:${handleSize(value, rem)};margin-bottom:${handleSize(
       value,
       rem,
     )};`,
-  [sym<'p_NUMBER'>(`p_(${NUMBER})`)]: (value: string) =>
+  [sym<'^p_SIZE'>(`p_(${SIZE})`)]: (value: string) =>
     `padding:${handleSize(value, rem)};`,
-  [sym<'pt_NUMBER'>(`pt_(${NUMBER})`)]: (value: string) =>
+  [sym<'^pt_SIZE'>(`pt_(${SIZE})`)]: (value: string) =>
     `padding-top:${handleSize(value, rem)};`,
-  [sym<'pb_NUMBER'>(`pb_(${NUMBER})`)]: (value: string) =>
+  [sym<'^pb_SIZE'>(`pb_(${SIZE})`)]: (value: string) =>
     `padding-bottom:${handleSize(value, rem)};`,
-  [sym<'pl_NUMBER'>(`pl_(${NUMBER})`)]: (value: string) =>
+  [sym<'^pl_SIZE'>(`pl_(${SIZE})`)]: (value: string) =>
     `padding-left:${handleSize(value, rem)};`,
-  [sym<'pr_NUMBER'>(`pr_(${NUMBER})`)]: (value: string) =>
+  [sym<'^pr_SIZE'>(`pr_(${SIZE})`)]: (value: string) =>
     `padding-right:${handleSize(value, rem)};`,
-  [sym<'px_NUMBER'>(`px_(${NUMBER})`)]: (value: string) =>
+  [sym<'^px_SIZE'>(`px_(${SIZE})`)]: (value: string) =>
     `padding-right:${handleSize(value, rem)};padding-left:${handleSize(
       value,
       rem,
     )};`,
-  [sym<'py_NUMBER'>(`py_(${NUMBER})`)]: (value: string) =>
+  [sym<'^py_SIZE'>(`py_(${SIZE})`)]: (value: string) =>
     `padding-top:${handleSize(value, rem)};padding-bottom:${handleSize(
       value,
       rem,

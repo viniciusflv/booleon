@@ -1,4 +1,8 @@
+import { COLOR, LOWER_CASE, SIZE } from '../constants';
 import { handleColor, rem, handleSize, sym } from '../utils';
+
+const handleBorder = ([size, style, ...color]: string[]) =>
+  `${handleSize(size, rem)} ${style} ${handleColor(color.join('_'))}`;
 
 /**
  * Module for `border` options
@@ -10,70 +14,97 @@ import { handleColor, rem, handleSize, sym } from '../utils';
  * ```
  */
 export const border = {
-  [sym<'bd_color_COLOR'>('bd_color_(.*)')]: (value: string) =>
+  [sym<'bd_SIZE_STYLE_COLOR'>(`^bd_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`)]: (
+    value: string,
+  ) => `border:${handleBorder(value.split('_'))};`,
+  [sym<'bdt_SIZE_STYLE_COLOR'>(
+    `^bdt_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
+  )]: (value: string) => `border-top:${handleBorder(value.split('_'))};`,
+  [sym<'bdb_SIZE_STYLE_COLOR'>(
+    `^bdb_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
+  )]: (value: string) => `border-bottom:${handleBorder(value.split('_'))};`,
+  [sym<'bdl_SIZE_STYLE_COLOR'>(
+    `^bdl_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
+  )]: (value: string) => `border-left:${handleBorder(value.split('_'))};`,
+  [sym<'bdr_SIZE_STYLE_COLOR'>(
+    `^bdr_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
+  )]: (value: string) => `border-right:${handleBorder(value.split('_'))};`,
+  [sym<'bdx_SIZE_STYLE_COLOR'>(
+    `^bdx_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
+  )]: (value: string) =>
+    `border-right:${handleBorder(value.split('_'))};border-left:${handleBorder(
+      value.split('_'),
+    )};`,
+  [sym<'bdy_SIZE_STYLE_COLOR'>(
+    `^bdy_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
+  )]: (value: string) =>
+    `border-top:${handleBorder(value.split('_'))};border-bottom:${handleBorder(
+      value.split('_'),
+    )};`,
+  [sym<'bd_color_COLOR'>(`^bd_color_(${COLOR})`)]: (value: string) =>
     `border-color:${handleColor(value)};`,
-  [sym<'bdt_color_COLOR'>('bdt_color_(.*)')]: (value: string) =>
+  [sym<'bdt_color_COLOR'>(`^bdt_color_(${COLOR})`)]: (value: string) =>
     `border-top-color:${handleColor(value)};`,
-  [sym<'bdb_color_COLOR'>('bdb_color_(.*)')]: (value: string) =>
+  [sym<'bdb_color_COLOR'>(`^bdb_color_(${COLOR})`)]: (value: string) =>
     `border-bottom-color:${handleColor(value)};`,
-  [sym<'bdl_color_COLOR'>('bdl_color_(.*)')]: (value: string) =>
+  [sym<'bdl_color_COLOR'>(`^bdl_color_(${COLOR})`)]: (value: string) =>
     `border-left-color:${handleColor(value)};`,
-  [sym<'bdr_color_COLOR'>('bdr_color_(.*)')]: (value: string) =>
+  [sym<'bdr_color_COLOR'>(`^bdr_color_(${COLOR})`)]: (value: string) =>
     `border-right-color:${handleColor(value)};`,
-  [sym<'bdx_color_COLOR'>('bdx_color_(.*)')]: (value: string) =>
+  [sym<'bdx_color_COLOR'>(`^bdx_color_(${COLOR})`)]: (value: string) =>
     `border-right-color:${handleColor(value)};border-left-color:${handleColor(
       value,
     )};`,
-  [sym<'bdy_color_COLOR'>('bdy_color_(.*)')]: (value: string) =>
+  [sym<'bdy_color_COLOR'>(`^bdy_color_(${COLOR})`)]: (value: string) =>
     `border-top-color:${handleColor(value)};border-bottom-color:${handleColor(
       value,
     )};`,
-  [sym<'bd_width_NUMBER'>('bd_width_(.*)')]: (value: string) =>
+  [sym<'bd_width_SIZE'>(`^bd_width_(${SIZE})`)]: (value: string) =>
     `border-width:${handleSize(value, rem)};`,
-  [sym<'bdt_width_NUMBER'>('bdt_width_(.*)')]: (value: string) =>
+  [sym<'bdt_width_SIZE'>(`^bdt_width_(${SIZE})`)]: (value: string) =>
     `border-top-width:${handleSize(value, rem)};`,
-  [sym<'bdb_width_NUMBER'>('bdb_width_(.*)')]: (value: string) =>
+  [sym<'bdb_width_SIZE'>(`^bdb_width_(${SIZE})`)]: (value: string) =>
     `border-bottom-width:${handleSize(value, rem)};`,
-  [sym<'bdl_width_NUMBER'>('bdl_width_(.*)')]: (value: string) =>
+  [sym<'bdl_width_SIZE'>(`^bdl_width_(${SIZE})`)]: (value: string) =>
     `border-left-width:${handleSize(value, rem)};`,
-  [sym<'bdr_width_NUMBER'>('bdr_width_(.*)')]: (value: string) =>
+  [sym<'bdr_width_SIZE'>(`^bdr_width_(${SIZE})`)]: (value: string) =>
     `border-right-width:${handleSize(value, rem)};`,
-  [sym<'bdx_width_NUMBER'>('bdx_width_(.*)')]: (value: string) =>
+  [sym<'bdx_width_SIZE'>(`^bdx_width_(${SIZE})`)]: (value: string) =>
     `border-left-width:${handleSize(
       value,
       rem,
     )};border-right-width:${handleSize(value, rem)};`,
-  [sym<'bdy_width_NUMBER'>('bdy_width_(.*)')]: (value: string) =>
+  [sym<'bdy_width_SIZE'>(`^bdy_width_(${SIZE})`)]: (value: string) =>
     `border-top-width:${handleSize(
       value,
       rem,
     )};border-bottom-width:${handleSize(value, rem)};`,
-  [sym<'bd_radius_VALUE'>('bd_radius_(.*)')]: (value: string) =>
+  [sym<'bd_radius_SIZE'>(`^bd_radius_(${SIZE})`)]: (value: string) =>
     `border-radius:${handleSize(value, rem)};`,
-  [sym<'bdtr_radius_VALUE'>('bdtr_radius_(.*)')]: (value: string) =>
+  [sym<'bdtr_radius_SIZE'>(`^bdtr_radius_(${SIZE})`)]: (value: string) =>
     `border-top-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdtl_radius_VALUE'>('bdtl_radius_(.*)')]: (value: string) =>
+  [sym<'bdtl_radius_SIZE'>(`^bdtl_radius_(${SIZE})`)]: (value: string) =>
     `border-top-left-radius:${handleSize(value, rem)};`,
-  [sym<'bdt_radius_VALUE'>('bdt_radius_(.*)')]: (value: string) =>
+  [sym<'bdt_radius_SIZE'>(`^bdt_radius_(${SIZE})`)]: (value: string) =>
     `border-top-left-radius:${handleSize(
       value,
       rem,
     )};border-top-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdbr_radius_VALUE'>('bdbr_radius_(.*)')]: (value: string) =>
+  [sym<'bdbr_radius_SIZE'>(`^bdbr_radius_(${SIZE})`)]: (value: string) =>
     `border-bottom-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdbl_radius_VALUE'>('bdbl_radius_(.*)')]: (value: string) =>
+  [sym<'bdbl_radius_SIZE'>(`^bdbl_radius_(${SIZE})`)]: (value: string) =>
     `border-bottom-left-radius:${handleSize(value, rem)};`,
-  [sym<'bdb_radius_VALUE'>('bdb_radius_(.*)')]: (value: string) =>
+  [sym<'bdb_radius_SIZE'>(`^bdb_radius_(${SIZE})`)]: (value: string) =>
     `border-bottom-left-radius:${handleSize(
       value,
       rem,
     )};border-bottom-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdl_radius_VALUE'>('bdl_radius_(.*)')]: (value: string) =>
+  [sym<'bdl_radius_SIZE'>(`^bdl_radius_(${SIZE})`)]: (value: string) =>
     `border-bottom-left-radius:${handleSize(
       value,
       rem,
     )};border-top-left-radius:${handleSize(value, rem)};`,
-  [sym<'bdr_radius_VALUE'>('bdr_radius_(.*)')]: (value: string) =>
+  [sym<'bdr_radius_SIZE'>(`^bdr_radius_(${SIZE})`)]: (value: string) =>
     `border-bottom-right-radius:${handleSize(
       value,
       rem,

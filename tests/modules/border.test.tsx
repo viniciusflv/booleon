@@ -8,6 +8,98 @@ import '@testing-library/jest-dom';
 
 const BorderComponent = booleon.div(border);
 describe('Border', () => {
+  describe('Combine', () => {
+    test('bd_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bd_1px_solid_0_0_0_80"
+          bd_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bd_1px_solid_0_0_0_80')).toHaveStyle(
+        'border: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+
+    test('bdt_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bdt_1px_solid_0_0_0_80"
+          bdt_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bdt_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-top: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+
+    test('bdb_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bdb_1px_solid_0_0_0_80"
+          bdb_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bdb_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-bottom: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+
+    test('bdl_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bdl_1px_solid_0_0_0_80"
+          bdl_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bdl_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-left: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+
+    test('bdr_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bdr_1px_solid_0_0_0_80"
+          bdr_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bdr_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-right: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+
+    test('bdx_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bdx_1px_solid_0_0_0_80"
+          bdx_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bdx_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-left: 1px solid rgba(0,0,0,0.8);',
+      );
+      expect(getByTestId('bdx_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-right: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+
+    test('bdy_1px_solid_0_0_0_80', () => {
+      const { getByTestId } = render(
+        <BorderComponent
+          data-testid="bdy_1px_solid_0_0_0_80"
+          bdy_1px_solid_0_0_0_80
+        />,
+      );
+      expect(getByTestId('bdy_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-top: 1px solid rgba(0,0,0,0.8);',
+      );
+      expect(getByTestId('bdy_1px_solid_0_0_0_80')).toHaveStyle(
+        'border-bottom: 1px solid rgba(0,0,0,0.8);',
+      );
+    });
+  });
+
   describe('Color', () => {
     test('bd_color_fff', () => {
       const { getByTestId } = render(
@@ -217,22 +309,24 @@ describe('Border', () => {
     });
   });
 
-  test('bd_collapse', () => {
-    const { getByTestId } = render(
-      <BorderComponent data-testid="bd_collapse" bd_collapse />,
-    );
-    expect(getByTestId('bd_collapse')).toHaveStyle(
-      'border-collapse: collapse;',
-    );
-  });
+  describe('Collapse', () => {
+    test('bd_collapse', () => {
+      const { getByTestId } = render(
+        <BorderComponent data-testid="bd_collapse" bd_collapse />,
+      );
+      expect(getByTestId('bd_collapse')).toHaveStyle(
+        'border-collapse: collapse;',
+      );
+    });
 
-  test('bd_separate', () => {
-    const { getByTestId } = render(
-      <BorderComponent data-testid="bd_separate" bd_separate />,
-    );
-    expect(getByTestId('bd_separate')).toHaveStyle(
-      'border-collapse: separate;',
-    );
+    test('bd_separate', () => {
+      const { getByTestId } = render(
+        <BorderComponent data-testid="bd_separate" bd_separate />,
+      );
+      expect(getByTestId('bd_separate')).toHaveStyle(
+        'border-collapse: separate;',
+      );
+    });
   });
 
   describe('None', () => {

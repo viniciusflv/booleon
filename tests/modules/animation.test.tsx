@@ -24,12 +24,12 @@ describe('Animation', () => {
     );
   });
 
-  test('ani_iteration_5s', () => {
+  test('ani_iteration_5', () => {
     const { getByTestId } = render(
-      <BooleonComponent data-testid="ani_iteration_5s" ani_iteration_5s />,
+      <BooleonComponent data-testid="ani_iteration_5" ani_iteration_5 />,
     );
-    expect(getByTestId('ani_iteration_5s')).toHaveStyle(
-      'animation-iteration-count:5s;',
+    expect(getByTestId('ani_iteration_5')).toHaveStyle(
+      'animation-iteration-count:5;',
     );
   });
 

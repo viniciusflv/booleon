@@ -1,3 +1,4 @@
+import { SIZE } from '../constants';
 import { rem } from '../utils';
 import { handleSize } from '../utils/handleSize';
 import { sym } from '../utils/sym';
@@ -12,21 +13,21 @@ import { sym } from '../utils/sym';
  * ```
  */
 export const sizing = {
-  [sym<'h_NUMBER'>('h_(.*)')]: (value: string) =>
+  [sym<'h_SIZE'>(`^h_(${SIZE})`)]: (value: string) =>
     `height:${handleSize(value, rem)};`,
-  [sym<'h_max_NUMBER'>('h_max_(.*)')]: (value: string) =>
+  [sym<'h_max_SIZE'>(`^h_max_(${SIZE})`)]: (value: string) =>
     `max-height:${handleSize(value, rem)};`,
-  [sym<'h_min_NUMBER'>('h_min_(.*)')]: (value: string) =>
+  [sym<'h_min_SIZE'>(`^h_min_(${SIZE})`)]: (value: string) =>
     `min-height:${handleSize(value, rem)};`,
-  [sym<'h_min_NUMBER'>('h_min_(.*)')]: (value: string) =>
+  [sym<'h_min_SIZE'>(`^h_min_(${SIZE})`)]: (value: string) =>
     `min-height:${handleSize(value, rem)};`,
-  [sym<'w_NUMBER'>('w_(.*)')]: (value: string) =>
+  [sym<'w_SIZE'>(`^w_(${SIZE})`)]: (value: string) =>
     `width:${handleSize(value, rem)};`,
-  [sym<'w_max_NUMBER'>('w_max_(.*)')]: (value: string) =>
+  [sym<'w_max_SIZE'>(`^w_max_(${SIZE})`)]: (value: string) =>
     `max-width:${handleSize(value, rem)};`,
-  [sym<'w_min_NUMBER'>('w_min_(.*)')]: (value: string) =>
+  [sym<'w_min_SIZE'>(`^w_min_(${SIZE})`)]: (value: string) =>
     `min-width:${handleSize(value, rem)};`,
-  [sym<'w_min_NUMBER'>('w_min_(.*)')]: (value: string) =>
+  [sym<'w_min_SIZE'>(`^w_min_(${SIZE})`)]: (value: string) =>
     `min-width:${handleSize(value, rem)};`,
   h_full: () => 'height:100%;',
   h_max_full: () => 'max-height:100%;',
