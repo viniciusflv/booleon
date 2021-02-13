@@ -12,12 +12,16 @@ const MyComponent = booleon.section(modules);
 describe('SSR', () => {
   test('renderToString', () => {
     const string = ReactDOM.renderToString(<MyComponent flex />);
-    expect(string).toMatchSnapshot();
+    expect(string).toMatchInlineSnapshot(
+      '"<style data-booleon=\\"bl--1587999785\\">.bl--1587999785{display:flex;}</style><section class=\\"bl--1587999785\\"></section>"',
+    );
   });
 
   test('renderToStaticMarkup', () => {
     const string = ReactDOM.renderToStaticMarkup(<MyComponent flex />);
-    expect(string).toMatchSnapshot();
+    expect(string).toMatchInlineSnapshot(
+      '"<style data-booleon=\\"bl--1587999785\\">.bl--1587999785{display:flex;}</style><section class=\\"bl--1587999785\\"></section>"',
+    );
   });
 
   test('renderToNodeStream', async (done) => {
@@ -29,7 +33,9 @@ describe('SSR', () => {
       stream.on('error', reject);
     });
 
-    expect(string).toMatchSnapshot();
+    expect(string).toMatchInlineSnapshot(
+      '"<style data-booleon=\\"bl--1587999785\\">.bl--1587999785{display:flex;}</style><section class=\\"bl--1587999785\\"></section>"',
+    );
 
     done();
   });
@@ -45,7 +51,9 @@ describe('SSR', () => {
       staticStream.on('error', reject);
     });
 
-    expect(string).toMatchSnapshot();
+    expect(string).toMatchInlineSnapshot(
+      '"<style data-booleon=\\"bl--1587999785\\">.bl--1587999785{display:flex;}</style><section class=\\"bl--1587999785\\"></section>"',
+    );
 
     done();
   });
