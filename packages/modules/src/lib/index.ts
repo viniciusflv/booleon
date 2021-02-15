@@ -40,7 +40,7 @@ const modules = {
   ...border,
   ...container,
   ...cursor,
-  // ...filter,
+  ...filter,
   ...flex,
   ...font,
   ...gradient,

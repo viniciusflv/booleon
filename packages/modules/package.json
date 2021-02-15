@@ -7,9 +7,6 @@
   "private": false,
   "main": "dist/index.js",
   "module": "dist/modules.esm.js",
-  "peerDependencies": {
-    "react": "^16.13.1"
-  },
   "devDependencies": {
     "tsdx": "^0.13.2"
   },

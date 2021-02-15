@@ -27,7 +27,15 @@ export const filter = {
     `filter:saturate(${handleSize(value, percentage)});`,
   [sym<'fl_sepia_SIZE'>(`fl_sepia_(${SIZE})`)]: (value: string) =>
     `filter:sepia(${handleSize(value, percentage)});`,
-  [sym<'fl_sd_SIZE'>(`fl_sd_(${SIZE})`)]: (value: string) =>
-    `filter:${handleShadow(Number(value), false, true)};`,
+  fl_sd_1: () => `filter:${handleShadow(Number(1), false, true)};`,
+  fl_sd_2: () => `filter:${handleShadow(Number(2), false, true)};`,
+  fl_sd_3: () => `filter:${handleShadow(Number(3), false, true)};`,
+  fl_sd_4: () => `filter:${handleShadow(Number(4), false, true)};`,
+  fl_sd_6: () => `filter:${handleShadow(Number(6), false, true)};`,
+  fl_sd_8: () => `filter:${handleShadow(Number(8), false, true)};`,
+  fl_sd_9: () => `filter:${handleShadow(Number(9), false, true)};`,
+  fl_sd_12: () => `filter:${handleShadow(Number(12), false, true)};`,
+  fl_sd_16: () => `filter:${handleShadow(Number(16), false, true)};`,
+  fl_sd_24: () => `filter:${handleShadow(Number(24), false, true)};`,
   fl_invert: () => 'filter:invert(100%);',
 };

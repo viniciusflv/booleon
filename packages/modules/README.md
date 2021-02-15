@@ -66,417 +66,717 @@ export const background = {
 * [transition](#transition)
 
 ## animation
-  * ani_name_`NAME`
-  * ani_duration_`TIME`
-  * ani_iteration_`NUMBER`
-  * ani_iteration_infinite
-  * ani_pause
-  * ani_play
-  * ani_forwards
-  * ani_backwards
-  * ani_linear
-  * ani_ease
-  * ani_ease_in
-  * ani_ease_out
-  * ani_ease_in_out
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>ani_name_`NAME`</td>
+      <td>ani_duration_`TIME`</td>
+      <td>ani_iteration_`NUMBER`</td>
+      <td>ani_iteration_infinite</td>
+      <td>ani_pause</td>
+    </tr>
+    <tr>
+      <td>ani_play</td>
+      <td>ani_forwards</td>
+      <td>ani_backwards</td>
+      <td>ani_linear</td>
+      <td>ani_ease</td>
+    </tr>
+    <tr>
+      <td>ani_ease_in</td>
+      <td>ani_ease_out</td>
+      <td>ani_ease_in_out</td>
+    </tr>
+  </tbody>
+</table>
+
 ## background
-  * bg_`COLOR`
-  * bg_img
-  * bg_transparent
-  * bg_repeat
-  * bg_norepeat
-  * bg_auto
-  * bg_cover
-  * bg_contain
-  * bg_fixed
-  * bg_local
-  * bg_scroll
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>bg_`COLOR`</td>
+      <td>bg_img</td>
+      <td>bg_transparent</td>
+      <td>bg_repeat</td>
+      <td>bg_norepeat</td>
+    </tr>
+    <tr>
+      <td>bg_auto</td>
+      <td>bg_cover</td>
+      <td>bg_contain</td>
+      <td>bg_fixed</td>
+      <td>bg_local</td>
+    </tr>
+    <tr>
+      <td>bg_scroll</td>
+    </tr>
+  </tbody>
+</table>
+
 ## border
-  * bd_color_`COLOR`
-  * bdt_color_`COLOR`
-  * bdb_color_`COLOR`
-  * bdl_color_`COLOR`
-  * bdr_color_`COLOR`
-  * bdx_color_`COLOR`
-  * bdy_color_`COLOR`
-  * bd_width_`NUMBER`
-  * bdt_width_`NUMBER`
-  * bdb_width_`NUMBER`
-  * bdl_width_`NUMBER`
-  * bdr_width_`NUMBER`
-  * bdx_width_`NUMBER`
-  * bdy_width_`NUMBER`
-  * bd_radius_`VALUE`
-  * bdtr_radius_`VALUE`
-  * bdtl_radius_`VALUE`
-  * bdt_radius_`VALUE`
-  * bdbr_radius_`VALUE`
-  * bdbl_radius_`VALUE`
-  * bdb_radius_`VALUE`
-  * bdl_radius_`VALUE`
-  * bdr_radius_`VALUE`
-  * bd_style_none
-  * bd_style_hidden
-  * bd_style_dotted
-  * bd_style_dashed
-  * bd_style_solid
-  * bd_style_double
-  * bd_style_groove
-  * bd_style_ridge
-  * bd_style_inset
-  * bd_style_outset
-  * bd_style_initial
-  * bd_style_inherit
-  * bdt_style_none
-  * bdt_style_hidden
-  * bdt_style_dotted
-  * bdt_style_dashed
-  * bdt_style_solid
-  * bdt_style_double
-  * bdt_style_groove
-  * bdt_style_ridge
-  * bdt_style_inset
-  * bdt_style_outset
-  * bdt_style_initial
-  * bdt_style_inherit
-  * bdb_style_none
-  * bdb_style_hidden
-  * bdb_style_dotted
-  * bdb_style_dashed
-  * bdb_style_solid
-  * bdb_style_double
-  * bdb_style_groove
-  * bdb_style_ridge
-  * bdb_style_inset
-  * bdb_style_outset
-  * bdb_style_initial
-  * bdb_style_inherit
-  * bdl_style_none
-  * bdl_style_hidden
-  * bdl_style_dotted
-  * bdl_style_dashed
-  * bdl_style_solid
-  * bdl_style_double
-  * bdl_style_groove
-  * bdl_style_ridge
-  * bdl_style_inset
-  * bdl_style_outset
-  * bdl_style_initial
-  * bdl_style_inherit
-  * bdr_style_none
-  * bdr_style_hidden
-  * bdr_style_dotted
-  * bdr_style_dashed
-  * bdr_style_solid
-  * bdr_style_double
-  * bdr_style_groove
-  * bdr_style_ridge
-  * bdr_style_inset
-  * bdr_style_outset
-  * bdr_style_initial
-  * bdr_style_inherit
-  * bdx_style_none
-  * bdx_style_hidden
-  * bdx_style_dotted
-  * bdx_style_dashed
-  * bdx_style_solid
-  * bdx_style_double
-  * bdx_style_groove
-  * bdx_style_ridge
-  * bdx_style_inset
-  * bdx_style_outset
-  * bdx_style_initial
-  * bdx_style_inherit
-  * bdy_style_none
-  * bdy_style_hidden
-  * bdy_style_dotted
-  * bdy_style_dashed
-  * bdy_style_solid
-  * bdy_style_double
-  * bdy_style_groove
-  * bdy_style_ridge
-  * bdy_style_inset
-  * bdy_style_outset
-  * bdy_style_initial
-  * bdy_style_inherit
-  * bd_collapse
-  * bd_separate
-  * bd_none
-  * bdt_none
-  * bdb_none
-  * bdl_none
-  * bdr_none
-  * bdx_none
-  * bdy_none
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>bd_`SIZE_STYLE_COLOR`</td>
+      <td>bdt_`SIZE_STYLE_COLOR`</td>
+      <td>bdb_`SIZE_STYLE_COLOR`</td>
+      <td>bdl_`SIZE_STYLE_COLOR`</td>
+      <td>bdr_`SIZE_STYLE_COLOR`</td>
+    </tr>
+    <tr>
+      <td>bdx_`SIZE_STYLE_COLOR`</td>
+      <td>bdy_`SIZE_STYLE_COLOR`</td>
+      <td>bd_color_`COLOR`</td>
+      <td>bdt_color_`COLOR`</td>
+      <td>bdb_color_`COLOR`</td>
+    </tr>
+    <tr>
+      <td>bdl_color_`COLOR`</td>
+      <td>bdr_color_`COLOR`</td>
+      <td>bdx_color_`COLOR`</td>
+      <td>bdy_color_`COLOR`</td>
+      <td>bd_width_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>bdt_width_`NUMBER`</td>
+      <td>bdb_width_`NUMBER`</td>
+      <td>bdl_width_`NUMBER`</td>
+      <td>bdr_width_`NUMBER`</td>
+      <td>bdx_width_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>bdy_width_`NUMBER`</td>
+      <td>bd_radius_`VALUE`</td>
+      <td>bdtr_radius_`VALUE`</td>
+      <td>bdtl_radius_`VALUE`</td>
+      <td>bdt_radius_`VALUE`</td>
+    </tr>
+    <tr>
+      <td>bdbr_radius_`VALUE`</td>
+      <td>bdbl_radius_`VALUE`</td>
+      <td>bdb_radius_`VALUE`</td>
+      <td>bdl_radius_`VALUE`</td>
+      <td>bdr_radius_`VALUE`</td>
+    </tr>
+    <tr>
+      <td>bd_style_none</td>
+      <td>bd_style_hidden</td>
+      <td>bd_style_dotted</td>
+      <td>bd_style_dashed</td>
+      <td>bd_style_solid</td>
+    </tr>
+    <tr>
+      <td>bd_style_double</td>
+      <td>bd_style_groove</td>
+      <td>bd_style_ridge</td>
+      <td>bd_style_inset</td>
+      <td>bd_style_outset</td>
+    </tr>
+    <tr>
+      <td>bd_style_initial</td>
+      <td>bd_style_inherit</td>
+      <td>bdt_style_none</td>
+      <td>bdt_style_hidden</td>
+      <td>bdt_style_dotted</td>
+    </tr>
+    <tr>
+      <td>bdt_style_dashed</td>
+      <td>bdt_style_solid</td>
+      <td>bdt_style_double</td>
+      <td>bdt_style_groove</td>
+      <td>bdt_style_ridge</td>
+    </tr>
+    <tr>
+      <td>bdt_style_inset</td>
+      <td>bdt_style_outset</td>
+      <td>bdt_style_initial</td>
+      <td>bdt_style_inherit</td>
+      <td>bdb_style_none</td>
+    </tr>
+    <tr>
+      <td>bdb_style_hidden</td>
+      <td>bdb_style_dotted</td>
+      <td>bdb_style_dashed</td>
+      <td>bdb_style_solid</td>
+      <td>bdb_style_double</td>
+    </tr>
+    <tr>
+      <td>bdb_style_groove</td>
+      <td>bdb_style_ridge</td>
+      <td>bdb_style_inset</td>
+      <td>bdb_style_outset</td>
+      <td>bdb_style_initial</td>
+    </tr>
+    <tr>
+      <td>bdb_style_inherit</td>
+      <td>bdl_style_none</td>
+      <td>bdl_style_hidden</td>
+      <td>bdl_style_dotted</td>
+      <td>bdl_style_dashed</td>
+    </tr>
+    <tr>
+      <td>bdl_style_solid</td>
+      <td>bdl_style_double</td>
+      <td>bdl_style_groove</td>
+      <td>bdl_style_ridge</td>
+      <td>bdl_style_inset</td>
+    </tr>
+    <tr>
+      <td>bdl_style_outset</td>
+      <td>bdl_style_initial</td>
+      <td>bdl_style_inherit</td>
+      <td>bdr_style_none</td>
+      <td>bdr_style_hidden</td>
+    </tr>
+    <tr>
+      <td>bdr_style_dotted</td>
+      <td>bdr_style_dashed</td>
+      <td>bdr_style_solid</td>
+      <td>bdr_style_double</td>
+      <td>bdr_style_groove</td>
+    </tr>
+    <tr>
+      <td>bdr_style_ridge</td>
+      <td>bdr_style_inset</td>
+      <td>bdr_style_outset</td>
+      <td>bdr_style_initial</td>
+      <td>bdr_style_inherit</td>
+    </tr>
+    <tr>
+      <td>bdx_style_none</td>
+      <td>bdx_style_hidden</td>
+      <td>bdx_style_dotted</td>
+      <td>bdx_style_dashed</td>
+      <td>bdx_style_solid</td>
+    </tr>
+    <tr>
+      <td>bdx_style_double</td>
+      <td>bdx_style_groove</td>
+      <td>bdx_style_ridge</td>
+      <td>bdx_style_inset</td>
+      <td>bdx_style_outset</td>
+    </tr>
+    <tr>
+      <td>bdx_style_initial</td>
+      <td>bdx_style_inherit</td>
+      <td>bdy_style_none</td>
+      <td>bdy_style_hidden</td>
+      <td>bdy_style_dotted</td>
+    </tr>
+    <tr>
+      <td>bdy_style_dashed</td>
+      <td>bdy_style_solid</td>
+      <td>bdy_style_double</td>
+      <td>bdy_style_groove</td>
+      <td>bdy_style_ridge</td>
+    </tr>
+    <tr>
+      <td>bdy_style_inset</td>
+      <td>bdy_style_outset</td>
+      <td>bdy_style_initial</td>
+      <td>bdy_style_inherit</td>
+      <td>bd_collapse</td>
+    </tr>
+    <tr>
+      <td>bd_separate</td>
+      <td>bd_none</td>
+      <td>bdt_none</td>
+      <td>bdb_none</td>
+      <td>bdl_none</td>
+    </tr>
+    <tr>
+      <td>bdr_none</td>
+      <td>bdx_none</td>
+      <td>bdy_none</td>
+    </tr>
+  </tbody>
+</table>
+
 ## container
-  * z_`NUMBER`
-  * op_`NUMBER`
-  * top_`NUMBER`
-  * bottom_`NUMBER`
-  * left_`NUMBER`
-  * right_`NUMBER`
-  * z_max
-  * z_auto
-  * sc_auto
-  * sc_hidden
-  * sc_visible
-  * scy_auto
-  * scy_hidden
-  * scy_visible
-  * scx_auto
-  * scx_hidden
-  * scx_visible
-  * fixed
-  * absolute
-  * relative
-  * sticky
-  * top
-  * right
-  * bottom
-  * left
-  * inset
-  * inset_x
-  * inset_y
-  * fit_contain
-  * fit_cover
-  * fit_fill
-  * fit_none
-  * hidden
-  * visible
-  * invisible
-  * noappearance
-  * rz_none
-  * rz
-  * rzy
-  * rzx
-  * content
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>z_`NUMBER`</td>
+      <td>op_`NUMBER`</td>
+      <td>top_`NUMBER`</td>
+      <td>bottom_`NUMBER`</td>
+      <td>left_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>right_`NUMBER`</td>
+      <td>z_max</td>
+      <td>z_auto</td>
+      <td>sc_auto</td>
+      <td>sc_hidden</td>
+    </tr>
+    <tr>
+      <td>sc_visible</td>
+      <td>scy_auto</td>
+      <td>scy_hidden</td>
+      <td>scy_visible</td>
+      <td>scx_auto</td>
+    </tr>
+    <tr>
+      <td>scx_hidden</td>
+      <td>scx_visible</td>
+      <td>fixed</td>
+      <td>absolute</td>
+      <td>relative</td>
+    </tr>
+    <tr>
+      <td>sticky</td>
+      <td>top</td>
+      <td>right</td>
+      <td>bottom</td>
+      <td>left</td>
+    </tr>
+    <tr>
+      <td>inset</td>
+      <td>inset_x</td>
+      <td>inset_y</td>
+      <td>fit_contain</td>
+      <td>fit_cover</td>
+    </tr>
+    <tr>
+      <td>fit_fill</td>
+      <td>fit_none</td>
+      <td>hidden</td>
+      <td>visible</td>
+      <td>invisible</td>
+    </tr>
+    <tr>
+      <td>noappearance</td>
+      <td>rz_none</td>
+      <td>rz</td>
+      <td>rzy</td>
+      <td>rzx</td>
+    </tr>
+    <tr>
+      <td>content</td>
+    </tr>
+  </tbody>
+</table>
+
 ## cursor
-  * cr_auto
-  * cr_default
-  * cr_pointer
-  * cr_wait
-  * cr_text
-  * cr_move
-  * cr_disallowed
-  * cr_cross
-  * cr_grabbing
-  * cr_help
-  * cry_resize
-  * cra_resize
-  * crb_resize
-  * crx_resize
-  * cr_no_drop
-  * cr_none
-  * cr_progress
-  * cr_zoom_in
-  * cr_zoom_out
-  * cr_noevents
-  * cr_events
-  * cr_url
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>cr_auto</td>
+      <td>cr_default</td>
+      <td>cr_pointer</td>
+      <td>cr_wait</td>
+      <td>cr_text</td>
+    </tr>
+    <tr>
+      <td>cr_move</td>
+      <td>cr_disallowed</td>
+      <td>cr_cross</td>
+      <td>cr_grabbing</td>
+      <td>cr_help</td>
+    </tr>
+    <tr>
+      <td>cry_resize</td>
+      <td>cra_resize</td>
+      <td>crb_resize</td>
+      <td>crx_resize</td>
+      <td>cr_no_drop</td>
+    </tr>
+    <tr>
+      <td>cr_none</td>
+      <td>cr_progress</td>
+      <td>cr_zoom_in</td>
+      <td>cr_zoom_out</td>
+      <td>cr_noevents</td>
+    </tr>
+    <tr>
+      <td>cr_events</td>
+      <td>cr_url</td>
+    </tr>
+  </tbody>
+</table>
+
 ## filter
-  * ft_`VALUE`
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>fl_blur_`SIZE`</td>
+      <td>fl_brightness_`SIZE`</td>
+      <td>fl_contrast_`SIZE`</td>
+      <td>fl_grayscale_`SIZE`</td>
+      <td>fl_hue_`SIZE`</td>
+    </tr>
+    <tr>
+      <td>fl_opacity_`SIZE`</td>
+      <td>fl_saturate_`SIZE`</td>
+      <td>fl_sepia_`SIZE`</td>
+      <td>fl_sd_`SIZE`</td>
+      <td>fl_invert</td>
+    </tr>
+  </tbody>
+</table>
+
 ## flex
-  * flex
-  * grow
-  * col
-  * row
-  * row_reverse
-  * col_reverse
-  * main_between
-  * main_around
-  * main_evenly
-  * main_center
-  * cross_center
-  * main_stretch
-  * cross_stretch
-  * main_start
-  * cross_start
-  * main_end
-  * cross_end
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>flex</td>
+      <td>wrap</td>
+      <td>no_wrap</td>
+      <td>reverse_wrap</td>
+      <td>grow</td>
+    </tr>
+    <tr>
+      <td>col</td>
+      <td>row</td>
+      <td>row_reverse</td>
+      <td>col_reverse</td>
+      <td>main_between</td>
+    </tr>
+    <tr>
+      <td>main_around</td>
+      <td>main_evenly</td>
+      <td>main_center</td>
+      <td>cross_center</td>
+      <td>main_stretch</td>
+    </tr>
+    <tr>
+      <td>cross_stretch</td>
+      <td>main_start</td>
+      <td>cross_start</td>
+      <td>main_end</td>
+      <td>cross_end</td>
+    </tr>
+  </tbody>
+</table>
+
 ## font
-  * ft_border_`COLOR`
-  * ft_color_`COLOR`
-  * ft_size_`NUMBER`
-  * ft_spacing_`NUMBER`
-  * ft_height_`NUMBER`
-  * ft_family_`FAMILY`
-  * ft_family_sans
-  * ft_family_serif
-  * ft_family_mono
-  * ft_select_none
-  * ft_select_auto
-  * ft_select_text
-  * ft_select_contain
-  * ft_select_all
-  * ft_select_inherit
-  * ft_select_initial
-  * ft_select_unset
-  * ft_align_left
-  * ft_align_right
-  * ft_align_center
-  * ft_align_justify
-  * ft_align_initial
-  * ft_align_inherit
-  * ft_transform_none
-  * ft_transform_normal
-  * ft_transform_capitalize
-  * ft_transform_uppercase
-  * ft_transform_lowercase
-  * ft_transform_initial
-  * ft_transform_inherit
-  * ft_italic
-  * ft_weight_lightest
-  * ft_weight_lighter
-  * ft_weight_light
-  * ft_weight_normal
-  * ft_weight_medium
-  * ft_weight_semibold
-  * ft_weight_bold
-  * ft_weight_bolder
-  * ft_weight_black
-  * li_none
-  * li_disc
-  * li_decimal
-  * li_inside
-  * li_outside
-  * ft_underline
-  * ft_line_through
-  * ft_no_underline
-  * ft_wrap_space
-  * ft_wrap_word
-  * ft_wrap_letter
-  * ft_no_wrap
-  * ft_truncate
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>ft_border_`COLOR`</td>
+      <td>ft_color_`COLOR`</td>
+      <td>ft_size_`NUMBER`</td>
+      <td>ft_spacing_`NUMBER`</td>
+      <td>ft_height_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>ft_family_`FAMILY`</td>
+      <td>ft_family_sans</td>
+      <td>ft_family_serif</td>
+      <td>ft_family_mono</td>
+      <td>ft_select_none</td>
+    </tr>
+    <tr>
+      <td>ft_select_auto</td>
+      <td>ft_select_text</td>
+      <td>ft_select_contain</td>
+      <td>ft_select_all</td>
+      <td>ft_select_inherit</td>
+    </tr>
+    <tr>
+      <td>ft_select_initial</td>
+      <td>ft_select_unset</td>
+      <td>ft_align_left</td>
+      <td>ft_align_right</td>
+      <td>ft_align_center</td>
+    </tr>
+    <tr>
+      <td>ft_align_justify</td>
+      <td>ft_align_initial</td>
+      <td>ft_align_inherit</td>
+      <td>ft_transform_none</td>
+      <td>ft_transform_normal</td>
+    </tr>
+    <tr>
+      <td>ft_transform_capitalize</td>
+      <td>ft_transform_uppercase</td>
+      <td>ft_transform_lowercase</td>
+      <td>ft_transform_initial</td>
+      <td>ft_transform_inherit</td>
+    </tr>
+    <tr>
+      <td>ft_italic</td>
+      <td>ft_weight_lightest</td>
+      <td>ft_weight_lighter</td>
+      <td>ft_weight_light</td>
+      <td>ft_weight_normal</td>
+    </tr>
+    <tr>
+      <td>ft_weight_medium</td>
+      <td>ft_weight_semibold</td>
+      <td>ft_weight_bold</td>
+      <td>ft_weight_bolder</td>
+      <td>ft_weight_black</td>
+    </tr>
+    <tr>
+      <td>li_none</td>
+      <td>li_disc</td>
+      <td>li_decimal</td>
+      <td>li_inside</td>
+      <td>li_outside</td>
+    </tr>
+    <tr>
+      <td>ft_underline</td>
+      <td>ft_line_through</td>
+      <td>ft_no_underline</td>
+      <td>ft_wrap_space</td>
+      <td>ft_wrap_word</td>
+    </tr>
+    <tr>
+      <td>ft_wrap_letter</td>
+      <td>ft_no_wrap</td>
+      <td>ft_truncate</td>
+    </tr>
+  </tbody>
+</table>
+
 ## gradient
-  * gx_`COLOR`
-  * gy_`COLOR`
-  * gt_`COLOR`
-  * gb_`COLOR`
-  * gl_`COLOR`
-  * gr_`COLOR`
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>gx_`COLOR`</td>
+      <td>gy_`COLOR`</td>
+      <td>gt_`COLOR`</td>
+      <td>gb_`COLOR`</td>
+      <td>gl_`COLOR`</td>
+    </tr>
+    <tr>
+      <td>gr_`COLOR`</td>
+    </tr>
+  </tbody>
+</table>
+
 ## grid
-  * rows_`FRACTIONS`
-  * cols_`FRACTIONS`
-  * area_`AREA`
-  * cols_span_`NUMBER`
-  * rows_span_`NUMBER`
-  * cols_start_`NUMBER`
-  * cols_end_`NUMBER`
-  * rows_start_`NUMBER`
-  * rows_end_`NUMBER`
-  * grid
-  * areas
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>rows_`FRACTIONS`</td>
+      <td>cols_`FRACTIONS`</td>
+      <td>area_`AREA`</td>
+      <td>cols_span_`NUMBER`</td>
+      <td>rows_span_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>cols_start_`NUMBER`</td>
+      <td>cols_end_`NUMBER`</td>
+      <td>rows_start_`NUMBER`</td>
+      <td>rows_end_`NUMBER`</td>
+      <td>grid</td>
+    </tr>
+    <tr>
+      <td>areas</td>
+    </tr>
+  </tbody>
+</table>
+
 ## outline
-  * ol_color_`COLOR`
-  * ol_width_`NUMBER`
-  * ol_none
-  * ol_style_auto
-  * ol_style_none
-  * ol_style_dotted
-  * ol_style_dashed
-  * ol_style_solid
-  * ol_style_double
-  * ol_style_groove
-  * ol_style_ridge
-  * ol_style_inset
-  * ol_style_outset
-  * ol_style_inherit
-  * ol_style_initial
-  * ol_style_unset
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>ol_color_`COLOR`</td>
+      <td>ol_width_`NUMBER`</td>
+      <td>ol_none</td>
+      <td>ol_style_auto</td>
+      <td>ol_style_none</td>
+    </tr>
+    <tr>
+      <td>ol_style_dotted</td>
+      <td>ol_style_dashed</td>
+      <td>ol_style_solid</td>
+      <td>ol_style_double</td>
+      <td>ol_style_groove</td>
+    </tr>
+    <tr>
+      <td>ol_style_ridge</td>
+      <td>ol_style_inset</td>
+      <td>ol_style_outset</td>
+      <td>ol_style_inherit</td>
+      <td>ol_style_initial</td>
+    </tr>
+    <tr>
+      <td>ol_style_unset</td>
+    </tr>
+  </tbody>
+</table>
+
 ## shadow
-  * sd_1
-  * sd_2
-  * sd_3
-  * sd_4
-  * sd_6
-  * sd_8
-  * sd_9
-  * sd_12
-  * sd_16
-  * sd_24
-  * sdi_1
-  * sdi_2
-  * sdi_3
-  * sdi_4
-  * sdi_6
-  * sdi_8
-  * sdi_9
-  * sdi_12
-  * sdi_16
-  * sdi_24
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>sd_1</td>
+      <td>sd_2</td>
+      <td>sd_3</td>
+      <td>sd_4</td>
+      <td>sd_6</td>
+    </tr>
+    <tr>
+      <td>sd_8</td>
+      <td>sd_9</td>
+      <td>sd_12</td>
+      <td>sd_16</td>
+      <td>sd_24</td>
+    </tr>
+    <tr>
+      <td>sdi_1</td>
+      <td>sdi_2</td>
+      <td>sdi_3</td>
+      <td>sdi_4</td>
+      <td>sdi_6</td>
+    </tr>
+    <tr>
+      <td>sdi_8</td>
+      <td>sdi_9</td>
+      <td>sdi_12</td>
+      <td>sdi_16</td>
+      <td>sdi_24</td>
+    </tr>
+  </tbody>
+</table>
+
 ## sizing
-  * h_`NUMBER`
-  * h_max_`NUMBER`
-  * h_min_`NUMBER`
-  * h_min_`NUMBER`
-  * w_`NUMBER`
-  * w_max_`NUMBER`
-  * w_min_`NUMBER`
-  * w_min_`NUMBER`
-  * h_full
-  * h_max_full
-  * h_min_full
-  * h_auto
-  * h_max_auto
-  * h_min_auto
-  * h_screen
-  * h_max_screen
-  * h_min_screen
-  * w_full
-  * w_max_full
-  * w_min_full
-  * w_auto
-  * w_max_auto
-  * w_min_auto
-  * w_screen
-  * w_max_screen
-  * w_min_screen
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>h_`NUMBER`</td>
+      <td>h_max_`NUMBER`</td>
+      <td>h_min_`NUMBER`</td>
+      <td>h_min_`NUMBER`</td>
+      <td>w_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>w_max_`NUMBER`</td>
+      <td>w_min_`NUMBER`</td>
+      <td>w_min_`NUMBER`</td>
+      <td>h_full</td>
+      <td>h_max_full</td>
+    </tr>
+    <tr>
+      <td>h_min_full</td>
+      <td>h_auto</td>
+      <td>h_max_auto</td>
+      <td>h_min_auto</td>
+      <td>h_screen</td>
+    </tr>
+    <tr>
+      <td>h_max_screen</td>
+      <td>h_min_screen</td>
+      <td>w_full</td>
+      <td>w_max_full</td>
+      <td>w_min_full</td>
+    </tr>
+    <tr>
+      <td>w_auto</td>
+      <td>w_max_auto</td>
+      <td>w_min_auto</td>
+      <td>w_screen</td>
+      <td>w_max_screen</td>
+    </tr>
+    <tr>
+      <td>w_min_screen</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## spacing
-  * m_`NUMBER`
-  * mt_`NUMBER`
-  * mb_`NUMBER`
-  * ml_`NUMBER`
-  * mr_`NUMBER`
-  * mx_`NUMBER`
-  * my_`NUMBER`
-  * p_`NUMBER`
-  * pt_`NUMBER`
-  * pb_`NUMBER`
-  * pl_`NUMBER`
-  * pr_`NUMBER`
-  * px_`NUMBER`
-  * py_`NUMBER`
-  * m_auto
-  * mt_auto
-  * mb_auto
-  * ml_auto
-  * mr_auto
-  * mx_auto
-  * my_auto
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>m_`NUMBER`</td>
+      <td>mt_`NUMBER`</td>
+      <td>mb_`NUMBER`</td>
+      <td>ml_`NUMBER`</td>
+      <td>mr_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>mx_`NUMBER`</td>
+      <td>my_`NUMBER`</td>
+      <td>p_`NUMBER`</td>
+      <td>pt_`NUMBER`</td>
+      <td>pb_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>pl_`NUMBER`</td>
+      <td>pr_`NUMBER`</td>
+      <td>px_`NUMBER`</td>
+      <td>py_`NUMBER`</td>
+      <td>m_auto</td>
+    </tr>
+    <tr>
+      <td>mt_auto</td>
+      <td>mb_auto</td>
+      <td>ml_auto</td>
+      <td>mr_auto</td>
+      <td>mx_auto</td>
+    </tr>
+    <tr>
+      <td>my_auto</td>
+    </tr>
+  </tbody>
+</table>
+
   
 ## transform
-  * sl_`NUMBER`
-  * slx_`NUMBER`
-  * sly_`NUMBER`
-  * rt_`NUMBER`
-  * sk_`NUMBER`
-  * skx_`NUMBER`
-  * sky_`NUMBER`
-  * tl_`NUMBER`
-  * tlx_`NUMBER`
-  * tly_`NUMBER`
-  * ori_`VALUE`
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>tf_sl_`NUMBER`</td>
+      <td>tf_slx_`NUMBER`</td>
+      <td>tf_sly_`NUMBER`</td>
+      <td>tf_rt_`NUMBER`</td>
+      <td>tf_sk_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>tf_skx_`NUMBER`</td>
+      <td>tf_sky_`NUMBER`</td>
+      <td>tf_tl_`NUMBER`</td>
+      <td>tf_tlx_`NUMBER`</td>
+      <td>tf_tly_`NUMBER`</td>
+    </tr>
+    <tr>
+      <td>tf_ori_`VALUE`</td>
+    </tr>
+  </tbody>
+</table>
+
 ## transition
-  * ts_delay_`TIME`
-  * ts_duration_`TIME`
-  * ts
-  * ts_none
-  * ts_all
-  * ts_colors
-  * ts_opacity
-  * ts_shadow
-  * ts_transform
-  * ts_ease_linear
-  * ts_ease_in
-  * ts_ease_out
-  * ts_ease_in_out
+<hr />
+<table>
+  <tbody>
+    <tr>
+      <td>ts_delay_`TIME`</td>
+      <td>ts_duration_`TIME`</td>
+      <td>ts</td>
+      <td>ts_none</td>
+      <td>ts_all</td>
+    </tr>
+    <tr>
+      <td>ts_colors</td>
+      <td>ts_opacity</td>
+      <td>ts_shadow</td>
+      <td>ts_transform</td>
+      <td>ts_ease_linear</td>
+    </tr>
+    <tr>
+      <td>ts_ease_in</td>
+      <td>ts_ease_out</td>
+      <td>ts_ease_in_out</td>
+    </tr>
+  </tbody>
+</table>
+
