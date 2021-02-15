@@ -76,7 +76,7 @@ export type BooleonProps<M extends BooleonModule> =
  */
 export type BooleonHtmlProps<M extends BooleonModule> = Omit<
   React.HTMLProps<any>,
-  'content'
+  'content' | 'wrap'
 > &
   BooleonProps<M>;
 

@@ -4,25 +4,20 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 import { outline } from '../../packages/modules/src/lib/outline';
-import { hocBooleon } from '../../packages/react/src';
+import { booleon } from '../../packages/react/src';
 
+const BooleonComponent = booleon.div(outline);
 describe('Outline', () => {
-  let OutlineComponent;
-
-  beforeAll(() => {
-    OutlineComponent = hocBooleon((props) => <div {...props} />, outline);
-  });
-
   test('ol_style_solid', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_solid" ol_style_solid />,
+      <BooleonComponent data-testid="ol_style_solid" ol_style_solid />,
     );
     expect(getByTestId('ol_style_solid')).toHaveStyle('outline-style: solid;');
   });
 
   test('ol_style_dashed', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_dashed" ol_style_dashed />,
+      <BooleonComponent data-testid="ol_style_dashed" ol_style_dashed />,
     );
     expect(getByTestId('ol_style_dashed')).toHaveStyle(
       'outline-style: dashed;',
@@ -31,7 +26,7 @@ describe('Outline', () => {
 
   test('ol_style_dotted', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_dotted" ol_style_dotted />,
+      <BooleonComponent data-testid="ol_style_dotted" ol_style_dotted />,
     );
     expect(getByTestId('ol_style_dotted')).toHaveStyle(
       'outline-style: dotted;',
@@ -40,7 +35,7 @@ describe('Outline', () => {
 
   test('ol_style_double', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_double" ol_style_double />,
+      <BooleonComponent data-testid="ol_style_double" ol_style_double />,
     );
     expect(getByTestId('ol_style_double')).toHaveStyle(
       'outline-style: double;',
@@ -49,7 +44,7 @@ describe('Outline', () => {
 
   test('ol_style_groove', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_groove" ol_style_groove />,
+      <BooleonComponent data-testid="ol_style_groove" ol_style_groove />,
     );
     expect(getByTestId('ol_style_groove')).toHaveStyle(
       'outline-style: groove;',
@@ -58,21 +53,21 @@ describe('Outline', () => {
 
   test('ol_style_ridge', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_ridge" ol_style_ridge />,
+      <BooleonComponent data-testid="ol_style_ridge" ol_style_ridge />,
     );
     expect(getByTestId('ol_style_ridge')).toHaveStyle('outline-style: ridge;');
   });
 
   test('ol_style_inset', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_inset" ol_style_inset />,
+      <BooleonComponent data-testid="ol_style_inset" ol_style_inset />,
     );
     expect(getByTestId('ol_style_inset')).toHaveStyle('outline-style: inset;');
   });
 
   test('ol_style_outset', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_style_outset" ol_style_outset />,
+      <BooleonComponent data-testid="ol_style_outset" ol_style_outset />,
     );
     expect(getByTestId('ol_style_outset')).toHaveStyle(
       'outline-style: outset;',
@@ -81,14 +76,14 @@ describe('Outline', () => {
 
   test('ol_width_10', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_width_10" ol_width_10 />,
+      <BooleonComponent data-testid="ol_width_10" ol_width_10 />,
     );
     expect(getByTestId('ol_width_10')).toHaveStyle('outline-width: 0.625rem;');
   });
 
   test('ol_color_f00', () => {
     const { getByTestId } = render(
-      <OutlineComponent data-testid="ol_color_f00" ol_color_f00 />,
+      <BooleonComponent data-testid="ol_color_f00" ol_color_f00 />,
     );
     expect(getByTestId('ol_color_f00')).toHaveStyle('outline-color: #f00;');
   });

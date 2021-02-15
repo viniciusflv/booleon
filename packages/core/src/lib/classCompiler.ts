@@ -1,4 +1,5 @@
 import { ReducedProps } from '../types';
+import { cleanTransformFilter } from './cleanTransformFilter';
 
 export function classCompiler(className: string, reducedProps: ReducedProps) {
   const { keyframe = {}, medias = {}, pseudo = {}, css = '' } = reducedProps;
@@ -30,5 +31,5 @@ export function classCompiler(className: string, reducedProps: ReducedProps) {
 
   const classes = style + keyframes + pseudoElements + mediaQueries;
 
-  return classes;
+  return cleanTransformFilter(classes);
 }

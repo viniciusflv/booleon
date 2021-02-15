@@ -35,39 +35,43 @@ export function propsReducer<P extends Props, M extends BooleonModule>(
   const keyframeMap = new Map(KEYFRAMES);
   const mediasMap = new Map(MEDIA_QUERIES);
   let animation: any;
-  return Object.keys(props).reduce((acc, key) => {
-    const { prefix, prop } = key.match(prefixRegex)?.groups ?? {};
-    if (prefix) {
-      const prefixes = prefix.split('__');
-      animation = animation ? animation : prefixes[0] === 'kf' ? prop : null;
-      return {
-        ...acc,
-        pseudo: accumulate({
-          acc: acc?.pseudo,
-          css: cssCompiler(prop, props[key], module),
-          entrie: prefixes.reduce(
-            (acc, pf) => (acc += pseudoMap.get(pf as PseudoElements) ?? ''),
-            '',
-          ),
-        }),
-        keyframe: {
-          [animation]: accumulate({
-            acc: acc?.keyframe?.[animation],
+  return Object.keys(props)
+    .sort((a, b) =>
+      /fl_/.exec(a) ? -1 : /tf_/.exec(b) ? (/tf_ori_/.exec(b) ? 0 : -1) : 1,
+    )
+    .reduce((acc, key) => {
+      const { prefix, prop } = key.match(prefixRegex)?.groups ?? {};
+      if (prefix) {
+        const prefixes = prefix.split('__');
+        animation = animation ? animation : prefixes[0] === 'kf' ? prop : null;
+        return {
+          ...acc,
+          pseudo: accumulate({
+            acc: acc?.pseudo,
             css: cssCompiler(prop, props[key], module),
-            entrie: keyframeMap.get(prefixes[0] as Keyframes),
+            entrie: prefixes.reduce(
+              (acc, pf) => (acc += pseudoMap.get(pf as PseudoElements) ?? ''),
+              '',
+            ),
           }),
-        },
-        medias: accumulate({
-          acc: acc?.medias,
-          css: cssCompiler(prop, props[key], module),
-          entrie: mediasMap.get(prefixes[0] as MediaQueries),
-        }),
-      };
-    }
-    return accumulate({
-      acc: acc,
-      css: cssCompiler(key, props[key], module),
-      entrie: 'css',
-    });
-  }, {} as ReducedProps);
+          keyframe: {
+            [animation]: accumulate({
+              acc: acc?.keyframe?.[animation],
+              css: cssCompiler(prop, props[key], module),
+              entrie: keyframeMap.get(prefixes[0] as Keyframes),
+            }),
+          },
+          medias: accumulate({
+            acc: acc?.medias,
+            css: cssCompiler(prop, props[key], module),
+            entrie: mediasMap.get(prefixes[0] as MediaQueries),
+          }),
+        };
+      }
+      return accumulate({
+        acc: acc,
+        css: cssCompiler(key, props[key], module),
+        entrie: 'css',
+      });
+    }, {} as ReducedProps);
 }

@@ -9,9 +9,9 @@
  */
 export const flex = {
   flex: () => 'display:flex;',
-  flex_wrap: () => 'flex-wrap:wrap;',
+  wrap: () => 'flex-wrap:wrap;',
   no_wrap: () => 'flex-wrap:nowrap;',
-  reverse_wrap: () => 'flex-wrap:wrap-reverse',
+  reverse_wrap: () => 'flex-wrap:wrap-reverse;',
   grow: () => 'flex-grow:1;',
   col: () => 'flex-direction:column;',
   row: () => 'flex-direction:row;',

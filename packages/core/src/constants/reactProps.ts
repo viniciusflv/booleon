@@ -122,7 +122,7 @@ export const REACT_PROPS = [
   'value',
   'width',
   'wmode',
-  'wrap',
+  // 'wrap',
   'about',
   'datatype',
   'inlist',

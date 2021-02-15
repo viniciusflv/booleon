@@ -6,87 +6,120 @@ import { render } from '@testing-library/react';
 import { filter } from '../../packages/modules/src';
 import { booleon } from '../../packages/react/src';
 
-const FilterComponent = booleon.div(filter);
+const BooleonComponent = booleon.div(filter);
 describe('Filter', () => {
-  test('ft_blur_1rem', () => {
+  test('combined', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_blur_1rem" ft_blur_1rem />,
+      <BooleonComponent
+        data-testid="fl_blur_1rem"
+        fl_blur_1rem
+        fl_brightness_100
+        fl_contrast_100$
+        fl_grayscale_100$
+        fl_hue_10deg
+        fl_opacity_10$
+        fl_saturate_1000
+        fl_sepia_10$
+        fl_sd_1
+        fl_invert
+      />,
     );
-    expect(getByTestId('ft_blur_1rem')).toHaveStyle('filter: blur(1rem);');
+    expect(getByTestId('fl_blur_1rem')).toHaveStyle(
+      'filter:' +
+        'invert(100%)' +
+        'drop-shadow(0 1px 1px rgba(0,0,0,0.14))' +
+        'drop-shadow(0 2px 1px rgba(0,0,0,0.12))' +
+        'drop-shadow(0 1px 3px rgba(0,0,0,0.20))' +
+        'sepia(10%)' +
+        'saturate(10)' +
+        'opacity(10%)' +
+        'hue-rotate(10deg)' +
+        'grayscale(100%)' +
+        'contrast(100%)' +
+        'brightness(1)' +
+        'blur(1rem);',
+    );
   });
 
-  test('ft_brightness_100', () => {
+  test('fl_blur_1rem', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_brightness_100" ft_brightness_100 />,
+      <BooleonComponent data-testid="fl_blur_1rem" fl_blur_1rem />,
     );
-    expect(getByTestId('ft_brightness_100')).toHaveStyle(
+    expect(getByTestId('fl_blur_1rem')).toHaveStyle('filter: blur(1rem);');
+  });
+
+  test('fl_brightness_100', () => {
+    const { getByTestId } = render(
+      <BooleonComponent data-testid="fl_brightness_100" fl_brightness_100 />,
+    );
+    expect(getByTestId('fl_brightness_100')).toHaveStyle(
       'filter: brightness(1);',
     );
   });
 
-  test('ft_contrast_100$', () => {
+  test('fl_contrast_100$', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_contrast_100$" ft_contrast_100$ />,
+      <BooleonComponent data-testid="fl_contrast_100$" fl_contrast_100$ />,
     );
-    expect(getByTestId('ft_contrast_100$')).toHaveStyle(
+    expect(getByTestId('fl_contrast_100$')).toHaveStyle(
       'filter: contrast(100%);',
     );
   });
 
-  test('ft_grayscale_100$', () => {
+  test('fl_grayscale_100$', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_grayscale_100$" ft_grayscale_100$ />,
+      <BooleonComponent data-testid="fl_grayscale_100$" fl_grayscale_100$ />,
     );
-    expect(getByTestId('ft_grayscale_100$')).toHaveStyle(
+    expect(getByTestId('fl_grayscale_100$')).toHaveStyle(
       'filter: grayscale(100%);',
     );
   });
 
-  test('ft_hue_10deg', () => {
+  test('fl_hue_10deg', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_hue_10deg" ft_hue_10deg />,
+      <BooleonComponent data-testid="fl_hue_10deg" fl_hue_10deg />,
     );
-    expect(getByTestId('ft_hue_10deg')).toHaveStyle(
+    expect(getByTestId('fl_hue_10deg')).toHaveStyle(
       'filter: hue-rotate(10deg);',
     );
   });
 
-  test('ft_opacity_10$', () => {
+  test('fl_opacity_10$', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_opacity_10$" ft_opacity_10$ />,
+      <BooleonComponent data-testid="fl_opacity_10$" fl_opacity_10$ />,
     );
-    expect(getByTestId('ft_opacity_10$')).toHaveStyle('filter: opacity(10%);');
+    expect(getByTestId('fl_opacity_10$')).toHaveStyle('filter: opacity(10%);');
   });
 
-  test('ft_saturate_1000', () => {
+  test('fl_saturate_1000', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_saturate_1000" ft_saturate_1000 />,
+      <BooleonComponent data-testid="fl_saturate_1000" fl_saturate_1000 />,
     );
-    expect(getByTestId('ft_saturate_1000')).toHaveStyle(
+    expect(getByTestId('fl_saturate_1000')).toHaveStyle(
       'filter: saturate(10);',
     );
   });
 
-  test('ft_sepia_10$', () => {
+  test('fl_sepia_10$', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_sepia_10$" ft_sepia_10$ />,
+      <BooleonComponent data-testid="fl_sepia_10$" fl_sepia_10$ />,
     );
-    expect(getByTestId('ft_sepia_10$')).toHaveStyle('filter: sepia(10%);');
+    expect(getByTestId('fl_sepia_10$')).toHaveStyle('filter: sepia(10%);');
   });
 
-  test('ft_sd_1', () => {
+  test('fl_sd_1', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_sd_1" ft_sd_1 />,
+      <BooleonComponent data-testid="fl_sd_1" fl_sd_1 />,
     );
-    expect(getByTestId('ft_sd_1')).toHaveStyle(
+    expect(getByTestId('fl_sd_1')).toHaveStyle(
       'filter: drop-shadow(0 1px 1px rgba(0,0,0,0.14))drop-shadow(0 2px 1px rgba(0,0,0,0.12))drop-shadow(0 1px 3px rgba(0,0,0,0.20));',
     );
   });
 
-  test('ft_invert_100$', () => {
+  test('fl_invert', () => {
     const { getByTestId } = render(
-      <FilterComponent data-testid="ft_invert_100$" ft_invert_100$ />,
+      <BooleonComponent data-testid="fl_invert" fl_invert />,
     );
-    expect(getByTestId('ft_invert_100$')).toHaveStyle('filter: invert(100%);');
+    expect(getByTestId('fl_invert')).toHaveStyle('filter: invert(100%);');
   });
 });
