@@ -1,4 +1,9 @@
-import { PSEUDO_ELEMENTS, MEDIA_QUERIES, KEYFRAMES } from '../constants';
+import {
+  PSEUDO_ELEMENTS,
+  MEDIA_QUERIES,
+  KEYFRAMES,
+  REACT_PROPS,
+} from '../constants';
 
 /** Generic React Props */
 export type Props<K extends string | number | symbol = string, V = any> = {
@@ -74,23 +79,8 @@ export type BooleonProps<M extends BooleonModule> =
 /**
  * @type {BooleonProps} and @type {React.HTMLProps<any>}
  */
-export type BooleonHtmlProps<M extends BooleonModule> = Omit<
-  React.HTMLProps<any>,
-  'content' | 'wrap'
+export type BooleonHtmlProps<M extends BooleonModule> = Props<
+  typeof REACT_PROPS[number],
+  any
 > &
   BooleonProps<M>;
-
-/**
- * @type {BooleonHtmlProps} @type {FunctionComponent}
- */
-export type BooleonFC<M> = M extends BooleonModule
-  ? React.FC<BooleonHtmlProps<M>>
-  : never;
-
-/**
- * Map elements with @type {BooleonFC}
- */
-export type BooleonComponent<
-  E extends keyof React.ReactDOM | string,
-  M extends BooleonModule
-> = Props<E, (...modules: M[]) => BooleonFC<M>>;
