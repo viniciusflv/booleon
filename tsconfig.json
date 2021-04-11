@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "build/lib",
     "module": "esnext",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2020", "dom"],
     "sourceMap": true,
     "allowJs": false,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    "rootDirs": ["src", "stories"],
+    "rootDirs": ["src"],
     "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -23,6 +22,4 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true
   },
-  "include": ["packages/**/*"],
-  "exclude": ["node_modules", "build"]
 }

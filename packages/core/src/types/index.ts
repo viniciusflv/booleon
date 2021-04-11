@@ -1,15 +1,15 @@
-import { PSEUDO_ELEMENTS, MEDIA_QUERIES, KEYFRAMES } from '../constants';
+import { defaultPrefixes } from '../lib';
 
-/** Generic React Props */
+/** Generic Props */
 export type Props<K extends string | number | symbol = string, V = any> = {
   [key in K]?: V;
 };
 
-/** Function that runs once @type {Props} matches @type {BooleonIndexer} */
-export type BooleonCallback = (value?: any) => any;
+/** Function that runs once @type {Props} matches @type {Object} key */
+export type BooleonCallback = (value?: string | boolean) => string;
 
 /**
- * Key value structure similar to a @type {Map} entry
+ *
  * @example
  * {
  *  [Symbol('key_(.*)')]: (value: string) => `css-${value}`
@@ -21,9 +21,27 @@ export type BooleonModule = {
 };
 
 /**
- * Extract @type {BooleonIndexer} and returns a string literal type
+ * Props Prefixes
  */
-export type BooleonModuleKeys<T> = keyof T;
+export type Prefixes = Exclude<
+  keyof typeof defaultPrefixes,
+  'undefined' | 'css'
+>;
+
+export type PrefixHandler = (arg: PrefixHandlerArg, wrap?: boolean) => string;
+
+export type PrefixHandlerArg = {
+  key: string;
+  value: Props;
+  className: string;
+  prefixes: Props<string, PrefixHandler>;
+  recursiveCompiler: (props: Props) => string;
+};
+
+/**
+ * Extract key and returns a string literal type
+ */
+export type BooleonModuleKeys<T> = keyof T extends string ? keyof T : never;
 
 /**
  * @type {BooleonCallback} arg is a string and/or boolean type
@@ -31,66 +49,12 @@ export type BooleonModuleKeys<T> = keyof T;
 export type BooleonModuleValues = boolean | string;
 
 /**
- * Pseudo elements prefixer
- */
-export type PseudoElements = typeof PSEUDO_ELEMENTS[number][0];
-export type PseudoElementsValues = typeof PSEUDO_ELEMENTS[number][1];
-
-/**
- * Media queries prefixer
- */
-export type MediaQueries = typeof MEDIA_QUERIES[number][0];
-export type MediaQueriesValues = typeof MEDIA_QUERIES[number][1];
-
-/**
- * Keyframes prefixer
- */
-export type Keyframes = typeof KEYFRAMES[number][0];
-export type KeyframesValues = typeof KEYFRAMES[number][1];
-
-/**
- * Props Prefixes
- */
-export type Prefixes = PseudoElements | MediaQueries | Keyframes | 'dark__PROP';
-
-/**
- * Structured compiled css
- */
-export type ReducedProps = {
-  css: string;
-  pseudo: Props<PseudoElementsValues | string, string>;
-  medias: Props<MediaQueriesValues, string>;
-  keyframe: Props<string, Props<KeyframesValues, string>>;
-};
-
-/**
  * Map key value types from @type {BooleonModule}
- * with @type {MediaQueries} @type {PseudoElements}
+ * with @type {Prefixes}
  */
 export type BooleonProps<M extends BooleonModule> =
   | Props<string, BooleonModuleValues>
-  | Props<Prefixes | BooleonModuleKeys<M>, BooleonModuleValues>;
-
-/**
- * @type {BooleonProps} and @type {React.HTMLProps<any>}
- */
-export type BooleonHtmlProps<M extends BooleonModule> = Omit<
-  React.HTMLProps<any>,
-  'content' | 'wrap'
-> &
-  BooleonProps<M>;
-
-/**
- * @type {BooleonHtmlProps} @type {FunctionComponent}
- */
-export type BooleonFC<M> = M extends BooleonModule
-  ? React.FC<BooleonHtmlProps<M>>
-  : never;
-
-/**
- * Map elements with @type {BooleonFC}
- */
-export type BooleonComponent<
-  E extends keyof React.ReactDOM | string,
-  M extends BooleonModule
-> = Props<E, (...modules: M[]) => BooleonFC<M>>;
+  | Props<
+      `${Prefixes}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
+      BooleonModuleValues
+    >;

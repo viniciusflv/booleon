@@ -1,6 +1,8 @@
+
 import './reset.css';
 
 export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
     default: 'light',
     values: [
@@ -8,10 +10,10 @@ export const parameters = {
       { name: 'dark', value: '#333333' },
     ],
   },
-  a11y: {
-    element: '#root',
-    config: {},
-    options: {},
-    manual: true,
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
   },
-};
+}

@@ -1,5 +1,3 @@
-// https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
-
 enum CSSPrefixFlags {
   '-webkit-' = 1 << 0,
   '-moz-' = 1 << 1,
@@ -100,6 +98,9 @@ function getAttrValue(str: string) {
   return [attr, value];
 }
 
+/**
+ * https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
+ */
 export function browserPrefixer(...str: string[]) {
   if (str.map(Boolean).includes(false)) return '';
   return str.length < 2

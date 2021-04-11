@@ -8,10 +8,12 @@
   "main": "dist/index.js",
   "module": "dist/core.esm.js",
   "devDependencies": {
+    "typescript": "^4.2.4",
     "tsdx": "^0.13.2"
   },
   "scripts": {
-    "build": "tsdx build"
+    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "build": "tsdx build --transpileOnly && npm run emit"
   },
   "files": [
     "dist"
