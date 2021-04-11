@@ -12,6 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.13.15",
+    "@booleon/react": "file:../react/src",
+    "@booleon/modules": "file:../modules/src",
     "@storybook/addon-actions": "^6.2.7",
     "@storybook/addon-essentials": "^6.2.7",
     "@storybook/addon-links": "^6.2.7",

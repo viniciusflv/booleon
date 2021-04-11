@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BooleonModule } from '@booleon/core';
 
 import { BooleonHtmlProps } from '../types';

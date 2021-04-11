@@ -1,7 +1,7 @@
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const ServerSideContext = createContext({
-  sheet: [],
+  sheet: [] as any[],
   compileSheet: (_id: string, _css: string) => {
     console.log();
   },

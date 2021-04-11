@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 
 import { styleAppender } from '@booleon/core';
 
@@ -7,6 +7,6 @@ export function reactStyleAppender(className: string, cb: () => string) {
     styleAppender(className, cb);
     return [] as any[];
   } catch (error) {
-    return React.createElement('style', { 'data-booleon': className }, cb?.());
+    return createElement('style', { 'data-booleon': className }, cb?.());
   }
 }

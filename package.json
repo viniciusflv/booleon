@@ -5,16 +5,17 @@
   "scripts": {
     "clean": "lerna clean -y",
     "setup": "lerna bootstrap",
-    "postinstall": "npm run clean && npm run setup",
     "format": "prettier --write $PWD/**/*.{ts,tsx}",
     "lint": "lint-staged",
     "test": "jest",
     "ui": "lerna exec npm run dev --scope=@booleon/ui",
     "pub": "npm test && npm run bun && lerna publish",
     "bun": "run-p bun:*",
-    "bun:react": "lerna exec npm run build --scope=@booleon/react",
     "bun:core": "lerna exec npm run build --scope=@booleon/core",
-    "bun:ui": "lerna exec npm run build --scope=@booleon/ui"
+    "bun:modules": "lerna exec npm run build --scope=@booleon/modules",
+    "bun:react": "lerna exec npm run build --scope=@booleon/react",
+    "bun:ui": "lerna exec npm run build --scope=@booleon/ui",
+    "postinstall": "npm run bun && npm run clean && npm run setup"
   },
   "husky": {
     "hooks": {
