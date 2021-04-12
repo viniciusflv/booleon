@@ -12,9 +12,20 @@
     "tsdx": "^0.13.2"
   },
   "scripts": {
+    "size": "size-limit",
     "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
     "build": "tsdx build --transpileOnly && npm run emit"
   },
+  "size-limit": [
+    {
+      "path": "dist/modules.cjs.production.min.js",
+      "limit": "5 KB"
+    },
+    {
+      "path": "dist/modules.esm.js",
+      "limit": "5 KB"
+    }
+  ],
   "files": [
     "dist"
   ],

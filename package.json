@@ -9,12 +9,16 @@
     "lint": "lint-staged",
     "test": "jest",
     "ui": "lerna exec npm run dev --scope=@booleon/ui",
-    "pub": "npm test && npm run bun && lerna publish",
+    "sz": "run-p sz:*",
+    "sz:core": "lerna exec npm run size --scope=@booleon/core",
+    "sz:modules": "lerna exec npm run size --scope=@booleon/modules",
+    "sz:react": "lerna exec npm run size --scope=@booleon/react",
     "bun": "run-p bun:*",
     "bun:core": "lerna exec npm run build --scope=@booleon/core",
     "bun:modules": "lerna exec npm run build --scope=@booleon/modules",
     "bun:react": "lerna exec npm run build --scope=@booleon/react",
     "bun:ui": "lerna exec npm run build --scope=@booleon/ui",
+    "pub": "npm run sz & npm test && npm run bun && lerna publish",
     "postinstall": "npm run bun && npm run clean && npm run setup"
   },
   "husky": {
@@ -53,6 +57,7 @@
     "@babel/preset-typescript": "^7.13.0",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
+    "@size-limit/preset-small-lib": "^4.10.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@types/jest-axe": "^3.5.1",
@@ -80,6 +85,7 @@
     "prettier-eslint-cli": "^5.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "size-limit": "^4.10.2",
     "typescript": "^4.2.4"
   }
 }
