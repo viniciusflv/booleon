@@ -1,17 +1,22 @@
-import { createContext, useContext } from 'react';
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  ReactElement,
+  ReactNodeArray,
+} from 'react';
 
-const ServerSideContext = createContext({
-  sheet: [] as any[],
-  compileSheet: (_id: string, _css: string) => {
-    console.log();
-  },
-});
+const ServerSideContext = createContext({});
 
 export class ServerSideSheet {
-  public sheet: any[];
+  private sheet: ReactNodeArray;
 
   constructor() {
     this.sheet = [];
+  }
+
+  get getSheet() {
+    return (this.sheet as unknown) as ReactElement<any, any>;
   }
 
   compileSheet(id: string, css: string) {
@@ -23,17 +28,18 @@ export class ServerSideSheet {
 
 export function ServerSideProvider({
   children,
-  sheet,
+  ssrSheet,
 }: {
-  children: any;
-  sheet: ServerSideSheet;
+  children: ReactNode;
+  ssrSheet: ServerSideSheet;
 }) {
   function compileSheet(id: string, css: string) {
-    sheet.compileSheet(id, css);
+    ssrSheet.compileSheet(id, css);
   }
 
   return (
-    <ServerSideContext.Provider value={{ sheet: sheet.sheet, compileSheet }}>
+    <ServerSideContext.Provider
+      value={{ sheet: ssrSheet.getSheet, compileSheet }}>
       {children}
     </ServerSideContext.Provider>
   );

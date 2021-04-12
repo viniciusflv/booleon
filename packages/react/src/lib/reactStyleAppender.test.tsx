@@ -5,7 +5,7 @@ import { reactStyleAppender } from './reactStyleAppender';
 import '@testing-library/jest-dom';
 
 test('reactStyleAppender', () => {
-  reactStyleAppender('flex', () => {
+  reactStyleAppender('flex', {}, () => {
     return '.flex{display:flex;}';
   });
   const { getByTestId } = render(
