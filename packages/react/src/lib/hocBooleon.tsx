@@ -1,12 +1,12 @@
 import { BooleonModule } from '@booleon/core';
 
-import { BooleonHtmlProps } from '../types';
+import { BooleonHtmlProps, WrappedComponentType } from '../types';
 import { useBooleon } from './useBooleon';
 
 export function hocBooleon<M extends BooleonModule[]>(
-  WrappedComponent: React.ComponentType<any> | keyof React.ReactDOM,
+  WrappedComponent: WrappedComponentType,
   modules: M,
-  prefixes?: any,
+  prefixes = {},
 ) {
   const BooleonComponent: React.FC<BooleonHtmlProps<M[number]>> = (
     props: BooleonHtmlProps<M[number]>,

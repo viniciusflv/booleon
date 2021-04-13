@@ -6,11 +6,9 @@ import { booleon, useTheme } from '.';
 import '@testing-library/jest-dom';
 
 test('useTheme', () => {
-  const MyComponent = booleon.div([
-    {
-      flex: () => 'display:flex;',
-    },
-  ]);
+  const MyComponent = booleon.div({
+    flex: () => 'display:flex;',
+  });
 
   const WrappedComponent = () => {
     const { toggleTheme } = useTheme();

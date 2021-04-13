@@ -6,7 +6,7 @@ export type Props<K extends string | number | symbol = string, V = any> = {
 };
 
 /** Function that runs once @type {Props} matches @type {Object} key */
-export type BooleonCallback = (value?: string | boolean) => string;
+export type BooleonCallback = (value?: any) => string;
 
 /**
  *

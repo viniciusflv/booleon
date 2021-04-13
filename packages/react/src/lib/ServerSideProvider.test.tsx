@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom/server';
 import { booleon } from './booleon';
 import { ServerSideSheet, ServerSideProvider } from './ServerSideProvider';
 
-const MyComponent = booleon.section([{ flex: () => 'display:flex;' }]);
+const MyComponent = booleon.section({ flex: () => 'display:flex;' });
 
 describe('ServerSideProvider', () => {
   describe('Without Provider', () => {
