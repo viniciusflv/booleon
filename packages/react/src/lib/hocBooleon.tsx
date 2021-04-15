@@ -1,4 +1,4 @@
-import { BooleonModule } from '@booleon/core';
+import { BooleonModule, PrefixHandler, Props } from '@booleon/core';
 
 import {
   BooleonHtmlProps,
@@ -7,13 +7,12 @@ import {
 } from '../types';
 import { useBooleon } from './useBooleon';
 
-export function hocBooleon<M extends BooleonModule[]>(
-  WrappedComponent: WrappedComponentType,
-  modules: M,
-  prefixes = {},
-) {
+export function hocBooleon<
+  M extends BooleonModule[],
+  P extends Props<string, PrefixHandler>
+>(WrappedComponent: WrappedComponentType, modules: M, prefixes?: P) {
   const BooleonComponent = (
-    props: BooleonHtmlProps<UnionToIntersection<M[number]>>,
+    props: BooleonHtmlProps<UnionToIntersection<M[number]>, P>,
   ) => {
     const [className, htmlProps, ssr] = useBooleon(props, modules, prefixes);
     return (

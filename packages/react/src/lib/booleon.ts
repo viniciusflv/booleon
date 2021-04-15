@@ -1,21 +1,23 @@
-import { BooleonModule } from '@booleon/core';
+import { BooleonModule, Props, PrefixHandler } from '@booleon/core';
 
 import { DOM_ELEMENTS } from '../constants';
 import { WrappedComponentType } from '../types';
 import { hocBooleon } from './hocBooleon';
 
-const withPrefixes = <M extends BooleonModule[], P>(
+const withPrefixes = <M extends BooleonModule[]>(
   el: WrappedComponentType,
   modules: M,
-) => (prefixes: P) => hocBooleon(el, modules, prefixes);
+) => <P extends Props<string, PrefixHandler>>(prefixes: P) =>
+  hocBooleon(el, modules, prefixes);
 
 const appendWithPrefixes = <M extends BooleonModule[], C>(
   constructor: C,
   el: WrappedComponentType,
   modules: M,
 ) => {
-  constructor['withPrefixes'] = withPrefixes(el, modules);
-  return constructor as C & { withPrefixes: C };
+  const prefixes = withPrefixes(el, modules);
+  constructor['withPrefixes'] = prefixes;
+  return constructor as C & { withPrefixes: typeof prefixes };
 };
 
 const styledBooleon = <M extends BooleonModule[]>(

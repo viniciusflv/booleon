@@ -11,7 +11,11 @@ import {
 } from '@booleon/modules';
 import { booleon } from '@booleon/react';
 
-type ButtonProps = { primary: boolean; outlined: boolean; children: ReactNode };
+type ButtonProps = {
+  primary?: boolean;
+  outlined?: boolean;
+  children: ReactNode;
+};
 const _Button = booleon.button(
   cursor,
   spacing,

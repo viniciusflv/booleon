@@ -7,6 +7,7 @@ import {
   Props,
   BooleonModule,
   stringHash,
+  PrefixHandler,
 } from '@booleon/core';
 
 import { filterProps } from './filterProps';
@@ -16,7 +17,7 @@ import { useServerSide } from './ServerSideProvider';
 export function useBooleon<P extends Props, M extends BooleonModule[]>(
   { className = '', ...props }: P,
   modules: M,
-  prefixes?: any,
+  prefixes?: Props<string, PrefixHandler>,
 ) {
   const ssrSheet = useServerSide();
   const [booleonProps, forwardProps] = useMemo(() => filterProps(props), [

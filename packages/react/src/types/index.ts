@@ -1,4 +1,9 @@
-import { Props, BooleonProps, BooleonModule } from '@booleon/core';
+import {
+  Props,
+  BooleonProps,
+  BooleonModule,
+  PrefixHandler,
+} from '@booleon/core';
 
 import { REACT_PROPS } from '../constants';
 import { DOM_ELEMENTS } from '../constants/domElements';
@@ -6,11 +11,10 @@ import { DOM_ELEMENTS } from '../constants/domElements';
 /**
  * @type {BooleonProps} and @type {React.HTMLProps<any>}
  */
-export type BooleonHtmlProps<M extends BooleonModule | unknown> = Props<
-  typeof REACT_PROPS[number],
-  any
-> &
-  BooleonProps<M>;
+export type BooleonHtmlProps<
+  M extends BooleonModule | unknown,
+  P extends Props<string, PrefixHandler>
+> = Props<typeof REACT_PROPS[number], any> & BooleonProps<M, P>;
 
 export type WrappedComponentType =
   | React.ComponentType<any>

@@ -20,14 +20,6 @@ export type BooleonModule = {
   [key in string | symbol]: BooleonCallback;
 };
 
-/**
- * Props Prefixes
- */
-export type Prefixes = Exclude<
-  keyof typeof defaultPrefixes,
-  'undefined' | 'css'
->;
-
 export type PrefixHandler = (arg: PrefixHandlerArg, wrap?: boolean) => string;
 
 export type PrefixHandlerArg = {
@@ -49,12 +41,22 @@ export type BooleonModuleKeys<T> = keyof T extends string ? keyof T : never;
 export type BooleonModuleValues = boolean | string;
 
 /**
+ * Props Prefixes
+ */
+export type Prefixes<P extends Props<string, PrefixHandler>> =
+  | Exclude<keyof P, number | symbol>
+  | Exclude<keyof typeof defaultPrefixes, 'undefined' | 'css'>;
+
+/**
  * Map key value types from @type {BooleonModule}
  * with @type {Prefixes}
  */
-export type BooleonProps<M extends BooleonModule | unknown> =
+export type BooleonProps<
+  M extends BooleonModule | unknown,
+  P extends Props<string, PrefixHandler>
+> =
   | Props<string, BooleonModuleValues>
   | Props<
-      `${Prefixes}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
+      `${Prefixes<P>}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
       BooleonModuleValues
     >;
