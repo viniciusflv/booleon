@@ -52,7 +52,7 @@ export type BooleonModuleValues = boolean | string;
  * Map key value types from @type {BooleonModule}
  * with @type {Prefixes}
  */
-export type BooleonProps<M extends BooleonModule> =
+export type BooleonProps<M extends BooleonModule | unknown> =
   | Props<string, BooleonModuleValues>
   | Props<
       `${Prefixes}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,

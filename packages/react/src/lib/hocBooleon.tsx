@@ -1,6 +1,10 @@
 import { BooleonModule } from '@booleon/core';
 
-import { BooleonHtmlProps, WrappedComponentType } from '../types';
+import {
+  BooleonHtmlProps,
+  WrappedComponentType,
+  UnionToIntersection,
+} from '../types';
 import { useBooleon } from './useBooleon';
 
 export function hocBooleon<M extends BooleonModule[]>(
@@ -8,8 +12,8 @@ export function hocBooleon<M extends BooleonModule[]>(
   modules: M,
   prefixes = {},
 ) {
-  const BooleonComponent: React.FC<BooleonHtmlProps<M[number]>> = (
-    props: BooleonHtmlProps<M[number]>,
+  const BooleonComponent = (
+    props: BooleonHtmlProps<UnionToIntersection<M[number]>>,
   ) => {
     const [className, htmlProps, ssr] = useBooleon(props, modules, prefixes);
     return (

@@ -7,7 +7,7 @@ export const parameters = {
     default: 'light',
     values: [
       { name: 'light', value: '#eeeeee' },
-      { name: 'dark', value: '#191921' },
+      { name: 'dark', value: '#282A36' },
     ],
   },
   controls: {
