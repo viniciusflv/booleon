@@ -14,14 +14,14 @@ describe('ServerSideProvider', () => {
     test('Without Provider - renderToString', () => {
       const string = ReactDOM.renderToString(<MyComponent flex />);
       expect(string).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\">.bl-3145721{display:flex;}</style><section class=\\"bl-3145721\\"></section>"',
+        '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\"></section>"',
       );
     });
 
     test('Without Provider - renderToStaticMarkup', () => {
       const string = ReactDOM.renderToStaticMarkup(<MyComponent flex />);
       expect(string).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\">.bl-3145721{display:flex;}</style><section class=\\"bl-3145721\\"></section>"',
+        '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\"></section>"',
       );
     });
 
@@ -35,7 +35,7 @@ describe('ServerSideProvider', () => {
       });
 
       expect(string).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\">.bl-3145721{display:flex;}</style><section class=\\"bl-3145721\\"></section>"',
+        '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\"></section>"',
       );
 
       done();
@@ -53,7 +53,7 @@ describe('ServerSideProvider', () => {
       });
 
       expect(string).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\">.bl-3145721{display:flex;}</style><section class=\\"bl-3145721\\"></section>"',
+        '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\"></section>"',
       );
 
       done();
@@ -70,10 +70,10 @@ describe('ServerSideProvider', () => {
       );
       const sheet = ReactDOM.renderToString(ssrSheet.getSheet);
       expect(sheet).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\" data-reactroot=\\"\\">.bl-3145721{display:flex;}</style>"',
+        '"<style data-booleon=\\"bl--1802589470\\" data-reactroot=\\"\\">.bl--1802589470{display:flex;}</style>"',
       );
       expect(string).toMatchInlineSnapshot(
-        '"<section class=\\"bl-3145721\\"></section>"',
+        '"<section class=\\"bl--1802589470\\"></section>"',
       );
     });
 
@@ -86,10 +86,10 @@ describe('ServerSideProvider', () => {
       );
       const sheet = ReactDOM.renderToString(ssrSheet.getSheet);
       expect(sheet).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\" data-reactroot=\\"\\">.bl-3145721{display:flex;}</style>"',
+        '"<style data-booleon=\\"bl--1802589470\\" data-reactroot=\\"\\">.bl--1802589470{display:flex;}</style>"',
       );
       expect(string).toMatchInlineSnapshot(
-        '"<section class=\\"bl-3145721\\"></section>"',
+        '"<section class=\\"bl--1802589470\\"></section>"',
       );
     });
 
@@ -109,10 +109,10 @@ describe('ServerSideProvider', () => {
       const sheet = ReactDOM.renderToString(ssrSheet.getSheet);
 
       expect(sheet).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\" data-reactroot=\\"\\">.bl-3145721{display:flex;}</style>"',
+        '"<style data-booleon=\\"bl--1802589470\\" data-reactroot=\\"\\">.bl--1802589470{display:flex;}</style>"',
       );
       expect(string).toMatchInlineSnapshot(
-        '"<section class=\\"bl-3145721\\"></section>"',
+        '"<section class=\\"bl--1802589470\\"></section>"',
       );
 
       done();
@@ -134,10 +134,10 @@ describe('ServerSideProvider', () => {
       const sheet = ReactDOM.renderToString(ssrSheet.getSheet);
 
       expect(sheet).toMatchInlineSnapshot(
-        '"<style data-booleon=\\"bl-3145721\\" data-reactroot=\\"\\">.bl-3145721{display:flex;}</style>"',
+        '"<style data-booleon=\\"bl--1802589470\\" data-reactroot=\\"\\">.bl--1802589470{display:flex;}</style>"',
       );
       expect(string).toMatchInlineSnapshot(
-        '"<section class=\\"bl-3145721\\"></section>"',
+        '"<section class=\\"bl--1802589470\\"></section>"',
       );
 
       done();

@@ -1,5 +1,5 @@
-import React from 'react';
 import '@testing-library/jest-dom';
+import React from 'react';
 
 import { render } from '@testing-library/react';
 
@@ -16,11 +16,12 @@ describe('Container', () => {
       expect(getByTestId('content')).toHaveStyle('content: "";');
     });
 
-    test.skip('content', () => {
+    test('content string', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="content" content="X" />,
+        <BooleonComponent data-testid="content-string" content="X" />,
       );
-      expect(getByTestId('content')).toHaveStyle('content: X;');
+
+      expect(getByTestId('content-string')).toHaveStyle('content: X;');
     });
 
     test('op_PERCENTAGE', () => {

@@ -9,7 +9,7 @@ import { transform } from './transform';
 const BooleonComponent = booleon.div(transform);
 describe('Transform', () => {
   describe('Scale', () => {
-    test.skip('combine', () => {
+    test('combine', () => {
       const { getByTestId } = render(
         <BooleonComponent
           data-testid="combine"
@@ -27,6 +27,10 @@ describe('Transform', () => {
           tf_sky_neg_30deg
           tf_rt_30deg
           tf_rt_neg_30deg
+          tf_tl_100
+          tf_tl_neg_100
+          tf_tlx_100
+          tf_tly_neg_100
           tf_ori_center
           tf_ori_top
           tf_ori_top_right
@@ -36,32 +40,28 @@ describe('Transform', () => {
           tf_ori_bottom_left
           tf_ori_left
           tf_ori_top_left
-          tf_tl_100
-          tf_tl_neg_100
-          tf_tlx_100
-          tf_tly_neg_100
         />,
       );
       expect(getByTestId('combine')).toHaveStyle(
         'transform:' +
-          'translateY(-100)' +
-          'translateX(100)' +
-          'translate(-100,-100)' +
-          'translate(100,100)' +
-          'rotate(-30deg)' +
-          'rotate(30deg)' +
-          'skewY(-30deg)' +
-          'skewX(-30deg)' +
-          'skew(-30deg,-30deg)' +
-          'skewY(30deg)' +
-          'skewX(30deg)' +
-          'skew(30deg,30deg)' +
-          'scaleY(-0.01)' +
-          'scaleX(-0.01)' +
-          'scale(-0.01,-0.01)' +
-          'scaleY(0.01)' +
+          'scale(0.01,0.01)' +
           'scaleX(0.01)' +
-          'scale(0.01,0.01);',
+          'scaleY(0.01)' +
+          'scale(-0.01,-0.01)' +
+          'scaleX(-0.01)' +
+          'scaleY(-0.01)' +
+          'skew(30deg,30deg)' +
+          'skewX(30deg)' +
+          'skewY(30deg)' +
+          'skew(-30deg,-30deg)' +
+          'skewX(-30deg)' +
+          'skewY(-30deg)' +
+          'rotate(30deg)' +
+          'rotate(-30deg)' +
+          'translate(100,100)' +
+          'translate(-100,-100)' +
+          'translateX(100)' +
+          'translateY(-100);',
       );
       expect(getByTestId('combine')).toHaveStyle('transform-origin:top left;');
     });

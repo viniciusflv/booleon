@@ -8,7 +8,7 @@ import { filter } from './filter';
 
 const BooleonComponent = booleon.div(filter);
 describe('Filter', () => {
-  test.skip('combined', () => {
+  test('combined', () => {
     const { getByTestId } = render(
       <BooleonComponent
         data-testid="fl_blur_1rem"
@@ -26,18 +26,18 @@ describe('Filter', () => {
     );
     expect(getByTestId('fl_blur_1rem')).toHaveStyle(
       'filter:' +
-        'invert(100%)' +
+        'blur(1rem)' +
+        'brightness(1)' +
+        'contrast(100%)' +
+        'grayscale(100%)' +
+        'hue-rotate(10deg)' +
+        'opacity(10%)' +
+        'saturate(10)' +
+        'sepia(10%)' +
         'drop-shadow(0 1px 1px rgba(0,0,0,0.14))' +
         'drop-shadow(0 2px 1px rgba(0,0,0,0.12))' +
         'drop-shadow(0 1px 3px rgba(0,0,0,0.20))' +
-        'sepia(10%)' +
-        'saturate(10)' +
-        'opacity(10%)' +
-        'hue-rotate(10deg)' +
-        'grayscale(100%)' +
-        'contrast(100%)' +
-        'brightness(1)' +
-        'blur(1rem);',
+        'invert(100%);',
     );
   });
 

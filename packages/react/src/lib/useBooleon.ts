@@ -24,7 +24,7 @@ export function useBooleon<P extends Props, M extends BooleonModule[]>(
   ]);
   const hash = stringHash(
     Object.keys(booleonProps).reduce(
-      (acc, k) => (booleonProps[k] ? (acc += k) : acc),
+      (acc, k) => (booleonProps[k] ? (acc += `${k}-${booleonProps[k]}`) : acc),
       '',
     ),
   );
