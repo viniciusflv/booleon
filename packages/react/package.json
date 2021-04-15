@@ -8,10 +8,10 @@
   "main": "dist/index.js",
   "module": "dist/react.esm.js",
   "dependencies": {
-    "@booleon/core": "file:../core/src"
+    "@booleon/core": "*"
   },
   "peerDependencies": {
-    "@booleon/core": "file:../core/src"
+    "@booleon/core": "*"
   },
   "devDependencies": {
     "tsdx": "^0.13.2",

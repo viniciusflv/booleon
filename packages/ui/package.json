@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook -c .storybook -o dist"
@@ -12,8 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.13.15",
-    "@booleon/react": "file:../react/src",
-    "@booleon/modules": "file:../modules/src",
+    "@booleon/react": "*",
+    "@booleon/modules": "*",
     "@storybook/addon-actions": "^6.2.7",
     "@storybook/addon-essentials": "^6.2.7",
     "@storybook/addon-links": "^6.2.7",

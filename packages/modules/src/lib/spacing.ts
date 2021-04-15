@@ -20,42 +20,42 @@ export const spacing = {
   mr_auto: () => 'margin-right:auto;',
   mx_auto: () => 'margin-right:auto;margin-left:auto;',
   my_auto: () => 'margin-top:auto;margin-bottom:auto;',
-  [sym<'^m_SIZE'>(`m_(${SIZE})`)]: (value: string) =>
+  [sym<'m_SIZE'>(`^m_(${SIZE})`)]: (value: string) =>
     `margin:${handleSize(value, rem)};`,
-  [sym<'^mt_SIZE'>(`mt_(${SIZE})`)]: (value: string) =>
+  [sym<'mt_SIZE'>(`^mt_(${SIZE})`)]: (value: string) =>
     `margin-top:${handleSize(value, rem)};`,
-  [sym<'^mb_SIZE'>(`mb_(${SIZE})`)]: (value: string) =>
+  [sym<'mb_SIZE'>(`^mb_(${SIZE})`)]: (value: string) =>
     `margin-bottom:${handleSize(value, rem)};`,
-  [sym<'^ml_SIZE'>(`ml_(${SIZE})`)]: (value: string) =>
+  [sym<'ml_SIZE'>(`^ml_(${SIZE})`)]: (value: string) =>
     `margin-left:${handleSize(value, rem)};`,
-  [sym<'^mr_SIZE'>(`mr_(${SIZE})`)]: (value: string) =>
+  [sym<'mr_SIZE'>(`^mr_(${SIZE})`)]: (value: string) =>
     `margin-right:${handleSize(value, rem)};`,
-  [sym<'^mx_SIZE'>(`mx_(${SIZE})`)]: (value: string) =>
+  [sym<'mx_SIZE'>(`^mx_(${SIZE})`)]: (value: string) =>
     `margin-right:${handleSize(value, rem)};margin-left:${handleSize(
       value,
       rem,
     )};`,
-  [sym<'^my_SIZE'>(`my_(${SIZE})`)]: (value: string) =>
+  [sym<'my_SIZE'>(`^my_(${SIZE})`)]: (value: string) =>
     `margin-top:${handleSize(value, rem)};margin-bottom:${handleSize(
       value,
       rem,
     )};`,
-  [sym<'^p_SIZE'>(`p_(${SIZE})`)]: (value: string) =>
+  [sym<'p_SIZE'>(`^p_(${SIZE})`)]: (value: string) =>
     `padding:${handleSize(value, rem)};`,
-  [sym<'^pt_SIZE'>(`pt_(${SIZE})`)]: (value: string) =>
+  [sym<'pt_SIZE'>(`^pt_(${SIZE})`)]: (value: string) =>
     `padding-top:${handleSize(value, rem)};`,
-  [sym<'^pb_SIZE'>(`pb_(${SIZE})`)]: (value: string) =>
+  [sym<'pb_SIZE'>(`^pb_(${SIZE})`)]: (value: string) =>
     `padding-bottom:${handleSize(value, rem)};`,
-  [sym<'^pl_SIZE'>(`pl_(${SIZE})`)]: (value: string) =>
+  [sym<'pl_SIZE'>(`^pl_(${SIZE})`)]: (value: string) =>
     `padding-left:${handleSize(value, rem)};`,
-  [sym<'^pr_SIZE'>(`pr_(${SIZE})`)]: (value: string) =>
+  [sym<'pr_SIZE'>(`^pr_(${SIZE})`)]: (value: string) =>
     `padding-right:${handleSize(value, rem)};`,
-  [sym<'^px_SIZE'>(`px_(${SIZE})`)]: (value: string) =>
+  [sym<'px_SIZE'>(`^px_(${SIZE})`)]: (value: string) =>
     `padding-right:${handleSize(value, rem)};padding-left:${handleSize(
       value,
       rem,
     )};`,
-  [sym<'^py_SIZE'>(`py_(${SIZE})`)]: (value: string) =>
+  [sym<'py_SIZE'>(`^py_(${SIZE})`)]: (value: string) =>
     `padding-top:${handleSize(value, rem)};padding-bottom:${handleSize(
       value,
       rem,

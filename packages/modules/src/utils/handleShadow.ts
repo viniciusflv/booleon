@@ -9,7 +9,7 @@ import {
   SD_6,
   SD_8,
   SD_9,
-} from '../constants/shadow';
+} from '../constants';
 
 const wrap = (bool?: boolean, value = '') =>
   bool ? `drop-shadow(${value})` : value;
