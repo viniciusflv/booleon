@@ -8,7 +8,8 @@
     "format": "prettier --write $PWD/**/*.{ts,tsx}",
     "lint": "lint-staged",
     "test": "jest",
-    "ui": "lerna exec npm run dev --scope=@booleon/ui",
+    "docs": "lerna exec npm run $2 --scope=@booleon/docs",
+    "ui": "lerna exec npm run $2 --scope=@booleon/ui",
     "sz": "run-p sz:*",
     "sz:core": "lerna exec npm run size --scope=@booleon/core",
     "sz:modules": "lerna exec npm run size --scope=@booleon/modules",
@@ -19,7 +20,7 @@
     "bun:react": "lerna exec npm run build --scope=@booleon/react",
     "bun:ui": "lerna exec npm run build --scope=@booleon/ui",
     "pub": "npm run sz & npm test && npm run bun && lerna publish",
-    "postinstall": "npm run bun && npm run clean && npm run setup"
+    "postinstall": "npm run setup"
   },
   "husky": {
     "hooks": {
