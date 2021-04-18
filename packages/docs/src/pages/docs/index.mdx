@@ -1,31 +1,56 @@
-export default ({ children }) => {
-  return children
-}
+import logo from '../../assets/svg/booleon.svg';
 
-<p align="center" style="color: #343a40">
-  <img src="https://github.com/viniciusflv/booleon/raw/master/booleon.svg" viewBox="0 0 129.80448 115.59661" width="100%" height="144" />
+<p align="center">
+  <img alt={logo} src={logo} width="144" height="144" />
   <h1 align="center">booleon/core</h1>
-  <p align="center" style="font-size: 1.2rem;">Highly typed declarative CSS-in-JS</p>
+  <p align="center" style="font-size: 1.2rem;">
+    Highly typed declarative CSS-in-JS
+  </p>
   <hr />
 </p>
 
 `Booleon` core is a collection of functions with a goal to `manipulate` and `compile` CSS, based on `boolean props`.
 
-![NPM version](https://badgen.net/npm/v/@booleon/core)
-![NPM version](https://badgen.net/github/commits/viniciusflv/booleon)
-![NPM version](https://badgen.net//packagephobia/publish/@booleon/core)
-![NPM version](https://badgen.net/bundlephobia/min/@booleon/core)
-![NPM version](https://badgen.net/bundlephobia/minzip/@booleon/core)
+<img
+  width="auto"
+  height="20"
+  alt="version"
+  src="https://badgen.net/npm/v/@booleon/core"
+/>
+<img
+  width="auto"
+  height="20"
+  alt="commits"
+  src="https://badgen.net/github/commits/viniciusflv/booleon"
+/>
+<img
+  width="auto"
+  height="20"
+  alt="publish size"
+  src="https://badgen.net//packagephobia/publish/@booleon/core"
+/>
+<img
+  width="auto"
+  height="20"
+  alt="minified size"
+  src="https://badgen.net/bundlephobia/min/@booleon/core"
+/>
+<img
+  width="auto"
+  height="20"
+  alt="minzipped size"
+  src="https://badgen.net/bundlephobia/minzip/@booleon/core"
+/>
 
 # Get Started
 
 ## Instalation
 
-```sh
+```shell
 npm i @booleon/core
 ```
 
-```sh
+```shell
 yarn add @booleon/core
 ```
 
@@ -39,6 +64,8 @@ function categorizeProps({
   prop: true,
   dark__prop: true,
 }): [{ prop: true, }, { dark__prop: true, }]
+
+const x = 's';
 
 function classCompiler('class', { css: 'css' }): '.class { css }'
 

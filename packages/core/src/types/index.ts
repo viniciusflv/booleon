@@ -56,7 +56,4 @@ export type BooleonProps<
   P extends Props<string, PrefixHandler>
 > =
   | Props<string, BooleonModuleValues>
-  | Props<
-      `${Prefixes<P>}__${BooleonModuleKeys<M>}` | BooleonModuleKeys<M>,
-      BooleonModuleValues
-    >;
+  | Props<`${Prefixes<P>}__PROPS` | BooleonModuleKeys<M>, BooleonModuleValues>;

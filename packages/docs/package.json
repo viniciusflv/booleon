@@ -17,6 +17,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@booleon/modules": "file:../modules/src",
     "@booleon/react": "file:../react/src",
     "@booleon/ui": "file:../ui/src",
     "@mdx-js/mdx": "^1.6.22",
