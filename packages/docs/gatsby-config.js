@@ -1,7 +1,18 @@
 module.exports = {
   siteMetadata: {
+    title: `Declarative CSS-in-JS library`,
+    titleTemplate: `%s | Booleon`,
+    description: `DX focused declarative runtime CSS-in-JS library`,
+    keywords: `css, css-in-js, declarative, dx`,
+    siteName: `booleon`,
     siteUrl: `http://www.booleon.com.br`,
-    title: `Booleon doc`,
+    author: `Vinícius Victorino`,
+    locale: `en-US`,
+    image: {
+      path: 'icons/icon-512x512.png',
+      type: 'image/png',
+      size: '512',
+    },
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -19,7 +30,7 @@ module.exports = {
         background_color: `#d55901`,
         theme_color: `#d55901`,
         display: `minimal-ui`,
-        icon: `${__dirname}/src/assets/svg/booleon.svg`,
+        icon: `${__dirname}/src/assets/svg/logo.svg`,
       },
     },
     {

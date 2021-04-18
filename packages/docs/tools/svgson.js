@@ -99,12 +99,12 @@ async function parseToJson(fileName) {
     const accumulator = await acc;
 
     writeFileSync(
-      resolve(dirname(dirName), `${key}.js`),
-      `module.exports = ${JSON.stringify(value, undefined, 2)}`,
+      resolve(dirname(dirName), `${key}.ts`),
+      `export const ${key} = ${JSON.stringify(value, undefined, 2)}`,
     );
 
-    return `${accumulator}exports.${key} = require('./${key}');\n`;
+    return `${accumulator}export * from './${key}';\n`;
   }, Promise.resolve(''));
 
-  writeFileSync(resolve(dirname(dirName), 'index.js'), indexes);
+  writeFileSync(resolve(dirname(dirName), 'index.ts'), indexes);
 })();

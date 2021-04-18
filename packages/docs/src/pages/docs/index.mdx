@@ -1,13 +1,14 @@
-import logo from '../../assets/svg/booleon.svg';
+import { logo } from '../../assets';
+import { Svg } from '@booleon/ui';
 
-<p align="center">
-  <img alt={logo} src={logo} width="144" height="144" />
+<div align="center">
+  <Svg w_144 h_144 {...logo} />
   <h1 align="center">booleon/core</h1>
   <p align="center" style="font-size: 1.2rem;">
     Highly typed declarative CSS-in-JS
   </p>
   <hr />
-</p>
+</div>
 
 `Booleon` core is a collection of functions with a goal to `manipulate` and `compile` CSS, based on `boolean props`.
 

@@ -1,4 +1,4 @@
-module.exports = {
+export const logo = {
   "viewBox": "0 0 129.804 115.597",
   "paths": [
     {

@@ -23,34 +23,34 @@ code {
 }
 
 :root {
-  --background: #ffffff;
-  --selection: #073642;
-  --base-color: #657b83;
-  --comment: #93a1a1;
-  --punctuation: #586e75;
-  --property: #268bd2;
-  --string: #2aa198;
-  --function: #b58900;
-  --keyword: #859900;
-  --variable: #cb4b16;
+  --prismjs-background: #ffffff;
+  --prismjs-selection: #073642;
+  --prismjs-base-color: #657b83;
+  --prismjs-comment: #93a1a1;
+  --prismjs-punctuation: #586e75;
+  --prismjs-property: #268bd2;
+  --prismjs-string: #2aa198;
+  --prismjs-function: #b58900;
+  --prismjs-keyword: #859900;
+  --prismjs-variable: #cb4b16;
 }
 
 body[data-theme='dark'] {
-  --background: #282a36;
-  --selection: #44475a;
-  --base-color: #f8f8f2;
-  --comment: #6272a4;
-  --punctuation: #ff79c6;
-  --property: #bd93f9;
-  --string: #f1fa8c;
-  --function: #50fa7b;
-  --keyword: #ff79c6;
-  --variable: #6272a4;
+  --prismjs-background: #282a36;
+  --prismjs-selection: #44475a;
+  --prismjs-base-color: #f8f8f2;
+  --prismjs-comment: #6272a4;
+  --prismjs-punctuation: #ff79c6;
+  --prismjs-property: #bd93f9;
+  --prismjs-string: #f1fa8c;
+  --prismjs-function: #50fa7b;
+  --prismjs-keyword: #ff79c6;
+  --prismjs-variable: #6272a4;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
-  color: var(--base-color);
+  color: var(--prismjs-base-color);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
@@ -72,14 +72,14 @@ pre[class*='language-']::-moz-selection,
 pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
-  background: var(--selection);
+  background: var(--prismjs-selection);
 }
 
 pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
-  background: var(--selection);
+  background: var(--prismjs-selection);
 }
 
 pre[class*='language-'] {
@@ -91,7 +91,7 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background-color: var(--background);
+  background-color: var(--prismjs-background);
 }
 
 :not(pre) > code[class*='language-'] {
@@ -103,11 +103,11 @@ pre[class*='language-'] {
 .token.comment,
 .token.doctype,
 .token.prolog {
-  color: var(--comment);
+  color: var(--prismjs-comment);
 }
 
 .token.punctuation {
-  color: var(--punctuation);
+  color: var(--prismjs-punctuation);
 }
 
 .token.namespace {
@@ -121,7 +121,7 @@ pre[class*='language-'] {
 .token.property,
 .token.symbol,
 .token.tag {
-  color: var(--property);
+  color: var(--prismjs-property);
 }
 
 .token.attr-name,
@@ -131,7 +131,7 @@ pre[class*='language-'] {
 .token.selector,
 .token.string,
 .token.url {
-  color: var(--string);
+  color: var(--prismjs-string);
 }
 
 .token.entity {
@@ -142,18 +142,18 @@ pre[class*='language-'] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: var(--keyword);
+  color: var(--prismjs-keyword);
 }
 
 .token.class-name,
 .token.function {
-  color: var(--function);
+  color: var(--prismjs-function);
 }
 
 .token.important,
 .token.regex,
 .token.variable {
-  color: var(--variable);
+  color: var(--prismjs-variable);
 }
 
 .token.bold,
