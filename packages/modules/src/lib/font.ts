@@ -30,6 +30,7 @@ export const font = {
   ft_family_sans: () => 'font-family:sans-serif;',
   ft_family_serif: () => 'font-family:serif;',
   ft_family_mono: () => 'font-family:monospace;',
+  ft_color_inherit: () => 'color:inherit;',
   ft_select_none: () => 'user-select:none;',
   ft_select_auto: () => 'user-select:auto;',
   ft_select_text: () => 'user-select:text;',
