@@ -7,13 +7,15 @@ type NavData = {
         slug: string;
         frontmatter: {
           title: string;
+          icon: string;
         };
+        headings: { value: string; depth: number }[];
       };
     }[];
   };
 };
 
-export function useNavData() {
+export function useNavData(path: string) {
   const {
     allMdx: { edges },
   } = useStaticQuery<NavData>(graphql`
@@ -27,6 +29,11 @@ export function useNavData() {
             slug
             frontmatter {
               title
+              icon
+            }
+            headings {
+              value
+              depth
             }
           }
         }
@@ -34,8 +41,22 @@ export function useNavData() {
     }
   `);
 
-  return edges?.map(({ node }) => ({
+  const headings = edges
+    ?.filter(({ node }) => node?.slug === path)
+    ?.reduce((acc, { node: { headings } }) => [...acc, ...headings], []);
+
+  const navigation = edges?.map(({ node }) => ({
     path: node?.slug,
-    title: node?.frontmatter?.title,
+    ...node?.frontmatter,
   }));
+
+  return {
+    headings,
+    navigation,
+  };
 }
+
+// const x = [
+//   { label, path, child: [{ label, path}] },
+//   { label, path },
+// ];
