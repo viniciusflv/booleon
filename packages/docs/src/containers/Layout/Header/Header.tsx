@@ -4,15 +4,16 @@ import { Svg } from '@booleon/ui';
 
 import { Link } from 'gatsby';
 
-import { logo } from '../../../assets';
+import { logo, dark, light, github } from '../../../assets';
 
 const __Header = booleon.header(modules);
 const __Nav = booleon.nav(modules);
 const __Label = booleon.label(modules);
 const __Div = booleon.div(modules);
 const __Link = booleon(Link, modules);
+const __Button = booleon.button(modules);
 function Header(props: any) {
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   return (
     <__Header h_80 w_full {...props}>
       <__Nav
@@ -23,8 +24,8 @@ function Header(props: any) {
         w_full
         py_10
         px_20
-        sd_6
-        bdb_1_solid_d55901
+        dark__bdb_1_solid_000000
+        bdb_1_solid_d5d5d5
         bg_color_fff
         dark__bg_color_191921>
         <__Div flex grow w_max_1440px m_auto>
@@ -41,7 +42,20 @@ function Header(props: any) {
             </__Label>
           </__Link>
           <__Div flex grow main_end>
-            <button onClick={toggleTheme}>TOGGLE</button>
+            <Svg w_30 {...github} />
+            <__Button
+              bd_none
+              bg_transparent
+              hover__cr_pointer
+              ft_color_inherit
+              hover__ft_color_d55901
+              onClick={toggleTheme}>
+              {theme === 'dark' ? (
+                <Svg w_30 {...dark} />
+              ) : (
+                <Svg w_30 {...light} />
+              )}
+            </__Button>
           </__Div>
         </__Div>
       </__Nav>

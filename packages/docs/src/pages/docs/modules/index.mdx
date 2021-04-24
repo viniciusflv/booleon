@@ -2,3 +2,75 @@
 icon: modules
 title: Booleon Modules
 ---
+
+import { logo } from '../../../assets';
+import { Svg } from '@booleon/ui';
+
+<div align="center">
+  <Svg w_144 h_144 fl_sd_2 dark__fl_sd_4 {...logo} />
+  <h1 align="center">booleon/core</h1>
+  <p align="center" style="font-size: 1.2rem;">
+    Highly typed declarative CSS-in-JS
+  </p>
+  <hr />
+</div>
+
+Booleon modules are a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
+
+![NPM version](https://badgen.net/npm/v/@booleon/modules)
+![NPM version](https://badgen.net/github/commits/viniciusflv/booleon)
+![NPM version](https://badgen.net//packagephobia/publish/@booleon/modules)
+![NPM version](https://badgen.net/bundlephobia/min/@booleon/modules)
+![NPM version](https://badgen.net/bundlephobia/minzip/@booleon/modules)
+
+# Get Started
+
+## Instalation
+
+```shell
+npm i @booleon/modules
+```
+
+```shell
+yarn add @booleon/modules
+```
+
+# Examples
+
+Key also can be `Symbol` whose value will be instantiated as a `new RegExp()` to be matched.
+
+```jsx
+export const background = {
+  [sym<'bg_color_COLOR'>('bg_color_(.*)')]: (value: string) =>
+    `background-color:${handleColor(value)};`,
+  bg_img: (value: string) => `background-image:url(${value});`,
+  bg_transparent: () => 'background-color:transparent;',
+  bg_repeat: () => 'background-repeat:repeat;',
+  bg_norepeat: () => 'background-repeat:no-repeat;',
+  bg_auto: () => 'background-size:auto;',
+  bg_cover: () => 'background-size:cover;',
+  bg_contain: () => 'background-size:contain;',
+  bg_fixed: () => 'background-attachment:fixed;',
+  bg_local: () => 'background-attachment:local;',
+  bg_scroll: () => 'background-attachment:scroll;',
+};
+```
+
+# Available Modules
+
+## animation
+## background
+## border
+## container
+## cursor
+## filter
+## flex
+## font
+## gradient
+## grid
+## outline
+## shadow
+## sizing
+## spacing
+## transform
+## transition

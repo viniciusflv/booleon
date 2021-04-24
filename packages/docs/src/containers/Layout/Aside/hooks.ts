@@ -20,24 +20,7 @@ export function useNavData(path: string) {
     allMdx: { edges },
   } = useStaticQuery<NavData>(graphql`
     query {
-      allMdx(
-        filter: { slug: { regex: "/^docs/" } }
-        sort: { fields: [slug], order: ASC }
-      ) {
-        edges {
-          node {
-            slug
-            frontmatter {
-              title
-              icon
-            }
-            headings {
-              value
-              depth
-            }
-          }
-        }
-      }
+      ...DocsNavFragment
     }
   `);
 
@@ -55,8 +38,3 @@ export function useNavData(path: string) {
     navigation,
   };
 }
-
-// const x = [
-//   { label, path, child: [{ label, path}] },
-//   { label, path },
-// ];

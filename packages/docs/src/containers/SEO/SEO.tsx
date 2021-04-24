@@ -1,19 +1,9 @@
 import { Helmet } from 'react-helmet';
 
-import { graphql, useStaticQuery } from 'gatsby';
+import { useSitemetadata } from './hooks';
 
-function SEO(props: any) {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          ...SiteFragment
-        }
-      }
-    `,
-  );
+function SEO(props: SEOProps) {
+  const siteMetadata = useSitemetadata();
 
   const meta = { ...siteMetadata, ...props };
 
@@ -43,5 +33,21 @@ function SEO(props: any) {
     </Helmet>
   );
 }
+
+type SEOProps = {
+  title?: string;
+  titleTemplate?: string;
+  locale?: string;
+  description?: string;
+  keywords?: string;
+  author?: string;
+  siteName?: string;
+  siteUrl?: string;
+  image?: {
+    path?: string;
+    type?: string;
+    size?: string;
+  };
+};
 
 export default SEO;
