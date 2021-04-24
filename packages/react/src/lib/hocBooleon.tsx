@@ -11,14 +11,16 @@ export function hocBooleon<
   M extends BooleonModule[],
   P extends Props<string, PrefixHandler>
 >(WrappedComponent: WrappedComponentType, modules: M, prefixes?: P) {
-  const BooleonComponent = (
-    props: BooleonHtmlProps<UnionToIntersection<M[number]>, P>,
-  ) => {
+  const BooleonComponent = ({
+    as,
+    ...props
+  }: { as?: any } & BooleonHtmlProps<UnionToIntersection<M[number]>, P>) => {
     const [className, htmlProps, ssr] = useBooleon(props, modules, prefixes);
+    const Tag = as ?? WrappedComponent;
     return (
       <>
         {ssr}
-        <WrappedComponent className={className} {...htmlProps} />
+        <Tag className={className} {...htmlProps} />
       </>
     );
   };
