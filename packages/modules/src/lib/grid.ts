@@ -1,5 +1,5 @@
-import { FRACTIONS, LETTER, NUMBER } from '../constants';
-import { sym } from '../utils/sym';
+import { FRACTIONS, LETTER, NUMBER, SIZE } from '../constants';
+import { sym, rem, handleSize } from '../utils';
 
 /**
  * Module for `grid` options
@@ -14,6 +14,8 @@ export const grid = {
   grid: () => 'display:grid;',
   areas: (areas: string) =>
     `grid-template-areas:${String(areas).replace(/\n|\s+\s/gm, '')};`,
+  [sym<'grid_gap_SIZE'>(`^grid_gap_(${SIZE})`)]: (value: string) =>
+    `grid-gap:${handleSize(value, rem)};`,
   [sym<'rows_FRACTIONS'>(`^rows_(${FRACTIONS})`)]: (value: string) =>
     `grid-template-rows:${value.replace(/_/g, ' ')};`,
   [sym<'cols_FRACTIONS'>(`^cols_(${FRACTIONS})`)]: (value: string) =>

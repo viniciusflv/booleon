@@ -1,10 +1,7 @@
 import { SIZE } from '../constants';
-import { rem } from '../utils';
-import { handleSize } from '../utils/handleSize';
-import { sym } from '../utils/sym';
+import { rem, handleSize, sym } from '../utils';
 
 /**
- * Module for `sizing` options
  * @example
  * const Component = booleon.div(sizing);
  * @example
