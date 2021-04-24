@@ -31,6 +31,9 @@ module.exports = {
         theme_color: `#d55901`,
         display: `minimal-ui`,
         icon: `${__dirname}/src/assets/svg/logo.svg`,
+        icon_options: {
+          purpose: `maskable`,
+        },
       },
     },
     {

@@ -13,26 +13,22 @@ function Layout({ children, pageContext, path }: any) {
   return (
     <MDX>
       <__Section
+        grid
         h_min_screen
+        h_full
         w_full
         bg_color_efefef
-        dark__bg_color_22202c
-        grid
-        md__cols_1fr_auto_1fr
-        areas={`
-          "HEADER HEADER HEADER"
-          "ASIDE_DOCS MAIN ASIDE_HEADINGS"
-          "FOOTER FOOTER FOOTER"
-        `}>
+        dark__bg_color_22202c>
         <SEO {...pageContext?.frontmatter} />
-        <Header area_HEADER />
-        <Aside slug={path?.replace(/\/|\\/, '')}>
-          <__Main area_MAIN h_min_screen w_max_1024 w_full p_20 md__p_100>
-            {children}
-          </__Main>
-        </Aside>
+        <Header />
+        <__Main grid md__cols_auto_1fr_auto w_max_1440 w_full m_auto>
+          <Aside slug={path?.replace(/\/|\\/, '')}>
+            <__Section h_min_screen w_min_full w_full p_20 md__p_100>
+              {children}
+            </__Section>
+          </Aside>
+        </__Main>
         <__Footer
-          area_FOOTER
           h_300
           bdt_1_solid_d5d5d5
           dark__bdt_1_solid_000000

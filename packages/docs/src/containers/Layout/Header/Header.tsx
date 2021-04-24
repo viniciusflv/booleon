@@ -36,8 +36,8 @@ function Header(props: any) {
             cross_center
             ft_color_inherit
             ft_no_underline>
-            <Svg w_60 mr_10 {...logo} />
-            <__Label ft_size_25 h_45>
+            <Svg w_40 mr_10 {...logo} />
+            <__Label ft_size_25 h_45 hidden xs__flex>
               Booleon
             </__Label>
           </__Link>

@@ -3,7 +3,7 @@ import { booleon } from '@booleon/react';
 
 import { MDXProvider } from '@mdx-js/react';
 
-const As = (As: any) => ({ children, ...props }: any) => (
+const Heading = (As: any) => ({ children, ...props }: any) => (
   <As id={children} {...props} style={{ paddingTop: 100, marginTop: -100 }}>
     {children}
   </As>
@@ -16,12 +16,12 @@ function MDX({ children }: any) {
   return (
     <MDXProvider
       components={{
-        h1: As('h1'),
-        h2: As('h2'),
-        h3: As('h3'),
-        h4: As('h4'),
-        h5: As('h5'),
-        h6: As('h6'),
+        h1: Heading('h1'),
+        h2: Heading('h2'),
+        h3: Heading('h3'),
+        h4: Heading('h4'),
+        h5: Heading('h5'),
+        h6: Heading('h6'),
         hr: () => <__Hr bd_1_solid_d55901 />,
         ul: ({ children }) => (
           <ul style={{ margin: 0, padding: 0 }}>{children}</ul>

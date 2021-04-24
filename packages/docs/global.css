@@ -1,31 +1,33 @@
 * {
   box-sizing: border-box;
+  max-width: 100%;
+  transition-property: background-color, border-color, fill, stroke, opacity,
+    box-shadow, transform;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html,
 body,
-body > * {
+body > * > * {
+  width: 100%;
+  height: 100%;
+  padding: 0;
   margin: 0;
   font-family: RocknRoll One;
   scroll-behavior: smooth;
+  color: var(--font-color);
 }
 
-body {
-  color: rgba(0, 0, 0, 0.8);
+ol,
+ul,
+li {
+  margin: 0;
+  padding-left: 10px;
 }
-
-body[data-theme='dark'] {
-  color: #9aa0a6 !important;
-}
-
-pre,
-code {
-  white-space: pre-wrap !important;
-}
-
-ol,ul,li { margin: 0; padding-inline: 10px; }
 
 :root {
+  --font-color: rgba(0, 0, 0, 0.8);
   --prismjs-background: #ffffff;
   --prismjs-selection: #073642;
   --prismjs-base-color: #657b83;
@@ -39,6 +41,7 @@ ol,ul,li { margin: 0; padding-inline: 10px; }
 }
 
 body[data-theme='dark'] {
+  --font-color: #9aa0a6;
   --prismjs-background: #282a36;
   --prismjs-selection: #44475a;
   --prismjs-base-color: #f8f8f2;
@@ -51,13 +54,30 @@ body[data-theme='dark'] {
   --prismjs-variable: #6272a4;
 }
 
+body[data-theme='dark']::-webkit-scrollbar,
+body[data-theme='dark'] pre::-webkit-scrollbar {
+  width: 14px;
+}
+
+body[data-theme='dark']::-webkit-scrollbar-track,
+body[data-theme='dark'] pre::-webkit-scrollbar-track {
+  background-color: #191921;
+  border-radius: 0px;
+}
+
+body[data-theme='dark']::-webkit-scrollbar-thumb,
+body[data-theme='dark'] pre::-webkit-scrollbar-thumb {
+  background-color: var(--prismjs-background);
+  border-radius: 0px;
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
   color: var(--prismjs-base-color);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
