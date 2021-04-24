@@ -3,7 +3,6 @@ import { booleon } from '@booleon/react';
 
 const _Link = booleon.a(modules);
 function Link({ as = 'a', children, ...props }: any) {
-  console.log(as);
   return (
     <_Link
       {...props}
