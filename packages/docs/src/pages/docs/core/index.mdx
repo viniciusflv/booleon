@@ -1,31 +1,14 @@
 ---
 icon: core
 title: Booleon Core
+description: Booleon core is a collection of functions with a goal to manipulate and compile CSS, based on boolean props.
 ---
 
-import { logo } from '../../../assets';
-import { Svg } from '@booleon/ui';
-
-<div align="center">
-  <Svg w_144 h_144 fl_sd_2 dark__fl_sd_4 {...logo} />
-  <h1 align="center">booleon/core</h1>
-  <p align="center" style="font-size: 1.2rem;">
-    Highly typed declarative CSS-in-JS
-  </p>
-  <hr />
-</div>
+# Introduction
 
 `Booleon` core is a collection of functions with a goal to `manipulate` and `compile` CSS, based on `boolean props`.
 
-![NPM version](https://badgen.net/npm/v/@booleon/core)
-![NPM version](https://badgen.net/github/commits/viniciusflv/booleon)
-![NPM version](https://badgen.net//packagephobia/publish/@booleon/core)
-![NPM version](https://badgen.net/bundlephobia/min/@booleon/core)
-![NPM version](https://badgen.net/bundlephobia/minzip/@booleon/core)
-
-# Get Started
-
-## Instalation
+# Instalation
 
 ```shell
 npm i @booleon/core
@@ -35,32 +18,106 @@ npm i @booleon/core
 yarn add @booleon/core
 ```
 
-# Functions
+# Under the hood
 
-```ts
-// https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
-function browserPrefixer('position:sticky;'): 'position:-webkit-sticky;position:sticky;'
+## browserPrefixer
 
-function categorizeProps({
-  prop: true,
-  dark__prop: true,
-}): [{ prop: true, }, { dark__prop: true, }]
+For this feature it's been used [style-vendorizer](https://github.com/kripod/style-vendorizer) by
+[kripod](https://github.com/kripod), since it's really lightweight,
+and on top of it allowing separated or joined attribute and value.
 
-function classCompiler('class', { css: 'css' }): '.class { css }'
-
-function cssCompiler('flex', true, { flex: () => 'display:flex;' }): 'display:flex;'
-
-function filterProps({ custom: true, id: 'id' }): [
-  { custom: true },
-  { id: 'id' },
-]
-
-function propsReducer({ flex: true }, { flex: () => 'display:flex;' }): { css: 'display:flex;' }
-
-// https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript#7616484
-function stringHash('stringHash'): -1573444417
-
-function styleAppender('className', () => 'css'): <style data-booleon="className">.className{css}</style>
-
-function uniqueClass('flex', 'flex', 'grid', 'grid'): 'flex grid'
+```tsx
+export function browserPrefixer(...str: string[]) {
+  if (str.map(Boolean).includes(false)) return '';
+  if (str.length < 2) {
+    const cssPropRegex = /(?<attr>.*):(?<value>.*);/;
+    const { attr, value } = cssPropRegex?.exec(str[0])?.groups || {};
+    return attr && value ? styleDeclaration(attr, value) : str[0];
+  }
+  return styleDeclaration(...str);
+}
+...
+function browserPrefixer('position:sticky;');
+// 'position:-webkit-sticky;position:sticky;'
 ```
+
+## cleanTransformFilter
+
+The motivation for this feature was, allowing the [transform]() and
+[filter]() modules to have, not only css values, but also its attributes.
+
+PS: BUT for this to work the compiled filters must be near one another.
+
+```tsx
+export function cleanTransformFilter(str: string) {
+  return [/transform:.*(;transform:)/g, /filter:.*(;filter:)/g].reduce(
+    (acc, rgx) =>
+      acc.replace(rgx, (match, group) =>
+        match.replace(new RegExp(group, 'g'), ''),
+      ),
+    str,
+  );
+}
+...
+cleanTransformFilter('filter:invert(100%);filter:blur(1rem);');
+// 'filter:invert(100%);filter:blur(1rem);'
+cleanTransformFilter('transform:transform:translateY(-100);transform:translateX(100);');
+// transform:translateY(-100)translateX(100);
+```
+
+## composeProps
+
+The goal of this feature is to get an key value object and prepare it to be used by the
+[styleCompiler](#styleCompiler).
+
+```tsx
+export function composeProps(props: Props) {
+  const recusiveReducer = (
+    acc = {},
+    splitKey: string[],
+    value: Props,
+  ): Props => {
+    const [key, ...rest] = splitKey;
+    if (rest.length) {
+      return {
+        ...acc,
+        [key]: { ...acc[key], ...recusiveReducer(acc[key], rest, value) },
+      };
+    }
+    return { ...acc, css: { ...acc['css'], [key]: value } };
+  };
+
+  return Object.keys(props).reduce((acc, key) => {
+    if (!props[key]) return acc;
+    return { ...acc, ...recusiveReducer(acc, key.split('__'), props[key]) };
+  }, {});
+}
+...
+composeProps({ prefix__style: true, style: true, falsy_style: false });
+/*
+  {
+    prefix: {
+      css: {
+        style: true,
+      },
+    },
+    css: {
+      style: true,
+    },
+  }
+*/
+```
+
+## cssCompiler
+
+## defaultPrefixes
+
+## prefixerHandlers
+
+## stringHash
+
+## styleAppender
+
+## styleCompiler
+
+## uniqueClass

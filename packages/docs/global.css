@@ -51,7 +51,7 @@ body[data-theme='dark'] {
   --prismjs-string: #f1fa8c;
   --prismjs-function: #50fa7b;
   --prismjs-keyword: #ff79c6;
-  --prismjs-variable: #6272a4;
+  --prismjs-variable: #bd93f9;
 }
 
 body[data-theme='dark']::-webkit-scrollbar,
@@ -145,6 +145,7 @@ pre[class*='language-'] {
   color: var(--prismjs-property);
 }
 
+.token.regex-source,
 .token.attr-name,
 .token.builtin,
 .token.char,
@@ -160,6 +161,7 @@ pre[class*='language-'] {
   background: #eee8d5;
 }
 
+.token.regex-flags,
 .token.atrule,
 .token.attr-value,
 .token.keyword {

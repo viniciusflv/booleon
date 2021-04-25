@@ -92,20 +92,15 @@ function styleDeclaration(property = '', value = '') {
   return cssText;
 }
 
-function getAttrValue(str: string) {
-  const cssPropRegex = /(?<attr>.*):(?<value>.*);/;
-  const { attr, value } = cssPropRegex.exec(str)?.groups || {};
-  return [attr, value];
-}
-
 /**
  * https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
  */
 export function browserPrefixer(...str: string[]) {
   if (str.map(Boolean).includes(false)) return '';
-  return str.length < 2
-    ? str[0]?.match(/(?<attr>.*):(?<value>.*);/)
-      ? styleDeclaration(...getAttrValue(str[0]))
-      : str[0]
-    : styleDeclaration(...str);
+  if (str.length < 2) {
+    const cssPropRegex = /(?<attr>.*):(?<value>.*);/;
+    const { attr, value } = cssPropRegex?.exec(str[0])?.groups || {};
+    return attr && value ? styleDeclaration(attr, value) : str[0];
+  }
+  return styleDeclaration(...str);
 }
