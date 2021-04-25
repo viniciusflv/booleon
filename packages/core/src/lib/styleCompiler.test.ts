@@ -33,7 +33,7 @@ describe('styleCompiler', () => {
     );
 
     expect(res).toMatchInlineSnapshot(
-      '".className:focus:focus-within:after:before:active:checked:disabled:hover:visited>*:last-child:first-child~*+*:nth-child(odd):nth-child(even){display:flex;}"',
+      '".className:focus:focus-within:after:before:active:checked:disabled:hover:visited>* :last-child :first-child~*+*:nth-child(odd):nth-child(even){display:flex;}"',
     );
   });
 
