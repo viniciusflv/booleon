@@ -14,7 +14,7 @@ export function hocBooleon<
   const BooleonComponent = ({
     as,
     ...props
-  }: { as?: any } & BooleonHtmlProps<UnionToIntersection<M[number]>, P>) => {
+  }: BooleonHtmlProps<UnionToIntersection<M[number]>, P>) => {
     const [className, htmlProps, ssr] = useBooleon(props, modules, prefixes);
     const Tag = as ?? WrappedComponent;
     return (
