@@ -49,6 +49,7 @@ function Header(props: any) {
               hover__cr_pointer
               ft_color_inherit
               hover__ft_color_d55901
+              title="Github link"
               target="__blank"
               href="https://github.com/viniciusflv/booleon/">
               <Svg w_30 {...github} />
@@ -64,6 +65,7 @@ function Header(props: any) {
               hover__cr_pointer
               hover__ft_color_d55901
               focus__ft_color_d55901
+              title="Toggle Theme"
               onClick={toggleTheme}>
               {theme === 'dark' ? (
                 <Svg w_30 {...dark} />

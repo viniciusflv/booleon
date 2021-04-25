@@ -4,11 +4,12 @@ import { booleon } from '@booleon/react';
 import { IconText } from '../IconText';
 
 const _Link = booleon.a(font, outline);
-function Link({ as = 'a', children, first, last, col, ...props }: any) {
+function Link({ as = 'a', title, children, first, last, col, ...props }: any) {
   return (
     <_Link
       {...props}
       as={as}
+      title={title || (typeof children === 'string' ? children : 'Link')}
       ol_none
       ft_color_inherit
       ft_no_underline
