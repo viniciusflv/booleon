@@ -20,6 +20,48 @@ yarn add @booleon/core
 
 # Under the hood
 
+## uniqueClass
+
+Gets an array of classes and returns only unique ones.
+
+```tsx
+export const uniqueClass = (...classes: string[]) =>
+  Array.from(new Set(classes.filter(Boolean))).join(' ');
+```
+
+## stringHash
+
+To create unique classNames it's being used a hash function that uses the string charcodes.
+Based on this [article](https://werxltd.com/wp/2010/05/13/javascript-implementation-of-javas-string-hashcode-method/).
+
+```tsx
+export function stringHash(str: string) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+  return String(hash);
+}
+```
+
+## styleAppender
+
+Append styles if they don't exist.
+
+```tsx
+export function styleAppender(className: string, cb: () => string) {
+  let styles = document.querySelector(`style[data-booleon="${className}"]`);
+  if (!styles) {
+    styles = document.createElement('style');
+    styles.setAttribute('data-booleon', className);
+    document.head.appendChild(styles);
+    styles.innerHTML = cb?.();
+  }
+}
+```
+
 ## browserPrefixer
 
 For this feature it's been used [style-vendorizer](https://github.com/kripod/style-vendorizer) by
@@ -65,6 +107,42 @@ cleanTransformFilter('transform:transform:translateY(-100);transform:translateX(
 // transform:translateY(-100)translateX(100);
 ```
 
+## cssCompiler
+
+The compiler uses the key to find the callback css expression.
+The key is `string` or a `symbol`, if is a symbol it'll exec en regular expression to
+match key and use its group as the callback value.
+
+```tsx
+export function cssCompiler<M extends BooleonModule>(
+  key: string,
+  value: string | boolean,
+  module: M,
+) {
+  if (!value) return '';
+  return browserPrefixer(
+    module[key]?.(value) ??
+      Object.getOwnPropertySymbols(module).reduce((acc, symbol) => {
+        const { regex } =
+          /Symbol\((?<regex>.*)\)/g.exec(String(symbol))?.groups ?? {};
+        const [, value] = new RegExp(regex).exec(key) ?? [];
+        if (value) {
+          // @ts-expect-error https://github.com/microsoft/TypeScript/issues/1863
+          acc += module[symbol](value);
+        }
+        return acc;
+      }, ''),
+  );
+}
+...
+cssCompiler('flex', true, { flex: () => 'display:flex;' });
+// 'display:flex;'
+cssCompiler('ft_size_30px', true, {
+  [Symbol('^ft_size_(.*)')]: (value) => `font-size:${value};`
+});
+// 'font-size:30px;'
+```
+
 ## composeProps
 
 The goal of this feature is to get an key value object and prepare it to be used by the
@@ -108,16 +186,103 @@ composeProps({ prefix__style: true, style: true, falsy_style: false });
 */
 ```
 
-## cssCompiler
+## prefixerHandlers
+
+It's used by [styleCompiler](#styleCompiler) to wrap de compiled CSS with a prefix match.
+Booleon prefix it's a double underline separetad string. Ex:
+
+`md__flex` => `@media(min-width: 1024px){display: flex;}`
+
+```tsx
+const media = (breakpoint: string): PrefixHandler => ({
+  key,
+  value,
+  prefixes,
+  className,
+  recursiveCompiler,
+}) => `@media ${breakpoint}{${recursiveCompiler(value)}}`;
+```
 
 ## defaultPrefixes
 
-## prefixerHandlers
+List of [prefixerHandlers](#prefixerHandlers) that comes with the lib.
 
-## stringHash
-
-## styleAppender
+```tsx
+export const defaultPrefixes = {
+  undefined: () => '',
+  css: prefixerHandlers.classes(),
+  dark: prefixerHandlers.theme(),
+  xs: prefixerHandlers.media('(min-width: 640px)'),
+  sm: prefixerHandlers.media('(min-width: 768px)'),
+  md: prefixerHandlers.media('(min-width: 1024px)'),
+  lg: prefixerHandlers.media('(min-width: 1440px)'),
+  xl: prefixerHandlers.media('(min-width: 1920px)'),
+  focus: prefixerHandlers.pseudo(':focus'),
+  within: prefixerHandlers.pseudo(':focus-within'),
+  after: prefixerHandlers.pseudo(':after'),
+  before: prefixerHandlers.pseudo(':before'),
+  active: prefixerHandlers.pseudo(':active'),
+  checked: prefixerHandlers.pseudo(':checked'),
+  disabled: prefixerHandlers.pseudo(':disabled'),
+  hover: prefixerHandlers.pseudo(':hover'),
+  visited: prefixerHandlers.pseudo(':visited'),
+  child: prefixerHandlers.pseudo('>*'),
+  last: prefixerHandlers.pseudo(' :last-child'),
+  first: prefixerHandlers.pseudo(' :first-child'),
+  adjacent: prefixerHandlers.pseudo('~*'),
+  sibling: prefixerHandlers.pseudo('+*'),
+  odd: prefixerHandlers.pseudo(':nth-child(odd)'),
+  even: prefixerHandlers.pseudo(':nth-child(even)'),
+  kf: prefixerHandlers.keyframe({
+    from: '0%',
+    quarter: '25%',
+    third: '33%',
+    half: '50%',
+    x2third: '66%',
+    x3quarter: '75%',
+    to: '100%',
+  }),
+};
+```
 
 ## styleCompiler
 
-## uniqueClass
+Uses the props composed by [composeProps](#composeProps) to
+[compile CSS](#cssCompiler) applying [prefixes](#defaultPrefixes).
+
+```tsx
+export function styleCompiler<
+  P extends Props<string, PrefixHandler>,
+  M extends BooleonModule
+>(
+  className: string,
+  composedProps: Props,
+  booleonModules: M,
+  customPrefixes?: P,
+) {
+  const prefixes = {
+    ...customPrefixes,
+    ...defaultPrefixes,
+  };
+  const recursiveCompiler = (props: Props): string => {
+    return Object.keys(props).reduce((acc, key) => {
+      const value = props[key];
+      if (typeof value === 'object') {
+        const handler: PrefixHandler =
+          prefixes[key] ??
+          prefixes[`${Object.keys(prefixes).find((k) => key.startsWith(k))}`];
+        return (acc += handler({
+          key,
+          value,
+          prefixes,
+          className,
+          recursiveCompiler,
+        }));
+      }
+      return (acc += cssCompiler(key, value, booleonModules));
+    }, '');
+  };
+
+  return cleanTransformFilter(recursiveCompiler(composedProps));
+}
+```
