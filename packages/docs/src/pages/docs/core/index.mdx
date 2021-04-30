@@ -85,8 +85,8 @@ function browserPrefixer('position:sticky;');
 
 ## cleanTransformFilter
 
-The motivation for this feature was, allowing the [transform]() and
-[filter]() modules to have, not only css values, but also its attributes.
+The motivation for this feature was, allowing the [transform](/docs/modules/#transform) and
+[filter](/docs/modules/#filter) modules to have, not only css values, but also its attributes.
 
 PS: BUT for this to work the compiled filters must be near one another.
 
@@ -191,7 +191,7 @@ composeProps({ prefix__style: true, style: true, falsy_style: false });
 It's used by [styleCompiler](#styleCompiler) to wrap de compiled CSS with a prefix match.
 Booleon prefix it's a double underline separetad string. Ex:
 
-`md__flex` => `@media(min-width: 1024px){display: flex;}`
+`md__flex => @media(min-width: 1024px){display: flex;}`
 
 ```tsx
 const media = (breakpoint: string): PrefixHandler => ({

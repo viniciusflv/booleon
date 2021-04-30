@@ -5,6 +5,7 @@ import { Svg, Link } from '@booleon/ui';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { logo, dark, light, github } from '../../../assets';
+import { Search } from './Search';
 
 const __Header = booleon.header(modules);
 const __Nav = booleon.nav(modules);
@@ -12,6 +13,7 @@ const __Div = booleon.div(modules);
 const __Button = booleon.button(modules);
 function Header(props: any) {
   const { theme, toggleTheme } = useTheme();
+
   return (
     <__Header h_80 w_full {...props}>
       <__Nav
@@ -43,6 +45,7 @@ function Header(props: any) {
             Booleon
           </Link>
           <__Div flex grow main_end child__mr_10 last__mr_0>
+            <Search />
             <Link
               bd_none
               bg_transparent

@@ -33,9 +33,12 @@ li {
   --prismjs-base-color: #657b83;
   --prismjs-comment: #93a1a1;
   --prismjs-punctuation: #586e75;
+  --prismjs-operator: #586e75;
+  --prismjs-parameter: #cb4b16;
   --prismjs-property: #268bd2;
   --prismjs-string: #2aa198;
   --prismjs-function: #b58900;
+  --prismjs-builtin: #268bd2;
   --prismjs-keyword: #859900;
   --prismjs-variable: #cb4b16;
 }
@@ -46,10 +49,13 @@ body[data-theme='dark'] {
   --prismjs-selection: #44475a;
   --prismjs-base-color: #f8f8f2;
   --prismjs-comment: #6272a4;
-  --prismjs-punctuation: #ff79c6;
+  --prismjs-punctuation: #f8f8f2;
+  --prismjs-operator: #ff79c6;
+  --prismjs-parameter: #FFB86C;
   --prismjs-property: #bd93f9;
   --prismjs-string: #f1fa8c;
   --prismjs-function: #50fa7b;
+  --prismjs-builtin: #8BE9FD;
   --prismjs-keyword: #ff79c6;
   --prismjs-variable: #bd93f9;
 }
@@ -74,7 +80,8 @@ body[data-theme='dark'] pre::-webkit-scrollbar-thumb {
 code[class*='language-'],
 pre[class*='language-'] {
   color: var(--prismjs-base-color);
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Fira Code, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
   font-size: 1em;
   text-align: left;
   white-space: pre-wrap;
@@ -127,6 +134,22 @@ pre[class*='language-'] {
   color: var(--prismjs-comment);
 }
 
+.token.parameter {
+  color: var(--prismjs-parameter);
+}
+
+.token.builtin,
+.token.tag .token.class-name {
+  color: var(--prismjs-builtin);
+}
+
+.token.operator,
+.token.script-punctuation.punctuation,
+.token.script-punctuation ~ .punctuation,
+.token.parameter .token.punctuation {
+  color: var(--prismjs-operator);
+}
+
 .token.punctuation {
   color: var(--prismjs-punctuation);
 }
@@ -147,11 +170,11 @@ pre[class*='language-'] {
 
 .token.regex-source,
 .token.attr-name,
-.token.builtin,
 .token.char,
 .token.inserted,
 .token.selector,
 .token.string,
+.token.attr-value,
 .token.url {
   color: var(--prismjs-string);
 }
@@ -163,12 +186,13 @@ pre[class*='language-'] {
 
 .token.regex-flags,
 .token.atrule,
-.token.attr-value,
+.token.tag,
 .token.keyword {
   color: var(--prismjs-keyword);
 }
 
 .token.class-name,
+.token.attr-name,
 .token.function {
   color: var(--prismjs-function);
 }

@@ -1,43 +1,29 @@
 ---
 icon: react
 title: Booleon React
+description: Booleon React is a DX focused CSS-in-JS library for, a highly typed declarative, styling, using component boolean properties. Works by mapping a pre-defined entry of css with keys that can be static (string) or dynamic (RegEx).
 ---
 
-import { logo } from '../../../assets';
-import { Svg } from '@booleon/ui';
+# Introduction
 
-<div align="center">
-  <Svg w_144 h_144 fl_sd_2 dark__fl_sd_4 {...logo} />
-  <h1 align="center">booleon/core</h1>
-  <p align="center" style="font-size: 1.2rem;">
-    Highly typed declarative CSS-in-JS
-  </p>
-  <hr />
-</div>
+Booleon React is a `DX` focused `CSS-in-JS` `library` for, a highly typed `declarative`, styling, using component `boolean` properties.
+Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
 
-Booleon React is a `DX` focused `library` for, a highly typed `declarative`, styling, using component `boolean` properties. Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
-
-![NPM version](https://badgen.net/npm/v/@booleon/react)
-![NPM version](https://badgen.net/github/commits/viniciusflv/booleon)
-![NPM version](https://badgen.net//packagephobia/publish/@booleon/react)
-![NPM version](https://badgen.net/bundlephobia/min/@booleon/react)
-![NPM version](https://badgen.net/bundlephobia/minzip/@booleon/react)
-
-# Get Started
-
-## Instalation
+# Instalation
 
 ```shell
-npm i @booleon/react
+npm i @booleon/core
 ```
 
 ```shell
-yarn add @booleon/react
+yarn add @booleon/core
 ```
+
+# Features
 
 ## Create Component
 
-```jsx
+```tsx
 import { booleon } from '@booleon/react';
 import { background } from '@booleon/module';
 
@@ -46,7 +32,7 @@ export const ButtonStyled = booleon.button(background);
 
 ## Basic Usage
 
-```jsx
+```tsx
 export const MyComponent = () => {
   return (
     <ButtonStyled bg_color_f00 />
@@ -58,18 +44,19 @@ export const MyComponent = () => {
 
 Only applies css if a `condition` is satisfied.
 
-```jsx
+```tsx
 export const MyComponent = ({ color }) => {
   return (
     <ButtonStyled bg_color_f00={color === 'red'} />
   )
 }
 ```
+
 ## Responsiveness
 
 Add styles to `media queries`.
 
-```jsx
+```tsx
 export const MyComponent = () => {
   return (
     <ButtonStyled md__bg_color_f00 />
@@ -81,7 +68,7 @@ export const MyComponent = () => {
 
 Applies, possible nested, `pseudo elements`.
 
-```jsx
+```tsx
 export const MyComponent = () => {
   return (
     <ButtonStyled hover__bg_color_f00 />
@@ -93,7 +80,7 @@ export const MyComponent = () => {
 
 Create simple and fast `keyframes`.
 
-```jsx
+```tsx
 import { booleon } from '@booleon/react';
 import { container, animation } from '@booleon/module';
 
@@ -111,11 +98,11 @@ export const MyComponent = () => {
 }
 ```
 
-## Dark mode
+## Theming
 
-Allows `dark theme` props declarations. (default from `prefers-color-scheme`)
+Allows `themes` props declarations. (default from `prefers-color-scheme`)
 
-```jsx
+```tsx
 import { useTheme } from '@booleon/react';
 
 export const MyComponent = () => {

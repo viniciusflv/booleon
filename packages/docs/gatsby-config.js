@@ -40,8 +40,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `RocknRoll One`,
-          `source sans pro\:300,400,400i,700`, // you can also specify font weights and styles
+          `RocknRoll One\:400,700`,
+          `Fira Code\:400`,
         ],
         display: 'swap',
       },
@@ -73,6 +73,43 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'docs',
+        engine: 'flexsearch',
+        engineOptions: 'speed',
+        query: `{
+          allMdx(
+            filter: { slug: { regex: "/^docs/" } }
+            sort: { fields: [slug], order: ASC }
+          ) {
+            edges {
+              node {
+                slug
+                rawBody
+                frontmatter {
+                  title
+                }
+                headings {
+                  value
+                }
+              }
+            }
+          }
+        }`,
+        ref: 'slug',
+        store: ['slug', 'title', 'headings', 'body'],
+        normalizer: ({ data }) => {
+          return data?.allMdx?.edges?.map(({ node }) => ({
+            slug: node?.slug,
+            body: node?.rawBody,
+            title: node?.frontmatter?.title,
+            headings: node?.headings?.map(({ value }) => value),
+          }));
+        }
       },
     },
     {

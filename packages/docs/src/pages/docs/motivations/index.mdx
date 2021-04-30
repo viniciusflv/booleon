@@ -1,0 +1,133 @@
+---
+icon: lightbulb
+title: Motivations
+description: Booleon modules are a pre-defined entry of css with keys that can be static (string) or dynamic (RegEx).
+---
+
+# Inspirations
+
+* [classnames](https://github.com/JedWatson/classnames) - A simple JavaScript utility for conditionally joining classNames together.
+* [tailwind](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
+* [styled-components](https://styled-components.com/) - Utilising tagged template literals to write actual CSS code to style your components.
+* [emotion](https://emotion.sh/) - A performant and flexible, framework agnostic, CSS-in-JS library.
+
+# Motivations
+
+## CSS-in-JS
+
+My introduction to `CSS-in-JS` libraries was with `styled-components`, right when I started coding with react. Since then I've always been avoiding `static styles` declarations using the props callbacks to define de value of the style:
+
+```tsx
+export const Text = styled.span`
+  ${({ color }) => color && `color: ${color};`}
+`
+```
+The reason I've been doing that is to work with styles with e `Object Oriented` approach, centralizing the logic and creating abstractions for my all parent components. To create compositions like this one:
+
+```tsx
+export const IconText = ({
+  direction = "row", 
+  first,
+  last,
+  children,
+  ...props
+}) => {
+  return (
+    <Flex
+      direction={direction}
+      alignItems="center" 
+      justifyContent="center"
+    >
+      {first && <Svg {...first} />}
+        <Text {...props}>
+          {children}
+        </Text>
+      {last && <Svg {...last} />}
+    </Flex>
+  );
+};
+```
+
+It worked great and I got better and better at using this approach. But then I started working for another company. There they use a combination of `tailwind`, `classnames` and `emotion`.
+
+<hr />
+
+## Tailwind
+
+I've heard of `tailwind` before, but i never actualy gave it much atention, because I was in a CSS-in-JS vibe. Didn't took too long for me to get used to it, because the way classes are structured was really similar to my `Object Oriented` approach.
+
+```html
+<div class="bg-white rounded-lg p-6">
+  <img class="h-16 w-16" src="avatar.jpg">
+  <div>
+   <h2>Erin Lindford</h2>
+   <div>Product Engineer</div>
+   <div>erinlindford@example.com</div>
+   <div>(555) 765-4321</div>
+  </div>
+</div>
+```
+
+They did an remarkable job of `compiling relevant css` and created one of the best if not `bestest documentations ever`.
+
+But, it's still the good old css file, wich means you're probably will load unused css. Another problem is conditional styling and there's when `classnames` comes up.
+
+<hr />
+
+## Classnames
+
+Some times you need an expecific prop based condition to set styles. Like in my `IconText` example above, that uses a `Flex` component:
+
+```tsx
+export const Flex = styled.div`
+  ${({ direction }) => direction && `flex-direction: ${direction};`}
+`
+```
+
+With `classnames` you can create easy conditional styling:
+
+```tsx
+<div class={classnames("rounded-lg p-6", {
+  // if backgroundColor add that class
+  [`bg-${backgroundColor}`]: backgroundColor,
+})}>
+  <img class="h-16 w-16" src="avatar.jpg">
+  <div>
+   <h2>Erin Lindford</h2>
+   <div>Product Engineer</div>
+   <div>erinlindford@example.com</div>
+   <div>(555) 765-4321</div>
+  </div>
+</div>
+```
+
+This works fine for most of the scenarios, but there are problems still:
+* Not aways you can map styles to a `static` css class
+* The use of `pseudo elements`
+
+<hr />
+
+## Emotion
+
+Emotion came to fill those gaps. Using `@emotion/core` css, you can add styles without creating an styled component:
+
+```tsx
+<div class={classnames("rounded-lg p-6", {
+  // if backgroundColor add that class
+  [`bg-${backgroundColor}`]: backgroundColor,
+})}>
+  <img class="h-16 w-16" src="avatar.jpg">
+  <div css={css`
+    grid-template-columns: ${columns};
+    :before {
+      content: "";
+      ...
+    }
+  `}>
+   <h2>Erin Lindford</h2>
+   <div>Product Engineer</div>
+   <div>erinlindford@example.com</div>
+   <div>(555) 765-4321</div>
+  </div>
+</div>
+```

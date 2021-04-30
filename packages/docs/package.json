@@ -22,7 +22,8 @@
     "@booleon/ui": "file:../ui/src",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-use-flexsearch": "^0.1.1"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.3",
@@ -31,6 +32,7 @@
     "gatsby": "^3.2.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.3.0",
+    "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-manifest": "^3.3.0",
     "gatsby-plugin-mdx": "^2.3.0",
     "gatsby-plugin-minify-html": "^1.0.4",
