@@ -14,7 +14,9 @@ function Link({ as = 'a', title, children, first, last, col, ...props }: any) {
       ft_color_inherit
       ft_no_underline
       focus__ft_color_d55901
-      hover__ft_color_d55901>
+      dark__focus__ft_color_d55901
+      hover__ft_color_d55901
+      dark__hover__ft_color_d55901>
       <IconText first={first} last={last} col={col}>
         {children}
       </IconText>
