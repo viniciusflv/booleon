@@ -26,9 +26,15 @@ describe('prefixerHandlers', () => {
 
   test('theme', () => {
     const fn = prefixerHandlers.theme();
-    expect(fn(prefixer)).toMatchInlineSnapshot(
-      '"body[data-theme=\\"key\\"] css"',
-    );
+    expect(
+      fn({
+        key: 'key',
+        value: { flex: true },
+        prefixes: defaultPrefixes,
+        className: 'className',
+        recursiveCompiler: () => '.bl-className {css}',
+      }),
+    ).toMatchInlineSnapshot('"body[data-theme=\\"key\\"] .bl-className {css}"');
   });
 
   test('pseudo', () => {

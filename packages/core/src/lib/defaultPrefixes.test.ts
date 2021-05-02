@@ -7,9 +7,11 @@ describe('defaultPrefixes', () => {
       value: { flex: true },
       prefixes: defaultPrefixes,
       className: 'className',
-      recursiveCompiler: () => 'css',
+      recursiveCompiler: ({ className }) => `.bl-${className} {css}`,
     });
-    expect(res).toMatchInlineSnapshot('"body[data-theme=\\"dark\\"] css"');
+    expect(res).toMatchInlineSnapshot(
+      '"body[data-theme=\\"dark\\"] .bl-undefined {css}"',
+    );
   });
 
   test('xs', () => {

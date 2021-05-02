@@ -12,7 +12,10 @@ const media = (breakpoint: string): PrefixHandler => ({
 }) => `@media ${breakpoint}{${recursiveCompiler(value)}}`;
 
 const theme = (): PrefixHandler => ({ key, value, recursiveCompiler }) =>
-  `body[data-theme="${key}"] ${recursiveCompiler(value)}`;
+  `${recursiveCompiler(value).replace(
+    /\.bl/g,
+    `body[data-theme="${key}"] .bl`,
+  )}`;
 
 const pseudo = (selector: string): PrefixHandler => (
   { className, key, value, prefixes, recursiveCompiler },
