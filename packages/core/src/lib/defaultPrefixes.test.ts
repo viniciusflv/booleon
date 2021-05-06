@@ -187,7 +187,7 @@ describe('defaultPrefixes', () => {
       className: 'className',
       recursiveCompiler: () => 'css',
     });
-    expect(res).toMatchInlineSnapshot('".className :last-child{css}"');
+    expect(res).toMatchInlineSnapshot('".className>:last-child{css}"');
   });
 
   test('first', () => {
@@ -198,7 +198,7 @@ describe('defaultPrefixes', () => {
       className: 'className',
       recursiveCompiler: () => 'css',
     });
-    expect(res).toMatchInlineSnapshot('".className :first-child{css}"');
+    expect(res).toMatchInlineSnapshot('".className>:first-child{css}"');
   });
 
   test('adjacent', () => {

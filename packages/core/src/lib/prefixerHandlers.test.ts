@@ -62,4 +62,17 @@ describe('prefixerHandlers', () => {
       }),
     ).toMatchInlineSnapshot('"@keyframes drop{0%{css}}"');
   });
+
+  test('important', () => {
+    const fn = prefixerHandlers.important();
+    expect(
+      fn({
+        key: 'key',
+        value: { flex: true },
+        prefixes: defaultPrefixes,
+        className: 'className',
+        recursiveCompiler: () => '.bl-className {css;}',
+      }),
+    ).toMatchInlineSnapshot('".bl-className {css !important;}"');
+  });
 });

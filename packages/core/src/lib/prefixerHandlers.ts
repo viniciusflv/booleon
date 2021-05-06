@@ -12,10 +12,7 @@ const media = (breakpoint: string): PrefixHandler => ({
 }) => `@media ${breakpoint}{${recursiveCompiler(value)}}`;
 
 const theme = (): PrefixHandler => ({ key, value, recursiveCompiler }) =>
-  `${recursiveCompiler(value).replace(
-    /\.bl/g,
-    `body[data-theme="${key}"] .bl`,
-  )}`;
+  recursiveCompiler(value).replace(/\.bl/g, `body[data-theme="${key}"] .bl`);
 
 const pseudo = (selector: string): PrefixHandler => (
   { className, key, value, prefixes, recursiveCompiler },
@@ -47,10 +44,14 @@ const keyframe = <S extends Props>(selectors: S): PrefixHandler => ({
   return `@keyframes ${name}{${animation}}`;
 };
 
+const important = (): PrefixHandler => ({ value, recursiveCompiler }) =>
+  recursiveCompiler(value).replace(/;/g, ' !important;');
+
 export const prefixerHandlers = {
   classes,
   media,
   theme,
   pseudo,
   keyframe,
+  important,
 };
