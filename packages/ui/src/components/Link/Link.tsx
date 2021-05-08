@@ -1,9 +1,9 @@
-import { font, outline } from '@booleon/modules';
+import { font, outline, container, sizing } from '@booleon/modules';
 import { booleon } from '@booleon/react';
 
 import { IconText } from '../IconText';
 
-const _Link = booleon.a(font, outline);
+const _Link = booleon.a(font, outline, container, sizing);
 function Link({ as = 'a', title, children, first, last, col, ...props }: any) {
   return (
     <_Link

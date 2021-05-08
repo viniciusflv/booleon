@@ -12,7 +12,7 @@ function Drop({ click = false, children }: any) {
   const { trigger, content } = useSlot(children);
   return (
     <__Drop
-      relative
+      sm__relative
       kf_drop__from__top
       kf_drop__to__top_100$
       focus_child__visible={!click}
@@ -25,6 +25,7 @@ function Drop({ click = false, children }: any) {
       {click ? (
         <__Checkbox
           type="checkbox"
+          cr_pointer
           op_0
           absolute
           inset
@@ -40,6 +41,7 @@ function Drop({ click = false, children }: any) {
         absolute
         invisible
         left
+        w_full
         ani_forwards
         ani_duration_300ms
         ani_iteration_1
