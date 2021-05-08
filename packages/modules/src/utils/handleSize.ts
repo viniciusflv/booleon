@@ -1,7 +1,7 @@
 import { handleCssVars } from './handleCssVars';
 
 export function handleSize(value: string, cb?: (str: string) => string) {
-  return handleCssVars('sizes', value, () => {
+  return handleCssVars(value, () => {
     const size = value.replace('neg_', '-').replace('$', '%');
     const number = Number(size);
     const nan = isNaN(number);

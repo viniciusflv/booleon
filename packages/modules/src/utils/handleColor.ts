@@ -3,7 +3,7 @@ import { handleCssVars } from './handleCssVars';
 import { percentage } from './percentage';
 
 export function handleColor(value: string) {
-  return handleCssVars('colors', value, () => {
+  return handleCssVars(value, () => {
     const isRGB = value.match(RegExp(RGB_COLOR));
     const isHEX = value.match(RegExp(HEX_COLOR));
     if (isRGB) {
