@@ -107,7 +107,7 @@ module.exports = {
             slug: node?.slug,
             body: node?.rawBody,
             title: node?.frontmatter?.title,
-            headings: node?.headings?.map(({ value }) => value),
+            headings: node?.headings?.map(({ value }) => value).join(', '),
           }));
         }
       },

@@ -28,7 +28,7 @@ li {
 
 :root {
   --font-color: rgba(0, 0, 0, 0.8);
-  --prismjs-background: #ffffff;
+  --prismjs-background: #fef8f5;
   --prismjs-selection: #073642;
   --prismjs-base-color: #657b83;
   --prismjs-comment: #93a1a1;
