@@ -8,17 +8,20 @@
     "format": "prettier --write $PWD/**/*.{ts,tsx}",
     "lint": "lint-staged",
     "test": "jest",
+    "core": "lerna exec npm run $2 --scope=@booleon/core",
     "docs": "lerna exec npm run $2 --scope=@booleon/docs",
+    "modules": "lerna exec npm run $2 --scope=@booleon/modules",
+    "react": "lerna exec npm run $2 --scope=@booleon/react",
     "ui": "lerna exec npm run $2 --scope=@booleon/ui",
     "sz": "run-p sz:*",
-    "sz:core": "lerna exec npm run size --scope=@booleon/core",
-    "sz:modules": "lerna exec npm run size --scope=@booleon/modules",
-    "sz:react": "lerna exec npm run size --scope=@booleon/react",
+    "sz:core": "npm run core size",
+    "sz:modules": "npm run modules size",
+    "sz:react": "npm run react size",
     "bun": "run-p bun:*",
-    "bun:core": "lerna exec npm run build --scope=@booleon/core",
-    "bun:modules": "lerna exec npm run build --scope=@booleon/modules",
-    "bun:react": "lerna exec npm run build --scope=@booleon/react",
-    "bun:ui": "lerna exec npm run build --scope=@booleon/ui",
+    "bun:core": "npm run core build",
+    "bun:modules": "npm run modules build",
+    "bun:react": "npm run react build",
+    "bun:ui": "npm run ui build",
     "pub": "npm run sz & npm test && npm run bun && lerna publish",
     "postinstall": "npm run setup"
   },
@@ -32,6 +35,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
+      "folderslint",
       "eslint"
     ]
   },
@@ -76,6 +80,7 @@
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.2",
+    "folderslint": "^1.0.0",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
     "jest-axe": "^4.1.0",
