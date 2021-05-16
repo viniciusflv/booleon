@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/jest-dom';
 
 import { render } from '@testing-library/react';
@@ -17,7 +16,7 @@ describe('Flex', () => {
 
   test('wrap', () => {
     const { getByTestId } = render(
-      <BooleonComponent data-testid="wrap" wrap />,
+      <BooleonComponent data-testid="wrap" do_wrap />,
     );
     expect(getByTestId('wrap')).toHaveStyle('flex-wrap:wrap;');
   });

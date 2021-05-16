@@ -9,7 +9,7 @@
  */
 export const flex = {
   flex: () => 'display:flex;',
-  wrap: () => 'flex-wrap:wrap;',
+  do_wrap: () => 'flex-wrap:wrap;',
   no_wrap: () => 'flex-wrap:nowrap;',
   reverse_wrap: () => 'flex-wrap:wrap-reverse;',
   grow: () => 'flex-grow:1;',
