@@ -11,8 +11,9 @@
     "svg": "node $(pwd)/tools/svgson.js $(pwd)/src/assets/svg",
     "dev": "npm run clean && npm run start",
     "prd": "npm run clean && npm run build && npm run serve",
+    "deploy": "npm run build && gh-pages -d public",
     "start": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },

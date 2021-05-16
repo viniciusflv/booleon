@@ -1,4 +1,5 @@
 export * from './arrow';
+export * from './close';
 export * from './copy';
 export * from './core';
 export * from './dark';
