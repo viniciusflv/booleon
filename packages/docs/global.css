@@ -51,11 +51,11 @@ body[data-theme='dark'] {
   --prismjs-comment: #6272a4;
   --prismjs-punctuation: #f8f8f2;
   --prismjs-operator: #ff79c6;
-  --prismjs-parameter: #FFB86C;
+  --prismjs-parameter: #ffb86c;
   --prismjs-property: #bd93f9;
   --prismjs-string: #f1fa8c;
   --prismjs-function: #50fa7b;
-  --prismjs-builtin: #8BE9FD;
+  --prismjs-builtin: #8be9fd;
   --prismjs-keyword: #ff79c6;
   --prismjs-variable: #bd93f9;
 }
@@ -75,6 +75,28 @@ body[data-theme='dark']::-webkit-scrollbar-thumb,
 body[data-theme='dark'] pre::-webkit-scrollbar-thumb {
   background-color: var(--prismjs-background);
   border-radius: 0px;
+}
+
+.mermaid .arrowheadPath {
+  fill: currentColor !important;
+}
+.mermaid .path,
+.mermaid .label-container {
+  stroke: currentColor !important;
+}
+.mermaid .label,
+.mermaid .edgeLabel {
+  color: currentColor !important;
+}
+.mermaid .label rect {
+  fill: none !important;
+}
+.mermaid .label-container {
+  fill: var(--prismjs-background) !important;
+}
+.mermaid .edgeLabel {
+  border-radius: 8px;
+  background-color: var(--prismjs-background) !important;
 }
 
 code[class*='language-'],

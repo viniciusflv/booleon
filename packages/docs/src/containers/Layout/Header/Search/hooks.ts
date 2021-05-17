@@ -41,13 +41,12 @@ export function useSearch(query: string) {
   );
 
   return results.map(({ body, slug, title, description }) => {
-    // console.log(body?.replace(/---\n(.*)\n---/gm, ''));
-    // const index = body.search(new RegExp(query, 'gmi'));
-    // const match = body.slice(index, index + 150);
+    const index = body.search(new RegExp(query, 'gmi'));
+    const match = body.slice(index, index + 150);
     return {
       slug,
       title,
-      match: slug,
+      match,
       description,
     };
   });

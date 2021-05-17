@@ -1,14 +1,11 @@
 import modules from '@booleon/modules';
 import { booleon } from '@booleon/react';
 
-import { mdx } from '@mdx-js/react';
-
 const _Hero = booleon.section(modules);
 const _Header = booleon.header(modules);
 const _Title = booleon.h1(modules);
 const _Div = booleon.div(modules);
 function Hero() {
-  console.log(mdx);
   return (
     <_Hero sd_4 h_auto h_min_50vh bg_color_d55901 gt_255_255_255_30>
       <_Div
