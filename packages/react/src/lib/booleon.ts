@@ -10,24 +10,19 @@ const withPrefixes = <M extends BooleonModule[]>(
 ) => <P extends Props<string, PrefixHandler>>(prefixes: P) =>
   hocBooleon(el, modules, prefixes);
 
-const appendWithPrefixes = <M extends BooleonModule[], C>(
-  constructor: C,
-  el: WrappedComponentType,
-  modules: M,
-) => {
-  const prefixes = withPrefixes(el, modules);
-  constructor['withPrefixes'] = prefixes;
-  return constructor as C & { withPrefixes: typeof prefixes };
-};
-
 const styledBooleon = <M extends BooleonModule[]>(
   el: WrappedComponentType,
   ...modules: M
-) => appendWithPrefixes(hocBooleon(el, modules), el, modules);
+) => {
+  const styled = hocBooleon(el, modules);
+  const prefixes = withPrefixes(el, modules);
+  styled['withPrefixes'] = prefixes;
+  return styled as typeof styled & { withPrefixes: typeof prefixes };
+};
 
 export const booleon = DOM_ELEMENTS.map((el) => {
   const assign = <M extends BooleonModule[]>(...modules: M) =>
-    appendWithPrefixes(styledBooleon(el, ...modules), el, modules);
+    styledBooleon(el, ...modules);
 
   styledBooleon[el] = assign;
 
