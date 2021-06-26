@@ -10,7 +10,7 @@
     "docs/src/containers/**/*",
     "docs/src/fragments/**/*",
     "docs/src/pages/**/*",
-    "docs/tools",
+    "docs/src/utils",
 
     "modules/src/lib/**/*",
     "modules/src/constants",

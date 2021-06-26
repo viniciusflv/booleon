@@ -91,9 +91,9 @@ module.exports = {
             edges {
               node {
                 slug
-                rawBody
                 frontmatter {
                   title
+                  description
                 }
                 headings {
                   value
@@ -103,12 +103,12 @@ module.exports = {
           }
         }`,
         ref: 'slug',
-        store: ['slug', 'title', 'headings', 'body'],
+        store: ['slug', 'title', 'headings'],
         normalizer: ({ data }) => {
           return data?.allMdx?.edges?.map(({ node }) => ({
             slug: node?.slug,
-            body: node?.rawBody,
             title: node?.frontmatter?.title,
+            description: node?.frontmatter?.description,
             headings: node?.headings?.map(({ value }) => value).join(', '),
           }));
         }

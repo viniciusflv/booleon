@@ -23,8 +23,8 @@ type SearchData = {
 type ResultData = {
   slug: string;
   title: string;
-  body: string;
   description: string;
+  headings: string;
 };
 
 export function useSearch(query: string) {
@@ -40,13 +40,11 @@ export function useSearch(query: string) {
     localSearchDocs?.store,
   );
 
-  return results.map(({ body, slug, title, description }) => {
-    const index = body.search(new RegExp(query, 'gmi'));
-    const match = body.slice(index, index + 150);
+  return results.map(({ slug, title, description }) => {
     return {
       slug,
       title,
-      match,
+      match: description,
       description,
     };
   });

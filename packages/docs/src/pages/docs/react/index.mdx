@@ -10,6 +10,19 @@ description: Booleon React is a DX focused CSS-in-JS library for, a highly typed
 Booleon React is a `DX` focused `CSS-in-JS` `library` for, a highly typed `declarative`, styling, using component `boolean` properties.
 Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
 
+```mermaid
+  graph TD
+
+  booleon[booleon] --> hocBooleon[hocBooleon] --> useBooleon[useBooleon]
+  useBooleon[useBooleon] --> useServerSide[useServerSide] --> ServerSideContext[ServerSideContext]
+  useBooleon[useBooleon] --> filterProps[filterProps]
+  useBooleon[useBooleon] --> reactStyleAppender[reactStyleAppender]
+  reactStyleAppender[reactStyleAppender] --> styleAppender[styleAppender]
+  reactStyleAppender[reactStyleAppender] --> createElement[createElement]
+  useBooleon[useBooleon] --> stringHash[stringHash]
+  useBooleon[useBooleon] --> styleCompiler[styleCompiler]
+```
+
 # Instalation
 
 ```shell

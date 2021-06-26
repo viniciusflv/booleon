@@ -1,8 +1,12 @@
+import { useRef, useEffect } from 'react';
+
 import modules from '@booleon/modules';
 import { booleon } from '@booleon/react';
-import { KeyValue } from '@booleon/ui';
+import { KeyValue, Svg } from '@booleon/ui';
 
 import { MDXProvider } from '@mdx-js/react';
+
+import { copy } from '../../../assets/copy';
 
 const __As = booleon.span(modules);
 const Heading = (as: any) => ({ children }: any) => (
@@ -18,6 +22,12 @@ const __Anchor = booleon.a(modules);
 const __Li = booleon.li(modules);
 const __Paragraph = booleon.p(modules);
 function MDX({ children }: any) {
+  const preRef = useRef<HTMLPreElement>(null);
+
+  useEffect(() => {
+    console.log(preRef.current);
+  }, []);
+
   return (
     <MDXProvider
       components={{
@@ -52,19 +62,26 @@ function MDX({ children }: any) {
             {children}
           </__Li>
         ),
-        pre: ({ children, ...props }) => (
-          <__Div
-            mb_20
-            bd_radius_8
-            child__bd_radius_8
-            dark__bd_1_solid_000
-            bd_1_solid_d5d5d5
-            ft_size_12>
-            <__Pre {...props} m_0>
+        pre: ({ children, ...props }) => {
+          return (
+            <__Pre
+              ref={preRef}
+              relative
+              mb_20
+              bd_radius_8
+              child__bd_radius_8
+              dark__bd_1_solid_000
+              bd_1_solid_d5d5d5
+              ft_size_12
+              important__pr_50
+              {...props}>
+              <__Div absolute right mr_8 ft_color_inherit>
+                <Svg {...copy} w_20 />
+              </__Div>
               {children}
             </__Pre>
-          </__Div>
-        ),
+          );
+        },
       }}>
       {children}
     </MDXProvider>

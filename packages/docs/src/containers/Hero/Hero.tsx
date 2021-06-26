@@ -5,9 +5,9 @@ const _Hero = booleon.section(modules);
 const _Header = booleon.header(modules);
 const _Title = booleon.h1(modules);
 const _Div = booleon.div(modules);
-function Hero() {
+function Hero({ children }) {
   return (
-    <_Hero sd_4 h_auto h_min_50vh bg_color_d55901 gt_255_255_255_30>
+    <_Hero relative sd_4 h_auto h_min_50vh bg_color_d55901 gt_255_255_255_30>
       <_Div
         flex
         main_between
@@ -40,14 +40,7 @@ function Hero() {
             or dynamic (`RegEx`).
           </_Title>
         </_Header>
-        <_Div
-          flex
-          sd_4
-          bg_color_fff
-          dark__bg_color_282a36
-          bd_radius_8
-          h_300
-          w_500></_Div>
+        <_Div important__child__ft_size_20>{children}</_Div>
       </_Div>
     </_Hero>
   );

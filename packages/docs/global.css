@@ -61,20 +61,34 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='dark']::-webkit-scrollbar,
-body[data-theme='dark'] pre::-webkit-scrollbar {
+body[data-theme='dark'] *::-webkit-scrollbar {
   width: 14px;
 }
 
 body[data-theme='dark']::-webkit-scrollbar-track,
-body[data-theme='dark'] pre::-webkit-scrollbar-track {
+body[data-theme='dark'] *::-webkit-scrollbar-track {
   background-color: #191921;
-  border-radius: 0px;
 }
 
 body[data-theme='dark']::-webkit-scrollbar-thumb,
-body[data-theme='dark'] pre::-webkit-scrollbar-thumb {
+body[data-theme='dark'] *::-webkit-scrollbar-thumb {
   background-color: var(--prismjs-background);
-  border-radius: 0px;
+}
+
+pre::-webkit-scrollbar {
+  width: 14px;
+  border-radius: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%) inset, 0 1px 10px 0 rgb(0 0 0 / 12%) inset, 0 2px 4px -1px rgb(0 0 0 / 20%) inset;
+}
+
+pre::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: white;
 }
 
 .mermaid .arrowheadPath {
@@ -104,7 +118,6 @@ pre[class*='language-'] {
   color: var(--prismjs-base-color);
   font-family: Fira Code, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
     monospace;
-  font-size: 1em;
   text-align: left;
   white-space: pre-wrap;
   word-spacing: normal;

@@ -9,6 +9,30 @@ description: Booleon core is a collection of functions with a goal to manipulate
 
 `Booleon` core is a collection of functions with a goal to `manipulate` and `compile` CSS, based on `boolean props`.
 
+```mermaid
+  graph TD
+
+  stringHash[stringHash] --> styleCompiler((styleCompiler))
+  composeProps[composeProps] --> styleCompiler((styleCompiler))
+  booleonModules[booleonModules] --> styleCompiler((styleCompiler))
+  customPrefixes[customPrefixes] --> styleCompiler((styleCompiler))
+
+  styleCompiler((styleCompiler)) --> cleanTransformFilter[cleanTransformFilter]
+  styleCompiler((styleCompiler)) --> defaultPrefixes[defaultPrefixes] --> prefixerHandlers[prefixerHandlers]
+  styleCompiler((styleCompiler)) --> cssCompiler[cssCompiler] --> browserPrefixer[browserPrefixer]
+
+  click styleCompiler "#styleCompiler" "styleCompiler"
+  click stringHash "#stringHash" "stringHash"
+  click composeProps "#composeProps" "composeProps"
+  click booleonModules "/docs/modules" "booleonModules"
+  click customPrefixes "#customPrefixes" "customPrefixes"
+  click cleanTransformFilter "#cleanTransformFilter" "cleanTransformFilter"
+  click defaultPrefixes "#defaultPrefixes" "defaultPrefixes"
+  click prefixerHandlers "#prefixerHandlers" "prefixerHandlers"
+  click cssCompiler "#cssCompiler" "cssCompiler"
+  click browserPrefixer "#browserPrefixer" "browserPrefixer"
+```
+
 # Instalation
 
 ```shell
