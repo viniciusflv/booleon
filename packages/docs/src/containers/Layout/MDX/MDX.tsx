@@ -51,6 +51,7 @@ function MDX({ children }: any) {
             {...props}
             ol_none
             ft_color_inherit
+            ft_weight_bold
             focus__ft_color_d55901
             hover__ft_color_d55901
           />

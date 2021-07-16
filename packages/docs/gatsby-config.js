@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/booleon",
+  // pathPrefix: "/booleon",
   siteMetadata: {
     title: `Declarative CSS-in-JS library`,
     titleTemplate: `%s | Booleon`,
