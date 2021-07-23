@@ -101,6 +101,7 @@ pre::-webkit-scrollbar-thumb {
 .mermaid .label,
 .mermaid .edgeLabel {
   color: currentColor !important;
+  font-size: .8rem !important;
 }
 .mermaid .label rect {
   fill: none !important;

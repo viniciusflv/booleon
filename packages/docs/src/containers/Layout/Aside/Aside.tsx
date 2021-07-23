@@ -77,11 +77,10 @@ function Aside({ children, slug, ...props }: any) {
             col
             cross_start
             child__mb_20
-            scy_auto
             w_full
-            h_max_50vh>
+            h_max_70vh>
             <__Strong dark__ft_color_fff>On this page</__Strong>
-            <__Div flex col bdl_1_solid_d55901 ft_color_8795a1>
+            <__Div flex col scy_auto bdl_1_solid_d55901 ft_color_8795a1>
               <UL child__mb_5>
                 {headings?.map(({ value, depth }) =>
                   depth > 1 ? (

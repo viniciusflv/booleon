@@ -45,7 +45,6 @@ export function useSearch(query: string) {
       slug,
       title,
       match: description,
-      description,
     };
   });
 }
