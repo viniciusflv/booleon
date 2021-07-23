@@ -8,7 +8,7 @@
     "gatsby"
   ],
   "scripts": {
-    "svg": "npx svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --esm --svgo",
+    "svg": "npx svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --ts --svgo",
     "dev": "npm run clean && npm run start",
     "prd": "npm run clean && npm run build && npm run serve",
     "deploy": "npm run build && gh-pages -d public",
