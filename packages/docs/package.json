@@ -44,10 +44,6 @@
     "gatsby-remark-mermaid": "^2.1.0",
     "gatsby-remark-prismjs": "^5.0.0",
     "gatsby-source-filesystem": "^3.3.0",
-    "gatsby-transformer-sharp": "^3.3.0",
-    "i": "^0.3.6",
-    "npm": "^7.10.0",
-    "svgo": "^1.3.2",
-    "svgson": "^5.2.1"
+    "gatsby-transformer-sharp": "^3.3.0"
   }
 }

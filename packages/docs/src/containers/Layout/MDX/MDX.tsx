@@ -5,6 +5,7 @@ import { booleon } from '@booleon/react';
 import { KeyValue, Svg } from '@booleon/ui';
 
 import { MDXProvider } from '@mdx-js/react';
+import { Link as GatsbyLink } from 'gatsby';
 
 import { copy } from '../../../assets/copy';
 
@@ -46,16 +47,23 @@ function MDX({ children }: any) {
             ft_color_3d4852
           />
         ),
-        a: (props) => (
-          <__Anchor
-            {...props}
-            ol_none
-            ft_color_inherit
-            ft_weight_bold
-            focus__ft_color_d55901
-            hover__ft_color_d55901
-          />
-        ),
+        a: ({ href, ...props }) => {
+          const isTag = href.startsWith('//#');
+          const isLocal = !isTag && href.startsWith('/');
+          return (
+            <__Anchor
+              {...props}
+              as={GatsbyLink}
+              href={isLocal ? undefined : href?.replace('//', '')}
+              to={isLocal ? href : undefined}
+              ol_none
+              ft_color_inherit
+              ft_weight_bold
+              focus__ft_color_d55901
+              hover__ft_color_d55901
+            />
+          );
+        },
         hr: () => <__Hr bd_none bdt_1_solid_8795a1 my_20 />,
         ul: ({ children }) => <ul style={{ padding: 0 }}>{children}</ul>,
         li: ({ children }) => (
