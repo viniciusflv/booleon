@@ -1,45 +1,38 @@
 import { useMemo } from 'react';
 
 import {
-  composeProps,
+  sortProps,
+  createClassName,
   styleCompiler,
+  composeProps,
   uniqueClass,
-  Props,
-  BooleonModule,
-  stringHash,
-  PrefixHandler,
 } from '@booleon/core';
 
-import { filterProps } from './filterProps';
+import type {
+  Props,
+  BooleonModule,
+  Attachments,
+} from '../../../core/src/types';
 import { reactStyleAppender } from './reactStyleAppender';
 import { useServerSide } from './ServerSideProvider';
 
-export function useBooleon<P extends Props, M extends BooleonModule[]>(
-  { className = '', ...props }: P,
-  modules: M,
-  prefixes?: Props<string, PrefixHandler>,
-) {
+export function useBooleon<
+  P extends Props,
+  M extends BooleonModule,
+  A extends Attachments
+>({ className = '', ...props }: P, module: M, attachments?: A) {
   const ssrSheet = useServerSide();
-  const [booleonProps, forwardProps] = useMemo(() => filterProps(props), [
-    props,
-  ]);
-  const hash = stringHash(
-    Object.keys(booleonProps).reduce(
-      (acc, k) => (booleonProps[k] ? (acc += `${k}-${booleonProps[k]}`) : acc),
-      '',
-    ),
-  );
-  const id = `bl-${hash}`;
 
-  const ssr = reactStyleAppender(id, ssrSheet, () => {
-    const booleonModules = Object.assign({}, ...modules);
-    return styleCompiler(
-      id,
-      composeProps(booleonProps),
-      booleonModules,
-      prefixes,
-    );
-  });
+  const [booleonProps, forwardProps] = useMemo(
+    () => sortProps(props, module, attachments),
+    [props],
+  );
+
+  const id = createClassName(booleonProps);
+
+  const ssr = reactStyleAppender(id, ssrSheet, () =>
+    styleCompiler(id, composeProps(booleonProps), module, attachments),
+  );
 
   return [uniqueClass(id, className), forwardProps as Props, ssr] as const;
 }

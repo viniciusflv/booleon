@@ -11,8 +11,7 @@ import { handleColor, sym } from '../utils';
  * ```
  */
 export const background = {
-  [sym<'bg_color_COLOR'>(`^bg_color_(${COLOR})`)]: (value: string) =>
-    `background-color:${handleColor(value)};`,
+  [sym('bg_color_$')]: ($: string) => `background-color:${handleColor($)};`,
   bg_img: (value: string) => `background-image:url(${value});`,
   bg_transparent: () => 'background-color:transparent;',
   bg_repeat: () => 'background-repeat:repeat;',

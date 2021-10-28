@@ -1,32 +1,31 @@
-import { BooleonModule, PrefixHandler, Props } from '../types';
+import { BooleonModule, Attachments, Props, AttachmentHandler } from '../types';
+import { attachmentsDefault } from './attachmentsDefault';
 import { cleanTransformFilter } from './cleanTransformFilter';
 import { cssCompiler } from './cssCompiler';
-import { defaultPrefixes } from './defaultPrefixes';
 
-export function styleCompiler<
-  P extends Props<string, PrefixHandler>,
-  M extends BooleonModule
->(
+export function styleCompiler<P extends Attachments, M extends BooleonModule>(
   className: string,
   composedProps: Props,
   booleonModules: M,
-  customPrefixes?: P,
+  customAttachments?: P,
 ) {
-  const prefixes = {
-    ...customPrefixes,
-    ...defaultPrefixes,
+  const attachments: Attachments = {
+    ...attachmentsDefault,
+    ...customAttachments,
   };
   const recursiveCompiler = (props: Props): string => {
     return Object.keys(props).reduce((acc, key) => {
       const value = props[key];
       if (typeof value === 'object') {
-        const handler: PrefixHandler =
-          prefixes[key] ??
-          prefixes[`${Object.keys(prefixes).find((k) => key.startsWith(k))}`];
+        const handler: AttachmentHandler =
+          attachments[key] ??
+          attachments[
+            `${Object.keys(attachments).find((k) => key.startsWith(k))}`
+          ];
         return (acc += handler({
           key,
           value,
-          prefixes,
+          attachments,
           className,
           recursiveCompiler,
         }));

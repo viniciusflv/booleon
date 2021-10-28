@@ -1,28 +1,34 @@
-import { BooleonModule, PrefixHandler, Props } from '@booleon/core';
+import { forwardRef } from 'react';
 
-import {
-  BooleonHtmlProps,
-  WrappedComponentType,
-  UnionToIntersection,
-} from '../types';
+import type { Attachments, BooleonModule } from '@booleon/core';
+
+import type { As, BooleonHtmlProps } from '../types';
+import { changeChildrenTag } from './changeChildrenTag';
 import { useBooleon } from './useBooleon';
 
 export function hocBooleon<
-  M extends BooleonModule[],
-  P extends Props<string, PrefixHandler>
->(WrappedComponent: WrappedComponentType, modules: M, prefixes?: P) {
-  const BooleonComponent = ({
-    as,
-    ...props
-  }: BooleonHtmlProps<UnionToIntersection<M[number]>, P>) => {
-    const [className, htmlProps, ssr] = useBooleon(props, modules, prefixes);
-    const Tag = as ?? WrappedComponent;
+  Y,
+  M extends BooleonModule,
+  C extends As,
+  A extends Attachments
+>(component: C, module: M, attachments?: A) {
+  function BooleonComponent(
+    { as, ...props }: BooleonHtmlProps<M, A>,
+    ref: React.Ref<Y>,
+  ) {
+    const [className, htmlProps, ssr] = useBooleon(props, module, attachments);
+
     return (
       <>
         {ssr}
-        <Tag className={className} {...htmlProps} />
+        {changeChildrenTag(as, component, {
+          ref,
+          className,
+          ...htmlProps,
+        })}
       </>
     );
-  };
-  return BooleonComponent;
+  }
+
+  return forwardRef(BooleonComponent);
 }

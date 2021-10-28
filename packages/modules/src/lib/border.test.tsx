@@ -382,7 +382,7 @@ describe('Border', () => {
     });
   });
 
-  describe('Radius', () => {
+  describe.skip('Radius', () => {
     test('bd_radius_100$', () => {
       const { getByTestId } = render(
         <BooleonComponent data-testid="bd_radius_100$" bd_radius_100$ />,

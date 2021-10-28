@@ -1,13 +1,14 @@
 /**
  * @jest-environment node
  */
-import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-import { booleon } from './booleon';
+import { hocBooleon } from './hocBooleon';
 import { ServerSideSheet, ServerSideProvider } from './ServerSideProvider';
 
-const MyComponent = booleon.section({ flex: () => 'display:flex;' });
+const MyComponent = hocBooleon('section', {
+  flex: () => 'display:flex;',
+});
 
 describe('ServerSideProvider', () => {
   describe('Without Provider', () => {
@@ -25,7 +26,7 @@ describe('ServerSideProvider', () => {
       );
     });
 
-    test('Without Provider - renderToNodeStream', async (done) => {
+    test('Without Provider - renderToNodeStream', async () => {
       const stream = ReactDOM.renderToNodeStream(<MyComponent flex />);
       const string = await new Promise((resolve, reject) => {
         let received = '';
@@ -37,11 +38,9 @@ describe('ServerSideProvider', () => {
       expect(string).toMatchInlineSnapshot(
         '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\"></section>"',
       );
-
-      done();
     });
 
-    test('Without Provider - renderToStaticNodeStream', async (done) => {
+    test('Without Provider - renderToStaticNodeStream', async () => {
       const staticStream = ReactDOM.renderToStaticNodeStream(
         <MyComponent flex />,
       );
@@ -55,8 +54,6 @@ describe('ServerSideProvider', () => {
       expect(string).toMatchInlineSnapshot(
         '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\"></section>"',
       );
-
-      done();
     });
   });
 
@@ -93,7 +90,7 @@ describe('ServerSideProvider', () => {
       );
     });
 
-    test('With Provider - renderToNodeStream', async (done) => {
+    test('With Provider - renderToNodeStream', async () => {
       const ssrSheet = new ServerSideSheet();
       const stream = ReactDOM.renderToNodeStream(
         <ServerSideProvider ssrSheet={ssrSheet}>
@@ -114,11 +111,9 @@ describe('ServerSideProvider', () => {
       expect(string).toMatchInlineSnapshot(
         '"<section class=\\"bl--1802589470\\"></section>"',
       );
-
-      done();
     });
 
-    test('With Provider - renderToStaticNodeStream', async (done) => {
+    test('With Provider - renderToStaticNodeStream', async () => {
       const ssrSheet = new ServerSideSheet();
       const stream = ReactDOM.renderToStaticNodeStream(
         <ServerSideProvider ssrSheet={ssrSheet}>
@@ -139,8 +134,6 @@ describe('ServerSideProvider', () => {
       expect(string).toMatchInlineSnapshot(
         '"<section class=\\"bl--1802589470\\"></section>"',
       );
-
-      done();
     });
   });
 });

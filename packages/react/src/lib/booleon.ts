@@ -1,31 +1,40 @@
-import { BooleonModule, Props, PrefixHandler } from '@booleon/core';
+import type { Attachments, BooleonModule } from '@booleon/core';
 
-import { DOM_ELEMENTS } from '../constants';
-import { WrappedComponentType } from '../types';
+import type {
+  As,
+  BooleonHandler,
+  BooleonTarget,
+  ProxyReturnValue,
+} from '../types';
 import { hocBooleon } from './hocBooleon';
 
-const withPrefixes = <M extends BooleonModule[]>(
-  el: WrappedComponentType,
+function BooleonProxy<T extends BooleonTarget, H extends BooleonHandler>(
+  target: T,
+  handler: H,
+): ProxyReturnValue<T, H> {
+  return new Proxy(target, {
+    get(_, name) {
+      return handler(name);
+    },
+  }) as any;
+}
+
+const booleonStyled = <
+  C extends As,
+  M extends BooleonModule,
+  A extends Attachments
+>(
+  component: C,
   modules: M,
-) => <P extends Props<string, PrefixHandler>>(prefixes: P) =>
-  hocBooleon(el, modules, prefixes);
+  attachments?: A,
+) => hocBooleon(component, modules, attachments);
 
-const styledBooleon = <M extends BooleonModule[]>(
-  el: WrappedComponentType,
-  ...modules: M
-) => {
-  const styled = hocBooleon(el, modules);
-  const prefixes = withPrefixes(el, modules);
-  styled['withPrefixes'] = prefixes;
-  return styled as typeof styled & { withPrefixes: typeof prefixes };
-};
+const booleonTagged = (name: string) => <
+  M extends BooleonModule,
+  A extends Attachments
+>(
+  modules: M,
+  attachments?: A,
+) => hocBooleon(name as As, modules, attachments);
 
-export const booleon = DOM_ELEMENTS.map((el) => {
-  const assign = <M extends BooleonModule[]>(...modules: M) =>
-    styledBooleon(el, ...modules);
-
-  styledBooleon[el] = assign;
-
-  return styledBooleon as typeof styledBooleon &
-    { [key in typeof el]: typeof assign };
-})[DOM_ELEMENTS.length - 1];
+export const booleon = BooleonProxy(booleonStyled, booleonTagged);

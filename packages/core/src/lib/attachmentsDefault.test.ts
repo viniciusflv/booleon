@@ -1,11 +1,11 @@
-import { defaultPrefixes } from './defaultPrefixes';
+import { attachmentsDefault } from './attachmentsDefault';
 
-describe('defaultPrefixes', () => {
+describe('attachmentsDefault', () => {
   test('dark', () => {
-    const res = defaultPrefixes.dark({
+    const res = attachmentsDefault.dark({
       key: 'dark',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: ({ className }) => `.bl-${className} {css}`,
     });
@@ -15,10 +15,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('xs', () => {
-    const res = defaultPrefixes.xs({
+    const res = attachmentsDefault.xs({
       key: 'xs',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -26,10 +26,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('sm', () => {
-    const res = defaultPrefixes.sm({
+    const res = attachmentsDefault.sm({
       key: 'sm',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -37,10 +37,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('md', () => {
-    const res = defaultPrefixes.md({
+    const res = attachmentsDefault.md({
       key: 'md',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -48,10 +48,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('lg', () => {
-    const res = defaultPrefixes.lg({
+    const res = attachmentsDefault.lg({
       key: 'lg',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -59,10 +59,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('xl', () => {
-    const res = defaultPrefixes.xl({
+    const res = attachmentsDefault.xl({
       key: 'xl',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -70,10 +70,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('focus', () => {
-    const res = defaultPrefixes.focus({
+    const res = attachmentsDefault.focus({
       key: 'focus',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -81,10 +81,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('within', () => {
-    const res = defaultPrefixes.within({
+    const res = attachmentsDefault.within({
       key: 'within',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -92,10 +92,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('after', () => {
-    const res = defaultPrefixes.after({
+    const res = attachmentsDefault.after({
       key: 'after',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -103,10 +103,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('before', () => {
-    const res = defaultPrefixes.before({
+    const res = attachmentsDefault.before({
       key: 'before',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -114,10 +114,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('active', () => {
-    const res = defaultPrefixes.active({
+    const res = attachmentsDefault.active({
       key: 'active',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -125,10 +125,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('checked', () => {
-    const res = defaultPrefixes.checked({
+    const res = attachmentsDefault.checked({
       key: 'checked',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -136,10 +136,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('disabled', () => {
-    const res = defaultPrefixes.disabled({
+    const res = attachmentsDefault.disabled({
       key: 'disabled',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -147,10 +147,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('hover', () => {
-    const res = defaultPrefixes.hover({
+    const res = attachmentsDefault.hover({
       key: 'hover',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -158,10 +158,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('visited', () => {
-    const res = defaultPrefixes.visited({
+    const res = attachmentsDefault.visited({
       key: 'visited',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -169,10 +169,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('child', () => {
-    const res = defaultPrefixes.child({
+    const res = attachmentsDefault.child({
       key: 'child',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -180,10 +180,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('last', () => {
-    const res = defaultPrefixes.last({
+    const res = attachmentsDefault.last({
       key: 'last',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -191,10 +191,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('first', () => {
-    const res = defaultPrefixes.first({
+    const res = attachmentsDefault.first({
       key: 'first',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -202,10 +202,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('adjacent', () => {
-    const res = defaultPrefixes.adjacent({
+    const res = attachmentsDefault.adjacent({
       key: 'adjacent',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -213,10 +213,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('sibling', () => {
-    const res = defaultPrefixes.sibling({
+    const res = attachmentsDefault.sibling({
       key: 'sibling',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -224,10 +224,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('odd', () => {
-    const res = defaultPrefixes.odd({
+    const res = attachmentsDefault.odd({
       key: 'odd',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -235,10 +235,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('even', () => {
-    const res = defaultPrefixes.even({
+    const res = attachmentsDefault.even({
       key: 'even',
       value: { flex: true },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -246,10 +246,10 @@ describe('defaultPrefixes', () => {
   });
 
   test('kf', () => {
-    const res = defaultPrefixes.kf({
+    const res = attachmentsDefault.kf({
       key: 'kf_animation',
       value: { from: { flex: true }, to: { flex: true } },
-      prefixes: defaultPrefixes,
+      attachments: attachmentsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });

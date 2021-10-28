@@ -1,4 +1,3 @@
-import { COLOR, LOWER_CASE, SIZE } from '../constants';
 import { handleColor, rem, handleSize, sym } from '../utils';
 
 const handleBorder = ([size, style, ...color]: string[]) =>
@@ -14,101 +13,80 @@ const handleBorder = ([size, style, ...color]: string[]) =>
  * ```
  */
 export const border = {
-  [sym<'bd_SIZE_STYLE_COLOR'>(`^bd_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`)]: (
-    value: string,
-  ) => `border:${handleBorder(value.split('_'))};`,
-  [sym<'bdt_SIZE_STYLE_COLOR'>(
-    `^bdt_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
-  )]: (value: string) => `border-top:${handleBorder(value.split('_'))};`,
-  [sym<'bdb_SIZE_STYLE_COLOR'>(
-    `^bdb_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
-  )]: (value: string) => `border-bottom:${handleBorder(value.split('_'))};`,
-  [sym<'bdl_SIZE_STYLE_COLOR'>(
-    `^bdl_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
-  )]: (value: string) => `border-left:${handleBorder(value.split('_'))};`,
-  [sym<'bdr_SIZE_STYLE_COLOR'>(
-    `^bdr_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
-  )]: (value: string) => `border-right:${handleBorder(value.split('_'))};`,
-  [sym<'bdx_SIZE_STYLE_COLOR'>(
-    `^bdx_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
-  )]: (value: string) =>
-    `border-right:${handleBorder(value.split('_'))};border-left:${handleBorder(
-      value.split('_'),
+  [sym('bd_$')]: ($: string) => `border:${handleBorder($.split('_'))};`,
+  [sym('bdt_$')]: ($: string) => `border-top:${handleBorder($.split('_'))};`,
+  [sym('bdb_$')]: ($: string) => `border-bottom:${handleBorder($.split('_'))};`,
+  [sym('bdl_$')]: ($: string) => `border-left:${handleBorder($.split('_'))};`,
+  [sym('bdr_$')]: ($: string) => `border-right:${handleBorder($.split('_'))};`,
+  [sym('bdx_$')]: ($: string) =>
+    `border-right:${handleBorder($.split('_'))};border-left:${handleBorder(
+      $.split('_'),
     )};`,
-  [sym<'bdy_SIZE_STYLE_COLOR'>(
-    `^bdy_((${SIZE})_(${LOWER_CASE})_(${COLOR}))`,
-  )]: (value: string) =>
-    `border-top:${handleBorder(value.split('_'))};border-bottom:${handleBorder(
-      value.split('_'),
+  [sym('bdy_$')]: ($: string) =>
+    `border-top:${handleBorder($.split('_'))};border-bottom:${handleBorder(
+      $.split('_'),
     )};`,
-  [sym<'bd_color_COLOR'>(`^bd_color_(${COLOR})`)]: (value: string) =>
-    `border-color:${handleColor(value)};`,
-  [sym<'bdt_color_COLOR'>(`^bdt_color_(${COLOR})`)]: (value: string) =>
-    `border-top-color:${handleColor(value)};`,
-  [sym<'bdb_color_COLOR'>(`^bdb_color_(${COLOR})`)]: (value: string) =>
-    `border-bottom-color:${handleColor(value)};`,
-  [sym<'bdl_color_COLOR'>(`^bdl_color_(${COLOR})`)]: (value: string) =>
-    `border-left-color:${handleColor(value)};`,
-  [sym<'bdr_color_COLOR'>(`^bdr_color_(${COLOR})`)]: (value: string) =>
-    `border-right-color:${handleColor(value)};`,
-  [sym<'bdx_color_COLOR'>(`^bdx_color_(${COLOR})`)]: (value: string) =>
-    `border-right-color:${handleColor(value)};border-left-color:${handleColor(
-      value,
-    )};`,
-  [sym<'bdy_color_COLOR'>(`^bdy_color_(${COLOR})`)]: (value: string) =>
-    `border-top-color:${handleColor(value)};border-bottom-color:${handleColor(
-      value,
-    )};`,
-  [sym<'bd_width_SIZE'>(`^bd_width_(${SIZE})`)]: (value: string) =>
-    `border-width:${handleSize(value, rem)};`,
-  [sym<'bdt_width_SIZE'>(`^bdt_width_(${SIZE})`)]: (value: string) =>
-    `border-top-width:${handleSize(value, rem)};`,
-  [sym<'bdb_width_SIZE'>(`^bdb_width_(${SIZE})`)]: (value: string) =>
-    `border-bottom-width:${handleSize(value, rem)};`,
-  [sym<'bdl_width_SIZE'>(`^bdl_width_(${SIZE})`)]: (value: string) =>
-    `border-left-width:${handleSize(value, rem)};`,
-  [sym<'bdr_width_SIZE'>(`^bdr_width_(${SIZE})`)]: (value: string) =>
-    `border-right-width:${handleSize(value, rem)};`,
-  [sym<'bdx_width_SIZE'>(`^bdx_width_(${SIZE})`)]: (value: string) =>
-    `border-left-width:${handleSize(
-      value,
+  [sym('bd_color_$')]: ($: string) => `border-color:${handleColor($)};`,
+  [sym('bdt_color_$')]: ($: string) => {
+    console.log({ $ }, handleColor($));
+
+    return `border-top-color:${handleColor($)};`;
+  },
+  [sym('bdb_color_$')]: ($: string) => `border-bottom-color:${handleColor($)};`,
+  [sym('bdl_color_$')]: ($: string) => `border-left-color:${handleColor($)};`,
+  [sym('bdr_color_$')]: ($: string) => `border-right-color:${handleColor($)};`,
+  [sym('bdx_color_$')]: ($: string) =>
+    `border-right-color:${handleColor($)};border-left-color:${handleColor($)};`,
+  [sym('bdy_color_$')]: ($: string) =>
+    `border-top-color:${handleColor($)};border-bottom-color:${handleColor($)};`,
+  [sym('bd_width_$')]: ($: string) => `border-width:${handleSize($, rem)};`,
+  [sym('bdt_width_$')]: ($: string) =>
+    `border-top-width:${handleSize($, rem)};`,
+  [sym('bdb_width_$')]: ($: string) =>
+    `border-bottom-width:${handleSize($, rem)};`,
+  [sym('bdl_width_$')]: ($: string) =>
+    `border-left-width:${handleSize($, rem)};`,
+  [sym('bdr_width_$')]: ($: string) =>
+    `border-right-width:${handleSize($, rem)};`,
+  [sym('bdx_width_$')]: ($: string) =>
+    `border-left-width:${handleSize($, rem)};border-right-width:${handleSize(
+      $,
       rem,
-    )};border-right-width:${handleSize(value, rem)};`,
-  [sym<'bdy_width_SIZE'>(`^bdy_width_(${SIZE})`)]: (value: string) =>
-    `border-top-width:${handleSize(
-      value,
+    )};`,
+  [sym('bdy_width_$')]: ($: string) =>
+    `border-top-width:${handleSize($, rem)};border-bottom-width:${handleSize(
+      $,
       rem,
-    )};border-bottom-width:${handleSize(value, rem)};`,
-  [sym<'bd_radius_SIZE'>(`^bd_radius_(${SIZE})`)]: (value: string) =>
-    `border-radius:${handleSize(value, rem)};`,
-  [sym<'bdtr_radius_SIZE'>(`^bdtr_radius_(${SIZE})`)]: (value: string) =>
-    `border-top-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdtl_radius_SIZE'>(`^bdtl_radius_(${SIZE})`)]: (value: string) =>
-    `border-top-left-radius:${handleSize(value, rem)};`,
-  [sym<'bdt_radius_SIZE'>(`^bdt_radius_(${SIZE})`)]: (value: string) =>
+    )};`,
+  [sym('bd_radius_$')]: ($: string) => `border-radius:${handleSize($, rem)};`,
+  [sym('bdtr_radius_$')]: ($: string) =>
+    `border-top-right-radius:${handleSize($, rem)};`,
+  [sym('bdtl_radius_$')]: ($: string) =>
+    `border-top-left-radius:${handleSize($, rem)};`,
+  [sym('bdt_radius_$')]: ($: string) =>
     `border-top-left-radius:${handleSize(
-      value,
+      $,
       rem,
-    )};border-top-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdbr_radius_SIZE'>(`^bdbr_radius_(${SIZE})`)]: (value: string) =>
-    `border-bottom-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdbl_radius_SIZE'>(`^bdbl_radius_(${SIZE})`)]: (value: string) =>
-    `border-bottom-left-radius:${handleSize(value, rem)};`,
-  [sym<'bdb_radius_SIZE'>(`^bdb_radius_(${SIZE})`)]: (value: string) =>
+    )};border-top-right-radius:${handleSize($, rem)};`,
+  [sym('bdbr_radius_$')]: ($: string) =>
+    `border-bottom-right-radius:${handleSize($, rem)};`,
+  [sym('bdbl_radius_$')]: ($: string) =>
+    `border-bottom-left-radius:${handleSize($, rem)};`,
+  [sym('bdb_radius_$')]: ($: string) =>
     `border-bottom-left-radius:${handleSize(
-      value,
+      $,
       rem,
-    )};border-bottom-right-radius:${handleSize(value, rem)};`,
-  [sym<'bdl_radius_SIZE'>(`^bdl_radius_(${SIZE})`)]: (value: string) =>
+    )};border-bottom-right-radius:${handleSize($, rem)};`,
+  [sym('bdl_radius_$')]: ($: string) =>
     `border-bottom-left-radius:${handleSize(
-      value,
+      $,
       rem,
-    )};border-top-left-radius:${handleSize(value, rem)};`,
-  [sym<'bdr_radius_SIZE'>(`^bdr_radius_(${SIZE})`)]: (value: string) =>
+    )};border-top-left-radius:${handleSize($, rem)};`,
+  [sym('bdr_radius_$')]: ($: string) =>
     `border-bottom-right-radius:${handleSize(
-      value,
+      $,
       rem,
-    )};border-top-right-radius:${handleSize(value, rem)};`,
+    )};border-top-right-radius:${handleSize($, rem)};`,
   bd_style_none: () => 'border-style:none;',
   bd_style_hidden: () => 'border-style:hidden;',
   bd_style_dotted: () => 'border-style:dotted;',

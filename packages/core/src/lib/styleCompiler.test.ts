@@ -46,9 +46,10 @@ describe('styleCompiler', () => {
     const res = styleCompiler(
       'className',
       {
-        focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even: {
-          css: { flex: true },
-        },
+        focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even:
+          {
+            css: { flex: true },
+          },
       },
       { flex: () => 'display:flex;' },
     );
@@ -94,6 +95,17 @@ describe('styleCompiler', () => {
     );
   });
 
+  test('custom attachment', () => {
+    const res = styleCompiler(
+      'className',
+      { att: { css: { flex: true } } },
+      { flex: () => 'display:flex;' },
+      { att: () => 'display: grid;' },
+    );
+
+    expect(res).toMatchInlineSnapshot('"display: grid;"');
+  });
+
   test('integration', () => {
     const res = styleCompiler(
       'bl-className',
@@ -105,11 +117,12 @@ describe('styleCompiler', () => {
                 md: {
                   lg: {
                     xl: {
-                      focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even: {
-                        css: {
-                          flex: true,
+                      focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even:
+                        {
+                          css: {
+                            flex: true,
+                          },
                         },
-                      },
                     },
                   },
                 },

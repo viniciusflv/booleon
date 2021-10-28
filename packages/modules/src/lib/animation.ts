@@ -1,4 +1,3 @@
-import { LETTER, UNIT_NUMBER, NUMBER } from '../constants';
 import { sym } from '../utils';
 
 /**
@@ -14,14 +13,9 @@ import { sym } from '../utils';
  * ```
  */
 export const animation = {
-  [sym<'ani_name_NAME'>(`^ani_name_(${LETTER})`)]: (value: string) =>
-    `animation-name:${value};`,
-  [sym<'ani_duration_TIME'>(`^ani_duration_(${UNIT_NUMBER})`)]: (
-    value: string,
-  ) => `animation-duration:${value};`,
-  [sym<'ani_iteration_NUMBER'>(`^ani_iteration_(${NUMBER})`)]: (
-    value: string,
-  ) => `animation-iteration-count:${value};`,
+  [sym('ani_name_$')]: ($: string) => `animation-name:${$};`,
+  [sym('ani_duration_$')]: ($: string) => `animation-duration:${$};`,
+  [sym('ani_iteration_$')]: ($: string) => `animation-iteration-count:${$};`,
   ani_iteration_infinite: () => 'animation-iteration-count:infinite;',
   ani_pause: () => 'animation-play-state:paused;',
   ani_play: () => 'animation-play-state:running;',
