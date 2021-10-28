@@ -38,13 +38,28 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          `RocknRoll One\:400,700`,
-          `Fira Code\:400`,
-        ],
-        display: 'swap',
+        formats: ['woff2', 'woff'],
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: true,
+        fonts: {
+          google: [
+            {
+              family: `RocknRoll One`,
+              variants: [`400`, `700`],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
+            {
+              family: `Fira Code`,
+              variants: [`400`],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
+          ],
+        },
       },
     },
     {
@@ -113,7 +128,7 @@ module.exports = {
             body: node?.rawBody,
             headings: node?.headings?.map(({ value }) => value).join(', '),
           }));
-        }
+        },
       },
     },
     {
