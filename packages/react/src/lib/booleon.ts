@@ -11,12 +11,12 @@ import { hocBooleon } from './hocBooleon';
 function BooleonProxy<T extends BooleonTarget, H extends BooleonHandler>(
   target: T,
   handler: H,
-): ProxyReturnValue<T, H> {
+) {
   return new Proxy(target, {
     get(_, name) {
       return handler(name);
     },
-  }) as any;
+  }) as ProxyReturnValue<T, H>;
 }
 
 const booleonStyled = <

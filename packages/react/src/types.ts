@@ -9,9 +9,9 @@ export type As = React.ComponentType<any> | keyof React.ReactHTML;
 
 export type BooleonHtmlProps<
   M extends BooleonModule | unknown,
-  P extends Attachments
+  A extends Attachments
 > = React.HTMLProps<any> &
-  BooleonProps<M, P> & {
+  BooleonProps<M, A> & {
     as?: As;
   };
 
@@ -19,11 +19,11 @@ export type BooleonTarget = (
   component: As,
   modules: BooleonModule,
   attachments?: Attachments,
-) => any;
+) => unknown;
 
 export type BooleonHandler = (
   name: string | symbol,
-) => (modules: BooleonModule, attachments?: Attachments) => any;
+) => (modules: BooleonModule, attachments?: Attachments) => unknown;
 
 export type HandlerReturnValue<H extends BooleonHandler> = H extends (
   ...args: any[]

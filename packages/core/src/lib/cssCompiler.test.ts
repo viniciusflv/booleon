@@ -1,5 +1,4 @@
 import { cssCompiler } from './cssCompiler';
-import '../../../../tests/jest-extend';
 
 describe('cssCompiler', () => {
   test('prefixer', () => {

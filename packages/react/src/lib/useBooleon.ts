@@ -7,12 +7,8 @@ import {
   composeProps,
   uniqueClass,
 } from '@booleon/core';
+import type { Props, BooleonModule, Attachments } from '@booleon/core';
 
-import type {
-  Props,
-  BooleonModule,
-  Attachments,
-} from '../../../core/src/types';
 import { reactStyleAppender } from './reactStyleAppender';
 import { useServerSide } from './ServerSideProvider';
 
