@@ -3,7 +3,7 @@ import type {
   BooleonModule,
   BooleonProps,
 } from './packages/core/src/types';
-import { booleon } from './packages/react/src/lib/booleon';
+import { booleon } from './packages/react/src';
 
 const fn = <M extends BooleonModule, A extends Attachments>(
   m: M,
@@ -24,5 +24,5 @@ const MyComponent = booleon.div(
 );
 
 function Comp() {
-  return <MyComponent att__flex lg__flex />;
+  return <MyComponent att__flex />;
 }
