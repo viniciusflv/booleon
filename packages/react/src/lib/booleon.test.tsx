@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 
 import { render } from '@testing-library/react';
 
-import { booleon } from './booleon';
+import { booleon } from '.';
 
 describe('booleon', () => {
   test('html element', () => {

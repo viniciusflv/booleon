@@ -8,28 +8,15 @@
   "main": "dist/index.js",
   "module": "dist/react.esm.js",
   "peerDependencies": {
-    "@booleon/core": "*"
+    "@booleon/core": ">=2"
   },
   "devDependencies": {
-    "@booleon/core": "file:../core/src",
-    "tsdx": "^0.14.1",
-    "typescript": "^4.4.4"
+    "@booleon/core": "file:../core/src"
   },
   "scripts": {
-    "size": "size-limit",
     "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
-    "build": "tsdx build --transpileOnly && npm run emit"
+    "build": "node ../../esbuild.js && npm run emit"
   },
-  "size-limit": [
-    {
-      "path": "dist/react.cjs.production.min.js",
-      "limit": "7 KB"
-    },
-    {
-      "path": "dist/react.esm.js",
-      "limit": "7 KB"
-    }
-  ],
   "files": [
     "dist"
   ],

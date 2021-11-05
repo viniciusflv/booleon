@@ -1,19 +1,34 @@
 import type {
+  Props,
+  Attachments,
   BooleonProps,
   BooleonModule,
-  Attachments,
-  Props,
 } from '@booleon/core';
 
 export type As = React.ComponentType<any> | keyof React.ReactHTML;
 
 export type BooleonHtmlProps<
-  M extends BooleonModule | unknown,
-  A extends Attachments
+  M extends BooleonModule,
+  A extends Attachments = undefined,
 > = React.HTMLProps<any> &
   BooleonProps<M, A> & {
     as?: As;
   };
+
+const m = { flex: () => '' };
+const att = { atta: () => '' };
+
+function bool<
+  Y,
+  M extends BooleonModule,
+  C extends As,
+  A extends Attachments = undefined,
+>(component: C, module: M, attachments?: A) {
+  return {} as BooleonHtmlProps<M, A>;
+}
+
+const { kf__flex } = bool('div', m);
+const { atta__flex } = bool('div', m, att);
 
 export type BooleonTarget = (
   component: As,
@@ -33,5 +48,5 @@ export type HandlerReturnValue<H extends BooleonHandler> = H extends (
 
 export type ProxyReturnValue<
   T extends BooleonTarget,
-  H extends BooleonHandler
+  H extends BooleonHandler,
 > = T & HandlerReturnValue<H>;
