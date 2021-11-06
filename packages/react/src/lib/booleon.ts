@@ -1,17 +1,9 @@
 import type { Attachments, BooleonModule } from '@booleon/core';
 
-import type {
-  As,
-  BooleonHandler,
-  BooleonTarget,
-  ProxyReturnValue,
-} from '../types';
+import type { As, Fn, ProxyReturnValue } from '../types';
 import { hocBooleon } from './hocBooleon';
 
-function BooleonProxy<T extends BooleonTarget, H extends BooleonHandler>(
-  target: T,
-  handler: H,
-) {
+function BooleonProxy<T extends Fn, H extends Fn>(target: T, handler: H) {
   return new Proxy(target, {
     get(_, name) {
       return handler(name);

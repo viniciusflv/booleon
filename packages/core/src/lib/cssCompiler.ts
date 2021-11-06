@@ -13,8 +13,7 @@ export function cssCompiler<M extends BooleonModule>(
           Object.getOwnPropertySymbols(module).reduce((acc, symbol) => {
             const value = key.replace(stripSymbolValue(symbol), '');
             if (value) {
-              // @ts-expect-error https://github.com/microsoft/TypeScript/issues/1863
-              acc += module[symbol](value);
+              acc += module[symbol]?.(value);
             }
             return acc;
           }, ''),
