@@ -16,25 +16,21 @@ require('esbuild')
     treeShaking: true,
     sourcemap: true,
     minify: true,
-    plugins: [
-      nodeExternalsPlugin(),
-      {
-        name: 'clear',
-        setup: ({
-          onStart,
-          initialOptions: { absWorkingDir, outfile, outdir },
-        }) => {
-          onStart(() => {
-            const dir = path.resolve(
-              absWorkingDir || __dirname,
-              path.dirname(outfile || outdir),
-            );
-            if (fs.existsSync(dir)) {
-              fs.rmSync(dir, { recursive: true });
-            }
-          });
-        },
-      },
-    ],
+    plugins: [nodeExternalsPlugin(), clearOutDir()],
   })
   .catch(() => process.exit(1));
+
+const clearOutDir = () => ({
+  name: 'clear',
+  setup: ({ onStart, initialOptions: { absWorkingDir, outfile, outdir } }) => {
+    onStart(() => {
+      const dir = path.resolve(
+        absWorkingDir || __dirname,
+        path.dirname(outfile || outdir),
+      );
+      if (fs.existsSync(dir)) {
+        fs.rmSync(dir, { recursive: true });
+      }
+    });
+  },
+});

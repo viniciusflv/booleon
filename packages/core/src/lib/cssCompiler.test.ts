@@ -16,4 +16,25 @@ describe('cssCompiler', () => {
     });
     expect(res).toMatchInlineSnapshot('"display:flex;"');
   });
+
+  test('negative value', () => {
+    const res = cssCompiler('width_neg_10px', true, {
+      [Symbol('width_$')]: ($) => `width:${$};`,
+    });
+    expect(res).toMatchInlineSnapshot('"width:-10px;"');
+  });
+
+  test('percentage', () => {
+    const res = cssCompiler('width_10$', true, {
+      [Symbol('width_$')]: ($) => `width:${$};`,
+    });
+    expect(res).toMatchInlineSnapshot('"width:10%;"');
+  });
+
+  test('css var', () => {
+    const res = cssCompiler('width_var_primary', true, {
+      [Symbol('width_$')]: ($) => `width:${$};`,
+    });
+    expect(res).toMatchInlineSnapshot('"width:var(--primary);"');
+  });
 });

@@ -1,5 +1,6 @@
 import type { BooleonModule } from '../types';
 import { browserPrefixer } from './browserPrefixer';
+import { handleCssVars } from './handleCssVars';
 import { stripSymbolValue } from './stripSymbolValue';
 
 export function cssCompiler<M extends BooleonModule>(
@@ -18,7 +19,7 @@ export function cssCompiler<M extends BooleonModule>(
                 .replace('neg_', '-')
                 .replace('$', '%');
 
-              acc += module[symbol]?.(value);
+              acc += module[symbol]?.(handleCssVars(value));
             }
             return acc;
           }, ''),

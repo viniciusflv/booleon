@@ -1,8 +1,5 @@
 import { handleColor, sym } from '../utils';
 
-const handleBorder = ([size, style, ...colors]: string[]) =>
-  `${size} ${style} ${handleColor(colors.join('_'))}`;
-
 /**
  * Module for `border` options
  * @example
@@ -13,19 +10,6 @@ const handleBorder = ([size, style, ...colors]: string[]) =>
  * ```
  */
 export const border = {
-  [sym('bd_$')]: ($: string) => `border:${handleBorder($.split('_'))};`,
-  [sym('bdt_$')]: ($: string) => `border-top:${handleBorder($.split('_'))};`,
-  [sym('bdb_$')]: ($: string) => `border-bottom:${handleBorder($.split('_'))};`,
-  [sym('bdl_$')]: ($: string) => `border-left:${handleBorder($.split('_'))};`,
-  [sym('bdr_$')]: ($: string) => `border-right:${handleBorder($.split('_'))};`,
-  [sym('bdx_$')]: ($: string) =>
-    `border-right:${handleBorder($.split('_'))};border-left:${handleBorder(
-      $.split('_'),
-    )};`,
-  [sym('bdy_$')]: ($: string) =>
-    `border-top:${handleBorder($.split('_'))};border-bottom:${handleBorder(
-      $.split('_'),
-    )};`,
   [sym('bd_color_$')]: ($: string) => `border-color:${handleColor($)};`,
   [sym('bdt_color_$')]: ($: string) => `border-top-color:${handleColor($)};`,
   [sym('bdb_color_$')]: ($: string) => `border-bottom-color:${handleColor($)};`,
