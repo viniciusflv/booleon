@@ -12,15 +12,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@booleon/core": "file:../core/src",
-    "@booleon/react": "file:../react/src",
-    "@booleon/modules": "file:../modules/src",
     "@babel/core": "^7.16.0",
+    "@booleon/core": "file:../core/src",
+    "@booleon/modules": "file:../modules/src",
+    "@booleon/react": "file:../react/src",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/react": "^6.3.12",
     "babel-loader": "^8.2.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@bedrock-layout/use-forwarded-ref": "^1.1.11"
+  }
 }
