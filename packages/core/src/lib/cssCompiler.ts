@@ -11,8 +11,13 @@ export function cssCompiler<M extends BooleonModule>(
     ? browserPrefixer(
         module[key]?.(value) ??
           Object.getOwnPropertySymbols(module).reduce((acc, symbol) => {
-            const value = key.replace(stripSymbolValue(symbol), '');
-            if (value) {
+            const symKey = stripSymbolValue(symbol);
+            if (key.startsWith(symKey)) {
+              const value = key
+                .replace(symKey, '')
+                .replace('neg_', '-')
+                .replace('$', '%');
+
               acc += module[symbol]?.(value);
             }
             return acc;

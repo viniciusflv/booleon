@@ -97,12 +97,15 @@ function styleDeclaration(property = '', value = '') {
 /**
  * https://github.com/kripod/style-vendorizer/blob/main/src/index.ts
  */
-export function browserPrefixer(...str: string[]) {
-  if (str.map(Boolean).includes(false)) return '';
-  if (str.length < 2) {
-    const cssPropRegex = /(?<attr>.*):(?<value>.*);/;
-    const { attr, value } = cssPropRegex?.exec(str[0])?.groups || {};
-    return attr && value ? styleDeclaration(attr, value) : str[0];
-  }
-  return styleDeclaration(...str);
+export function browserPrefixer(str: string) {
+  return str
+    .replace(/\n|\s+\s/gm, '')
+    .split(';')
+    .filter(Boolean)
+    .map((css: string) => {
+      const cssPropRegex = /(?<attr>.*):(?<value>.*);/;
+      const { attr, value } = cssPropRegex?.exec(`${css};`)?.groups || {};
+      return attr && value ? styleDeclaration(attr, value) : css;
+    })
+    .join('');
 }

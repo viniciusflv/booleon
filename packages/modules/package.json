@@ -1,21 +1,19 @@
 {
-  "name": "@booleon/react",
-  "version": "2.0.5-alpha.0",
-  "description": "Booleon React is a DX focused library for, a highly typed declarative, styling, using component boolean properties.Works by mapping a pre-defined entry of css with keys thatcan be static string or dynamic RegEx.",
+  "name": "@booleon/modules",
+  "version": "2.0.6-alpha.0",
+  "description": "Booleon CSS modules",
   "author": "Vinícius Victorino <viniciusflv@gmail.com>",
   "homepage": "https://github.com/viniciusflv/booleon#readme",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
-  "peerDependencies": {
-    "@booleon/core": ">=2"
-  },
-  "devDependencies": {
-    "@booleon/core": "file:../core/src"
-  },
   "scripts": {
     "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
     "build": "node ../../esbuild.js && npm run emit"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
   },
   "files": [
     "dist"

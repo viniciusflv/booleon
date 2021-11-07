@@ -2,11 +2,11 @@
   "name": "@booleon/core",
   "version": "2.0.4-alpha.0",
   "description": "Booleon core css compiler functions",
-  "author": "Vinícius Victorino",
+  "author": "Vinícius Victorino <viniciusflv@gmail.com>",
+  "homepage": "https://github.com/viniciusflv/booleon#readme",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "scripts": {
     "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
     "build": "node ../../esbuild.js && npm run emit"
