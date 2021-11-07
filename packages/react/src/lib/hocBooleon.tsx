@@ -16,7 +16,11 @@ export function createComponent<
     { as, ...props }: BooleonHtmlProps<M, A>,
     ref: React.Ref<Y>,
   ) {
-    const [className, htmlProps, ssr] = useBooleon(props, module, attachments);
+    const [className, forwardProps, ssr] = useBooleon(
+      props,
+      module,
+      attachments,
+    );
 
     return (
       <>
@@ -24,7 +28,7 @@ export function createComponent<
         {changeChildrenTag(as, component, {
           ref,
           className,
-          ...htmlProps,
+          ...forwardProps,
         })}
       </>
     );

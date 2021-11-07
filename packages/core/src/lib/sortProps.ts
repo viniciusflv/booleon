@@ -15,7 +15,7 @@ export function sortProps<
       if (
         module[key] ??
         (Object.keys(attachments).some((attachment) =>
-          key.startsWith(attachment),
+          key.startsWith(`${attachment}__`),
         ) ||
           Object.getOwnPropertySymbols(module).some((symbol) =>
             key.startsWith(stripSymbolValue(symbol)),

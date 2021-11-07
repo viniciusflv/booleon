@@ -6,6 +6,7 @@ describe('sortProps', () => {
       {
         flex: true,
         onClick: () => '',
+        children: 'aaa',
       },
       {
         flex: () => 'display:flex;',
@@ -19,6 +20,7 @@ describe('sortProps', () => {
           "flex": true,
         },
         Object {
+          "children": "aaa",
           "onClick": [Function],
         },
       ]

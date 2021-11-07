@@ -43,7 +43,7 @@ export type BooleonModuleValues = boolean | string;
 export type BooleonPropsKeys<
   K extends string,
   A extends Attachments | undefined = undefined,
-> = K | `${AttachmentKeys<A>}__${K}`;
+> = K | `${AttachmentKeys<A>}__$`;
 
 export type BooleonProps<
   M extends BooleonModule,
