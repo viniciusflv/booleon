@@ -20,9 +20,11 @@
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/react": "^6.3.12",
+    "react": "file:../../node_modules/react",
     "babel-loader": "^8.2.3"
   },
   "dependencies": {
-    "@bedrock-layout/use-forwarded-ref": "^1.1.11"
+    "@bedrock-layout/use-forwarded-ref": "^1.1.11",
+    "use-slots": "^1.0.3"
   }
 }
