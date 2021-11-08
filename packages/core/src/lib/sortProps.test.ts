@@ -75,6 +75,31 @@ describe('sortProps', () => {
     `);
   });
 
+  test('combined attachment key', () => {
+    const res = sortProps(
+      {
+        focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__flex:
+          true,
+        onClick: () => '',
+      },
+      {
+        [Symbol('display_$')]: ($) => `display:${$};`,
+      },
+      {},
+    );
+
+    expect(res).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__flex": true,
+        },
+        Object {
+          "onClick": [Function],
+        },
+      ]
+    `);
+  });
+
   test('custom attachment key', () => {
     const res = sortProps(
       {
