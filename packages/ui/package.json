@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "start-storybook -p 6006",
+    "svg": "npx svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --ts --svgo",
+    "dev": "start-storybook -p 6006 --no-dll",
     "build": "build-storybook"
   },
   "keywords": [],
@@ -20,7 +21,6 @@
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/react": "^6.3.12",
-    "react": "file:../../node_modules/react",
     "babel-loader": "^8.2.3"
   },
   "dependencies": {

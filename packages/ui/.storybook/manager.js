@@ -22,7 +22,7 @@ addons.setConfig({
     barBg: '#282A36',
     appBorderColor: '#282A36',
     barSelectedColor: '#d55901',
-    colorSecondary: '#282A36',
+    colorSecondary: '#d55901',
     colorPrimary: '#d55901',
     inputBg: '#282A36',
     appContentBg: "#22202c"

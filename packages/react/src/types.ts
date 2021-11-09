@@ -18,7 +18,7 @@ export type BooleonHtmlProps<
 export type Fn = (...args: any[]) => any;
 
 export type HandlerReturnValue<H> = H extends (...args: any[]) => infer R
-  ? Props<keyof React.ReactHTML, R>
+  ? Props<keyof React.ReactDOM, R>
   : never;
 
 export type ProxyReturnValue<T, H> = T & HandlerReturnValue<H>;
