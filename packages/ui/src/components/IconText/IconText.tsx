@@ -22,20 +22,10 @@ function IconText(
     fill: 'currentColor',
     width: '1.5em',
     height: '1.5em',
-    flex: true,
-  };
+  } as const;
 
   return (
-    <_Span
-      ref={iconTextRef}
-      flex
-      main_center
-      cross_center
-      col={col}
-      child__mb_1em={Boolean(children) && col}
-      last__mb_0={Boolean(children) && col}
-      child__mr_1em={Boolean(children) && !col}
-      last__mr_0={Boolean(children) && !col}>
+    <_Span ref={iconTextRef} flex main_center cross_center gap_1em col={col}>
       {first ? <Svg {...first} {...svgProps} /> : null}
       <_Span flex grow ft_select_none>
         {children}

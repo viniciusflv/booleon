@@ -47,7 +47,8 @@ function Drop(
       hover_child__visible={!click}
       hover_child__ani_name_drop={!click}
       child__visible={isOpen && !click}
-      child__ani_name_drop={isOpen && !click}>
+      child__ani_name_drop={isOpen && !click}
+    >
       {trigger}
       {click ? (
         <_Checkbox
@@ -76,7 +77,8 @@ function Drop(
         ani_forwards
         ani_duration_300ms
         ani_iteration_1
-        ani_ease_in_out>
+        ani_ease_in_out
+      >
         {content}
       </_Content>
     </_Drop>

@@ -1,3 +1,4 @@
+import { sym } from '../utils';
 /**
  * Module for `flex` options
  * @example
@@ -8,6 +9,7 @@
  * ```
  */
 export const flex = {
+  [sym('gap_$')]: ($: string) => `gap:${$};`,
   flex: () => 'display:flex;',
   do_wrap: () => 'flex-wrap:wrap;',
   no_wrap: () => 'flex-wrap:nowrap;',
