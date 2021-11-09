@@ -14,12 +14,14 @@ export function cssCompiler<M extends BooleonModule>(
           Object.getOwnPropertySymbols(module).reduce((acc, symbol) => {
             const symKey = stripSymbolValue(symbol);
             if (key.startsWith(symKey)) {
-              const value = key
+              const symValue = key
                 .replace(symKey, '')
                 .replace('neg_', '-')
                 .replace('$', '%');
 
-              acc += module[symbol]?.(handleCssVars(value));
+              acc += module[symbol]?.(
+                value === true ? handleCssVars(symValue) : value,
+              );
             }
             return acc;
           }, ''),

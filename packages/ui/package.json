@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@bedrock-layout/use-forwarded-ref": "^1.1.11",
+    "react-polymorphic-types": "^2.0.0",
     "use-slots": "^1.0.3"
   }
 }

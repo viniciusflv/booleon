@@ -1,4 +1,4 @@
-import { Drop, DropContent, DropTrigger } from '.';
+import { Drop, DropTrigger, DropContent } from '.';
 import type { DropProps } from '.';
 
 export default {
@@ -9,15 +9,22 @@ export default {
 const Template = (args: DropProps) => (
   <Drop {...args}>
     <DropTrigger>
-      <span>hover me</span>
+      <a href="#">link</a>
     </DropTrigger>
     <DropContent>
-      <p style={{ display: 'flex', flexDirection: 'column' }}>
-        <span>uhasduha uahduihasda uhuadhuhuchh</span>
-        <span>uhasduha uahduihasda uhuadhuhuchh</span>
-        <span>uhasduha uahduihasda uhuadhuhuchh</span>
-      </p>
+      <div>
+        <p>
+          <a href="#">link</a>
+        </p>
+        <p>
+          <a href="#">link</a>
+        </p>
+        <p>
+          <a href="#">link</a>
+        </p>
+      </div>
     </DropContent>
+    <p>aaaa</p>
   </Drop>
 );
 

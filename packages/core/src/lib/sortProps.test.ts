@@ -78,8 +78,8 @@ describe('sortProps', () => {
   test('combined attachment key', () => {
     const res = sortProps(
       {
-        focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__flex:
-          true,
+        focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__display_$:
+          'flex',
         onClick: () => '',
       },
       {
@@ -91,7 +91,7 @@ describe('sortProps', () => {
     expect(res).toMatchInlineSnapshot(`
       Array [
         Object {
-          "focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__flex": true,
+          "focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__display_$": "flex",
         },
         Object {
           "onClick": [Function],
