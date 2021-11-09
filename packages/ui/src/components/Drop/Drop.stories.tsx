@@ -12,17 +12,11 @@ const Template = (args: DropProps) => (
       <a href="#">link</a>
     </DropTrigger>
     <DropContent>
-      <div>
-        <p>
-          <a href="#">link</a>
-        </p>
-        <p>
-          <a href="#">link</a>
-        </p>
-        <p>
-          <a href="#">link</a>
-        </p>
-      </div>
+      <p style={{ display: 'flex', flexDirection: 'column' }}>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+      </p>
     </DropContent>
     <p>aaaa</p>
   </Drop>

@@ -13,7 +13,8 @@ function KeyValue({ entries = [['key', 'value']] }) {
           key={key}
           ft_size_12
           hover__sd_4
-          hover__bg_color_var_prismjs_selection>
+          hover__bg_color_var_prismjs_selection
+        >
           <_Head className="token function" p_5>
             {key}
           </_Head>
@@ -22,7 +23,8 @@ function KeyValue({ entries = [['key', 'value']] }) {
             ft_weight_bold
             p_5
             pl_20
-            bdl_1_solid_d55901>
+            bdl_1_solid_d55901
+          >
             {value}
           </_Column>
         </_Row>
