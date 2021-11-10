@@ -10,7 +10,7 @@ export class ServerSideSheet {
   }
 
   get getSheet() {
-    return this.sheet as unknown as ReactElement<any, any>;
+    return (this.sheet as unknown) as ReactElement<any, any>;
   }
 
   compileSheet(id: string, css: string) {

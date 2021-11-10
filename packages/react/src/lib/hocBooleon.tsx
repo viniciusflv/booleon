@@ -10,7 +10,7 @@ export function createComponent<
   Y,
   M extends BooleonModule,
   C extends As,
-  A extends Attachments,
+  A extends Attachments
 >(component: C, module: M, attachments?: A) {
   function BooleonComponent(
     { as, ...props }: BooleonHtmlProps<M, A>,
@@ -40,7 +40,7 @@ export function createComponent<
 export const hocBooleon = <
   C extends As,
   M extends BooleonModule,
-  A extends Attachments,
+  A extends Attachments
 >(
   c: C,
   m: M,
