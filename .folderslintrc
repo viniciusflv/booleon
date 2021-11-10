@@ -6,11 +6,11 @@
     "core/src/types",
     "core/src/utils",
     
-    "documentation/src/assets/svg",
-    "documentation/src/containers/**/*",
-    "documentation/src/fragments/**/*",
-    "documentation/src/pages/**/*",
-    "documentation/src/utils",
+    "docs/src/assets/svg",
+    "docs/src/containers/**/*",
+    "docs/src/fragments/**/*",
+    "docs/src/pages/**/*",
+    "docs/src/utils",
 
     "modules/src/lib/**/*",
     "modules/src/constants",
