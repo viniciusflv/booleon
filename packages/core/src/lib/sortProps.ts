@@ -5,7 +5,7 @@ import { stripSymbolValue } from './stripSymbolValue';
 export function sortProps<
   P extends Props,
   M extends BooleonModule,
-  A extends Attachments
+  A extends Attachments,
 >(props: P, module: M, attachmentsCustom: A = {} as A): [Props, Props] {
   const attachments = { ...attachmentsDefault, ...attachmentsCustom };
 

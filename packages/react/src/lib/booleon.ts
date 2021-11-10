@@ -14,19 +14,19 @@ function BooleonProxy<T extends Fn, H extends Fn>(target: T, handler: H) {
 const booleonStyled = <
   C extends As,
   M extends BooleonModule,
-  A extends Attachments
+  A extends Attachments,
 >(
   component: C,
   modules: M,
   attachments?: A,
 ) => hocBooleon(component, modules, attachments);
 
-const booleonTagged = (name: string) => <
-  M extends BooleonModule,
-  A extends Attachments
->(
-  modules: M,
-  attachments?: A,
-) => hocBooleon(name as As, modules, attachments);
+const booleonTagged =
+  (name: string) =>
+  <M extends BooleonModule, A extends Attachments>(
+    modules: M,
+    attachments?: A,
+  ) =>
+    hocBooleon(name as As, modules, attachments);
 
 export const booleon = BooleonProxy(booleonStyled, booleonTagged);

@@ -2,7 +2,8 @@ import { composeProps } from './composeProps';
 
 test('composeProps', () => {
   const res = composeProps({
-    dark__important__xs__sm__md__lg__xl__focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__flex: true,
+    dark__important__xs__sm__md__lg__xl__focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__flex:
+      true,
     dark__important__xs__sm__md__lg__xl__kf_name__from__flex: true,
     important__flex: true,
     dark__flex: true,

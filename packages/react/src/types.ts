@@ -9,7 +9,7 @@ export type As = React.ComponentType<any> | keyof React.ReactHTML;
 
 export type BooleonHtmlProps<
   M extends BooleonModule,
-  A extends Attachments = undefined
+  A extends Attachments = undefined,
 > = React.HTMLProps<any> &
   BooleonProps<M, A> & {
     as?: As;

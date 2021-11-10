@@ -15,7 +15,7 @@ import { useServerSide } from './ServerSideProvider';
 export function useBooleon<
   P extends Props,
   M extends BooleonModule,
-  A extends Attachments
+  A extends Attachments,
 >({ className = '', ...props }: P, module: M, attachments?: A) {
   const ssrSheet = useServerSide();
 
