@@ -1,7 +1,19 @@
 module.exports = {
+  // pathPrefix: "/booleon",
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
-    title: `Booleon Docs`,
+    title: `Declarative CSS-in-JS library`,
+    titleTemplate: `%s | Booleon`,
+    description: `DX focused declarative runtime CSS-in-JS library`,
+    keywords: `css, css-in-js, declarative, dx`,
+    siteName: `booleon`,
+    siteUrl: `http://www.booleon.com.br`,
+    author: `Vinícius Victorino`,
+    locale: `en-US`,
+    image: {
+      path: 'icons/icon-512x512.png',
+      type: 'image/png',
+      size: '512',
+    },
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -22,6 +34,31 @@ module.exports = {
         icon: `${__dirname}/src/assets/svg/logo.svg`,
         icon_options: {
           purpose: `maskable`,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        formats: ['woff2', 'woff'],
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: true,
+        fonts: {
+          google: [
+            {
+              family: `RocknRoll One`,
+              variants: [`400`, `700`],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
+            {
+              family: `Fira Code`,
+              variants: [`400`],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
+          ],
         },
       },
     },
@@ -53,6 +90,73 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'docs',
+        engine: 'flexsearch',
+        engineOptions: 'speed',
+        query: `{
+          allMdx(
+            filter: { slug: { regex: "/^docs/" } }
+            sort: { fields: [slug], order: ASC }
+          ) {
+            edges {
+              node {
+                slug
+                rawBody
+                frontmatter {
+                  title
+                  description
+                }
+                headings {
+                  value
+                }
+              }
+            }
+          }
+        }`,
+        ref: 'slug',
+        store: ['slug', 'title', 'description', 'headings', 'body'],
+        normalizer: ({ data }) => {
+          return data?.allMdx?.edges?.map(({ node }) => ({
+            slug: node?.slug,
+            title: node?.frontmatter?.title,
+            description: node?.frontmatter?.description,
+            body: node?.rawBody,
+            headings: node?.headings?.map(({ value }) => value).join(', '),
+          }));
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-minify-html',
+      options: {
+        debug: true,
+        config: {
+          caseSensitive: true,
+          collapseBooleanAttributes: true,
+          collapseInlineTagWhitespace: true,
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          continueOnParseError: true,
+          decodeEntities: true,
+          html5: true,
+          minifyCSS: true,
+          minifyJS: true,
+          minifyURLs: true,
+          preventAttributesEscaping: true,
+          removeComments: true,
+          removeEmptyAttributes: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          removeTagWhitespace: true,
+          trimCustomFragments: true,
+          useShortDoctype: true,
+        },
       },
     },
   ],

@@ -9,6 +9,7 @@
 
 html,
 body,
+#___gatsby,
 body > * > * {
   width: 100%;
   height: 100%;

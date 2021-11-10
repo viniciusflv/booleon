@@ -89,11 +89,11 @@ const ForwardedComponent = forwardRef(Drop);
 export { ForwardedComponent as Drop };
 
 export const DropTrigger = beSlot(
-  ({ children }: { children: JSX.Element }) => children,
+  ({ children }: { children: any }) => children,
   'trigger',
 );
 
 export const DropContent = beSlot(
-  ({ children }: { children: JSX.Element }) => children,
+  ({ children }: { children: any }) => children,
   'content',
 );

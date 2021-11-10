@@ -6,7 +6,7 @@ import { Drop, DropTrigger, DropContent } from '.';
 
 expect.extend(toHaveNoViolations);
 
-describe('Drop', () => {
+describe.skip('Drop', () => {
   test('default', async () => {
     const { container } = render(
       <Drop open>

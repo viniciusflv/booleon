@@ -11,6 +11,12 @@ import type { IconTextProps, IconTextRef } from './IconText.types';
 
 const _Span = booleon.span({ ...font, ...flex, ...spacing, ...container });
 
+const twoOf = (...arr: any[]) => {
+  let count = 0;
+  arr.forEach((el) => (!el ? 0 : count++));
+  return count >= 2;
+};
+
 function IconText(
   { children, col, first, last }: IconTextProps,
   ref: Ref<IconTextRef>,
@@ -25,7 +31,14 @@ function IconText(
   } as const;
 
   return (
-    <_Span ref={iconTextRef} flex main_center cross_center gap_1em col={col}>
+    <_Span
+      ref={iconTextRef}
+      flex
+      main_center
+      cross_center
+      col={col}
+      gap_1em={twoOf(children, first, last)}
+    >
       {first ? <Svg {...first} {...svgProps} /> : null}
       <_Span flex grow ft_select_none>
         {children}
