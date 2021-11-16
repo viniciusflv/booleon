@@ -31,6 +31,13 @@ describe('cssCompiler', () => {
     expect(res).toMatchInlineSnapshot('"width:10%;"');
   });
 
+  test('pxrem', () => {
+    const res = cssCompiler('width_10pxrem', true, {
+      [Symbol('width_$')]: ($) => `width:${$};`,
+    });
+    expect(res).toMatchInlineSnapshot('"width:0.625rem;"');
+  });
+
   test('string value overwrite', () => {
     const res = cssCompiler('width_$', '321px', {
       [Symbol('width_$')]: ($) => `width:${$};`,

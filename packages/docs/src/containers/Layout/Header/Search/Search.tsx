@@ -47,9 +47,9 @@ function Search() {
             bd_radius_10px
             sd_4
             bg_color_var_prismjs_background
-            sm__w_min_30vw
+            sm__min_w_30vw
             w_full
-            w_max_500px
+            max_w_500px
           >
             {results?.map(({ slug, title, match }, i) => (
               <>

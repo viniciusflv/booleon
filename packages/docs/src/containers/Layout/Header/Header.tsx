@@ -29,21 +29,21 @@ export function Header({ isDocs = false }) {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <_Header h_8vh h_min_60 h_max_80 w_100$>
+    <_Header h_8vh min_h_60pxrem max_h_80pxrem w_100$>
       <_Nav
         fixed
         z_max
         flex
         h_8vh
-        h_min_60px
-        h_max_80px
+        min_h_60pxrem
+        max_h_80pxrem
         w_100$
         dark__bdb_1_solid_000
         bdb_1_solid_d5d5d5
         bg_color_fff
         dark__bg_color_22202c
       >
-        <_Div flex grow cross_center w_max_1440px m_auto px_20px>
+        <_Div flex grow cross_center max_w_1440px m_auto px_20px>
           <Link to="/" as={GatsbyLink} first={logo} ft_size_25px>
             Booleon
           </Link>

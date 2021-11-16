@@ -11,7 +11,7 @@ export function Layout({ children, pageContext, path }: any) {
   const isDocs = path.startsWith('/docs');
 
   return (
-    <_Layout h_min_screen h_100$ w_100$ bg_color_fff dark__bg_color_22202c>
+    <_Layout min_h_screen h_100$ w_100$ bg_color_fff dark__bg_color_22202c>
       <SEO {...pageContext?.frontmatter} />
       <Header isDocs={isDocs} />
       {children}
