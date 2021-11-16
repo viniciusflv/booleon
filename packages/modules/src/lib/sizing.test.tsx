@@ -16,18 +16,18 @@ describe('Sizing', () => {
       expect(getByTestId('h_100px')).toHaveStyle('height: 100px;');
     });
 
-    test('h_max_100px', () => {
+    test('max_h_100px', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_max_100px" h_max_100px />,
+        <BooleonComponent data-testid="max_h_100px" max_h_100px />,
       );
-      expect(getByTestId('h_max_100px')).toHaveStyle('max-height: 100px;');
+      expect(getByTestId('max_h_100px')).toHaveStyle('max-height: 100px;');
     });
 
-    test('h_min_100px', () => {
+    test('min_h_100px', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_min_100px" h_min_100px />,
+        <BooleonComponent data-testid="min_h_100px" min_h_100px />,
       );
-      expect(getByTestId('h_min_100px')).toHaveStyle('min-height: 100px;');
+      expect(getByTestId('min_h_100px')).toHaveStyle('min-height: 100px;');
     });
 
     test('h_30vh', () => {
@@ -37,18 +37,18 @@ describe('Sizing', () => {
       expect(getByTestId('h_30vh')).toHaveStyle('height: 30vh;');
     });
 
-    test('h_max_30vh', () => {
+    test('max_h_30vh', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_max_30vh" h_max_30vh />,
+        <BooleonComponent data-testid="max_h_30vh" max_h_30vh />,
       );
-      expect(getByTestId('h_max_30vh')).toHaveStyle('max-height: 30vh;');
+      expect(getByTestId('max_h_30vh')).toHaveStyle('max-height: 30vh;');
     });
 
-    test('h_min_30vh', () => {
+    test('min_h_30vh', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_min_30vh" h_min_30vh />,
+        <BooleonComponent data-testid="min_h_30vh" min_h_30vh />,
       );
-      expect(getByTestId('h_min_30vh')).toHaveStyle('min-height: 30vh;');
+      expect(getByTestId('min_h_30vh')).toHaveStyle('min-height: 30vh;');
     });
 
     test('h_100$', () => {
@@ -58,18 +58,18 @@ describe('Sizing', () => {
       expect(getByTestId('h_100$')).toHaveStyle('height: 100%;');
     });
 
-    test('h_max_100$', () => {
+    test('max_h_100$', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_max_100$" h_max_100$ />,
+        <BooleonComponent data-testid="max_h_100$" max_h_100$ />,
       );
-      expect(getByTestId('h_max_100$')).toHaveStyle('max-height: 100%;');
+      expect(getByTestId('max_h_100$')).toHaveStyle('max-height: 100%;');
     });
 
-    test('h_min_100$', () => {
+    test('min_h_100$', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_min_100$" h_min_100$ />,
+        <BooleonComponent data-testid="min_h_100$" min_h_100$ />,
       );
-      expect(getByTestId('h_min_100$')).toHaveStyle('min-height: 100%;');
+      expect(getByTestId('min_h_100$')).toHaveStyle('min-height: 100%;');
     });
 
     test('h_auto', () => {
@@ -79,18 +79,18 @@ describe('Sizing', () => {
       expect(getByTestId('h_auto')).toHaveStyle('height: auto;');
     });
 
-    test('h_max_auto', () => {
+    test('max_h_auto', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_max_auto" h_max_auto />,
+        <BooleonComponent data-testid="max_h_auto" max_h_auto />,
       );
-      expect(getByTestId('h_max_auto')).toHaveStyle('max-height: auto;');
+      expect(getByTestId('max_h_auto')).toHaveStyle('max-height: auto;');
     });
 
-    test('h_min_auto', () => {
+    test('min_h_auto', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_min_auto" h_min_auto />,
+        <BooleonComponent data-testid="min_h_auto" min_h_auto />,
       );
-      expect(getByTestId('h_min_auto')).toHaveStyle('min-height: auto;');
+      expect(getByTestId('min_h_auto')).toHaveStyle('min-height: auto;');
     });
 
     test('h_100vh', () => {
@@ -100,18 +100,18 @@ describe('Sizing', () => {
       expect(getByTestId('h_100vh')).toHaveStyle('height: 100vh;');
     });
 
-    test('h_max_100vh', () => {
+    test('max_h_100vh', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_max_100vh" h_max_100vh />,
+        <BooleonComponent data-testid="max_h_100vh" max_h_100vh />,
       );
-      expect(getByTestId('h_max_100vh')).toHaveStyle('max-height: 100vh;');
+      expect(getByTestId('max_h_100vh')).toHaveStyle('max-height: 100vh;');
     });
 
-    test('h_min_100vh', () => {
+    test('min_h_100vh', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="h_min_100vh" h_min_100vh />,
+        <BooleonComponent data-testid="min_h_100vh" min_h_100vh />,
       );
-      expect(getByTestId('h_min_100vh')).toHaveStyle('min-height: 100vh;');
+      expect(getByTestId('min_h_100vh')).toHaveStyle('min-height: 100vh;');
     });
   });
 
@@ -123,18 +123,18 @@ describe('Sizing', () => {
       expect(getByTestId('w_100px')).toHaveStyle('width: 100px;');
     });
 
-    test('w_max_100px', () => {
+    test('max_w_100px', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_max_100px" w_max_100px />,
+        <BooleonComponent data-testid="max_w_100px" max_w_100px />,
       );
-      expect(getByTestId('w_max_100px')).toHaveStyle('max-width: 100px;');
+      expect(getByTestId('max_w_100px')).toHaveStyle('max-width: 100px;');
     });
 
-    test('w_min_100px', () => {
+    test('min_w_100px', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_min_100px" w_min_100px />,
+        <BooleonComponent data-testid="min_w_100px" min_w_100px />,
       );
-      expect(getByTestId('w_min_100px')).toHaveStyle('min-width: 100px;');
+      expect(getByTestId('min_w_100px')).toHaveStyle('min-width: 100px;');
     });
 
     test('w_30vw', () => {
@@ -144,18 +144,18 @@ describe('Sizing', () => {
       expect(getByTestId('w_30vw')).toHaveStyle('width: 30vw;');
     });
 
-    test('w_max_30vw', () => {
+    test('max_w_30vw', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_max_30vw" w_max_30vw />,
+        <BooleonComponent data-testid="max_w_30vw" max_w_30vw />,
       );
-      expect(getByTestId('w_max_30vw')).toHaveStyle('max-width: 30vw;');
+      expect(getByTestId('max_w_30vw')).toHaveStyle('max-width: 30vw;');
     });
 
-    test('w_min_30vw', () => {
+    test('min_w_30vw', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_min_30vw" w_min_30vw />,
+        <BooleonComponent data-testid="min_w_30vw" min_w_30vw />,
       );
-      expect(getByTestId('w_min_30vw')).toHaveStyle('min-width: 30vw;');
+      expect(getByTestId('min_w_30vw')).toHaveStyle('min-width: 30vw;');
     });
 
     test('w_100$', () => {
@@ -165,18 +165,18 @@ describe('Sizing', () => {
       expect(getByTestId('w_100$')).toHaveStyle('width: 100%;');
     });
 
-    test('w_max_100$', () => {
+    test('max_w_100$', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_max_100$" w_max_100$ />,
+        <BooleonComponent data-testid="max_w_100$" max_w_100$ />,
       );
-      expect(getByTestId('w_max_100$')).toHaveStyle('max-width: 100%;');
+      expect(getByTestId('max_w_100$')).toHaveStyle('max-width: 100%;');
     });
 
-    test('w_min_100$', () => {
+    test('min_w_100$', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_min_100$" w_min_100$ />,
+        <BooleonComponent data-testid="min_w_100$" min_w_100$ />,
       );
-      expect(getByTestId('w_min_100$')).toHaveStyle('min-width: 100%;');
+      expect(getByTestId('min_w_100$')).toHaveStyle('min-width: 100%;');
     });
 
     test('w_auto', () => {
@@ -186,18 +186,18 @@ describe('Sizing', () => {
       expect(getByTestId('w_auto')).toHaveStyle('width: auto;');
     });
 
-    test('w_max_auto', () => {
+    test('max_w_auto', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_max_auto" w_max_auto />,
+        <BooleonComponent data-testid="max_w_auto" max_w_auto />,
       );
-      expect(getByTestId('w_max_auto')).toHaveStyle('max-width: auto;');
+      expect(getByTestId('max_w_auto')).toHaveStyle('max-width: auto;');
     });
 
-    test('w_min_auto', () => {
+    test('min_w_auto', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_min_auto" w_min_auto />,
+        <BooleonComponent data-testid="min_w_auto" min_w_auto />,
       );
-      expect(getByTestId('w_min_auto')).toHaveStyle('min-width: auto;');
+      expect(getByTestId('min_w_auto')).toHaveStyle('min-width: auto;');
     });
 
     test('w_100vw', () => {
@@ -207,18 +207,18 @@ describe('Sizing', () => {
       expect(getByTestId('w_100vw')).toHaveStyle('width: 100vw;');
     });
 
-    test('w_max_100vw', () => {
+    test('max_w_100vw', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_max_100vw" w_max_100vw />,
+        <BooleonComponent data-testid="max_w_100vw" max_w_100vw />,
       );
-      expect(getByTestId('w_max_100vw')).toHaveStyle('max-width: 100vw;');
+      expect(getByTestId('max_w_100vw')).toHaveStyle('max-width: 100vw;');
     });
 
-    test('w_min_100vw', () => {
+    test('min_w_100vw', () => {
       const { getByTestId } = render(
-        <BooleonComponent data-testid="w_min_100vw" w_min_100vw />,
+        <BooleonComponent data-testid="min_w_100vw" min_w_100vw />,
       );
-      expect(getByTestId('w_min_100vw')).toHaveStyle('min-width: 100vw;');
+      expect(getByTestId('min_w_100vw')).toHaveStyle('min-width: 100vw;');
     });
   });
 });

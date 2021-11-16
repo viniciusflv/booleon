@@ -24,4 +24,11 @@ export const spacing = {
   [sym('pr_$')]: ($: string) => `padding-right:${$};`,
   [sym('px_$')]: ($: string) => `padding-right:${$};padding-left:${$};`,
   [sym('py_$')]: ($: string) => `padding-top:${$};padding-bottom:${$};`,
+  m_auto: () => 'margin:auto;',
+  mt_auto: () => 'margin-top:auto;',
+  mb_auto: () => 'margin-bottom:auto;',
+  ml_auto: () => 'margin-left:auto;',
+  mr_auto: () => 'margin-right:auto;',
+  mx_auto: () => 'margin-right:auto;margin-left:auto;',
+  my_auto: () => 'margin-top:auto;margin-bottom:auto;',
 };

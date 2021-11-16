@@ -651,41 +651,41 @@ export const background = {
   <tbody>
     <tr>
       <td>h_`NUMBER`</td>
-      <td>h_max_`NUMBER`</td>
-      <td>h_min_`NUMBER`</td>
-      <td>h_min_`NUMBER`</td>
+      <td>max_h_`NUMBER`</td>
+      <td>min_h_`NUMBER`</td>
+      <td>min_h_`NUMBER`</td>
       <td>w_`NUMBER`</td>
     </tr>
     <tr>
-      <td>w_max_`NUMBER`</td>
-      <td>w_min_`NUMBER`</td>
-      <td>w_min_`NUMBER`</td>
+      <td>max_w_`NUMBER`</td>
+      <td>min_w_`NUMBER`</td>
+      <td>min_w_`NUMBER`</td>
       <td>h_full</td>
-      <td>h_max_full</td>
+      <td>max_h_full</td>
     </tr>
     <tr>
-      <td>h_min_full</td>
+      <td>min_h_full</td>
       <td>h_auto</td>
-      <td>h_max_auto</td>
-      <td>h_min_auto</td>
+      <td>max_h_auto</td>
+      <td>min_h_auto</td>
       <td>h_screen</td>
     </tr>
     <tr>
-      <td>h_max_screen</td>
-      <td>h_min_screen</td>
+      <td>max_h_screen</td>
+      <td>min_h_screen</td>
       <td>w_full</td>
-      <td>w_max_full</td>
-      <td>w_min_full</td>
+      <td>max_w_full</td>
+      <td>min_w_full</td>
     </tr>
     <tr>
       <td>w_auto</td>
-      <td>w_max_auto</td>
-      <td>w_min_auto</td>
+      <td>max_w_auto</td>
+      <td>min_w_auto</td>
       <td>w_screen</td>
-      <td>w_max_screen</td>
+      <td>max_w_screen</td>
     </tr>
     <tr>
-      <td>w_min_screen</td>
+      <td>min_w_screen</td>
     </tr>
   </tbody>
 </table>
