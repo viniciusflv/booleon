@@ -3,10 +3,10 @@ import { browserPrefixer } from './browserPrefixer';
 import { handleCssVars } from './handleCssVars';
 import { stripSymbolValue } from './stripSymbolValue';
 
-export const pxrem = (value: any) => {
-  if (String(value).endsWith('pxrem')) {
-    const stripedValue = value.replace('pxrem', '');
-    return isNaN(stripedValue) ? value : Number(stripedValue) * 0.0625 + 'rem';
+export const rootPixelEm = (value: any) => {
+  if (String(value).endsWith('rxm')) {
+    const strippedValue = Number(value.replace('rxm', ''));
+    return isNaN(strippedValue) ? value : strippedValue * 0.0625 + 'rem';
   }
   return value;
 };
@@ -28,7 +28,7 @@ export function cssCompiler<M extends BooleonModule>(
                 .replace('$', '%');
 
               acc += module[symbol]?.(
-                pxrem(value === true ? handleCssVars(symValue) : value),
+                rootPixelEm(value === true ? handleCssVars(symValue) : value),
               );
             }
             return acc;

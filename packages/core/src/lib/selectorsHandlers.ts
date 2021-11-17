@@ -1,37 +1,37 @@
-import { AttachmentHandler, AttachmentContext, Props } from '../types';
+import { SelectorHandler, SelectorContext, Props } from '../types';
 
 const classes =
-  (): AttachmentHandler =>
+  (): SelectorHandler =>
   ({ className, value, recursiveCompiler }) =>
     `.${className}{${recursiveCompiler(value)}}`;
 
 const media =
-  (breakpoint: string): AttachmentHandler =>
+  (breakpoint: string): SelectorHandler =>
   ({ value, recursiveCompiler }) =>
     `@media ${breakpoint}{${recursiveCompiler(value)}}`;
 
 const theme =
-  (): AttachmentHandler =>
+  (): SelectorHandler =>
   ({ key, value, recursiveCompiler }) =>
     recursiveCompiler(value).replace(/\.bl/g, `body[data-theme="${key}"] .bl`);
 
 const pseudo =
-  (selector: string): AttachmentHandler =>
-  ({ className, key, value, attachments, recursiveCompiler }, wrap = true) => {
-    const selectors = key
+  (selector: string): SelectorHandler =>
+  ({ className, key, value, selectors, recursiveCompiler }, wrap = true) => {
+    const compiledSelectors = key
       ?.split('_')
       ?.reduce(
         (acc: string, k: string) =>
-          (acc += attachments?.[k]?.({} as AttachmentContext, false)),
+          (acc += selectors?.[k]?.({} as SelectorContext, false)),
         '',
       );
     return wrap
-      ? `.${className}${selectors}{${recursiveCompiler(value?.css)}}`
+      ? `.${className}${compiledSelectors}{${recursiveCompiler(value?.css)}}`
       : selector;
   };
 
 const keyframe =
-  <S extends Props>(selectors: S): AttachmentHandler =>
+  <S extends Props>(selectors: S): SelectorHandler =>
   ({ key, value, recursiveCompiler }) => {
     const [, name] = key?.split('_');
 
@@ -43,11 +43,11 @@ const keyframe =
   };
 
 const important =
-  (): AttachmentHandler =>
+  (): SelectorHandler =>
   ({ value, recursiveCompiler }) =>
     recursiveCompiler(value).replace(/;/g, ' !important;');
 
-export const attach = {
+export const selector = {
   classes,
   media,
   theme,

@@ -31,8 +31,8 @@ describe('cssCompiler', () => {
     expect(res).toMatchInlineSnapshot('"width:10%;"');
   });
 
-  test('pxrem', () => {
-    const res = cssCompiler('width_10pxrem', true, {
+  test('rxm', () => {
+    const res = cssCompiler('width_10rxm', true, {
       [Symbol('width_$')]: ($) => `width:${$};`,
     });
     expect(res).toMatchInlineSnapshot('"width:0.625rem;"');

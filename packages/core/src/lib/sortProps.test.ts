@@ -51,7 +51,7 @@ describe('sortProps', () => {
     `);
   });
 
-  test('attachment key', () => {
+  test('selector key', () => {
     const res = sortProps(
       {
         hover__display_flex: true,
@@ -75,7 +75,7 @@ describe('sortProps', () => {
     `);
   });
 
-  test('combined attachment key', () => {
+  test('combined selector key', () => {
     const res = sortProps(
       {
         focus_within_after_before_active_checked_disabled_hover_visited_child_last_first_adjacent_sibling_odd_even__display_$:
@@ -100,7 +100,7 @@ describe('sortProps', () => {
     `);
   });
 
-  test('custom attachment key', () => {
+  test('custom selector key', () => {
     const res = sortProps(
       {
         customAttachment__display_flex: true,

@@ -95,7 +95,7 @@ describe('styleCompiler', () => {
     );
   });
 
-  test('custom attachment', () => {
+  test('custom selector', () => {
     const res = styleCompiler(
       'className',
       { att: { css: { flex: true } } },

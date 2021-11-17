@@ -1,31 +1,29 @@
-import { BooleonModule, Attachments, Props, AttachmentHandler } from '../types';
-import { attachmentsDefault } from './attachmentsDefault';
+import { BooleonModule, Selectors, Props, SelectorHandler } from '../types';
 import { cleanTransformFilter } from './cleanTransformFilter';
 import { cssCompiler } from './cssCompiler';
+import { selectorsDefault } from './selectorsDefault';
 
-export function styleCompiler<P extends Attachments, M extends BooleonModule>(
+export function styleCompiler<S extends Selectors, M extends BooleonModule>(
   className: string,
   composedProps: Props,
   booleonModules: M,
-  customAttachments?: P,
+  customSelectors?: S,
 ) {
-  const attachments: Attachments = {
-    ...attachmentsDefault,
-    ...customAttachments,
+  const selectors: Selectors = {
+    ...selectorsDefault,
+    ...customSelectors,
   };
   const recursiveCompiler = (props: Props): string => {
     return Object.keys(props).reduce((acc, key) => {
       const value = props[key];
       if (typeof value === 'object') {
-        const handler: AttachmentHandler =
-          attachments[key] ??
-          attachments[
-            `${Object.keys(attachments).find((k) => key.startsWith(k))}`
-          ];
+        const handler: SelectorHandler =
+          selectors[key] ??
+          selectors[`${Object.keys(selectors).find((k) => key.startsWith(k))}`];
         return (acc += handler({
           key,
           value,
-          attachments,
+          selectors,
           className,
           recursiveCompiler,
         }));

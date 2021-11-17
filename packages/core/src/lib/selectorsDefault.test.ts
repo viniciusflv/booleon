@@ -1,11 +1,11 @@
-import { attachmentsDefault } from './attachmentsDefault';
+import { selectorsDefault } from './selectorsDefault';
 
-describe('attachmentsDefault', () => {
+describe('selectorsDefault', () => {
   test('dark', () => {
-    const res = attachmentsDefault.dark({
+    const res = selectorsDefault.dark({
       key: 'dark',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: ({ className }) => `.bl-${className} {css}`,
     });
@@ -15,10 +15,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('xs', () => {
-    const res = attachmentsDefault.xs({
+    const res = selectorsDefault.xs({
       key: 'xs',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -26,10 +26,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('sm', () => {
-    const res = attachmentsDefault.sm({
+    const res = selectorsDefault.sm({
       key: 'sm',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -37,10 +37,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('md', () => {
-    const res = attachmentsDefault.md({
+    const res = selectorsDefault.md({
       key: 'md',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -48,10 +48,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('lg', () => {
-    const res = attachmentsDefault.lg({
+    const res = selectorsDefault.lg({
       key: 'lg',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -59,10 +59,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('xl', () => {
-    const res = attachmentsDefault.xl({
+    const res = selectorsDefault.xl({
       key: 'xl',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -70,10 +70,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('focus', () => {
-    const res = attachmentsDefault.focus({
+    const res = selectorsDefault.focus({
       key: 'focus',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -81,10 +81,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('within', () => {
-    const res = attachmentsDefault.within({
+    const res = selectorsDefault.within({
       key: 'within',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -92,10 +92,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('after', () => {
-    const res = attachmentsDefault.after({
+    const res = selectorsDefault.after({
       key: 'after',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -103,10 +103,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('before', () => {
-    const res = attachmentsDefault.before({
+    const res = selectorsDefault.before({
       key: 'before',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -114,10 +114,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('active', () => {
-    const res = attachmentsDefault.active({
+    const res = selectorsDefault.active({
       key: 'active',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -125,10 +125,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('checked', () => {
-    const res = attachmentsDefault.checked({
+    const res = selectorsDefault.checked({
       key: 'checked',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -136,10 +136,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('disabled', () => {
-    const res = attachmentsDefault.disabled({
+    const res = selectorsDefault.disabled({
       key: 'disabled',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -147,10 +147,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('hover', () => {
-    const res = attachmentsDefault.hover({
+    const res = selectorsDefault.hover({
       key: 'hover',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -158,10 +158,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('visited', () => {
-    const res = attachmentsDefault.visited({
+    const res = selectorsDefault.visited({
       key: 'visited',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -169,10 +169,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('child', () => {
-    const res = attachmentsDefault.child({
+    const res = selectorsDefault.child({
       key: 'child',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -180,10 +180,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('last', () => {
-    const res = attachmentsDefault.last({
+    const res = selectorsDefault.last({
       key: 'last',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -191,10 +191,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('first', () => {
-    const res = attachmentsDefault.first({
+    const res = selectorsDefault.first({
       key: 'first',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -202,10 +202,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('adjacent', () => {
-    const res = attachmentsDefault.adjacent({
+    const res = selectorsDefault.adjacent({
       key: 'adjacent',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -213,10 +213,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('sibling', () => {
-    const res = attachmentsDefault.sibling({
+    const res = selectorsDefault.sibling({
       key: 'sibling',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -224,10 +224,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('odd', () => {
-    const res = attachmentsDefault.odd({
+    const res = selectorsDefault.odd({
       key: 'odd',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -235,10 +235,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('even', () => {
-    const res = attachmentsDefault.even({
+    const res = selectorsDefault.even({
       key: 'even',
       value: { flex: true },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });
@@ -246,10 +246,10 @@ describe('attachmentsDefault', () => {
   });
 
   test('kf', () => {
-    const res = attachmentsDefault.kf({
+    const res = selectorsDefault.kf({
       key: 'kf_animation',
       value: { from: { flex: true }, to: { flex: true } },
-      attachments: attachmentsDefault,
+      selectors: selectorsDefault,
       className: 'className',
       recursiveCompiler: () => 'css',
     });

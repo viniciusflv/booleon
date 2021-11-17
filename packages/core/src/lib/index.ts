@@ -1,4 +1,4 @@
-export * from './attachmentHandlers';
+export * from './selectorsHandlers';
 export * from './createClassName';
 export * from './styleAppender';
 export * from './styleCompiler';
