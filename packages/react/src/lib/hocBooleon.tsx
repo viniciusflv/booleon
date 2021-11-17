@@ -1,25 +1,25 @@
 import { forwardRef } from 'react';
 
-import type { Attachments, BooleonModule } from '@booleon/core';
+import type { Selectors, BooleonModule } from '@booleon/core';
 
 import type { As, BooleonHtmlProps } from '../types';
 import { changeChildrenTag } from './changeChildrenTag';
 import { useBooleon } from './useBooleon';
 
 export function createComponent<
-  Y,
+  R,
   M extends BooleonModule,
   C extends As,
-  A extends Attachments,
->(component: C, module: M, attachments?: A) {
+  S extends Selectors,
+>(component: C, booleonModule: M, customSelectors?: S) {
   function BooleonComponent(
-    { as, ...props }: BooleonHtmlProps<M, A>,
-    ref: React.Ref<Y>,
+    { as, ...props }: BooleonHtmlProps<M, S>,
+    ref: React.Ref<R>,
   ) {
     const [className, forwardProps, ssr] = useBooleon(
       props,
-      module,
-      attachments,
+      booleonModule,
+      customSelectors,
     );
 
     return (
@@ -40,9 +40,9 @@ export function createComponent<
 export const hocBooleon = <
   C extends As,
   M extends BooleonModule,
-  A extends Attachments,
+  S extends Selectors,
 >(
   c: C,
   m: M,
-  a?: A,
-) => (a ? createComponent(c, m, a) : createComponent(c, m, {}));
+  s?: S,
+) => (s ? createComponent(c, m, s) : createComponent(c, m, {}));
