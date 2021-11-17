@@ -14,12 +14,12 @@ export const rootPixelEm = (value: any) => {
 export function cssCompiler<M extends BooleonModule>(
   key: string,
   value: string | boolean,
-  module: M,
+  booleonModule: M,
 ) {
   return value
     ? browserPrefixer(
-        module[key]?.(value) ??
-          Object.getOwnPropertySymbols(module).reduce((acc, symbol) => {
+        booleonModule[key]?.(value) ??
+          Object.getOwnPropertySymbols(booleonModule).reduce((acc, symbol) => {
             const symKey = stripSymbolValue(symbol);
             if (key.startsWith(symKey)) {
               const symValue = key
@@ -27,7 +27,7 @@ export function cssCompiler<M extends BooleonModule>(
                 .replace('neg_', '-')
                 .replace('$', '%');
 
-              acc += module[symbol]?.(
+              acc += booleonModule[symbol]?.(
                 rootPixelEm(value === true ? handleCssVars(symValue) : value),
               );
             }
