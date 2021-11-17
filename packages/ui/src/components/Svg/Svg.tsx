@@ -9,12 +9,11 @@ function Svg({
   viewBox,
   paths,
   fill,
-  as,
   width = '100%',
   height = '100%',
 }: SvgProps) {
   return (
-    <_Wrapper as={as} flex>
+    <_Wrapper flex>
       <svg viewBox={viewBox} width={width} height={height} fill={fill}>
         {paths?.map(({ d, ...pathProps }) => (
           <path key={d} d={d} {...pathProps} />

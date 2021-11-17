@@ -40,9 +40,9 @@ export const background = {
   bg_auto: () => 'background-size:auto;',
   bg_cover: () => 'background-size:cover;',
   bg_contain: () => 'background-size:contain;',
-  bg_fixed: () => 'background-attachment:fixed;',
-  bg_local: () => 'background-attachment:local;',
-  bg_scroll: () => 'background-attachment:scroll;',
+  bg_fixed: () => 'background-selector:fixed;',
+  bg_local: () => 'background-selector:local;',
+  bg_scroll: () => 'background-selector:scroll;',
 };
 ```
 

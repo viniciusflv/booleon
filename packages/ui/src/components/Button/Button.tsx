@@ -37,18 +37,18 @@ function Button(
       {...props}
       ref={buttonRef}
       cr_pointer
-      px_40pxrem
-      py_20pxrem
+      px_40rxm
+      py_20rxm
       ol_none
       bg_transparent
       bd_none
-      bd_radius_30pxrem
+      bd_radius_30rxm
       ft_color_fff
       ft_weight_bold
-      ft_spacing_1px
-      ft_size_16px
+      ft_spacing_1rxm
+      ft_size_16rxm
       sd_4
-      bd_width_2pxrem
+      bd_width_2rxm
       bd_style_solid
       bd_color_282A36={!primary}
       bd_color_d55901={primary}
@@ -57,7 +57,6 @@ function Button(
       ft_color_d55901={outlined && primary}
       ft_color_282A36={outlined && !primary}
       active__sdi_6
-      hover__sd_6
     >
       {children}
     </_Button>

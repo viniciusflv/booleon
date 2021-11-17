@@ -1,3 +1,4 @@
+import { selector } from '@booleon/core';
 import modules, {
   animation,
   container,
@@ -14,7 +15,9 @@ const _Wrapper = booleon.div({
   ...animation,
   ...sizing,
 });
-const _Input = booleon.input(modules);
+const _Input = booleon.input(modules, {
+  placeholderShown: selector.pseudo(':placeholder-shown'),
+});
 const _Label = booleon.label({
   ...font,
   ...container,
@@ -22,7 +25,7 @@ const _Label = booleon.label({
   ...animation,
 });
 
-function Field({ label = 'Label', hidden, ...props }: any) {
+function Field({ label = 'Label', hidden = false, ...props }: any) {
   return (
     <_Wrapper flex cross_center relative>
       <_Input
@@ -32,21 +35,24 @@ function Field({ label = 'Label', hidden, ...props }: any) {
         focus_sibling__ani_name_up
         w_100$
         m_0
-        px_20px
-        py_10px
+        px_20rxm
+        py_10rxm
         bg_transparent
         ft_color_var_font_color
-        hover__bd_2_solid_d55901
-        focus__bd_2_solid_d55901
-        bd_2_solid_d5d5d5
-        dark__hover__bd_2_solid_d55901
-        dark__focus__bd_2_solid_d55901
-        dark__bd_2_solid_var_font_color
-        bd_radius_50px
+        bd_style_solid
+        bd_width_2rxm
+        bd_color_d5d5d5
+        hover__bd_color_d55901
+        focus__bd_color_d55901
+        dark__bd_color_var_font_color
+        bd_radius_50rxm
         ol_none
+        placeholder=" "
+        placeholderShown_sibling__hidden
       />
       <_Label
         hidden={hidden}
+        z_neg_1
         absolute
         px_20px
         ani_forwards

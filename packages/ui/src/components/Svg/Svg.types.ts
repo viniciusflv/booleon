@@ -1,15 +1,7 @@
-import { As } from '@booleon/react';
+import type { SVGProps } from 'react';
 
-type Path = {
-  fill?: string;
-  d: string;
-};
+type Path = SVGProps<SVGPathElement>;
 
-export type SvgProps = {
-  as?: As;
-  viewBox?: string;
+export type SvgProps = SVGProps<SVGSVGElement> & {
   paths?: Path[];
-  fill?: string;
-  width?: string;
-  height?: string;
 };
