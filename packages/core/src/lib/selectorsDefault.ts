@@ -10,6 +10,7 @@ export const selectorsDefault = {
   md: selector.media('(min-width: 1024px)'),
   lg: selector.media('(min-width: 1440px)'),
   xl: selector.media('(min-width: 1920px)'),
+  not: selector.pseudo(() => ':not'),
   focus: selector.pseudo(':focus'),
   within: selector.pseudo(':focus-within'),
   after: selector.pseudo(':after'),

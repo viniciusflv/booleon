@@ -11,7 +11,12 @@ export type BooleonValues = (value?: any) => string;
 
 export type BooleonModule = Partial<Props<BooleonKeys, BooleonValues>>;
 
-export type SelectorHandler = (arg: SelectorContext, wrap?: boolean) => string;
+export type SelectorKey = string | ((ctx?: SelectorContext) => string);
+
+export type SelectorHandler = (
+  arg: SelectorContext,
+  wrap?: boolean,
+) => SelectorKey;
 
 export type Selectors = Props<string, SelectorHandler> | undefined;
 

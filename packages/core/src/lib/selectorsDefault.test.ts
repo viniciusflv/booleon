@@ -69,6 +69,17 @@ describe('selectorsDefault', () => {
     expect(res).toMatchInlineSnapshot('"@media (min-width: 1920px){css}"');
   });
 
+  test('not', () => {
+    const res = selectorsDefault.not({
+      key: 'not_checked',
+      value: { flex: true },
+      selectors: selectorsDefault,
+      className: 'className',
+      recursiveCompiler: () => 'css',
+    });
+    expect(res).toMatchInlineSnapshot('".className:not(:checked){css}"');
+  });
+
   test('focus', () => {
     const res = selectorsDefault.focus({
       key: 'focus',

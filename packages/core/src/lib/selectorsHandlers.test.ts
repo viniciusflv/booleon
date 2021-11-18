@@ -42,13 +42,15 @@ describe('selector', () => {
     const fn = selector.pseudo(':pseudo');
     expect(
       fn({
-        key: 'checked_checked',
+        key: 'first_not_checked_not_p',
         value: { flex: true },
         className: 'className',
         selectors: selectorsDefault,
         recursiveCompiler: () => 'css',
       }),
-    ).toMatchInlineSnapshot('".className:checked:checked{css}"');
+    ).toMatchInlineSnapshot(
+      '".className>:first-child:not(:checked):not(p){css}"',
+    );
   });
 
   test('keyframe', () => {

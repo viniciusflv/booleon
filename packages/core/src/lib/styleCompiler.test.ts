@@ -59,6 +59,22 @@ describe('styleCompiler', () => {
     );
   });
 
+  test('func', () => {
+    const res = styleCompiler(
+      'className',
+      {
+        first_not_checked_not_p: {
+          css: { flex: true },
+        },
+      },
+      { flex: () => 'display:flex;' },
+    );
+
+    expect(res).toMatchInlineSnapshot(
+      '".className>:first-child:not(:checked):not(p){display:flex;}"',
+    );
+  });
+
   test('keyframe', () => {
     const res = styleCompiler(
       'className',

@@ -1,4 +1,9 @@
-import { SelectorHandler, SelectorContext, Props } from '../types';
+import type {
+  SelectorHandler,
+  SelectorContext,
+  SelectorKey,
+  Props,
+} from '../types';
 
 const classes =
   (): SelectorHandler =>
@@ -16,17 +21,32 @@ const theme =
     recursiveCompiler(value).replace(/\.bl/g, `body[data-theme="${key}"] .bl`);
 
 const pseudo =
-  (selector: string): SelectorHandler =>
-  ({ className, key, value, selectors, recursiveCompiler }, wrap = true) => {
-    const compiledSelectors = key
+  (selector: SelectorKey): SelectorHandler =>
+  (ctx, wrap = true) => {
+    let close: number;
+
+    const compiledSelectors = ctx?.key
       ?.split('_')
-      ?.reduce(
-        (acc: string, k: string) =>
-          (acc += selectors?.[k]?.({} as SelectorContext, false)),
-        '',
-      );
+      ?.reduce((acc: string, key: string, i) => {
+        const selectorKey = ctx?.selectors?.[key]?.(
+          {} as SelectorContext,
+          false,
+        );
+
+        if (typeof selectorKey === 'function') {
+          close = i + 1;
+          return (acc += `${selectorKey(ctx)}(`);
+        } else if (i === close) {
+          return (acc += `${selectorKey ?? key})`);
+        }
+
+        return (acc += selectorKey);
+      }, '');
+
     return wrap
-      ? `.${className}${compiledSelectors}{${recursiveCompiler(value?.css)}}`
+      ? `.${ctx?.className}${compiledSelectors}{${ctx?.recursiveCompiler(
+          ctx?.value?.css ?? {},
+        )}}`
       : selector;
   };
 
