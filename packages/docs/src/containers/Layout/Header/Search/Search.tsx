@@ -2,14 +2,13 @@ import { useState } from 'react';
 
 import modules from '@booleon/modules';
 import { booleon } from '@booleon/react';
-import { Drop, DropContent, DropTrigger, Link } from '@booleon/ui';
+import { Drop, DropContent, DropTrigger, Link, Field } from '@booleon/ui';
 
 import { Link as GatsbyLink } from 'gatsby';
 
 import { useSearch } from '../../../../fragments/DocsSearchFragment';
 
 const _Div = booleon.div(modules);
-const _Input = booleon.input(modules);
 const _Span = booleon.span(modules);
 
 function Search() {
@@ -18,21 +17,8 @@ function Search() {
   return (
     <Drop>
       <DropTrigger>
-        <_Input
-          w_full
-          m_0
-          px_20px
-          py_10px
-          bg_transparent
-          ft_color_var_font_color
-          hover__bd_2_solid_d55901
-          focus__bd_2_solid_d55901
-          bd_2_solid_d5d5d5
-          dark__hover__bd_2_solid_d55901
-          dark__focus__bd_2_solid_d55901
-          dark__bd_2_solid_var_font_color
-          bd_radius_50px
-          ol_none
+        <Field
+          hidden
           type="text"
           aria-label="Search Docs"
           placeholder="Search Docs"

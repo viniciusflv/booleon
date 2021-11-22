@@ -1,0 +1,137 @@
+import modules from '@booleon/modules';
+import { booleon } from '@booleon/react';
+import { Link } from '@booleon/ui';
+
+import { Link as GatsbyLink } from 'gatsby';
+
+import * as icons from '../../../assets';
+import { useNavData } from '../../../fragments/NavDataFragment';
+
+const _Aside = booleon.aside(modules);
+const _Div = booleon.div(modules);
+const _Strong = booleon.strong(modules);
+function Aside({ children, slug, ...props }: any) {
+  const { headings, navigation } = useNavData(slug);
+
+  console.log({ headings, navigation });
+
+  return (
+    <>
+      <_Aside
+        relative
+        flex
+        col
+        fixed
+        sm__static
+        min_h_screen
+        min_w_200rxm
+        pt_20rxm
+        md__pt_0
+        md__mt_60rxm
+        bg_color_fff
+        bdr_width_1rxm
+        bdr_style_solid
+        bdr_color_22202c
+        dark__bdr_color_000
+        dark__bg_color_22202c
+        {...props}
+      >
+        <_Div h_full w_full>
+          <_Div
+            sm__sticky
+            top_100rxm
+            scy_auto
+            w_full
+            max_h_80vh
+            grid
+            grid_gap_20rxm
+            cols_1fr
+          >
+            {navigation?.map(({ path, title, icon }) => (
+              <_Div key={path} flex hover__ft_color_d55901>
+                <Link
+                  flex
+                  grow
+                  ft_size_14rxm
+                  dark__ft_color_fff
+                  as={GatsbyLink}
+                  to={`/${path}`}
+                  first={icons?.[icon]}
+                >
+                  {title}
+                </Link>
+              </_Div>
+            ))}
+          </_Div>
+        </_Div>
+      </_Aside>
+      {children}
+      {headings?.length ? (
+        <_Aside
+          ft_size_14rxm
+          py_20rxm
+          md__pt_60rxm
+          hidden
+          md__flex
+          md__col
+          min_w_250rxm
+          cross_start
+          {...props}
+        >
+          <_Div
+            sticky
+            top_100rxm
+            flex
+            col
+            cross_start
+            gap_20rxm
+            w_full
+            max_h_70vh
+          >
+            <_Strong dark__ft_color_fff>On this page</_Strong>
+            <_Div flex col scy_auto bdl_1_solid_d55901 ft_color_8795a1>
+              <UL flex col gap_5rxm>
+                {headings?.map(({ value, depth }) =>
+                  depth > 1 ? (
+                    <Ul key={value} depth={depth}>
+                      <li style={{ listStyle: 'none' }}>
+                        <Link title={value} href={`#${value}`}>
+                          {value}
+                        </Link>
+                      </li>
+                    </Ul>
+                  ) : (
+                    <li key={value} style={{ listStyle: 'none' }}>
+                      <Link title={value} href={`#${value}`}>
+                        {value}
+                      </Link>
+                    </li>
+                  ),
+                )}
+              </UL>
+            </_Div>
+            <Link dark__ft_color_fff href="#top" last={icons.arrow}>
+              Go to top
+            </Link>
+          </_Div>
+        </_Aside>
+      ) : null}
+    </>
+  );
+}
+
+const UL = booleon.ul(modules);
+
+const Ul = ({ depth, children }: any) => {
+  let res = children;
+  let count = depth;
+
+  while (count > 1) {
+    res = <ul>{res}</ul>;
+    count--;
+  }
+
+  return res;
+};
+
+export default Aside;

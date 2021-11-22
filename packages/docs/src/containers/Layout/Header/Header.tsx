@@ -38,12 +38,14 @@ export function Header({ isDocs = false }) {
         min_h_60rxm
         max_h_80rxm
         w_100$
-        dark__bdb_1_solid_000
-        bdb_1_solid_d5d5d5
+        bdb_width_1rxm
+        bdb_style_solid
+        bdb_color_d5d5d5
+        dark__bdb_color_000
         bg_color_fff
         dark__bg_color_22202c
       >
-        <_Div flex grow cross_center max_w_1440px m_auto px_20rxm>
+        <_Div flex grow cross_center max_w_1440rxm m_auto px_20rxm>
           <Link to="/" as={GatsbyLink} first={logo} ft_size_25rxm>
             Booleon
           </Link>
