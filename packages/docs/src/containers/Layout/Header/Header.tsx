@@ -46,14 +46,14 @@ export function Header({ isDocs = false }) {
         dark__bg_color_22202c
       >
         <_Div flex grow cross_center max_w_1440rxm m_auto px_20rxm>
-          <Link to="/" as={GatsbyLink} first={logo} ft_size_25rxm>
+          <Link to="/" tag={GatsbyLink} first={logo} ft_size_25rxm>
             Booleon
           </Link>
           <_Div flex grow main_end cross_center gap_20rxm>
             {isDocs ? (
               <Search />
             ) : (
-              <Link to="/docs" as={GatsbyLink}>
+              <Link to="/docs" tag={GatsbyLink}>
                 Documentation
               </Link>
             )}

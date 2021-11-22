@@ -29,21 +29,21 @@ function Search() {
       <DropContent>
         {results?.length ? (
           <_Div
-            mt_10px
-            bd_radius_10px
+            mt_10rxm
+            bd_radius_10rxm
             sd_4
             bg_color_var_prismjs_background
             sm__min_w_30vw
             w_full
-            max_w_500px
+            max_w_500rxm
           >
             {results?.map(({ slug, title, match }, i) => (
               <>
-                <Link key={slug} as={GatsbyLink} to={`/${slug}`}>
-                  <_Span flex col p_20px gap_10px>
+                <Link key={slug} tag={GatsbyLink} to={`/${slug}`}>
+                  <_Span flex col p_20rxm gap_10rxm>
                     {title ? <strong>{title}</strong> : null}
                     {match ? (
-                      <_Span ft_size_12px ft_truncate>
+                      <_Span ft_size_12rxm ft_truncate>
                         {match}
                       </_Span>
                     ) : null}

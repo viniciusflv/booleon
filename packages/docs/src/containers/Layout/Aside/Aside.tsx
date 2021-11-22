@@ -31,7 +31,7 @@ function Aside({ children, slug, ...props }: any) {
         bg_color_fff
         bdr_width_1rxm
         bdr_style_solid
-        bdr_color_22202c
+        bdr_color_d5d5d5
         dark__bdr_color_000
         dark__bg_color_22202c
         {...props}
@@ -50,11 +50,9 @@ function Aside({ children, slug, ...props }: any) {
             {navigation?.map(({ path, title, icon }) => (
               <_Div key={path} flex hover__ft_color_d55901>
                 <Link
-                  flex
-                  grow
                   ft_size_14rxm
                   dark__ft_color_fff
-                  as={GatsbyLink}
+                  tag={GatsbyLink}
                   to={`/${path}`}
                   first={icons?.[icon]}
                 >
