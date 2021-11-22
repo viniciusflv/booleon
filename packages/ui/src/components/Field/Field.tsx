@@ -25,7 +25,14 @@ const _Label = booleon.label({
   ...animation,
 });
 
-function Field({ label = 'Label', hidden = false, ...props }: any) {
+function Field({
+  label = 'Label',
+  hidden = false,
+  placeholder = ' ',
+  ...props
+}: any) {
+  const orange = '#d55901';
+  const grey = '#d5d5d5';
   return (
     <_Wrapper flex cross_center relative>
       <_Input
@@ -41,20 +48,20 @@ function Field({ label = 'Label', hidden = false, ...props }: any) {
         ft_color_var_font_color
         bd_style_solid
         bd_width_2rxm
-        bd_color_d5d5d5
-        hover__bd_color_d55901
-        focus__bd_color_d55901
+        bd_color_$={grey}
+        hover__bd_color_$={orange}
+        focus__bd_color_$={orange}
         dark__bd_color_var_font_color
         bd_radius_50rxm
         ol_none
-        placeholder=" "
-        placeholderShown_sibling__hidden
+        placeholder={placeholder}
+        not_placeholderShown_sibling__ani_name_up
       />
       <_Label
         hidden={hidden}
         z_neg_1
         absolute
-        px_20px
+        px_20rxm
         ani_forwards
         ani_duration_300ms
         ani_iteration_1
