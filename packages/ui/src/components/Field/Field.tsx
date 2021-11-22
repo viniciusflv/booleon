@@ -1,11 +1,13 @@
 import { selector } from '@booleon/core';
-import modules, {
+import {
   animation,
   container,
   flex,
   font,
   sizing,
   spacing,
+  border,
+  background,
 } from '@booleon/modules';
 import { booleon } from '@booleon/react';
 
@@ -15,9 +17,20 @@ const _Wrapper = booleon.div({
   ...animation,
   ...sizing,
 });
-const _Input = booleon.input(modules, {
-  placeholderShown: selector.pseudo(':placeholder-shown'),
-});
+const _Input = booleon.input(
+  {
+    ...container,
+    ...animation,
+    ...spacing,
+    ...sizing,
+    ...font,
+    ...border,
+    ...background,
+  },
+  {
+    placeholderShown: selector.pseudo(':placeholder-shown'),
+  },
+);
 const _Label = booleon.label({
   ...font,
   ...container,
@@ -46,12 +59,19 @@ function Field({
         py_10rxm
         bg_transparent
         ft_color_var_font_color
+        ft_size_14rxm
         bd_style_solid
         bd_width_2rxm
         bd_color_$={grey}
         hover__bd_color_$={orange}
         focus__bd_color_$={orange}
+        hover_sibling__ft_color_$={orange}
+        focus_sibling__ft_color_$={orange}
         dark__bd_color_var_font_color
+        dark__hover__bd_color_$={orange}
+        dark__focus__bd_color_$={orange}
+        dark__hover_sibling__ft_color_$={orange}
+        dark__focus_sibling__ft_color_$={orange}
         bd_radius_50rxm
         ol_none
         placeholder={placeholder}
@@ -62,6 +82,7 @@ function Field({
         z_neg_1
         absolute
         px_20rxm
+        ft_size_14rxm
         ani_forwards
         ani_duration_300ms
         ani_iteration_1

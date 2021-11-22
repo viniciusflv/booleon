@@ -2,18 +2,18 @@ import { forwardRef } from 'react';
 
 import type { Selectors, BooleonModule } from '@booleon/core';
 
-import type { As, BooleonHtmlProps } from '../types';
+import type { Tag, BooleonHtmlProps } from '../types';
 import { changeChildrenTag } from './changeChildrenTag';
 import { useBooleon } from './useBooleon';
 
 export function createComponent<
   R,
   M extends BooleonModule,
-  C extends As,
+  C extends Tag,
   S extends Selectors,
 >(component: C, booleonModule: M, customSelectors?: S) {
   function BooleonComponent(
-    { as, ...props }: BooleonHtmlProps<M, S>,
+    { tag, ...props }: BooleonHtmlProps<M, S>,
     ref: React.Ref<R>,
   ) {
     const [className, forwardProps, ssr] = useBooleon(
@@ -25,7 +25,7 @@ export function createComponent<
     return (
       <>
         {ssr}
-        {changeChildrenTag(as, component, {
+        {changeChildrenTag(tag, component, {
           ref,
           className,
           ...forwardProps,
@@ -38,7 +38,7 @@ export function createComponent<
 }
 
 export const hocBooleon = <
-  C extends As,
+  C extends Tag,
   M extends BooleonModule,
   S extends Selectors,
 >(

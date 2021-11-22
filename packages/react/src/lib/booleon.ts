@@ -1,6 +1,6 @@
 import type { Selectors, BooleonModule } from '@booleon/core';
 
-import type { As, Fn, ProxyReturnValue } from '../types';
+import type { Tag, Fn, ProxyReturnValue } from '../types';
 import { hocBooleon } from './hocBooleon';
 
 function BooleonProxy<T extends Fn, H extends Fn>(target: T, handler: H) {
@@ -12,7 +12,7 @@ function BooleonProxy<T extends Fn, H extends Fn>(target: T, handler: H) {
 }
 
 const booleonStyled = <
-  C extends As,
+  C extends Tag,
   M extends BooleonModule,
   S extends Selectors,
 >(
@@ -27,6 +27,6 @@ const booleonTagged =
     booleonModules: M,
     customSelectors?: S,
   ) =>
-    hocBooleon(name as As, booleonModules, customSelectors);
+    hocBooleon(name as Tag, booleonModules, customSelectors);
 
 export const booleon = BooleonProxy(booleonStyled, booleonTagged);

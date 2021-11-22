@@ -5,14 +5,14 @@ import type {
   BooleonModule,
 } from '@booleon/core';
 
-export type As = React.ComponentType<any> | keyof React.ReactHTML;
+export type Tag = React.ComponentType<any> | keyof React.ReactHTML;
 
 export type BooleonHtmlProps<
   M extends BooleonModule,
   S extends Selectors = undefined,
 > = React.HTMLProps<any> &
   BooleonProps<M, S> & {
-    as?: As;
+    tag?: Tag;
   };
 
 export type Fn = (...args: any[]) => any;

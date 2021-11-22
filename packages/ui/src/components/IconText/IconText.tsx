@@ -24,7 +24,7 @@ function IconText(
   const iconTextRef = useForwardedRef(ref);
 
   const svgProps = {
-    as: 'span',
+    tag: 'span',
     fill: 'currentColor',
     width: '1.5em',
     height: '1.5em',

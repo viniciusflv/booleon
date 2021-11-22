@@ -5,11 +5,11 @@ import { IconText } from '../IconText';
 
 const _Link = booleon.a({ ...font, ...outline, ...container, ...sizing });
 
-function Link({ as = 'a', title, children, first, last, col, ...props }: any) {
+function Link({ tag = 'a', title, children, first, last, col, ...props }: any) {
   return (
     <_Link
       {...props}
-      as={as}
+      tag={tag}
       title={title || (typeof children === 'string' ? children : 'Link')}
       ol_none
       ft_color_inherit

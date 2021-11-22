@@ -5,3 +5,4 @@ export * from './styleCompiler';
 export * from './composeProps';
 export * from './uniqueClass';
 export * from './sortProps';
+export * from './stringHash';
