@@ -14,7 +14,7 @@ const _Stop = booleon.stop({
 function Svg({
   viewBox,
   paths,
-  fill,
+  color,
   width = '100%',
   height = '100%',
   ...props
@@ -30,7 +30,7 @@ function Svg({
 
   return (
     <_Wrapper flex>
-      <svg viewBox={viewBox} width={width} height={height} fill={fill}>
+      <svg viewBox={viewBox} width={width} height={height} fill={color}>
         {gradient ? (
           <Gradient id={gradientId}>
             {gradient?.stops?.map((stop: any) => (

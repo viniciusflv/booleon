@@ -5,15 +5,13 @@ import { Link } from '@booleon/ui';
 import { Link as GatsbyLink } from 'gatsby';
 
 import * as icons from '../../../assets';
-import { useNavData } from '../../../fragments/NavDataFragment';
+import { usePageNavData } from '../../../fragments/NavDataFragment';
 
 const _Aside = booleon.aside(modules);
 const _Div = booleon.div(modules);
 const _Strong = booleon.strong(modules);
 function Aside({ children, slug, ...props }: any) {
-  const { headings, navigation } = useNavData(slug);
-
-  console.log({ headings, navigation });
+  const { headings, navigation } = usePageNavData(slug);
 
   return (
     <>

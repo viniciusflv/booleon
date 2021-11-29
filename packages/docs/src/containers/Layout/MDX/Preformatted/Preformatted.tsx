@@ -13,6 +13,7 @@ function Preformatted({ children, ...props }: any) {
       dark__bd_1_solid_000
       bd_1_solid_d5d5d5
       ft_size_12rxm
+      sd_4
       important__pr_50rxm
       {...props}
     >

@@ -18,20 +18,28 @@ const twoOf = (...arr: any[]) => {
 };
 
 function IconText(
-  { children, col, first, last }: IconTextProps,
+  {
+    children,
+    col,
+    first,
+    last,
+    color = 'currentColor',
+    ...props
+  }: IconTextProps,
   ref: Ref<IconTextRef>,
 ) {
   const iconTextRef = useForwardedRef(ref);
 
   const svgProps = {
     tag: 'span',
-    fill: 'currentColor',
+    color,
     width: '1.5em',
     height: '1.5em',
   } as const;
 
   return (
     <_Span
+      {...props}
       ref={iconTextRef}
       flex
       main_center

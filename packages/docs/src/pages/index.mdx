@@ -1,10 +1,18 @@
-# Title xy
+import { Hero } from '../containers/Hero';
+import { Highlights } from '../containers/Highlights';
 
-```mermaid
-flowchart LR
-dasasdad --> asdasdasd
-```
+<Hero>
 
 ```tsx
-<Component />
+import { flex } from '@booleon/modules';
+import { booleon } from '@booleon/react';
+
+const _Div = booleon.div(flex);
+const Component = () => {
+  return <_Div flex main_center cross_between />
+}
 ```
+
+</Hero>
+
+<Highlights />

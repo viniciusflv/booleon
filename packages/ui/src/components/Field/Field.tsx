@@ -8,6 +8,7 @@ import {
   spacing,
   border,
   background,
+  outline,
 } from '@booleon/modules';
 import { booleon } from '@booleon/react';
 
@@ -20,6 +21,7 @@ const _Wrapper = booleon.div({
 const _Input = booleon.input(
   {
     ...container,
+    ...outline,
     ...animation,
     ...spacing,
     ...sizing,
@@ -69,6 +71,7 @@ function Field({
         focus_sibling__ft_color_$={orange}
         dark__bd_color_var_font_color
         dark__hover__bd_color_$={orange}
+        dark__active__bd_color_$={orange}
         dark__focus__bd_color_$={orange}
         dark__hover_sibling__ft_color_$={orange}
         dark__focus_sibling__ft_color_$={orange}

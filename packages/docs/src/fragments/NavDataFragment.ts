@@ -39,7 +39,7 @@ export type NavData = {
   };
 };
 
-export function useNavData(path: string) {
+export function useNavData() {
   const {
     allMdx: { edges },
   } = useStaticQuery<NavData>(graphql`
@@ -47,6 +47,12 @@ export function useNavData(path: string) {
       ...NavDataFragment
     }
   `);
+
+  return edges;
+}
+
+export function usePageNavData(path: string) {
+  const edges = useNavData();
 
   const headings = edges
     ?.filter(({ node }) => node?.slug === path)
