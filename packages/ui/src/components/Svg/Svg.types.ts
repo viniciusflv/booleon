@@ -1,11 +1,18 @@
 import type { SVGProps } from 'react';
 
+import type { Props } from '@booleon/core';
+
 type Path = SVGProps<SVGPathElement> & {
   animates?: SVGProps<SVGAnimateElement>[];
 };
 
+type Stop = {
+  offset: '50%';
+  stopColor: '#d55901';
+} & Props;
+
 type Gradient = {
-  stops: SVGProps<SVGStopElement>[];
+  stops: Stop[];
 };
 
 type Gradients = {
@@ -17,4 +24,5 @@ export type SvgProps = SVGProps<SVGSVGElement> &
   Gradients & {
     paths?: Path[];
     defs?: SVGProps<SVGDefsElement> & Gradients;
+    defaultFill?: boolean;
   };
