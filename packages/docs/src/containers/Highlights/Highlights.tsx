@@ -17,7 +17,11 @@ function Highlights() {
     <_Highlights
       relative
       top_neg_10vh
-      flex
+      grid
+      cols_1fr
+      xs__cols_1fr_1fr
+      sm__cols_1fr_1fr
+      md__cols_1fr_1fr_1fr_1fr
       gap_24rxm
       sm__main_between
       main_center
@@ -26,6 +30,7 @@ function Highlights() {
       py_60rxm
       px_20rxm
       max_w_1440rxm
+      min_h_30vh
       w_full
       h_full
       m_auto
@@ -47,19 +52,22 @@ function Highlights() {
               cross_center
               main_center
               w_full
-              max_w_300rxm
               py_20rxm
               bg_color_fff
               dark__bg_color_22202c
               sd_4
               hover__sd_12
+              dark__hover__sd_16
               relative
               bd_radius_8rxm
               dark__bd_1_solid_000
               bd_color_d55901
               bd_width_0
-              bdb_width_5rxm
               bd_style_solid
+              bdb_width_3rxm
+              hover__bdb_width_5rxm
+              ts_all
+              ts_ease_out
             >
               <IconText
                 ft_size_20rxm

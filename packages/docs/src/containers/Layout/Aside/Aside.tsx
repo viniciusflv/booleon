@@ -85,7 +85,15 @@ function Aside({ children, slug, ...props }: any) {
             max_h_70vh
           >
             <_Strong dark__ft_color_fff>On this page</_Strong>
-            <_Div flex col scy_auto bdl_1_solid_d55901 ft_color_8795a1>
+            <_Div
+              flex
+              col
+              scy_auto
+              bdl_width_1rxm
+              bdl_style_solid
+              bdl_color_d55901
+              ft_color_8795a1
+            >
               <UL flex col gap_5rxm>
                 {headings?.map(({ value, depth }) =>
                   depth > 1 ? (

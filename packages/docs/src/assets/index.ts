@@ -1,3 +1,4 @@
+export * from './animated';
 export * from './arrow';
 export * from './close';
 export * from './copy';
