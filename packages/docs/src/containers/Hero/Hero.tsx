@@ -1,6 +1,8 @@
 import modules from '@booleon/modules';
 import { booleon } from '@booleon/react';
-import { Svg } from '@booleon/ui';
+import { Button, Svg } from '@booleon/ui';
+
+import { Link as GatsbyLink } from 'gatsby';
 
 import { animated } from '../../assets';
 
@@ -34,27 +36,32 @@ function Hero({ children }: any) {
         min_h_50vh
         m_auto
       >
-        <_Header max_w_400rxm>
+        <_Header flex col cross_start gap_20rxm max_w_400rxm>
           <_Title
+            m_0
             ft_size_30rxm
             ft_border_d55901
             ft_color_fff
             dark__ft_color_22202c
           >
             Booleon is a DX focused CSS-in-JS library for, a highly typed
-            declarative, styling
+            declarative styling.
           </_Title>
           <_Title
             as="h2"
+            m_0
             ft_size_15
             ft_border_d55901
             ft_color_fff
             dark__ft_color_22202c
           >
-            Using component `boolean` properties. Works by mapping a
-            `pre-defined` entry of css with keys that can be static (`string`)
-            or dynamic (`RegEx`).
+            Using component boolean properties. Works by mapping a pre-defined
+            entry of css with keys that can be static (string) or dynamic
+            (Symbol).
           </_Title>
+          <Button tag={GatsbyLink} to="docs">
+            Get Started
+          </Button>
         </_Header>
         <_I
           flex
