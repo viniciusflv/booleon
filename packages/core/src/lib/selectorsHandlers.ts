@@ -37,7 +37,7 @@ const pseudo =
           close = i + 1;
           return (acc += `${selectorKey(ctx)}(`);
         } else if (i === close) {
-          return (acc += `${selectorKey ?? key})`);
+          return (acc += `${selectorKey ?? `.${key}`})`);
         }
 
         return (acc += selectorKey);

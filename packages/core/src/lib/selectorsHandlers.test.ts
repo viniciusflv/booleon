@@ -49,7 +49,7 @@ describe('selector', () => {
         recursiveCompiler: () => 'css',
       }),
     ).toMatchInlineSnapshot(
-      '".className>:first-child:not(:checked):not(p){css}"',
+      '".className>:first-child:not(:checked):not(.p){css}"',
     );
   });
 

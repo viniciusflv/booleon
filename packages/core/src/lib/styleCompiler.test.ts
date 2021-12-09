@@ -71,7 +71,7 @@ describe('styleCompiler', () => {
     );
 
     expect(res).toMatchInlineSnapshot(
-      '".className>:first-child:not(:checked):not(p){display:flex;}"',
+      '".className>:first-child:not(:checked):not(.p){display:flex;}"',
     );
   });
 

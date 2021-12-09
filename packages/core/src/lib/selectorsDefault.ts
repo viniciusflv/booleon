@@ -11,6 +11,7 @@ export const selectorsDefault = {
   lg: selector.media('(min-width: 1440px)'),
   xl: selector.media('(min-width: 1920px)'),
   not: selector.pseudo(() => ':not'),
+  is: selector.pseudo(() => ':is'),
   focus: selector.pseudo(':focus'),
   within: selector.pseudo(':focus-within'),
   after: selector.pseudo(':after'),

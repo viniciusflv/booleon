@@ -80,6 +80,17 @@ describe('selectorsDefault', () => {
     expect(res).toMatchInlineSnapshot('".className:not(:checked){css}"');
   });
 
+  test('is', () => {
+    const res = selectorsDefault.not({
+      key: 'is_customClass',
+      value: { flex: true },
+      selectors: selectorsDefault,
+      className: 'className',
+      recursiveCompiler: () => 'css',
+    });
+    expect(res).toMatchInlineSnapshot('".className:is(.customClass){css}"');
+  });
+
   test('focus', () => {
     const res = selectorsDefault.focus({
       key: 'focus',
