@@ -41,7 +41,9 @@ describe('hocBooleon', () => {
         flex: () => 'display:flex;',
       },
       {
-        att: ({ className }) => `.${className}{display:grid;}`,
+        selectors: {
+          att: ({ className }) => `.${className}{display:grid;}`,
+        },
       },
     );
 
@@ -72,6 +74,27 @@ describe('hocBooleon', () => {
     );
     expect(string).toMatchInlineSnapshot(
       '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><button class=\\"bl--1802589470\\" data-testid=\\"hocBooleon\\"><div><span>AAA</span></div></button>"',
+    );
+  });
+
+  test('token', () => {
+    const MyComponent = hocBooleon(
+      'div',
+      {
+        ft_color_ruby: (_, t) => `color:${t?.colors.ruby};`,
+      },
+      {
+        tokens: {
+          colors: { ruby: '#f00' },
+        },
+      },
+    );
+
+    const string = ReactDOM.renderToString(
+      <MyComponent data-testid="hocBooleon" tag="section" ft_color_ruby />,
+    );
+    expect(string).toMatchInlineSnapshot(
+      '"<style data-booleon=\\"bl--1084937644\\">.bl--1084937644{color:#f00;}</style><section class=\\"bl--1084937644\\" data-testid=\\"hocBooleon\\"></section>"',
     );
   });
 });

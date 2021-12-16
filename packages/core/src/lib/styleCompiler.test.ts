@@ -116,7 +116,7 @@ describe('styleCompiler', () => {
       'className',
       { att: { css: { flex: true } } },
       { flex: () => 'display:flex;' },
-      { att: () => 'display: grid;' },
+      { selectors: { att: () => 'display: grid;' } },
     );
 
     expect(res).toMatchInlineSnapshot('"display: grid;"');
@@ -153,5 +153,21 @@ describe('styleCompiler', () => {
     expect(res).toMatchInlineSnapshot(
       '"@media (min-width: 640px){@media (min-width: 768px){@media (min-width: 1024px){@media (min-width: 1440px){@media (min-width: 1920px){body[data-theme=\\"dark\\"] .bl-className:focus:focus-within:after:before:active:checked:disabled:hover:visited>*>:last-child>:first-child~*+*:nth-child(odd):nth-child(even){display:flex !important;}}}}}}"',
     );
+  });
+
+  test('tokens', () => {
+    const res = styleCompiler(
+      'bl-className',
+      { ft_color_ruby: true },
+      {
+        ft_color_ruby: (_, t) => `color:${t?.colors.ruby};`,
+      },
+      {
+        tokens: {
+          colors: { ruby: '#f00' },
+        },
+      },
+    );
+    expect(res).toMatchInlineSnapshot('"color:#f00;"');
   });
 });

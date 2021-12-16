@@ -31,7 +31,9 @@ describe('booleon', () => {
         flex: () => 'display:flex;',
       },
       {
-        att: ({ className }) => `.${className}{display:grid;}`,
+        selectors: {
+          att: ({ className }) => `.${className}{display:grid;}`,
+        },
       },
     );
 
@@ -59,5 +61,23 @@ describe('booleon', () => {
     const { getByTestId } = render(<RefComponent />);
 
     expect(getByTestId('booleon')).toBeDefined();
+  });
+
+  test('tokens', () => {
+    const MyComponent = booleon.div(
+      {
+        ft_color_ruby: (_, t) => `color:${t?.colors.ruby};`,
+      },
+      {
+        tokens: {
+          colors: { ruby: '#f00' },
+        },
+      },
+    );
+
+    const { getByTestId } = render(
+      <MyComponent data-testid="booleon" ft_color_ruby />,
+    );
+    expect(getByTestId('booleon')).toHaveStyle('color:#f00;');
   });
 });

@@ -51,4 +51,18 @@ describe('cssCompiler', () => {
     });
     expect(res).toMatchInlineSnapshot('"width:var(--primary);"');
   });
+
+  test('tokens', () => {
+    const res = cssCompiler(
+      'ft_color_ruby',
+      true,
+      {
+        ft_color_ruby: (_, t) => `color:${t?.colors.ruby};`,
+      },
+      {
+        colors: { ruby: '#f00' },
+      },
+    );
+    expect(res).toMatchInlineSnapshot('"color:#f00;"');
+  });
 });

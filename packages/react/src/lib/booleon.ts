@@ -1,4 +1,10 @@
-import type { Selectors, BooleonModule } from '@booleon/core';
+import type {
+  Selectors,
+  BooleonModule,
+  BooleonOptions,
+  Props,
+  WithToken,
+} from '@booleon/core';
 
 import type { Tag, Fn, ProxyReturnValue } from '../types';
 import { hocBooleon } from './hocBooleon';
@@ -15,18 +21,19 @@ const booleonStyled = <
   C extends Tag,
   M extends BooleonModule,
   S extends Selectors,
+  T extends Props,
 >(
   component: C,
-  booleonModules: M,
-  customSelectors?: S,
-) => hocBooleon(component, booleonModules, customSelectors);
+  booleonModules: WithToken<M, T>,
+  options?: BooleonOptions<S, T>,
+) => hocBooleon(component, booleonModules, options);
 
 const booleonTagged =
   (name: string) =>
-  <M extends BooleonModule, S extends Selectors>(
-    booleonModules: M,
-    customSelectors?: S,
+  <M extends BooleonModule, S extends Selectors, T extends Props>(
+    booleonModules: WithToken<M, T>,
+    options?: BooleonOptions<S, T>,
   ) =>
-    hocBooleon(name as Tag, booleonModules, customSelectors);
+    hocBooleon(name as Tag, booleonModules, options);
 
 export const booleon = BooleonProxy(booleonStyled, booleonTagged);

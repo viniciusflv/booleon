@@ -43,7 +43,9 @@ describe('hocBooleon', () => {
         flex: () => 'display:flex;',
       },
       {
-        att: ({ className }) => `.${className}{display:grid;}`,
+        selectors: {
+          att: ({ className }) => `.${className}{display:grid;}`,
+        },
       },
     );
 
@@ -71,5 +73,24 @@ describe('hocBooleon', () => {
     const { getByTestId } = render(<RefComponent />);
 
     expect(getByTestId('hocBooleon')).toBeDefined();
+  });
+
+  test('tokens', () => {
+    const MyComponent = hocBooleon(
+      'div',
+      {
+        ft_color_ruby: (_, t) => `color:${t?.colors.ruby};`,
+      },
+      {
+        tokens: {
+          colors: { ruby: '#f00' },
+        },
+      },
+    );
+
+    const { getByTestId } = render(
+      <MyComponent data-testid="hocBooleon" ft_color_ruby />,
+    );
+    expect(getByTestId('hocBooleon')).toHaveStyle('color:#f00;');
   });
 });

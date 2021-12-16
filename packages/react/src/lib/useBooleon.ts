@@ -7,7 +7,13 @@ import {
   composeProps,
   uniqueClass,
 } from '@booleon/core';
-import type { Props, BooleonModule, Selectors } from '@booleon/core';
+import type {
+  Props,
+  BooleonModule,
+  BooleonOptions,
+  Selectors,
+  WithToken,
+} from '@booleon/core';
 
 import { reactStyleAppender } from './reactStyleAppender';
 import { useServerSide } from './ServerSideProvider';
@@ -16,23 +22,23 @@ export function useBooleon<
   P extends Props,
   M extends BooleonModule,
   S extends Selectors,
->({ className = '', ...props }: P, booleonModule: M, customSelectors?: S) {
+  T extends Props,
+>(
+  { className = '', ...props }: P,
+  booleonModule: WithToken<M, T>,
+  options?: BooleonOptions<S, T>,
+) {
   const ssrSheet = useServerSide();
 
   const [booleonProps, forwardProps] = useMemo(
-    () => sortProps(props, booleonModule, customSelectors),
+    () => sortProps(props, booleonModule, options?.selectors),
     [props],
   );
 
   const id = createClassName(booleonProps);
 
   const ssr = reactStyleAppender(id, ssrSheet, () =>
-    styleCompiler(
-      id,
-      composeProps(booleonProps),
-      booleonModule,
-      customSelectors,
-    ),
+    styleCompiler(id, composeProps(booleonProps), booleonModule, options),
   );
 
   return [uniqueClass(id, className), forwardProps as Props, ssr] as const;

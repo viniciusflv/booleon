@@ -1,17 +1,28 @@
-import { BooleonModule, Selectors, Props, SelectorHandler } from '../types';
+import {
+  BooleonModule,
+  Selectors,
+  Props,
+  SelectorHandler,
+  WithToken,
+  BooleonOptions,
+} from '../types';
 import { cleanTransformFilter } from './cleanTransformFilter';
 import { cssCompiler } from './cssCompiler';
 import { selectorsDefault } from './selectorsDefault';
 
-export function styleCompiler<S extends Selectors, M extends BooleonModule>(
+export function styleCompiler<
+  M extends BooleonModule,
+  S extends Selectors,
+  T extends Props,
+>(
   className: string,
   composedProps: Props,
-  booleonModules: M,
-  customSelectors?: S,
+  booleonModules: WithToken<M, T>,
+  options?: BooleonOptions<S, T>,
 ) {
   const selectors: Selectors = {
     ...selectorsDefault,
-    ...customSelectors,
+    ...options?.selectors,
   };
   const recursiveCompiler = (props: Props): string => {
     return Object.keys(props).reduce((acc, key) => {
@@ -28,7 +39,7 @@ export function styleCompiler<S extends Selectors, M extends BooleonModule>(
           recursiveCompiler,
         }));
       }
-      return (acc += cssCompiler(key, value, booleonModules));
+      return (acc += cssCompiler(key, value, booleonModules, options?.tokens));
     }, '');
   };
 

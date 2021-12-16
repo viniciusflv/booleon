@@ -26,7 +26,9 @@ describe('useBooleon', () => {
           flex: () => 'display:flex;',
         },
         {
-          att: ({ className }) => `.${className}{display:grid;}`,
+          selectors: {
+            att: ({ className }) => `.${className}{display:grid;}`,
+          },
         },
       );
       return <div className={className} {...htmlProps} />;
@@ -36,5 +38,27 @@ describe('useBooleon', () => {
     );
 
     expect(getByTestId('useBooleon')).toHaveStyle('display: grid;');
+  });
+
+  test('tokens', () => {
+    const MyComponent = (props: any) => {
+      const [className, htmlProps] = useBooleon(
+        props,
+        {
+          ft_color_ruby: (_, t) => `color:${t?.colors.ruby};`,
+        },
+        {
+          tokens: {
+            colors: { ruby: '#f00' },
+          },
+        },
+      );
+      return <div className={className} {...htmlProps} />;
+    };
+    const { getByTestId } = render(
+      <MyComponent data-testid="useBooleon" ft_color_ruby />,
+    );
+
+    expect(getByTestId('useBooleon')).toHaveStyle('color:#f00;');
   });
 });

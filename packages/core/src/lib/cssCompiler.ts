@@ -1,4 +1,4 @@
-import type { BooleonModule } from '../types';
+import type { BooleonModule, Props, WithToken } from '../types';
 import { browserPrefixer } from './browserPrefixer';
 import { handleCssVars } from './handleCssVars';
 import { stripSymbolValue } from './stripSymbolValue';
@@ -11,14 +11,15 @@ export const rootPixelEm = (value: any) => {
   return value;
 };
 
-export function cssCompiler<M extends BooleonModule>(
+export function cssCompiler<M extends BooleonModule, T extends Props>(
   key: string,
   value: string | boolean,
-  booleonModule: M,
+  booleonModule: WithToken<M, T>,
+  customTokens?: T,
 ) {
   return value
     ? browserPrefixer(
-        booleonModule[key]?.(value) ??
+        booleonModule[key]?.(value, customTokens) ??
           Object.getOwnPropertySymbols(booleonModule).reduce((acc, symbol) => {
             const symKey = stripSymbolValue(symbol);
             if (key.startsWith(symKey)) {
@@ -29,6 +30,7 @@ export function cssCompiler<M extends BooleonModule>(
 
               acc += booleonModule[symbol]?.(
                 rootPixelEm(value === true ? handleCssVars(symValue) : value),
+                customTokens,
               );
             }
             return acc;

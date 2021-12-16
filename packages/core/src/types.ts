@@ -7,9 +7,17 @@ export type Props<
 
 export type BooleonKeys = string | symbol;
 
-export type BooleonValues = (value?: any) => string;
+export type BooleonModule = Partial<Props<BooleonKeys, any>>;
 
-export type BooleonModule = Partial<Props<BooleonKeys, BooleonValues>>;
+export type WithToken<M extends BooleonModule, T extends Props> = Record<
+  keyof M,
+  (value: string | boolean, token?: T) => string
+>;
+
+export type BooleonOptions<S extends Selectors, T extends Props> = {
+  selectors?: S;
+  tokens?: T;
+};
 
 export type SelectorKey = string | ((ctx?: SelectorContext) => string);
 

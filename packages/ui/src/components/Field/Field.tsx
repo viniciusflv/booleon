@@ -30,7 +30,7 @@ const _Input = booleon.input(
     ...background,
   },
   {
-    placeholderShown: selector.pseudo(':placeholder-shown'),
+    selectors: { placeholderShown: selector.pseudo(':placeholder-shown') },
   },
 );
 const _Label = booleon.label({
