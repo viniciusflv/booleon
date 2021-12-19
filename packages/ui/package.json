@@ -17,6 +17,7 @@
     "@booleon/core": "file:../core/src",
     "@booleon/modules": "file:../modules/src",
     "@booleon/react": "file:../react/src",
+    "@booleon/tokens": "file:../tokens/src",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",

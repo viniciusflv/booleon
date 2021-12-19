@@ -24,6 +24,9 @@
 
     "ui/src/assets",
     "ui/src/components/**/*",
-    "ui/src/hooks/**/*"
+    "ui/src/hooks/**/*",
+
+    "tokens/src/**/*",
+    "tokens/tokens/**/*"
    ]
 }

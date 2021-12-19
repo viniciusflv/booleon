@@ -1,0 +1,17 @@
+{
+  "name": "@booleon/tokens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "private": true,
+  "scripts": {
+    "start": "style-dictionary init",
+    "build": "style-dictionary build",
+    "clean": "rm -rf build"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "style-dictionary": "2.9.0"
+  }
+}
