@@ -1,6 +1,6 @@
 import modules from '@booleon/modules';
 import { booleon } from '@booleon/react';
-import { Link } from '@booleon/ui';
+import { Link, List } from '@booleon/ui';
 
 import { Link as GatsbyLink } from 'gatsby';
 
@@ -94,25 +94,15 @@ function Aside({ children, slug, ...props }: any) {
               bdl_color_d55901
               ft_color_8795a1
             >
-              <UL flex col gap_5rxm>
-                {headings?.map(({ value, depth }) =>
-                  depth > 1 ? (
-                    <Ul key={value} depth={depth}>
-                      <li style={{ listStyle: 'none' }}>
-                        <Link title={value} href={`#${value}`}>
-                          {value}
-                        </Link>
-                      </li>
-                    </Ul>
-                  ) : (
-                    <li key={value} style={{ listStyle: 'none' }}>
-                      <Link title={value} href={`#${value}`}>
-                        {value}
-                      </Link>
-                    </li>
-                  ),
-                )}
-              </UL>
+              <List>
+                {headings?.map(({ value, depth }) => (
+                  <List.Item key={value} depth={depth}>
+                    <Link title={value} href={`#${value}`}>
+                      {value}
+                    </Link>
+                  </List.Item>
+                ))}
+              </List>
             </_Div>
             <Link dark__ft_color_fff href="#top" last={icons.arrow}>
               Go to top
@@ -123,19 +113,5 @@ function Aside({ children, slug, ...props }: any) {
     </>
   );
 }
-
-const UL = booleon.ul(modules);
-
-const Ul = ({ depth, children }: any) => {
-  let res = children;
-  let count = depth;
-
-  while (count > 1) {
-    res = <ul>{res}</ul>;
-    count--;
-  }
-
-  return res;
-};
 
 export default Aside;
