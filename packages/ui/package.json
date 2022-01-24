@@ -1,32 +1,14 @@
 {
-  "name": "@booleon/ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "private": true,
-  "scripts": {
-    "svg": "npx svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --ts --svgo",
-    "dev": "start-storybook -p 6006 --no-dll",
-    "build": "build-storybook"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "ui",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@booleon/core": "file:../core/src",
-    "@booleon/modules": "file:../modules/src",
-    "@booleon/react": "file:../react/src",
-    "@booleon/tokens": "file:../tokens/src",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/react": "^6.3.12",
-    "babel-loader": "^8.2.3"
-  },
-  "dependencies": {
-    "@bedrock-layout/use-forwarded-ref": "^1.1.11",
-    "react-polymorphic-types": "^2.0.0",
-    "use-slots": "^1.0.3"
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "tsconfig": "*",
+    "eslint-preset": "*",
+    "typescript": "^4.5.3"
   }
 }
