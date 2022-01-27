@@ -1,0 +1,14 @@
+{
+  "name": "babel-config",
+  "private": true,
+  "files": [
+    "babel-config.js"
+  ],
+  "dependencies": {
+    "babel-jest": "^27.4.6",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7"
+  }
+}

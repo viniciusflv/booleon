@@ -1,0 +1,28 @@
+{
+  "name": "@booleon/core",
+  "version": "2.0.4-alpha.0",
+  "description": "Booleon core css compiler functions",
+  "author": "Vinícius Victorino <viniciusflv@gmail.com>",
+  "homepage": "https://github.com/viniciusflv/booleon#readme",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/index.js",
+  "scripts": {
+    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "test": "jest"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viniciusflv/booleon.git"
+  },
+  "devDependencies": {
+    "babel-config": "*",
+    "typescript": "^4.5.5"
+  }
+}

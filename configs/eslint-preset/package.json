@@ -1,8 +1,5 @@
 {
   "name": "eslint-preset",
-  "version": "0.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "files": [
     "eslint-preset.js"
   ],
