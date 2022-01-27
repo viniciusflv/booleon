@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "sb": "turbo run storybook --parallel",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
@@ -25,9 +27,9 @@
           ".next/**"
         ]
       },
-      "lint": {
-        "outputs": []
-      },
+      "lint": {},
+      "test": {},
+      "storybook": {},
       "dev": {
         "cache": false
       }
