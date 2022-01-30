@@ -1,0 +1,13 @@
+{
+  "sizes": {
+    "spacing": {
+      "none": "{sizes.base.none}",
+      "px": "{sizes.base.px}",
+      "xs": "{sizes.base.xs}",
+      "sm": "{sizes.base.sm}",
+      "md": "{sizes.base.md}",
+      "lg": "{sizes.base.lg}",
+      "xl": "{sizes.base.xl}"
+    }
+  }
+}

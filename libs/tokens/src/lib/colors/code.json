@@ -1,0 +1,38 @@
+{
+  "colors": {
+    "dark": {
+      "code": {
+        "background": "#282a36",
+        "selection": "{colors.base.grey.500}",
+        "baseColor": "{colors.base.white.500}",
+        "comment": "#6272a4",
+        "punctuation": "{colors.base.white.500}",
+        "operator": "{colors.base.pink.500}",
+        "parameter": "{colors.base.sand.500}",
+        "property": "{colors.base.purple.500}",
+        "string": "{colors.base.yellow.500}",
+        "function": "{colors.base.green.500}",
+        "builtin": "{colors.base.sky.500}",
+        "keyword": "{colors.base.pink.500}",
+        "variable": "{colors.base.purple.500}"
+      }
+    },
+    "light": {
+      "code": {
+        "background": "{colors.base.white.500}",
+        "selection": "#073642",
+        "baseColor": "#657b83",
+        "comment": "#93a1a1",
+        "punctuation": "#586e75",
+        "operator": "#586e75",
+        "parameter": "{colors.base.orange.500}",
+        "property": "{colors.base.blue.500}",
+        "string": "#2aa198",
+        "function": "#b58900",
+        "builtin": "{colors.base.blue.500}",
+        "keyword": "#859900",
+        "variable": "{colors.base.orange.500}"
+      }
+    }
+  }
+}

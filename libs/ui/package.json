@@ -1,17 +1,15 @@
 {
-  "name": "ui",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@booleon/ui",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "jest",
     "storybook": "start-storybook --ci -p 6006",
-    "build-storybook": "build-storybook --quiet"
+    "build-storybook": "build-storybook --quiet",
+    "svg": "svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --ts --svgo"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "svj": "latest",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-docs": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
