@@ -1,53 +1,53 @@
 {
   "sizes": {
-    "relative": [
-      "10",
-      "20",
-      "30",
-      "40",
-      "50",
-      "60",
-      "70",
-      "80",
-      "90",
-      "100"
-    ],
+    "relative": {
+      "10": { "value": "10" },
+      "20": { "value": "20" },
+      "30": { "value": "30" },
+      "40": { "value": "40" },
+      "50": { "value": "50" },
+      "60": { "value": "60" },
+      "70": { "value": "70" },
+      "80": { "value": "80" },
+      "90": { "value": "90" },
+      "100": { "value": "100" }
+    },
     "percentage": {
-      "10": "{sizes.relative.0}%",
-      "20": "{sizes.relative.1}%",
-      "30": "{sizes.relative.2}%",
-      "40": "{sizes.relative.3}%",
-      "50": "{sizes.relative.4}%",
-      "60": "{sizes.relative.5}%",
-      "70": "{sizes.relative.6}%",
-      "80": "{sizes.relative.7}%",
-      "90": "{sizes.relative.8}%",
-      "100": "{sizes.relative.9}%"
+      "10": { "value": "{sizes.relative.10.value}%" },
+      "20": { "value": "{sizes.relative.20.value}%" },
+      "30": { "value": "{sizes.relative.30.value}%" },
+      "40": { "value": "{sizes.relative.40.value}%" },
+      "50": { "value": "{sizes.relative.50.value}%" },
+      "60": { "value": "{sizes.relative.60.value}%" },
+      "70": { "value": "{sizes.relative.70.value}%" },
+      "80": { "value": "{sizes.relative.80.value}%" },
+      "90": { "value": "{sizes.relative.90.value}%" },
+      "100": { "value": "{sizes.relative.100.value}%" }
     },
     "screen": {
       "width": {
-        "10": "{sizes.relative.0}vw",
-        "20": "{sizes.relative.1}vw",
-        "30": "{sizes.relative.2}vw",
-        "40": "{sizes.relative.3}vw",
-        "50": "{sizes.relative.4}vw",
-        "60": "{sizes.relative.5}vw",
-        "70": "{sizes.relative.6}vw",
-        "80": "{sizes.relative.7}vw",
-        "90": "{sizes.relative.8}vw",
-        "100": "{sizes.relative.9}vw"
+        "10": { "value": "{sizes.relative.10.value}vw" },
+        "20": { "value": "{sizes.relative.20.value}vw" },
+        "30": { "value": "{sizes.relative.30.value}vw" },
+        "40": { "value": "{sizes.relative.40.value}vw" },
+        "50": { "value": "{sizes.relative.50.value}vw" },
+        "60": { "value": "{sizes.relative.60.value}vw" },
+        "70": { "value": "{sizes.relative.70.value}vw" },
+        "80": { "value": "{sizes.relative.80.value}vw" },
+        "90": { "value": "{sizes.relative.90.value}vw" },
+        "100": { "value": "{sizes.relative.100.value}vw" }
       },
       "height": {
-        "10": "{sizes.relative.0}vh",
-        "20": "{sizes.relative.1}vh",
-        "30": "{sizes.relative.2}vh",
-        "40": "{sizes.relative.3}vh",
-        "50": "{sizes.relative.4}vh",
-        "60": "{sizes.relative.5}vh",
-        "70": "{sizes.relative.6}vh",
-        "80": "{sizes.relative.7}vh",
-        "90": "{sizes.relative.8}vh",
-        "100": "{sizes.relative.9}vh"
+        "10": { "value": "{sizes.relative.10.value}vh" },
+        "20": { "value": "{sizes.relative.20.value}vh" },
+        "30": { "value": "{sizes.relative.30.value}vh" },
+        "40": { "value": "{sizes.relative.40.value}vh" },
+        "50": { "value": "{sizes.relative.50.value}vh" },
+        "60": { "value": "{sizes.relative.60.value}vh" },
+        "70": { "value": "{sizes.relative.70.value}vh" },
+        "80": { "value": "{sizes.relative.80.value}vh" },
+        "90": { "value": "{sizes.relative.90.value}vh" },
+        "100": { "value": "{sizes.relative.100.value}vh" }
       }
     }
   }

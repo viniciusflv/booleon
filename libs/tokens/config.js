@@ -1,5 +1,10 @@
 const StyleDictionary = require('style-dictionary');
 
+const rootPixelEm = (value) => {
+  value = Number(value);
+  return isNaN(value) ? value : value * 0.0625 + 'rem';
+};
+
 function minifyDictionary(obj) {
   if (typeof obj !== 'object' || Array.isArray(obj)) {
     return obj;
@@ -10,8 +15,8 @@ function minifyDictionary(obj) {
   if (obj.hasOwnProperty('value')) {
     return obj.value;
   } else {
-    for(var name in obj) {
-      if(obj.hasOwnProperty(name)) {
+    for (var name in obj) {
+      if (obj.hasOwnProperty(name)) {
         toRet[name] = minifyDictionary(obj[name]);
       }
     }
@@ -19,9 +24,22 @@ function minifyDictionary(obj) {
   return toRet;
 }
 
+StyleDictionary.registerTransform({
+  type: `value`,
+  transitive: true,
+  name: `size/pxToRem`,
+  matcher: (token) => {
+    return token.attributes.category === 'rxm';
+  },
+  transformer: (token) => {
+    // token.value will be resolved and transformed at this point
+    return rootPixelEm(token.value);
+  },
+});
+
 StyleDictionary.registerFormat({
   name: 'typescript/nested',
-  formatter: function ({ dictionary, platform, options, file }) {
+  formatter: function ({ dictionary }) {
     return `export default ${JSON.stringify(
       minifyDictionary(dictionary.tokens),
       null,
@@ -43,6 +61,7 @@ module.exports = {
           options: { showFileHeader: false },
         },
       ],
+      transforms: ['size/pxToRem'],
     },
   },
 };

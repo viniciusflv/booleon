@@ -1,28 +1,94 @@
 {
   "sizes": {
     "sizing": {
-      "none": 0,
-      "px": 1,
-      "xs": 2,
-      "sm": 4,
-      "md": 6,
-      "lg": 8,
-      "xl": 12,
-      "2xl": 16,
-      "3xl": 24,
-      "4xl": 32,
-      "5xl": 48,
-      "6xl": 64,
-      "7xl": 96,
-      "8xl": 128,
-      "9xl": 256,
-      "10xl": 192,
-      "11xl": 384,
-      "12xl": 512,
-      "13xl": 768,
-      "14xl": 1024,
-      "15xl": 1536,
-      "16xl": 2048
+      "none": {
+        "value": "{sizes.base.none.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "px": {
+        "value": "{sizes.base.px.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "xs": {
+        "value": "{sizes.base.xs.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "sm": {
+        "value": "{sizes.base.sm.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "md": {
+        "value": "{sizes.base.md.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "lg": {
+        "value": "{sizes.base.lg.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "xl": {
+        "value": "{sizes.base.xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "2xl": {
+        "value": "{sizes.base.2xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "3xl": {
+        "value": "{sizes.base.3xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "4xl": {
+        "value": "{sizes.base.4xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "5xl": {
+        "value": "{sizes.base.5xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "6xl": {
+        "value": "{sizes.base.6xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "7xl": {
+        "value": "{sizes.base.7xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "8xl": {
+        "value": "{sizes.base.8xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "9xl": {
+        "value": "{sizes.base.9xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "10xl": {
+        "value": "{sizes.base.10xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "11xl": {
+        "value": "{sizes.base.11xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "12xl": {
+        "value": "{sizes.base.12xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "13xl": {
+        "value": "{sizes.base.13xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "14xl": {
+        "value": "{sizes.base.14xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "15xl": {
+        "value": "{sizes.base.15xl.value}",
+        "attributes": { "category": "rxm" }
+      },
+      "16xl": {
+        "value": "{sizes.base.16xl.value}",
+        "attributes": { "category": "rxm" }
+      }
     }
   }
 }
