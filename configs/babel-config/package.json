@@ -1,9 +1,6 @@
 {
   "name": "babel-config",
-  "private": true,
-  "files": [
-    "babel-config.js"
-  ],
+  "main": "index.js",
   "dependencies": {
     "babel-jest": "^27.4.6",
     "@babel/core": "^7.16.12",

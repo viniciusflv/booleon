@@ -1,0 +1,8 @@
+{
+  "name": "esbuild-config",
+  "main": "index.js",
+  "dependencies": {
+    "esbuild": "^0.14.18",
+    "esbuild-node-externals": "^1.4.1"
+  }
+}

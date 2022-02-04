@@ -9,6 +9,7 @@
   "main": "dist/index.js",
   "scripts": {
     "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "build": "node ./esbuild.js && npm run emit",
     "test": "jest"
   },
   "files": [
@@ -22,6 +23,7 @@
     "url": "https://github.com/viniciusflv/booleon.git"
   },
   "devDependencies": {
+    "eslint-config": "*",
     "babel-config": "*",
     "typescript": "^4.5.5"
   }

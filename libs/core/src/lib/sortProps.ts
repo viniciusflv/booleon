@@ -6,10 +6,10 @@ export function sortProps<
   P extends Props,
   M extends BooleonModule,
   S extends Selectors,
->(props: P, booleonModule: M, customSelectors: S = {} as S): [Props, Props] {
+>(props: P, booleonModule: M, customSelectors: S = {} as S) {
   const selectors = { ...selectorsDefault, ...customSelectors };
 
-  return Object.keys(props).reduce(
+  return Object.keys(props).reduce<[Props, Props]>(
     ([booleonProps, forwardProps], key) => {
       const value = props[key];
       if (

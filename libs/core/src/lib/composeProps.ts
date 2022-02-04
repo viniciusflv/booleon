@@ -2,7 +2,7 @@ import { Props } from '../types';
 
 export function composeProps(props: Props) {
   const recusiveReducer = (
-    acc = {},
+    acc: Props = {},
     splitKey: string[],
     value: Props,
   ): Props => {
