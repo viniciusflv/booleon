@@ -37,22 +37,6 @@ module.exports = {
         allowExpressions: true,
       },
     ],
-    'import-helpers/order-imports': [
-      'warn',
-      {
-        newlinesBetween: 'always',
-        groups: [
-          '/^react/',
-          '/^@booleon/',
-          'module',
-          ['parent', 'sibling', 'index'],
-        ],
-        alphabetize: {
-          order: 'asc',
-          ignoreCase: true,
-        },
-      },
-    ],
     'linebreak-style': ['warn', 'unix'],
     quotes: ['warn', 'single'],
     semi: ['warn', 'always'],

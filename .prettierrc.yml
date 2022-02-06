@@ -6,3 +6,8 @@ singleQuote: true
 trailingComma: all
 arrowParens: always
 useTabs: false
+importOrderSeparation: true
+importOrderSortSpecifiers: true
+importOrderGroupNamespaceSpecifiers: true
+importOrderCaseInsensitive: true
+importOrder: ['^react', '^@booleon/(.*)$', '<THIRD_PARTY_MODULES>', '^[./]']
