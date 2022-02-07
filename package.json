@@ -37,17 +37,14 @@
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@types/jest": "^27.4.0",
     "@types/react-dom": "^17.0.11",
     "babel-config": "*",
     "eslint-config": "*",
     "prettier-config": "*",
+    "jest-config": "*",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.4",
-    "jest": "^27.4.7",
     "lerna": "^4.0.0",
     "react-dom": "^17.0.2",
     "turbo": "latest"
