@@ -23,12 +23,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: [
-    'prettier',
-    'react',
-    '@typescript-eslint',
-    'eslint-plugin-import-helpers',
-  ],
+  plugins: ['prettier', 'react', '@typescript-eslint'],
   rules: {
     'prettier/prettier': ['warn'],
     '@typescript-eslint/explicit-function-return-type': [
@@ -37,9 +32,6 @@ module.exports = {
         allowExpressions: true,
       },
     ],
-    'linebreak-style': ['warn', 'unix'],
-    quotes: ['warn', 'single'],
-    semi: ['warn', 'always'],
   },
   overrides: [
     {
