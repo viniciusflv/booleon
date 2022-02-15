@@ -1,0 +1,36 @@
+{
+  "name": "@booleon/modules",
+  "version": "2.0.6-alpha.0",
+  "description": "Booleon CSS modules",
+  "author": "Vinícius Victorino <viniciusflv@gmail.com>",
+  "homepage": "https://github.com/viniciusflv/booleon#readme",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/index.js",
+  "scripts": {
+    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "test": "jest"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viniciusflv/booleon.git"
+  },
+  "devDependencies": {
+    "@booleon/tokens": "*",
+    "eslint-config": "*",
+    "babel-config": "*",
+    "jest-config": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.5"
+  }
+}
