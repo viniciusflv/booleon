@@ -1,4 +1,4 @@
-import type { Props, BooleonModule, Selectors } from '../types';
+import type { BooleonModule, Props, Selectors } from '../types';
 import { selectorsDefault } from './selectorsDefault';
 import { stripSymbolValue } from './stripSymbolValue';
 

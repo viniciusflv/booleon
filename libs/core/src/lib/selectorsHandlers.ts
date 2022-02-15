@@ -1,8 +1,8 @@
 import type {
-  SelectorHandler,
-  SelectorContext,
-  SelectorKey,
   Props,
+  SelectorContext,
+  SelectorHandler,
+  SelectorKey,
 } from '../types';
 
 const classes =
@@ -53,7 +53,7 @@ const pseudo =
 const keyframe =
   <S extends Props>(selectors: S): SelectorHandler =>
   ({ key, value, recursiveCompiler }) => {
-    const [, name] = key?.split('_');
+    const [, name] = key?.split('_') || [];
 
     const animation = Object.keys(value).reduce((acc, k) => {
       return (acc += `${selectors[k]}{${recursiveCompiler(value?.[k]?.css)}}`);

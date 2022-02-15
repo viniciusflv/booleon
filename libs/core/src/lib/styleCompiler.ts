@@ -1,10 +1,10 @@
 import {
   BooleonModule,
-  Selectors,
+  BooleonOptions,
   Props,
   SelectorHandler,
+  Selectors,
   WithToken,
-  BooleonOptions,
 } from '../types';
 import { cleanTransformFilter } from './cleanTransformFilter';
 import { cssCompiler } from './cssCompiler';
