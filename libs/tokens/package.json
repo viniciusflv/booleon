@@ -1,8 +1,8 @@
 {
   "name": "@booleon/tokens",
-  "files": [
-    "dist"
-  ],
+  "main": "dist/index.ts",
+  "types": "dist/index.ts",
+  "private": true,
   "scripts": {
     "build": "style-dictionary build"
   },

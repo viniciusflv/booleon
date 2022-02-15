@@ -24,6 +24,43 @@ function minifyDictionary(obj) {
   return toRet;
 }
 
+function flat(obj) {
+  const res = {};
+  function recursive(curr, accKey = undefined) {
+    curr &&
+      Object.keys(curr)
+        .filter((key) => {
+          if (typeof curr?.[key] === 'string') {
+            res[accKey ? `${accKey}_${key}` : key] = curr[key];
+            return false;
+          }
+          return true;
+        })
+        .forEach((key) =>
+          recursive(curr[key], accKey ? `${accKey}_${key}` : key),
+        );
+  }
+  recursive(obj);
+  return res;
+}
+
+function flatFirstKey(params) {
+  return Object.keys(params).reduce((acc, key) => {
+    return { ...acc, [key]: flat(params[key]) };
+  }, {});
+}
+
+StyleDictionary.registerTransform({
+  name: 'time/seconds',
+  type: 'value',
+  matcher: function (prop) {
+    return prop.attributes.category === 'time';
+  },
+  transformer: function (token) {
+    return `${+token.original.value}s`;
+  },
+});
+
 StyleDictionary.registerTransform({
   type: `value`,
   transitive: true,
@@ -37,19 +74,30 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  type: `value`,
+  transitive: true,
+  name: `size/aaa`,
+  matcher: (token) => {
+    return token.attributes.category === 'aaa';
+  },
+  transformer: (token) => {
+    // token.value will be resolved and transformed at this point
+    return `${Number(token.value) / 100}`;
+  },
+});
+
 StyleDictionary.registerFormat({
   name: 'typescript/nested',
   formatter: function ({ dictionary }) {
-    return `export default ${JSON.stringify(
-      minifyDictionary(dictionary.tokens),
-      null,
-      2,
-    )} as const`;
+    const tokens = flatFirstKey(minifyDictionary(dictionary.tokens));
+
+    return `export default ${JSON.stringify(tokens, null, 2)} as const`;
   },
 });
 
 module.exports = {
-  source: ['src/**/*.json'],
+  source: ['src/**/*.js'],
   platforms: {
     ts: {
       transformGroup: 'web',
@@ -61,7 +109,7 @@ module.exports = {
           options: { showFileHeader: false },
         },
       ],
-      transforms: ['size/pxToRem'],
+      transforms: ['size/pxToRem', 'time/seconds', 'size/aaa'],
     },
   },
 };
