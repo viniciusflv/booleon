@@ -35,7 +35,7 @@ module.exports = {
     90: { value: '{absolute.90.value}%' },
     100: { value: '{absolute.100.value}%' },
   },
-  sizing: {
+  sizes: {
     percentage: '{percentage}',
     screen: {
       width: {
@@ -223,7 +223,7 @@ module.exports = {
       attributes: { category: 'rxm' },
     },
   },
-  spacing: {
+  spaces: {
     auto: {
       value: 'auto',
     },

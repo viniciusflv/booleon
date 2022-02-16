@@ -25,7 +25,7 @@ module.exports = {
     23: 'drop-shadow({elevation.23.1})drop-shadow({elevation.23.2})drop-shadow({elevation.23.3})',
     24: 'drop-shadow({elevation.24.1})drop-shadow({elevation.24.2})drop-shadow({elevation.24.3})',
   },
-  shadow: {
+  box_shadow: {
     1: '{elevation.1.1},{elevation.1.2},{elevation.1.3}',
     2: '{elevation.2.1},{elevation.2.2},{elevation.2.3}',
     3: '{elevation.3.1},{elevation.3.2},{elevation.3.3}',

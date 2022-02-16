@@ -92,7 +92,15 @@ StyleDictionary.registerFormat({
   formatter: function ({ dictionary }) {
     const tokens = flatFirstKey(minifyDictionary(dictionary.tokens));
 
-    return `export default ${JSON.stringify(tokens, null, 2)} as const`;
+    return Object.keys(tokens).reduce(
+      (acc, key) =>
+        (acc += `\nexport const ${key} = ${JSON.stringify(
+          tokens[key],
+          null,
+          2,
+        )} as const;\n`),
+      '',
+    );
   },
 });
 
