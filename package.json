@@ -15,25 +15,6 @@
     "libs/*",
     "configs/*"
   ],
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "dist/**",
-          ".next/**"
-        ]
-      },
-      "lint": {},
-      "test": {},
-      "storybook": {},
-      "dev": {
-        "cache": false
-      }
-    }
-  },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
