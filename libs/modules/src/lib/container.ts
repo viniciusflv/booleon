@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { absolute, relative, sizes } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -14,12 +14,12 @@ const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
  * ```
  */
 export const container = {
-  ...theme('z', tokens.absolute, ($) => `z-index:${$};`),
-  ...theme('op', tokens.absolute, ($) => `opacity:${Number($) / 100};`),
-  ...theme('top', tokens.absolute, ($) => `top:${$};`),
-  ...theme('bottom', tokens.absolute, ($) => `bottom:${$};`),
-  ...theme('left', tokens.absolute, ($) => `left:${$};`),
-  ...theme('right', tokens.absolute, ($) => `right:${$};`),
+  ...theme('z', absolute, ($) => `z-index:${$};`),
+  ...theme('op', relative, ($) => `opacity:${$};`),
+  ...theme('top', sizes, ($) => `top:${$};`),
+  ...theme('bottom', sizes, ($) => `bottom:${$};`),
+  ...theme('left', sizes, ($) => `left:${$};`),
+  ...theme('right', sizes, ($) => `right:${$};`),
   z_max: () => `z-index:${MAX_SAFE_INTEGER};`,
   z_auto: () => 'z-index:auto;',
   sc_auto: () => 'overflow:auto;',

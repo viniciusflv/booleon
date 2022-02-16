@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { delay, duration } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -19,8 +19,8 @@ const colors = 'background-color,border-color,color,fill,stroke';
  * ```
  */
 export const transition = {
-  ...theme('ts_delay', tokens.delay, ($) => `transition-delay:${$};`),
-  ...theme('ts_duration', tokens.duration, ($) => `transition-duration:${$};`),
+  ...theme('ts_delay', delay, ($) => `transition-delay:${$};`),
+  ...theme('ts_duration', duration, ($) => `transition-duration:${$};`),
   ts: () => `transition-property:${colors},opacity,box-shadow,transform;`,
   ts_none: () => 'transition-property:none;',
   ts_all: () => 'transition-property:all;',

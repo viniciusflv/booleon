@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { colors, font_family, font_size, spaces } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -12,11 +12,11 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const font = {
-  ...theme('ft_color', tokens.colors, ($) => `color:${$};`),
-  ...theme('ft_size', tokens.font, ($) => `font-size:${$};`),
-  ...theme('ft_family', tokens.family, ($) => `font-family:${$};`),
-  ...theme('ft_spacing', tokens.spacing, ($) => `letter-spacing:${$};`),
-  ...theme('ft_height', tokens.spacing, ($) => `line-height:${$};`),
+  ...theme('ft_color', colors, ($) => `color:${$};`),
+  ...theme('ft_size', font_size, ($) => `font-size:${$};`),
+  ...theme('ft_family', font_family, ($) => `font-family:${$};`),
+  ...theme('ft_spacing', spaces, ($) => `letter-spacing:${$};`),
+  ...theme('ft_height', spaces, ($) => `line-height:${$};`),
   ft_color_inherit: () => 'color:inherit;',
   ft_select_none: () => 'user-select:none;',
   ft_select_auto: () => 'user-select:auto;',

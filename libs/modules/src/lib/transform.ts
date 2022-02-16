@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { relative, rotation, sizes } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -18,16 +18,16 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const transform = {
-  ...theme('tf_tl', tokens.sizing, ($) => `transform:translate(${$},${$});`),
-  ...theme('tf_tlx', tokens.sizing, ($) => `transform:translateX(${$});`),
-  ...theme('tf_tly', tokens.sizing, ($) => `transform:translateY(${$});`),
-  ...theme('tf_sl', tokens.relative, ($) => `transform:scale(${$},${$});`),
-  ...theme('tf_slx', tokens.relative, ($) => `transform:scaleX(${$});`),
-  ...theme('tf_sly', tokens.relative, ($) => `transform:scaleY(${$});`),
-  ...theme('fl_hue', tokens.rotation, ($) => `transform:rotate(${$});`),
-  ...theme('tf_sk', tokens.rotation, ($) => `transform:skew(${$},${$});`),
-  ...theme('tf_skx', tokens.rotation, ($) => `transform:skewX(${$});`),
-  ...theme('tf_sky', tokens.rotation, ($) => `transform:skewY(${$});`),
+  ...theme('tf_tl', sizes, ($) => `transform:translate(${$},${$});`),
+  ...theme('tf_tlx', sizes, ($) => `transform:translateX(${$});`),
+  ...theme('tf_tly', sizes, ($) => `transform:translateY(${$});`),
+  ...theme('tf_sl', relative, ($) => `transform:scale(${$},${$});`),
+  ...theme('tf_slx', relative, ($) => `transform:scaleX(${$});`),
+  ...theme('tf_sly', relative, ($) => `transform:scaleY(${$});`),
+  ...theme('fl_hue', rotation, ($) => `transform:rotate(${$});`),
+  ...theme('tf_sk', rotation, ($) => `transform:skew(${$},${$});`),
+  ...theme('tf_skx', rotation, ($) => `transform:skewX(${$});`),
+  ...theme('tf_sky', rotation, ($) => `transform:skewY(${$});`),
   tf_ori_top: () => 'transform-origin:top;',
   tf_ori_bottom: () => 'transform-origin:bottom;',
   tf_ori_left: () => 'transform-origin:left;',

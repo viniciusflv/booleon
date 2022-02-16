@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { colors, thickness } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -12,8 +12,8 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const outline = {
-  ...theme('ol_color', tokens.colors, ($) => `outline-color:${$};`),
-  ...theme('ol_width', tokens.thickness, ($) => `outline-width:${$};`),
+  ...theme('ol_color', colors, ($) => `outline-color:${$};`),
+  ...theme('ol_width', thickness, ($) => `outline-width:${$};`),
   ol_none: () => 'outline:none;',
   ol_style_auto: () => 'outline-style:auto;',
   ol_style_none: () => 'outline-style:none;',

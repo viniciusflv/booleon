@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { box_shadow, inset_shadow } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -12,6 +12,6 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const shadow = {
-  ...theme('sd', tokens.shadow, ($) => `box-shadow:${$};`),
-  ...theme('sdi', tokens.inset_shadow, ($) => `box-shadow:${$};`),
+  ...theme('sd', box_shadow, ($) => `box-shadow:${$};`),
+  ...theme('sdi', inset_shadow, ($) => `box-shadow:${$};`),
 };

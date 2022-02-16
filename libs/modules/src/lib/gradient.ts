@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { colors } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -15,22 +15,12 @@ const linear = (linear: string) =>
  * ```
  */
 export const gradient = {
-  ...theme('gdx_linear', tokens.colors, ($) =>
+  ...theme('gdx_linear', colors, ($) =>
     linear(`to right,${$},transparent,${$}`),
   ),
-  ...theme('gdy_linear', tokens.colors, ($) =>
-    linear(`to top,${$},transparent,${$}`),
-  ),
-  ...theme('gdt_linear', tokens.colors, ($) =>
-    linear(`to top,transparent,${$}`),
-  ),
-  ...theme('gdb_linear', tokens.colors, ($) =>
-    linear(`to bottom,transparent,${$}`),
-  ),
-  ...theme('gdl_linear', tokens.colors, ($) =>
-    linear(`to left,transparent,${$}`),
-  ),
-  ...theme('gdr_linear', tokens.colors, ($) =>
-    linear(`to right,transparent,${$}`),
-  ),
+  ...theme('gdy_linear', colors, ($) => linear(`to top,${$},transparent,${$}`)),
+  ...theme('gdt_linear', colors, ($) => linear(`to top,transparent,${$}`)),
+  ...theme('gdb_linear', colors, ($) => linear(`to bottom,transparent,${$}`)),
+  ...theme('gdl_linear', colors, ($) => linear(`to left,transparent,${$}`)),
+  ...theme('gdr_linear', colors, ($) => linear(`to right,transparent,${$}`)),
 };

@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { colors } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -12,7 +12,7 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const background = {
-  ...theme('bg_color', tokens.colors, ($) => `background-color:${$};`),
+  ...theme('bg_color', colors, ($) => `background-color:${$};`),
   bg_img: (value: string) => `background-image:url(${value});`,
   bg_transparent: () => 'background-color:transparent;',
   bg_repeat: () => 'background-repeat:repeat;',

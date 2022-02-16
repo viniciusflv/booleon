@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { sizes } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -11,10 +11,10 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const sizing = {
-  ...theme('h', tokens.sizing, ($) => `height:${$};`),
-  ...theme('max_h', tokens.sizing, ($) => `max-height:${$};`),
-  ...theme('min_h', tokens.sizing, ($) => `min-height:${$};`),
-  ...theme('w', tokens.sizing, ($) => `width:${$};`),
-  ...theme('max_w', tokens.sizing, ($) => `max-width:${$};`),
-  ...theme('min_w', tokens.sizing, ($) => `min-width:${$};`),
+  ...theme('h', sizes, ($) => `height:${$};`),
+  ...theme('max_h', sizes, ($) => `max-height:${$};`),
+  ...theme('min_h', sizes, ($) => `min-height:${$};`),
+  ...theme('w', sizes, ($) => `width:${$};`),
+  ...theme('max_w', sizes, ($) => `max-width:${$};`),
+  ...theme('min_w', sizes, ($) => `min-width:${$};`),
 };

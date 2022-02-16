@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { absolute, spaces } from '@booleon/tokens';
 
 import { sym } from '../utils/sym';
 import { theme } from '../utils/theme';
@@ -19,19 +19,11 @@ export const grid = {
   [sym('cols_$')]: ($: string) =>
     `grid-template-columns:${$.replace(/_/g, ' ')};`,
   [sym('area_$')]: ($: string) => `grid-area:${$};`,
-  ...theme(
-    'cols_span',
-    tokens.absolute,
-    ($) => `grid-column:span ${$} / span ${$};`,
-  ),
-  ...theme(
-    'rows_span',
-    tokens.absolute,
-    ($) => `grid-row:span ${$} / span ${$};`,
-  ),
-  ...theme('cols_start', tokens.absolute, ($) => `grid-column-start:${$};`),
-  ...theme('cols_end', tokens.absolute, ($) => `grid-column-end:${$};`),
-  ...theme('rows_start', tokens.absolute, ($) => `grid-row-start:${$};`),
-  ...theme('rows_end', tokens.absolute, ($) => `grid-row-end:${$};`),
-  ...theme('grid_gap', tokens.spacing, ($) => `grid-gap:${$};`),
+  ...theme('cols_span', absolute, ($) => `grid-column:span ${$} / span ${$};`),
+  ...theme('rows_span', absolute, ($) => `grid-row:span ${$} / span ${$};`),
+  ...theme('cols_start', absolute, ($) => `grid-column-start:${$};`),
+  ...theme('cols_end', absolute, ($) => `grid-column-end:${$};`),
+  ...theme('rows_start', absolute, ($) => `grid-row-start:${$};`),
+  ...theme('rows_end', absolute, ($) => `grid-row-end:${$};`),
+  ...theme('grid_gap', spaces, ($) => `grid-gap:${$};`),
 };

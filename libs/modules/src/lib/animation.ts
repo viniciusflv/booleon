@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { absolute, duration } from '@booleon/tokens';
 
 import { sym } from '../utils/sym';
 import { theme } from '../utils/theme';
@@ -16,12 +16,8 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const animation = {
-  ...theme('ani_duration', tokens.duration, ($) => `animation-duration:${$};`),
-  ...theme(
-    'ani_iteration',
-    tokens.absolute,
-    ($) => `animation-iteration-count:${$};`,
-  ),
+  ...theme('ani_duration', duration, ($) => `animation-duration:${$};`),
+  ...theme('ani_iteration', absolute, ($) => `animation-iteration-count:${$};`),
   [sym('ani_name_$')]: ($: string) => `animation-name:${$};`,
   ani_iteration_infinite: () => 'animation-iteration-count:infinite;',
   ani_pause: () => 'animation-play-state:paused;',

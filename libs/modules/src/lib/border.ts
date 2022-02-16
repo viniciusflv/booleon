@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { colors, radius, thickness } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -12,77 +12,77 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const border = {
-  ...theme('bd_color', tokens.colors, ($) => `background-color:${$};`),
-  ...theme('bdt_color', tokens.colors, ($) => `background-top-color:${$};`),
-  ...theme('bdb_color', tokens.colors, ($) => `background-bottom-color:${$};`),
-  ...theme('bdl_color', tokens.colors, ($) => `background-left-color:${$};`),
-  ...theme('bdr_color', tokens.colors, ($) => `background-right-color:${$};`),
+  ...theme('bd_color', colors, ($) => `background-color:${$};`),
+  ...theme('bdt_color', colors, ($) => `background-top-color:${$};`),
+  ...theme('bdb_color', colors, ($) => `background-bottom-color:${$};`),
+  ...theme('bdl_color', colors, ($) => `background-left-color:${$};`),
+  ...theme('bdr_color', colors, ($) => `background-right-color:${$};`),
   ...theme(
     'bdx_color',
-    tokens.colors,
+    colors,
     ($) => `border-right-color:${$};border-left-color:${$};`,
   ),
   ...theme(
     'bdy_color',
-    tokens.colors,
+    colors,
     ($) => `border-top-color:${$};border-bottom-color:${$};`,
   ),
-  ...theme('bd_width', tokens.thickness, ($) => `border-width:${$};`),
-  ...theme('bdt_width', tokens.thickness, ($) => `border-top-width:${$};`),
-  ...theme('bdb_width', tokens.thickness, ($) => `border-bottom-width:${$};`),
-  ...theme('bdl_width', tokens.thickness, ($) => `border-left-width:${$};`),
-  ...theme('bdr_width', tokens.thickness, ($) => `border-right-width:${$};`),
+  ...theme('bd_width', thickness, ($) => `border-width:${$};`),
+  ...theme('bdt_width', thickness, ($) => `border-top-width:${$};`),
+  ...theme('bdb_width', thickness, ($) => `border-bottom-width:${$};`),
+  ...theme('bdl_width', thickness, ($) => `border-left-width:${$};`),
+  ...theme('bdr_width', thickness, ($) => `border-right-width:${$};`),
   ...theme(
     'bdx_width',
-    tokens.thickness,
+    thickness,
     ($) => `border-left-width:${$};border-right-width:${$};`,
   ),
   ...theme(
     'bdy_width',
-    tokens.thickness,
+    thickness,
     ($) => `border-top-width:${$};border-bottom-width:${$};`,
   ),
-  ...theme('bd_radius', tokens.radius, ($: string) => `border-radius:${$};`),
+  ...theme('bd_radius', radius, ($: string) => `border-radius:${$};`),
   ...theme(
     'bdtr_radius',
-    tokens.radius,
+    radius,
     ($: string) => `border-top-right-radius:${$};`,
   ),
   ...theme(
     'bdtl_radius',
-    tokens.radius,
+    radius,
     ($: string) => `border-top-left-radius:${$};`,
   ),
   ...theme(
     'bdt_radius',
-    tokens.radius,
+    radius,
     ($: string) => `border-top-left-radius:${$};border-top-right-radius:${$};`,
   ),
   ...theme(
     'bdbr_radius',
-    tokens.radius,
+    radius,
     ($: string) => `border-bottom-right-radius:${$};`,
   ),
   ...theme(
     'bdbl_radius',
-    tokens.radius,
+    radius,
     ($: string) => `border-bottom-left-radius:${$};`,
   ),
   ...theme(
     'bdb_radius',
-    tokens.radius,
+    radius,
     ($: string) =>
       `border-bottom-left-radius:${$};border-bottom-right-radius:${$};`,
   ),
   ...theme(
     'bdl_radius',
-    tokens.radius,
+    radius,
     ($: string) =>
       `border-bottom-left-radius:${$};border-top-left-radius:${$};`,
   ),
   ...theme(
     'bdr_radius',
-    tokens.radius,
+    radius,
     ($: string) =>
       `border-bottom-right-radius:${$};border-top-right-radius:${$};`,
   ),

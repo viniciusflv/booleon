@@ -1,4 +1,4 @@
-import tokens from '@booleon/tokens';
+import { spaces } from '@booleon/tokens';
 
 import { theme } from '../utils/theme';
 
@@ -12,7 +12,7 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const flex = {
-  ...theme('gap', tokens.spacing, ($) => `gap:${$};`),
+  ...theme('gap', spaces, ($) => `gap:${$};`),
   flex: () => 'display:flex;',
   do_wrap: () => 'flex-wrap:wrap;',
   no_wrap: () => 'flex-wrap:nowrap;',
