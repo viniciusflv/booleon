@@ -30,7 +30,7 @@
     "@booleon/tokens": "*",
     "@configs/eslint": "*",
     "babel-config": "*",
-    "jest-config": "*",
+    "@configs/jest": "*",
     "tsconfig": "*",
     "typescript": "^4.5.5"
   }

@@ -24,7 +24,7 @@
     "@storybook/react": "^6.4.14",
     "@configs/eslint": "*",
     "babel-config": "*",
-    "jest-config": "*",
+    "@configs/jest": "*",
     "tsconfig": "*",
     "typescript": "^4.5.5"
   }

@@ -1,5 +1,5 @@
 {
-  "name": "jest-config",
+  "name": "@configs/jest",
   "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
