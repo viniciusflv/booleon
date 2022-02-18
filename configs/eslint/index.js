@@ -7,6 +7,7 @@ module.exports = {
     'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
   ],
@@ -24,6 +25,11 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['prettier', 'react', '@typescript-eslint'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     'prettier/prettier': ['warn'],
     '@typescript-eslint/explicit-function-return-type': [

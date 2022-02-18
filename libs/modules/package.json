@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@booleon/tokens": "*",
-    "eslint-config": "*",
+    "@configs/eslint": "*",
     "babel-config": "*",
     "jest-config": "*",
     "tsconfig": "*",

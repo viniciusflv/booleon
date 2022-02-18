@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config",
+  "name": "@configs/eslint",
   "main": "index.js",
   "dependencies": {
     "eslint": "^8.7.0",

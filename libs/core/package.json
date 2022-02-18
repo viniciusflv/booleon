@@ -23,7 +23,7 @@
     "url": "https://github.com/viniciusflv/booleon.git"
   },
   "devDependencies": {
-    "eslint-config": "*",
+    "@configs/eslint": "*",
     "babel-config": "*",
     "jest-config": "*",
     "tsconfig": "*",

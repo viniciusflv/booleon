@@ -20,7 +20,7 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@types/react-dom": "^17.0.11",
     "babel-config": "*",
-    "eslint-config": "*",
+    "@configs/eslint": "*",
     "@configs/prettier": "*",
     "jest-config": "*",
     "commitizen": "^4.2.4",

@@ -27,7 +27,7 @@
     "react": ">=17"
   },
   "devDependencies": {
-    "eslint-config": "*",
+    "@configs/eslint": "*",
     "babel-config": "*",
     "jest-config": "*",
     "tsconfig": "*",
