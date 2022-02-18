@@ -1,5 +1,5 @@
 {
-  "name": "tsconfig",
+  "name": "@configs/typescript",
   "private": true,
   "files": [
     "base.json",
