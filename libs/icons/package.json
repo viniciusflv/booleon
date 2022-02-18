@@ -1,0 +1,12 @@
+{
+  "name": "@booleon/icons",
+  "main": "dist/index.ts",
+  "types": "dist/index.ts",
+  "private": true,
+  "scripts": {
+    "svg": "svj -i $(pwd)/src/assets -d $(pwd)/dist --ts --svgo"
+  },
+  "devDependencies": {
+    "svj": "latest"
+  }
+}
