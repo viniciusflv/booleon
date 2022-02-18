@@ -1,19 +1,31 @@
 {
   "name": "@booleon/ui",
-  "main": "index.js",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
     "test": "jest",
     "storybook": "start-storybook --ci -p 6006",
     "build-storybook": "build-storybook --quiet",
-    "svg": "svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --ts --svgo"
+    "build": "node ./esbuild.js && npm run emit",
+    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist"
+  },
+  "dependencies": {
+    "@booleon/modules": "*",
+    "@booleon/tokens": "*",
+    "@booleon/react": "*",
+    "@booleon/core": "*",
+    "react": ">=17"
   },
   "devDependencies": {
-    "svj": "latest",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-docs": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
-    "@storybook/react": "^6.4.14"
+    "@storybook/react": "^6.4.14",
+    "eslint-config": "*",
+    "babel-config": "*",
+    "jest-config": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.5"
   }
 }

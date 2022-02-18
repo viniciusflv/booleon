@@ -1,8 +1,7 @@
-
 import './reset.css';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
     default: 'light',
     values: [
@@ -16,4 +15,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};

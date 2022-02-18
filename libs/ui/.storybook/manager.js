@@ -25,7 +25,7 @@ addons.setConfig({
     colorSecondary: '#d55901',
     colorPrimary: '#d55901',
     inputBg: '#282A36',
-    appContentBg: "#22202c"
+    appContentBg: '#22202c',
   }),
   selectedPanel: undefined,
 });

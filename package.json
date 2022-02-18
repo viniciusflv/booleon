@@ -6,7 +6,7 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "svg": "lerna exec npm run svg --scope=@booleon/ui",
+    "svg": "lerna exec npm run svg --scope=@booleon/icons",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
@@ -28,6 +28,7 @@
     "husky": "^7.0.4",
     "lerna": "^4.0.0",
     "react-dom": "^17.0.2",
+    "react": ">=17",
     "turbo": "latest"
   },
   "engines": {

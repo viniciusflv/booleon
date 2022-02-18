@@ -5,6 +5,8 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.4.0",
-    "jest": "^27.4.7"
+    "@types/jest-axe": "^3.5.3",
+    "jest": "^27.4.7",
+    "jest-axe": "^5.0.1"
   }
 }
