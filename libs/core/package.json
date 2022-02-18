@@ -26,7 +26,6 @@
     "@configs/eslint": "*",
     "babel-config": "*",
     "@configs/jest": "*",
-    "@configs/typescript": "*",
-    "typescript": "^4.5.5"
+    "@configs/typescript": "*"
   }
 }

@@ -4,5 +4,8 @@
   "files": [
     "base.json",
     "react-library.json"
-  ]
+  ],
+  "dependencies": {
+    "typescript": "latest"
+  }
 }
