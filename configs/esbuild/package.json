@@ -1,5 +1,5 @@
 {
-  "name": "esbuild-config",
+  "name": "@configs/esbuild",
   "main": "index.js",
   "dependencies": {
     "esbuild": "^0.14.18",

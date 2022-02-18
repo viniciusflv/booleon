@@ -1,2 +1,1 @@
-require('esbuild-config')()
-
+require('@configs/esbuild')();
