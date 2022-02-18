@@ -23,7 +23,7 @@
     "@storybook/addon-links": "^6.4.14",
     "@storybook/react": "^6.4.14",
     "@configs/eslint": "*",
-    "babel-config": "*",
+    "@configs/babel": "*",
     "@configs/jest": "*",
     "@configs/typescript": "*"
   }

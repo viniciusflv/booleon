@@ -29,7 +29,7 @@
   "devDependencies": {
     "@booleon/tokens": "*",
     "@configs/eslint": "*",
-    "babel-config": "*",
+    "@configs/babel": "*",
     "@configs/jest": "*",
     "@configs/typescript": "*"
   }

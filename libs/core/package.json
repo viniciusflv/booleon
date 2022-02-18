@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@configs/eslint": "*",
-    "babel-config": "*",
+    "@configs/babel": "*",
     "@configs/jest": "*",
     "@configs/typescript": "*"
   }

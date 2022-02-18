@@ -1,5 +1,5 @@
 {
-  "name": "babel-config",
+  "name": "@configs/babel",
   "main": "index.js",
   "dependencies": {
     "babel-jest": "^27.4.6",
