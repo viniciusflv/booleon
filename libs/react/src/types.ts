@@ -1,3 +1,5 @@
+import type { ForwardRefExoticComponent } from 'react';
+
 import type {
   BooleonModule,
   BooleonProps,
@@ -22,3 +24,9 @@ export type HandlerReturnValue<H> = H extends (...args: any[]) => infer R
   : never;
 
 export type ProxyReturnValue<T, H> = T & HandlerReturnValue<H>;
+
+export type InferBooleonComponent<T> = T extends ForwardRefExoticComponent<
+  infer P
+>
+  ? P
+  : never;
