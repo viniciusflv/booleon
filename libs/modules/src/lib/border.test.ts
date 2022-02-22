@@ -7,475 +7,475 @@ describe('border', () => {
     ));
   test('bd_color_base_blue_100', () =>
     expect(border.bd_color_base_blue_100()).toMatchInlineSnapshot(
-      `"background-color:#A8DBFF;"`,
+      `"border-color:#A8DBFF;"`,
     ));
   test('bd_color_base_blue_200', () =>
     expect(border.bd_color_base_blue_200()).toMatchInlineSnapshot(
-      `"background-color:#7EC8FE;"`,
+      `"border-color:#7EC8FE;"`,
     ));
   test('bd_color_base_blue_300', () =>
     expect(border.bd_color_base_blue_300()).toMatchInlineSnapshot(
-      `"background-color:#5AB5F4;"`,
+      `"border-color:#5AB5F4;"`,
     ));
   test('bd_color_base_blue_400', () =>
     expect(border.bd_color_base_blue_400()).toMatchInlineSnapshot(
-      `"background-color:#3EA0E5;"`,
+      `"border-color:#3EA0E5;"`,
     ));
   test('bd_color_base_blue_500', () =>
     expect(border.bd_color_base_blue_500()).toMatchInlineSnapshot(
-      `"background-color:#268bd2;"`,
+      `"border-color:#268bd2;"`,
     ));
   test('bd_color_base_blue_600', () =>
     expect(border.bd_color_base_blue_600()).toMatchInlineSnapshot(
-      `"background-color:#0D72B9;"`,
+      `"border-color:#0D72B9;"`,
     ));
   test('bd_color_base_blue_700', () =>
     expect(border.bd_color_base_blue_700()).toMatchInlineSnapshot(
-      `"background-color:#005898;"`,
+      `"border-color:#005898;"`,
     ));
   test('bd_color_base_blue_800', () =>
     expect(border.bd_color_base_blue_800()).toMatchInlineSnapshot(
-      `"background-color:#003C66;"`,
+      `"border-color:#003C66;"`,
     ));
   test('bd_color_base_blue_900', () =>
     expect(border.bd_color_base_blue_900()).toMatchInlineSnapshot(
-      `"background-color:#001F33;"`,
+      `"border-color:#001F33;"`,
     ));
   test('bd_color_base_green_100', () =>
     expect(border.bd_color_base_green_100()).toMatchInlineSnapshot(
-      `"background-color:#B0FFB6;"`,
+      `"border-color:#B0FFB6;"`,
     ));
   test('bd_color_base_green_200', () =>
     expect(border.bd_color_base_green_200()).toMatchInlineSnapshot(
-      `"background-color:#91FFA0;"`,
+      `"border-color:#91FFA0;"`,
     ));
   test('bd_color_base_green_300', () =>
     expect(border.bd_color_base_green_300()).toMatchInlineSnapshot(
-      `"background-color:#77FF8F;"`,
+      `"border-color:#77FF8F;"`,
     ));
   test('bd_color_base_green_400', () =>
     expect(border.bd_color_base_green_400()).toMatchInlineSnapshot(
-      `"background-color:#61FF83;"`,
+      `"border-color:#61FF83;"`,
     ));
   test('bd_color_base_green_500', () =>
     expect(border.bd_color_base_green_500()).toMatchInlineSnapshot(
-      `"background-color:#50fa7b;"`,
+      `"border-color:#50fa7b;"`,
     ));
   test('bd_color_base_green_600', () =>
     expect(border.bd_color_base_green_600()).toMatchInlineSnapshot(
-      `"background-color:#2FCC5A;"`,
+      `"border-color:#2FCC5A;"`,
     ));
   test('bd_color_base_green_700', () =>
     expect(border.bd_color_base_green_700()).toMatchInlineSnapshot(
-      `"background-color:#17993D;"`,
+      `"border-color:#17993D;"`,
     ));
   test('bd_color_base_green_800', () =>
     expect(border.bd_color_base_green_800()).toMatchInlineSnapshot(
-      `"background-color:#076625;"`,
+      `"border-color:#076625;"`,
     ));
   test('bd_color_base_green_900', () =>
     expect(border.bd_color_base_green_900()).toMatchInlineSnapshot(
-      `"background-color:#003310;"`,
+      `"border-color:#003310;"`,
     ));
   test('bd_color_base_grey_100', () =>
     expect(border.bd_color_base_grey_100()).toMatchInlineSnapshot(
-      `"background-color:#BDC1C9;"`,
+      `"border-color:#BDC1C9;"`,
     ));
   test('bd_color_base_grey_200', () =>
     expect(border.bd_color_base_grey_200()).toMatchInlineSnapshot(
-      `"background-color:#9EA2AF;"`,
+      `"border-color:#9EA2AF;"`,
     ));
   test('bd_color_base_grey_300', () =>
     expect(border.bd_color_base_grey_300()).toMatchInlineSnapshot(
-      `"background-color:#7F8493;"`,
+      `"border-color:#7F8493;"`,
     ));
   test('bd_color_base_grey_400', () =>
     expect(border.bd_color_base_grey_400()).toMatchInlineSnapshot(
-      `"background-color:#616577;"`,
+      `"border-color:#616577;"`,
     ));
   test('bd_color_base_grey_500', () =>
     expect(border.bd_color_base_grey_500()).toMatchInlineSnapshot(
-      `"background-color:#44475a;"`,
+      `"border-color:#44475a;"`,
     ));
   test('bd_color_base_grey_600', () =>
     expect(border.bd_color_base_grey_600()).toMatchInlineSnapshot(
-      `"background-color:#34374A;"`,
+      `"border-color:#34374A;"`,
     ));
   test('bd_color_base_grey_700', () =>
     expect(border.bd_color_base_grey_700()).toMatchInlineSnapshot(
-      `"background-color:#262839;"`,
+      `"border-color:#262839;"`,
     ));
   test('bd_color_base_grey_800', () =>
     expect(border.bd_color_base_grey_800()).toMatchInlineSnapshot(
-      `"background-color:#181A27;"`,
+      `"border-color:#181A27;"`,
     ));
   test('bd_color_base_grey_900', () =>
     expect(border.bd_color_base_grey_900()).toMatchInlineSnapshot(
-      `"background-color:#0B0D14;"`,
+      `"border-color:#0B0D14;"`,
     ));
   test('bd_color_base_orange_100', () =>
     expect(border.bd_color_base_orange_100()).toMatchInlineSnapshot(
-      `"background-color:#FFACA8;"`,
+      `"border-color:#FFACA8;"`,
     ));
   test('bd_color_base_orange_200', () =>
     expect(border.bd_color_base_orange_200()).toMatchInlineSnapshot(
-      `"background-color:#FF907E;"`,
+      `"border-color:#FF907E;"`,
     ));
   test('bd_color_base_orange_300', () =>
     expect(border.bd_color_base_orange_300()).toMatchInlineSnapshot(
-      `"background-color:#FB7A54;"`,
+      `"border-color:#FB7A54;"`,
     ));
   test('bd_color_base_orange_400', () =>
     expect(border.bd_color_base_orange_400()).toMatchInlineSnapshot(
-      `"background-color:#EB682A;"`,
+      `"border-color:#EB682A;"`,
     ));
   test('bd_color_base_orange_500', () =>
     expect(border.bd_color_base_orange_500()).toMatchInlineSnapshot(
-      `"background-color:#D55901;"`,
+      `"border-color:#D55901;"`,
     ));
   test('bd_color_base_orange_600', () =>
     expect(border.bd_color_base_orange_600()).toMatchInlineSnapshot(
-      `"background-color:#C04400;"`,
+      `"border-color:#C04400;"`,
     ));
   test('bd_color_base_orange_700', () =>
     expect(border.bd_color_base_orange_700()).toMatchInlineSnapshot(
-      `"background-color:#993000;"`,
+      `"border-color:#993000;"`,
     ));
   test('bd_color_base_orange_800', () =>
     expect(border.bd_color_base_orange_800()).toMatchInlineSnapshot(
-      `"background-color:#661E00;"`,
+      `"border-color:#661E00;"`,
     ));
   test('bd_color_base_orange_900', () =>
     expect(border.bd_color_base_orange_900()).toMatchInlineSnapshot(
-      `"background-color:#330E00;"`,
+      `"border-color:#330E00;"`,
     ));
   test('bd_color_base_pink_100', () =>
     expect(border.bd_color_base_pink_100()).toMatchInlineSnapshot(
-      `"background-color:#FFC2EE;"`,
+      `"border-color:#FFC2EE;"`,
     ));
   test('bd_color_base_pink_200', () =>
     expect(border.bd_color_base_pink_200()).toMatchInlineSnapshot(
-      `"background-color:#FFAAE5;"`,
+      `"border-color:#FFAAE5;"`,
     ));
   test('bd_color_base_pink_300', () =>
     expect(border.bd_color_base_pink_300()).toMatchInlineSnapshot(
-      `"background-color:#FF96DB;"`,
+      `"border-color:#FF96DB;"`,
     ));
   test('bd_color_base_pink_400', () =>
     expect(border.bd_color_base_pink_400()).toMatchInlineSnapshot(
-      `"background-color:#FF86D1;"`,
+      `"border-color:#FF86D1;"`,
     ));
   test('bd_color_base_pink_500', () =>
     expect(border.bd_color_base_pink_500()).toMatchInlineSnapshot(
-      `"background-color:#ff79c6;"`,
+      `"border-color:#ff79c6;"`,
     ));
   test('bd_color_base_pink_600', () =>
     expect(border.bd_color_base_pink_600()).toMatchInlineSnapshot(
-      `"background-color:#CC53A0;"`,
+      `"border-color:#CC53A0;"`,
     ));
   test('bd_color_base_pink_700', () =>
     expect(border.bd_color_base_pink_700()).toMatchInlineSnapshot(
-      `"background-color:#99357A;"`,
+      `"border-color:#99357A;"`,
     ));
   test('bd_color_base_pink_800', () =>
     expect(border.bd_color_base_pink_800()).toMatchInlineSnapshot(
-      `"background-color:#661C52;"`,
+      `"border-color:#661C52;"`,
     ));
   test('bd_color_base_pink_900', () =>
     expect(border.bd_color_base_pink_900()).toMatchInlineSnapshot(
-      `"background-color:#330B2A;"`,
+      `"border-color:#330B2A;"`,
     ));
   test('bd_color_base_purple_100', () =>
     expect(border.bd_color_base_purple_100()).toMatchInlineSnapshot(
-      `"background-color:#DCCFFF;"`,
+      `"border-color:#DCCFFF;"`,
     ));
   test('bd_color_base_purple_200', () =>
     expect(border.bd_color_base_purple_200()).toMatchInlineSnapshot(
-      `"background-color:#D1BCFF;"`,
+      `"border-color:#D1BCFF;"`,
     ));
   test('bd_color_base_purple_300', () =>
     expect(border.bd_color_base_purple_300()).toMatchInlineSnapshot(
-      `"background-color:#C8ABFF;"`,
+      `"border-color:#C8ABFF;"`,
     ));
   test('bd_color_base_purple_400', () =>
     expect(border.bd_color_base_purple_400()).toMatchInlineSnapshot(
-      `"background-color:#C29EFF;"`,
+      `"border-color:#C29EFF;"`,
     ));
   test('bd_color_base_purple_500', () =>
     expect(border.bd_color_base_purple_500()).toMatchInlineSnapshot(
-      `"background-color:#bd93f9;"`,
+      `"border-color:#bd93f9;"`,
     ));
   test('bd_color_base_purple_600', () =>
     expect(border.bd_color_base_purple_600()).toMatchInlineSnapshot(
-      `"background-color:#956BCC;"`,
+      `"border-color:#956BCC;"`,
     ));
   test('bd_color_base_purple_700', () =>
     expect(border.bd_color_base_purple_700()).toMatchInlineSnapshot(
-      `"background-color:#6F4999;"`,
+      `"border-color:#6F4999;"`,
     ));
   test('bd_color_base_purple_800', () =>
     expect(border.bd_color_base_purple_800()).toMatchInlineSnapshot(
-      `"background-color:#492C66;"`,
+      `"border-color:#492C66;"`,
     ));
   test('bd_color_base_purple_900', () =>
     expect(border.bd_color_base_purple_900()).toMatchInlineSnapshot(
-      `"background-color:#241333;"`,
+      `"border-color:#241333;"`,
     ));
   test('bd_color_base_sand_100', () =>
     expect(border.bd_color_base_sand_100()).toMatchInlineSnapshot(
-      `"background-color:#FFF1D3;"`,
+      `"border-color:#FFF1D3;"`,
     ));
   test('bd_color_base_sand_200', () =>
     expect(border.bd_color_base_sand_200()).toMatchInlineSnapshot(
-      `"background-color:#FFE3AE;"`,
+      `"border-color:#FFE3AE;"`,
     ));
   test('bd_color_base_sand_300', () =>
     expect(border.bd_color_base_sand_300()).toMatchInlineSnapshot(
-      `"background-color:#FFD591;"`,
+      `"border-color:#FFD591;"`,
     ));
   test('bd_color_base_sand_400', () =>
     expect(border.bd_color_base_sand_400()).toMatchInlineSnapshot(
-      `"background-color:#FFC77B;"`,
+      `"border-color:#FFC77B;"`,
     ));
   test('bd_color_base_sand_500', () =>
     expect(border.bd_color_base_sand_500()).toMatchInlineSnapshot(
-      `"background-color:#ffb86c;"`,
+      `"border-color:#ffb86c;"`,
     ));
   test('bd_color_base_sand_600', () =>
     expect(border.bd_color_base_sand_600()).toMatchInlineSnapshot(
-      `"background-color:#CC9448;"`,
+      `"border-color:#CC9448;"`,
     ));
   test('bd_color_base_sand_700', () =>
     expect(border.bd_color_base_sand_700()).toMatchInlineSnapshot(
-      `"background-color:#996F2B;"`,
+      `"border-color:#996F2B;"`,
     ));
   test('bd_color_base_sand_800', () =>
     expect(border.bd_color_base_sand_800()).toMatchInlineSnapshot(
-      `"background-color:#664A15;"`,
+      `"border-color:#664A15;"`,
     ));
   test('bd_color_base_sand_900', () =>
     expect(border.bd_color_base_sand_900()).toMatchInlineSnapshot(
-      `"background-color:#332507;"`,
+      `"border-color:#332507;"`,
     ));
   test('bd_color_base_sky_100', () =>
     expect(border.bd_color_base_sky_100()).toMatchInlineSnapshot(
-      `"background-color:#CBFFFF;"`,
+      `"border-color:#CBFFFF;"`,
     ));
   test('bd_color_base_sky_200', () =>
     expect(border.bd_color_base_sky_200()).toMatchInlineSnapshot(
-      `"background-color:#B6FFFF;"`,
+      `"border-color:#B6FFFF;"`,
     ));
   test('bd_color_base_sky_300', () =>
     expect(border.bd_color_base_sky_300()).toMatchInlineSnapshot(
-      `"background-color:#A5FFFF;"`,
+      `"border-color:#A5FFFF;"`,
     ));
   test('bd_color_base_sky_400', () =>
     expect(border.bd_color_base_sky_400()).toMatchInlineSnapshot(
-      `"background-color:#96F7FF;"`,
+      `"border-color:#96F7FF;"`,
     ));
   test('bd_color_base_sky_500', () =>
     expect(border.bd_color_base_sky_500()).toMatchInlineSnapshot(
-      `"background-color:#8be9fd;"`,
+      `"border-color:#8be9fd;"`,
     ));
   test('bd_color_base_sky_600', () =>
     expect(border.bd_color_base_sky_600()).toMatchInlineSnapshot(
-      `"background-color:#64C2CC;"`,
+      `"border-color:#64C2CC;"`,
     ));
   test('bd_color_base_sky_700', () =>
     expect(border.bd_color_base_sky_700()).toMatchInlineSnapshot(
-      `"background-color:#429799;"`,
+      `"border-color:#429799;"`,
     ));
   test('bd_color_base_sky_800', () =>
     expect(border.bd_color_base_sky_800()).toMatchInlineSnapshot(
-      `"background-color:#276666;"`,
+      `"border-color:#276666;"`,
     ));
   test('bd_color_base_sky_900', () =>
     expect(border.bd_color_base_sky_900()).toMatchInlineSnapshot(
-      `"background-color:#103333;"`,
+      `"border-color:#103333;"`,
     ));
   test('bd_color_base_white_100', () =>
     expect(border.bd_color_base_white_100()).toMatchInlineSnapshot(
-      `"background-color:#FFFFFF;"`,
+      `"border-color:#FFFFFF;"`,
     ));
   test('bd_color_base_white_200', () =>
     expect(border.bd_color_base_white_200()).toMatchInlineSnapshot(
-      `"background-color:#FEFEFB;"`,
+      `"border-color:#FEFEFB;"`,
     ));
   test('bd_color_base_white_300', () =>
     expect(border.bd_color_base_white_300()).toMatchInlineSnapshot(
-      `"background-color:#FCFCF8;"`,
+      `"border-color:#FCFCF8;"`,
     ));
   test('bd_color_base_white_400', () =>
     expect(border.bd_color_base_white_400()).toMatchInlineSnapshot(
-      `"background-color:#FAFAF5;"`,
+      `"border-color:#FAFAF5;"`,
     ));
   test('bd_color_base_white_500', () =>
     expect(border.bd_color_base_white_500()).toMatchInlineSnapshot(
-      `"background-color:#f8f8f2;"`,
+      `"border-color:#f8f8f2;"`,
     ));
   test('bd_color_base_white_600', () =>
     expect(border.bd_color_base_white_600()).toMatchInlineSnapshot(
-      `"background-color:#D9D9D4;"`,
+      `"border-color:#D9D9D4;"`,
     ));
   test('bd_color_base_white_700', () =>
     expect(border.bd_color_base_white_700()).toMatchInlineSnapshot(
-      `"background-color:#BABAB6;"`,
+      `"border-color:#BABAB6;"`,
     ));
   test('bd_color_base_white_800', () =>
     expect(border.bd_color_base_white_800()).toMatchInlineSnapshot(
-      `"background-color:#9B9B97;"`,
+      `"border-color:#9B9B97;"`,
     ));
   test('bd_color_base_white_900', () =>
     expect(border.bd_color_base_white_900()).toMatchInlineSnapshot(
-      `"background-color:#7C7C79;"`,
+      `"border-color:#7C7C79;"`,
     ));
   test('bd_color_base_yellow_100', () =>
     expect(border.bd_color_base_yellow_100()).toMatchInlineSnapshot(
-      `"background-color:#FFFFFD;"`,
+      `"border-color:#FFFFFD;"`,
     ));
   test('bd_color_base_yellow_200', () =>
     expect(border.bd_color_base_yellow_200()).toMatchInlineSnapshot(
-      `"background-color:#FFFFD7;"`,
+      `"border-color:#FFFFD7;"`,
     ));
   test('bd_color_base_yellow_300', () =>
     expect(border.bd_color_base_yellow_300()).toMatchInlineSnapshot(
-      `"background-color:#FFFFB7;"`,
+      `"border-color:#FFFFB7;"`,
     ));
   test('bd_color_base_yellow_400', () =>
     expect(border.bd_color_base_yellow_400()).toMatchInlineSnapshot(
-      `"background-color:#FDFF9E;"`,
+      `"border-color:#FDFF9E;"`,
     ));
   test('bd_color_base_yellow_500', () =>
     expect(border.bd_color_base_yellow_500()).toMatchInlineSnapshot(
-      `"background-color:#f1fa8c;"`,
+      `"border-color:#f1fa8c;"`,
     ));
   test('bd_color_base_yellow_600', () =>
     expect(border.bd_color_base_yellow_600()).toMatchInlineSnapshot(
-      `"background-color:#CCC565;"`,
+      `"border-color:#CCC565;"`,
     ));
   test('bd_color_base_yellow_700', () =>
     expect(border.bd_color_base_yellow_700()).toMatchInlineSnapshot(
-      `"background-color:#998544;"`,
+      `"border-color:#998544;"`,
     ));
   test('bd_color_base_yellow_800', () =>
     expect(border.bd_color_base_yellow_800()).toMatchInlineSnapshot(
-      `"background-color:#664B28;"`,
+      `"border-color:#664B28;"`,
     ));
   test('bd_color_base_yellow_900', () =>
     expect(border.bd_color_base_yellow_900()).toMatchInlineSnapshot(
-      `"background-color:#331C11;"`,
+      `"border-color:#331C11;"`,
     ));
   test('bd_color_brand_primary', () =>
     expect(border.bd_color_brand_primary()).toMatchInlineSnapshot(
-      `"background-color:#D55901;"`,
+      `"border-color:#D55901;"`,
     ));
   test('bd_color_brand_secondary', () =>
     expect(border.bd_color_brand_secondary()).toMatchInlineSnapshot(
-      `"background-color:#330E00;"`,
+      `"border-color:#330E00;"`,
     ));
   test('bd_color_dark_code_background', () =>
     expect(border.bd_color_dark_code_background()).toMatchInlineSnapshot(
-      `"background-color:#282a36;"`,
+      `"border-color:#282a36;"`,
     ));
   test('bd_color_dark_code_baseColor', () =>
     expect(border.bd_color_dark_code_baseColor()).toMatchInlineSnapshot(
-      `"background-color:#f8f8f2;"`,
+      `"border-color:#f8f8f2;"`,
     ));
   test('bd_color_dark_code_builtin', () =>
     expect(border.bd_color_dark_code_builtin()).toMatchInlineSnapshot(
-      `"background-color:#8be9fd;"`,
+      `"border-color:#8be9fd;"`,
     ));
   test('bd_color_dark_code_comment', () =>
     expect(border.bd_color_dark_code_comment()).toMatchInlineSnapshot(
-      `"background-color:#6272a4;"`,
+      `"border-color:#6272a4;"`,
     ));
   test('bd_color_dark_code_function', () =>
     expect(border.bd_color_dark_code_function()).toMatchInlineSnapshot(
-      `"background-color:#50fa7b;"`,
+      `"border-color:#50fa7b;"`,
     ));
   test('bd_color_dark_code_keyword', () =>
     expect(border.bd_color_dark_code_keyword()).toMatchInlineSnapshot(
-      `"background-color:#ff79c6;"`,
+      `"border-color:#ff79c6;"`,
     ));
   test('bd_color_dark_code_operator', () =>
     expect(border.bd_color_dark_code_operator()).toMatchInlineSnapshot(
-      `"background-color:#ff79c6;"`,
+      `"border-color:#ff79c6;"`,
     ));
   test('bd_color_dark_code_parameter', () =>
     expect(border.bd_color_dark_code_parameter()).toMatchInlineSnapshot(
-      `"background-color:#ffb86c;"`,
+      `"border-color:#ffb86c;"`,
     ));
   test('bd_color_dark_code_property', () =>
     expect(border.bd_color_dark_code_property()).toMatchInlineSnapshot(
-      `"background-color:#bd93f9;"`,
+      `"border-color:#bd93f9;"`,
     ));
   test('bd_color_dark_code_punctuation', () =>
     expect(border.bd_color_dark_code_punctuation()).toMatchInlineSnapshot(
-      `"background-color:#f8f8f2;"`,
+      `"border-color:#f8f8f2;"`,
     ));
   test('bd_color_dark_code_selection', () =>
     expect(border.bd_color_dark_code_selection()).toMatchInlineSnapshot(
-      `"background-color:#44475a;"`,
+      `"border-color:#44475a;"`,
     ));
   test('bd_color_dark_code_string', () =>
     expect(border.bd_color_dark_code_string()).toMatchInlineSnapshot(
-      `"background-color:#f1fa8c;"`,
+      `"border-color:#f1fa8c;"`,
     ));
   test('bd_color_dark_code_variable', () =>
     expect(border.bd_color_dark_code_variable()).toMatchInlineSnapshot(
-      `"background-color:#bd93f9;"`,
+      `"border-color:#bd93f9;"`,
     ));
   test('bd_color_light_code_background', () =>
     expect(border.bd_color_light_code_background()).toMatchInlineSnapshot(
-      `"background-color:#f8f8f2;"`,
+      `"border-color:#f8f8f2;"`,
     ));
   test('bd_color_light_code_baseColor', () =>
     expect(border.bd_color_light_code_baseColor()).toMatchInlineSnapshot(
-      `"background-color:#657b83;"`,
+      `"border-color:#657b83;"`,
     ));
   test('bd_color_light_code_builtin', () =>
     expect(border.bd_color_light_code_builtin()).toMatchInlineSnapshot(
-      `"background-color:#268bd2;"`,
+      `"border-color:#268bd2;"`,
     ));
   test('bd_color_light_code_comment', () =>
     expect(border.bd_color_light_code_comment()).toMatchInlineSnapshot(
-      `"background-color:#93a1a1;"`,
+      `"border-color:#93a1a1;"`,
     ));
   test('bd_color_light_code_function', () =>
     expect(border.bd_color_light_code_function()).toMatchInlineSnapshot(
-      `"background-color:#b58900;"`,
+      `"border-color:#b58900;"`,
     ));
   test('bd_color_light_code_keyword', () =>
     expect(border.bd_color_light_code_keyword()).toMatchInlineSnapshot(
-      `"background-color:#859900;"`,
+      `"border-color:#859900;"`,
     ));
   test('bd_color_light_code_operator', () =>
     expect(border.bd_color_light_code_operator()).toMatchInlineSnapshot(
-      `"background-color:#586e75;"`,
+      `"border-color:#586e75;"`,
     ));
   test('bd_color_light_code_parameter', () =>
     expect(border.bd_color_light_code_parameter()).toMatchInlineSnapshot(
-      `"background-color:#D55901;"`,
+      `"border-color:#D55901;"`,
     ));
   test('bd_color_light_code_property', () =>
     expect(border.bd_color_light_code_property()).toMatchInlineSnapshot(
-      `"background-color:#268bd2;"`,
+      `"border-color:#268bd2;"`,
     ));
   test('bd_color_light_code_punctuation', () =>
     expect(border.bd_color_light_code_punctuation()).toMatchInlineSnapshot(
-      `"background-color:#586e75;"`,
+      `"border-color:#586e75;"`,
     ));
   test('bd_color_light_code_selection', () =>
     expect(border.bd_color_light_code_selection()).toMatchInlineSnapshot(
-      `"background-color:#073642;"`,
+      `"border-color:#073642;"`,
     ));
   test('bd_color_light_code_string', () =>
     expect(border.bd_color_light_code_string()).toMatchInlineSnapshot(
-      `"background-color:#2aa198;"`,
+      `"border-color:#2aa198;"`,
     ));
   test('bd_color_light_code_variable', () =>
     expect(border.bd_color_light_code_variable()).toMatchInlineSnapshot(
-      `"background-color:#D55901;"`,
+      `"border-color:#D55901;"`,
     ));
   test('bd_none', () =>
     expect(border.bd_none()).toMatchInlineSnapshot(`"border:none;"`));

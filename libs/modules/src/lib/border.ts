@@ -12,11 +12,11 @@ import { theme } from '../utils/theme';
  * ```
  */
 export const border = {
-  ...theme('bd_color', colors, ($) => `background-color:${$};`),
-  ...theme('bdt_color', colors, ($) => `background-top-color:${$};`),
-  ...theme('bdb_color', colors, ($) => `background-bottom-color:${$};`),
-  ...theme('bdl_color', colors, ($) => `background-left-color:${$};`),
-  ...theme('bdr_color', colors, ($) => `background-right-color:${$};`),
+  ...theme('bd_color', colors, ($) => `border-color:${$};`),
+  ...theme('bdt_color', colors, ($) => `border-top-color:${$};`),
+  ...theme('bdb_color', colors, ($) => `border-bottom-color:${$};`),
+  ...theme('bdl_color', colors, ($) => `border-left-color:${$};`),
+  ...theme('bdr_color', colors, ($) => `border-right-color:${$};`),
   ...theme(
     'bdx_color',
     colors,
