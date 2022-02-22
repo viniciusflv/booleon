@@ -6,7 +6,7 @@ export default {
   component: Text,
 };
 
-const Template = (args: TextProps) => <Text ta {...args} />;
+const Template = (args: TextProps) => <Text {...args} />;
 
 export const Default = Template.bind({});
 //@ts-ignore

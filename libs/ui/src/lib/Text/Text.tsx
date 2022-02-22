@@ -1,17 +1,12 @@
-import { font } from '@booleon/modules';
+import { flex, font } from '@booleon/modules';
 import { booleon } from '@booleon/react';
-import type { Tag } from '@booleon/react';
 
 import { TextProps } from './Text.types';
 
-const _Text = booleon.span(font);
+const _Text = booleon.span({ ...font, ...flex });
 
-function Text({ tag, children, ...props }: TextProps<typeof _Text>) {
-  return (
-    <_Text tag={tag as Tag} {...props}>
-      {children}
-    </_Text>
-  );
+function Text({ children, ...props }: TextProps<typeof _Text>) {
+  return <_Text {...props}>{children}</_Text>;
 }
 
 export default Text;
