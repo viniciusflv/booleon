@@ -11,7 +11,7 @@ export type BooleonModule = Partial<Props<BooleonKeys, any>>;
 
 export type WithToken<M extends BooleonModule, T extends Props> = Record<
   keyof M,
-  (value: string | boolean, token?: T) => string
+  (value: any, token?: T) => string
 >;
 
 export type BooleonOptions<S extends Selectors, T extends Props> = {
