@@ -17,6 +17,7 @@ function Svg({
   width = '100%',
   height = '100%',
   defaultFill = true,
+  tag,
   ...props
 }: SvgProps) {
   const { linearGradient, radialGradient } = props?.defs ?? props ?? {};
@@ -29,7 +30,7 @@ function Svg({
   }
 
   return (
-    <_Wrapper flex>
+    <_Wrapper tag={tag} flex>
       <svg viewBox={viewBox} width={width} height={height} fill={color}>
         {gradient ? (
           <Gradient id={gradientId}>

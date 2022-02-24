@@ -1,12 +1,11 @@
 import { flex, font } from '@booleon/modules';
 import { booleon } from '@booleon/react';
-
-import { TextProps } from './Text.types';
+import type { InferBooleonComponent } from '@booleon/react';
 
 const _Text = booleon.span({ ...font, ...flex });
 
-function Text({ children, ...props }: TextProps<typeof _Text>) {
+export type TextProps = InferBooleonComponent<typeof _Text>;
+
+export default function Text({ children, ...props }: TextProps) {
   return <_Text {...props}>{children}</_Text>;
 }
-
-export default Text;

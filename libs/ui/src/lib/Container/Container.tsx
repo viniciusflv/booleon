@@ -7,9 +7,7 @@ import {
   sizing,
   spacing,
 } from '@booleon/modules';
-import { booleon } from '@booleon/react';
-
-import { ContainerProps } from './Container.types';
+import { booleon, InferBooleonComponent } from '@booleon/react';
 
 const _Container = booleon.div({
   ...flex,
@@ -21,8 +19,8 @@ const _Container = booleon.div({
   ...background,
 });
 
-function Container({ children, ...props }: ContainerProps<typeof _Container>) {
+export type ContainerProps = InferBooleonComponent<typeof _Container>;
+
+export function Container({ children, ...props }: ContainerProps) {
   return <_Container {...props}>{children}</_Container>;
 }
-
-export default Container;

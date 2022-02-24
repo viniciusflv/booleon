@@ -14,7 +14,8 @@
     "@booleon/tokens": "*",
     "@booleon/react": "*",
     "@booleon/core": "*",
-    "react": ">=17"
+    "react": ">=17",
+    "use-slots": "^1.0.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.14",
