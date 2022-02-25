@@ -13,6 +13,7 @@
     "@booleon/modules": "*",
     "@booleon/tokens": "*",
     "@booleon/react": "*",
+    "@booleon/icons": "*",
     "@booleon/core": "*",
     "react": ">=17",
     "use-slots": "^1.0.3"

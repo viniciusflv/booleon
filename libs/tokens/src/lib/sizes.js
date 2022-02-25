@@ -215,11 +215,11 @@ module.exports = {
       attributes: { category: 'rxm' },
     },
     circle: {
-      value: '{scaled.xl.value}',
+      value: '{percentage.100.value}',
       attributes: { category: 'rxm' },
     },
     pill: {
-      value: '{scaled.xl.value}',
+      value: '{scaled.5xl.value}',
       attributes: { category: 'rxm' },
     },
   },
@@ -253,6 +253,22 @@ module.exports = {
     },
     xl: {
       value: '{scaled.xl.value}',
+      attributes: { category: 'rxm' },
+    },
+    '2xl': {
+      value: '{scaled.2xl.value}',
+      attributes: { category: 'rxm' },
+    },
+    '3xl': {
+      value: '{scaled.3xl.value}',
+      attributes: { category: 'rxm' },
+    },
+    '4xl': {
+      value: '{scaled.4xl.value}',
+      attributes: { category: 'rxm' },
+    },
+    '5xl': {
+      value: '{scaled.5xl.value}',
       attributes: { category: 'rxm' },
     },
   },
