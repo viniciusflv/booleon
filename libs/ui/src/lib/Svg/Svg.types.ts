@@ -25,6 +25,7 @@ export type SvgProps = SVGProps<SVGSVGElement> &
   Gradients & {
     tag?: Tag;
     paths?: Path[];
-    defs?: SVGProps<SVGDefsElement> & Gradients;
+    aria: string;
     defaultFill?: boolean;
+    defs?: SVGProps<SVGDefsElement> & Gradients;
   };

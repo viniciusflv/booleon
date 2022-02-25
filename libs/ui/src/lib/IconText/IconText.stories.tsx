@@ -11,6 +11,7 @@ export default {
     ft_color_base_blue_500: { defaultValue: true, type: 'boolean' },
   },
   parameters: {
+    controls: { disable: true },
     docs: {
       description: {
         component:
@@ -31,10 +32,10 @@ const booleon = {
 
 export const Default = (args: IconTextProps) => {
   return (
-    <IconText {...args}>
-      <IconFirst {...booleon} />
+    <IconText {...args} tag="a">
+      <IconFirst {...booleon} aria="lion icon" />
       IconText
-      <IconLast {...booleon} />
+      <IconLast {...booleon} aria="lion icon" />
     </IconText>
   );
 };

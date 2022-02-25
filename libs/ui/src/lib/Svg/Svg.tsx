@@ -11,13 +11,14 @@ const _Stop = booleon.stop({
 });
 
 function Svg({
+  tag,
+  aria,
   viewBox,
   paths,
   color = 'currentColor',
   width = '100%',
   height = '100%',
   defaultFill = true,
-  tag,
   ...props
 }: SvgProps) {
   const { linearGradient, radialGradient } = props?.defs ?? props ?? {};
@@ -30,8 +31,14 @@ function Svg({
   }
 
   return (
-    <_Wrapper tag={tag} flex>
-      <svg viewBox={viewBox} width={width} height={height} fill={color}>
+    <_Wrapper tag={tag} flex role="img" aria-label={aria}>
+      <svg
+        viewBox={viewBox}
+        width={width}
+        height={height}
+        fill={color}
+        aria-hidden="true"
+      >
         {gradient ? (
           <Gradient id={gradientId}>
             {gradient?.stops?.map((stop) => (

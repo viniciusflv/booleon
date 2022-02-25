@@ -87,7 +87,7 @@ export default {
   component: Svg,
 };
 
-const Template = (args: SvgProps) => <Svg {...args} />;
+const Template = (args: SvgProps) => <Svg {...args} aria="icon" />;
 
 export const Static: any = Template.bind({});
 Static.args = booleon;

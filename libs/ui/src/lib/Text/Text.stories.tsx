@@ -11,6 +11,5 @@ const Template = (args: TextProps) => <Text {...args} />;
 export const Default = Template.bind({});
 //@ts-ignore
 Default.args = {
-  tag: 'span',
   children: 'Text',
 };

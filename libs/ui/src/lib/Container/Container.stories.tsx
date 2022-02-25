@@ -3,6 +3,9 @@ import { Container } from '.';
 export default {
   title: 'Container',
   component: Container,
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export const Flex = () => {
