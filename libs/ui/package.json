@@ -15,6 +15,8 @@
     "@booleon/react": "*",
     "@booleon/icons": "*",
     "@booleon/core": "*",
+    "@react-aria/button": "^3.4.1",
+    "@bedrock-layout/use-forwarded-ref": "^1.1.12",
     "react": ">=17",
     "use-slots": "^1.0.3"
   },

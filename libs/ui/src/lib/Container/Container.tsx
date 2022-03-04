@@ -4,7 +4,10 @@ import {
   container,
   cursor,
   flex,
+  font,
   grid,
+  outline,
+  shadow,
   sizing,
   spacing,
 } from '@booleon/modules';
@@ -12,11 +15,14 @@ import { booleon, InferBooleonComponent } from '@booleon/react';
 
 const _Container = booleon.div({
   ...flex,
+  ...font,
   ...grid,
   ...border,
   ...cursor,
   ...sizing,
+  ...shadow,
   ...spacing,
+  ...outline,
   ...container,
   ...background,
 });

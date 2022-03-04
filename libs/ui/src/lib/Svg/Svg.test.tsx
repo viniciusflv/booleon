@@ -11,7 +11,7 @@ expect.extend(toHaveNoViolations);
 
 describe('Svg', () => {
   test('default', async () => {
-    const { container } = render(<Svg aria="icon" />);
+    const { container } = render(<Svg alt="icon" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });

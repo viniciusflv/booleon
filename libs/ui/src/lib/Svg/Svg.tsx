@@ -12,7 +12,7 @@ const _Stop = booleon.stop({
 
 function Svg({
   tag,
-  aria,
+  alt,
   viewBox,
   paths,
   color = 'currentColor',
@@ -31,7 +31,7 @@ function Svg({
   }
 
   return (
-    <_Wrapper tag={tag} flex role="img" aria-label={aria}>
+    <_Wrapper tag={tag} flex role="img" aria-label={alt}>
       <svg
         viewBox={viewBox}
         width={width}

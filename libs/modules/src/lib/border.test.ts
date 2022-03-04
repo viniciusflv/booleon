@@ -481,7 +481,7 @@ describe('border', () => {
     expect(border.bd_none()).toMatchInlineSnapshot(`"border:none;"`));
   test('bd_radius_circle', () =>
     expect(border.bd_radius_circle()).toMatchInlineSnapshot(
-      `"border-radius:0.75rem;"`,
+      `"border-radius:100%;"`,
     ));
   test('bd_radius_lg', () =>
     expect(border.bd_radius_lg()).toMatchInlineSnapshot(
@@ -497,7 +497,7 @@ describe('border', () => {
     ));
   test('bd_radius_pill', () =>
     expect(border.bd_radius_pill()).toMatchInlineSnapshot(
-      `"border-radius:0.75rem;"`,
+      `"border-radius:3rem;"`,
     ));
   test('bd_radius_px', () =>
     expect(border.bd_radius_px()).toMatchInlineSnapshot(

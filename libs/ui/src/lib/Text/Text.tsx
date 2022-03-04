@@ -2,7 +2,8 @@ import { flex, font } from '@booleon/modules';
 import { booleon } from '@booleon/react';
 import type { InferBooleonComponent } from '@booleon/react';
 
-const _Text = booleon.span({ ...font, ...flex });
+// TODO: selectors bug
+const _Text = booleon.span({ ...font, ...flex }, { selectors: {} });
 
 export type TextProps = InferBooleonComponent<typeof _Text>;
 

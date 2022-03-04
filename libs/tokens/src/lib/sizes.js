@@ -216,7 +216,6 @@ module.exports = {
     },
     circle: {
       value: '{percentage.100.value}',
-      attributes: { category: 'rxm' },
     },
     pill: {
       value: '{scaled.5xl.value}',

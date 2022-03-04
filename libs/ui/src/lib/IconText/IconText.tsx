@@ -15,17 +15,20 @@ function IconText({ children, col = false, ...props }: IconTextProps) {
 
   return (
     <Text
-      {...props}
       flex
       main_center
       cross_center
       col={col}
       gap_xl={atLeast(2, firstIcon, lastIcon, text)}
+      main_between={atLeast(2, firstIcon, lastIcon, text)}
+      {...props}
     >
       {firstIcon}
-      <Text flex grow ft_select_none>
-        {text}
-      </Text>
+      {text ? (
+        <Text ft_no_wrap ft_select_none>
+          {text}
+        </Text>
+      ) : null}
       {lastIcon}
     </Text>
   );

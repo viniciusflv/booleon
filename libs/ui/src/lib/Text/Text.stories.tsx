@@ -9,7 +9,6 @@ export default {
 const Template = (args: TextProps) => <Text {...args} />;
 
 export const Default = Template.bind({});
-//@ts-ignore
 Default.args = {
   children: 'Text',
 };
