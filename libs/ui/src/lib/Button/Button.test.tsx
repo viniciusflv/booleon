@@ -5,13 +5,13 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import { IconText } from '.';
+import { Button } from '.';
 
 expect.extend(toHaveNoViolations);
 
-describe('IconText', () => {
+describe('Button', () => {
   test('default', async () => {
-    const { container } = render(<IconText />);
+    const { container } = render(<Button href="#">Button</Button>);
     expect(await axe(container)).toHaveNoViolations();
   });
 });

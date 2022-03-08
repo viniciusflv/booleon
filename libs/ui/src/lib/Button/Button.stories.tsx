@@ -44,3 +44,10 @@ IconButton.args = {
   children: [<IconLast key="last" alt="Arrow Up" {...arrow} />],
   outlined: false,
 };
+
+export const LinkButton = Template.bind({});
+LinkButton.args = {
+  children: 'Link Button',
+  href: '#',
+  target: '__blank',
+};

@@ -1,31 +1,34 @@
 import { Children, forwardRef, Ref } from 'react';
-import type { ElementType, MouseEventHandler } from 'react';
+
+import type { Tag } from '@booleon/react';
 
 import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
-import { useButton } from '@react-aria/button';
+import type { AriaLinkOptions } from '@react-aria/link';
 import type { AriaButtonProps } from '@react-types/button';
 import { useSlots } from 'use-slots';
 
+import { useAction } from '../../hooks/useAction';
 import { atLeast } from '../../utils/atLeast';
 import { Container } from '../Container';
 import { IconText } from '../IconText';
 
 type ButtonRef = HTMLButtonElement;
 
-type ButtonProps = AriaButtonProps<ElementType<any>> & {
-  children: any;
+type ButtonProps = {
   outlined?: boolean;
   type?: 'blue' | 'green';
-  onPress?: MouseEventHandler<'button'>;
-};
+} & AriaLinkOptions &
+  AriaButtonProps;
 
 function Button(
   { children, outlined, type, ...props }: ButtonProps,
   ref: Ref<ButtonRef>,
 ) {
+  const tag: Tag = props.href ? 'a' : 'button';
+
   const forwardRef = useForwardedRef(ref);
   const { firstIcon, lastIcon } = useSlots(children);
-  const { buttonProps, isPressed } = useButton(props, forwardRef);
+  const { actionProps, isPressed } = useAction(props, forwardRef);
 
   const onlyOne = Children.count(children) === 1;
   const hasIcon = atLeast(1, firstIcon, lastIcon);
@@ -33,10 +36,12 @@ function Button(
 
   return (
     <Container
-      {...buttonProps}
+      {...actionProps}
       ref={forwardRef}
-      tag="button"
-      aria-pressed={isPressed}
+      tag={tag}
+      href={props.href}
+      target={props.target}
+      aria-pressed={props.href ? undefined : isPressed}
       cr_pointer
       sd_4
       h_5xl={isIconButton}
@@ -54,6 +59,8 @@ function Button(
       ft_size_md
       ft_weight_bold
       ft_spacing_px
+      ft_family_sans
+      ft_no_underline
       ft_color_base_white_100={!outlined}
       hover__ft_color_base_white_100={outlined}
       ol_width_xs
