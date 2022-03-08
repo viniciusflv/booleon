@@ -7,6 +7,12 @@ export default {
   title: 'Button',
   component: Button,
   argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['blue', 'green'],
+      },
+    },
     onPress: { action: 'button-press' },
   },
 };
@@ -50,4 +56,16 @@ LinkButton.args = {
   children: 'Link Button',
   href: '#',
   target: '__blank',
+};
+
+export const OutlinedButton = Template.bind({});
+OutlinedButton.args = {
+  children: 'Outlined Button',
+  outlined: true,
+};
+
+export const UnderlinedButton = Template.bind({});
+UnderlinedButton.args = {
+  children: 'Underlined Button',
+  underlined: true,
 };
