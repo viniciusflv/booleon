@@ -223,6 +223,7 @@ module.exports = {
     },
   },
   spaces: {
+    percentage: '{percentage}',
     auto: {
       value: 'auto',
     },

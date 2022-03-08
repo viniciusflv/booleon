@@ -1,5 +1,6 @@
 module.exports = {
   colors: {
+    inherit: { value: 'currentColor' },
     brand: {
       primary: { value: '{colors.base.orange.500}' },
       secondary: { value: '{colors.base.orange.900}' },
