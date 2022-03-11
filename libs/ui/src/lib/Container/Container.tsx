@@ -10,6 +10,7 @@ import {
   shadow,
   sizing,
   spacing,
+  transition,
 } from '@booleon/modules';
 import { booleon, InferBooleonComponent } from '@booleon/react';
 
@@ -24,6 +25,7 @@ const _Container = booleon.div({
   ...spacing,
   ...outline,
   ...container,
+  ...transition,
   ...background,
 });
 

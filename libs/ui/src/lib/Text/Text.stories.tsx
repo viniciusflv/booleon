@@ -2,7 +2,7 @@ import { Text } from '.';
 import type { TextProps } from '.';
 
 export default {
-  title: 'Text',
+  title: 'Components/Text',
   component: Text,
 };
 

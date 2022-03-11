@@ -1,10 +1,10 @@
 import { arrow } from '@booleon/icons';
 
 import { Button } from '.';
-import { IconLast } from '../IconText';
+import { IconFirst, IconLast } from '../IconText';
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     type: {
@@ -41,7 +41,11 @@ Green.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  children: [<IconLast key="last" alt="Arrow Up" {...arrow} />, 'With Icon'],
+  children: [
+    <IconFirst key="last" alt="Arrow Up" {...arrow} />,
+    <IconLast key="last" alt="Arrow Up" {...arrow} />,
+    'With Icon',
+  ],
   outlined: false,
 };
 
@@ -66,6 +70,10 @@ OutlinedButton.args = {
 
 export const UnderlinedButton = Template.bind({});
 UnderlinedButton.args = {
-  children: 'Underlined Button',
+  children: [
+    <IconFirst key="last" alt="Arrow Up" {...arrow} />,
+    'Underlined Button',
+    <IconLast key="last" alt="Arrow Up" {...arrow} />,
+  ],
   underlined: true,
 };

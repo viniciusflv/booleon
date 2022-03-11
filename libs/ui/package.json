@@ -7,7 +7,8 @@
     "storybook": "start-storybook --ci -p 6006",
     "build-storybook": "build-storybook --quiet",
     "build": "node ./esbuild.js && npm run emit",
-    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist"
+    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "svg": "npx svj -i $(pwd)/src/assets/svg -d $(pwd)/src/assets --ts --svgo"
   },
   "dependencies": {
     "@booleon/modules": "*",
@@ -22,6 +23,7 @@
     "use-slots": "^1.0.3"
   },
   "devDependencies": {
+    "svj": "latest",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-docs": "^6.4.14",

@@ -43,27 +43,34 @@ function Button(
       href={props.href}
       target={props.target}
       aria-pressed={props.href ? undefined : isPressed}
+      ts_all
+      ts_ease_in
+      ts_duration_md
       cr_pointer
       ft_size_md
       ft_weight_bold
       ft_spacing_px
       ft_family_sans
       ft_no_underline
-      ol_none={underlined}
+      ol_none
       bd_none={underlined}
       bg_transparent={underlined || outlined}
-      relative={underlined}
       after__content={underlined ? '""' : undefined}
-      after__bd_radius_circle={underlined}
-      after__left={underlined}
-      after__absolute={underlined}
+      after__block={underlined}
+      after__m_auto={underlined}
+      after__w_none={underlined}
       after__h_xs={underlined}
+      after__bd_radius_circle={underlined}
+      after__bg_color_inherit={underlined}
+      after__ts_all={underlined && !isPressed}
+      after__ts_ease_in={underlined && !isPressed}
+      after__ts_duration_md={underlined && !isPressed}
+      after__w_percentage_80={underlined && isPressed}
       hover_after__w_percentage_100={underlined && !isPressed}
       focus_after__w_percentage_100={underlined && !isPressed}
-      after__w_percentage_80={underlined && isPressed}
-      after__mx_percentage_10={underlined && isPressed}
-      after__bg_color_inherit={underlined}
-      sd_4={!underlined}
+      sd_3={!underlined && !isPressed}
+      hover__sd_8={!underlined && !isPressed}
+      focus__sd_8={!underlined && !isPressed}
       h_5xl={!underlined && isIconButton}
       w_5xl={!underlined && isIconButton}
       h_6xl={!underlined && !isIconButton}
@@ -77,12 +84,7 @@ function Button(
       bd_width_xs={!underlined && outlined}
       ft_color_base_white_100={!underlined && !outlined}
       hover__ft_color_base_white_100={!underlined && outlined}
-      ol_width_xs={!underlined}
-      ol_color_base_orange_900={!underlined}
-      dark__ol_color_base_white_100={!underlined}
-      focus__ol_style_solid={!underlined}
-      within__ol_style_solid={!underlined}
-      active__ol_style_solid={!underlined}
+      focus__ft_color_base_white_100={!underlined && outlined}
       //
       bd_color_base_orange_600={!underlined && !type}
       bg_color_base_orange_600={!underlined && !outlined && !type}
@@ -91,6 +93,8 @@ function Button(
       hover__ft_color_base_orange_500={underlined && !type}
       hover__bg_color_base_orange_500={!underlined && !type}
       hover__bd_color_base_orange_500={!underlined && !type}
+      focus__bg_color_base_orange_500={!underlined && !type}
+      focus__bd_color_base_orange_500={!underlined && !type}
       //
       bd_color_base_blue_600={!underlined && type === 'blue'}
       bg_color_base_blue_600={!underlined && !outlined && type === 'blue'}
@@ -99,6 +103,8 @@ function Button(
       hover__ft_color_base_blue_500={underlined && type === 'blue'}
       hover__bg_color_base_blue_500={!underlined && type === 'blue'}
       hover__bd_color_base_blue_500={!underlined && type === 'blue'}
+      focus__bg_color_base_blue_500={!underlined && type === 'blue'}
+      focus__bd_color_base_blue_500={!underlined && type === 'blue'}
       //
       bd_color_base_green_800={!underlined && type === 'green'}
       bg_color_base_green_800={!underlined && !outlined && type === 'green'}
@@ -107,6 +113,8 @@ function Button(
       hover__ft_color_base_green_700={underlined && type === 'green'}
       hover__bg_color_base_green_700={!underlined && type === 'green'}
       hover__bd_color_base_green_700={!underlined && type === 'green'}
+      focus__bg_color_base_green_700={!underlined && type === 'green'}
+      focus__bd_color_base_green_700={!underlined && type === 'green'}
     >
       <IconText>{children}</IconText>
     </Container>

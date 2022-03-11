@@ -1,7 +1,7 @@
 import { Container } from '.';
 
 export default {
-  title: 'Container',
+  title: 'Components/Container',
   component: Container,
   parameters: {
     controls: { disable: true },
