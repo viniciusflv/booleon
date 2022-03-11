@@ -71,7 +71,7 @@ describe('shadow', () => {
     ));
   test('sd_3', () =>
     expect(shadow.sd_3()).toMatchInlineSnapshot(
-      `"box-shadow:1px 8px 0px rgba(0, 0, 0, 0.2),0px 3px 4px rgba(0, 0, 0, 0.14),0px 3px 3px rgba(0, 0, 0, 0.12);"`,
+      `"box-shadow:0px 1px 8px rgba(0, 0, 0, 0.2),0px 3px 4px rgba(0, 0, 0, 0.14),0px 3px 3px rgba(0, 0, 0, 0.12);"`,
     ));
   test('sd_4', () =>
     expect(shadow.sd_4()).toMatchInlineSnapshot(
@@ -167,7 +167,7 @@ describe('shadow', () => {
     ));
   test('sdi_3', () =>
     expect(shadow.sdi_3()).toMatchInlineSnapshot(
-      `"box-shadow:1px 8px 0px rgba(0, 0, 0, 0.2) inset,0px 3px 4px rgba(0, 0, 0, 0.14) inset,0px 3px 3px rgba(0, 0, 0, 0.12) inset;"`,
+      `"box-shadow:0px 1px 8px rgba(0, 0, 0, 0.2) inset,0px 3px 4px rgba(0, 0, 0, 0.14) inset,0px 3px 3px rgba(0, 0, 0, 0.12) inset;"`,
     ));
   test('sdi_4', () =>
     expect(shadow.sdi_4()).toMatchInlineSnapshot(

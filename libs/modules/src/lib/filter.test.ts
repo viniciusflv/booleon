@@ -369,7 +369,7 @@ describe('filter', () => {
     ));
   test('fl_sd_3', () =>
     expect(filter.fl_sd_3()).toMatchInlineSnapshot(
-      `"filter:drop-shadow(1px 8px 0px rgba(0, 0, 0, 0.2))drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.14))drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.12));"`,
+      `"filter:drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.2))drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.14))drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.12));"`,
     ));
   test('fl_sd_4', () =>
     expect(filter.fl_sd_4()).toMatchInlineSnapshot(
