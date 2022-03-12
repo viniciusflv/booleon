@@ -6,7 +6,7 @@ import type {
   WithToken,
 } from '@booleon/core';
 
-import type { Fn, ProxyReturnValue, Tag } from '../types';
+import type { As, Fn, ProxyReturnValue } from '../types';
 import { hocBooleon } from './hocBooleon';
 
 function BooleonProxy<T extends Fn, H extends Fn>(target: T, handler: H) {
@@ -18,7 +18,7 @@ function BooleonProxy<T extends Fn, H extends Fn>(target: T, handler: H) {
 }
 
 const booleonStyled = <
-  C extends Tag,
+  C extends As,
   M extends BooleonModule,
   S extends Selectors,
   T extends Props,
@@ -34,6 +34,6 @@ const booleonTagged =
     booleonModules: WithToken<M, T>,
     options?: BooleonOptions<S, T>,
   ) =>
-    hocBooleon(name as Tag, booleonModules, options);
+    hocBooleon(name as As, booleonModules, options);
 
 export const booleon = BooleonProxy(booleonStyled, booleonTagged);

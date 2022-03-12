@@ -7,14 +7,14 @@ import type {
   Selectors,
 } from '@booleon/core';
 
-export type Tag = React.ComponentType<any> | keyof React.ReactHTML;
+export type As = React.ComponentType<any> | keyof React.ReactHTML;
 
 export type BooleonHtmlProps<
   M extends BooleonModule,
   S extends Selectors = undefined,
 > = React.HTMLProps<any> &
   BooleonProps<M, S> & {
-    tag?: Tag;
+    as?: As;
   };
 
 export type Fn = (...args: any[]) => any;

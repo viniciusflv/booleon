@@ -27,7 +27,7 @@ describe('hocBooleon', () => {
     });
 
     const string = ReactDOM.renderToString(
-      <MyComponent data-testid="hocBooleon" tag="section" flex />,
+      <MyComponent data-testid="hocBooleon" as="section" flex />,
     );
     expect(string).toMatchInlineSnapshot(
       '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><section class=\\"bl--1802589470\\" data-testid=\\"hocBooleon\\"></section>"',
@@ -48,7 +48,7 @@ describe('hocBooleon', () => {
     );
 
     const string = ReactDOM.renderToString(
-      <MyComponent data-testid="hocBooleon" tag="section" att__flex />,
+      <MyComponent data-testid="hocBooleon" as="section" att__flex />,
     );
     expect(string).toMatchInlineSnapshot(
       '"<style data-booleon=\\"bl--1584053823\\">.bl--1584053823{display:grid;}</style><section class=\\"bl--1584053823\\" data-testid=\\"hocBooleon\\"></section>"',
@@ -70,7 +70,7 @@ describe('hocBooleon', () => {
     );
 
     const string = ReactDOM.renderToString(
-      <MyComponent data-testid="hocBooleon" flex tag="button" />,
+      <MyComponent data-testid="hocBooleon" flex as="button" />,
     );
     expect(string).toMatchInlineSnapshot(
       '"<style data-booleon=\\"bl--1802589470\\">.bl--1802589470{display:flex;}</style><button class=\\"bl--1802589470\\" data-testid=\\"hocBooleon\\"><div><span>AAA</span></div></button>"',
@@ -91,7 +91,7 @@ describe('hocBooleon', () => {
     );
 
     const string = ReactDOM.renderToString(
-      <MyComponent data-testid="hocBooleon" tag="section" ft_color_ruby />,
+      <MyComponent data-testid="hocBooleon" as="section" ft_color_ruby />,
     );
     expect(string).toMatchInlineSnapshot(
       '"<style data-booleon=\\"bl--1084937644\\">.bl--1084937644{color:#f00;}</style><section class=\\"bl--1084937644\\" data-testid=\\"hocBooleon\\"></section>"',

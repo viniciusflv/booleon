@@ -8,14 +8,14 @@ import type {
   WithToken,
 } from '@booleon/core';
 
-import type { BooleonHtmlProps, Tag } from '../types';
+import type { As, BooleonHtmlProps } from '../types';
 import { changeChildrenTag } from './changeChildrenTag';
 import { useBooleon } from './useBooleon';
 
 export function hocBooleon<
   R,
   M extends BooleonModule,
-  C extends Tag,
+  C extends As,
   S extends Selectors,
   T extends Props,
 >(
@@ -24,7 +24,7 @@ export function hocBooleon<
   options?: BooleonOptions<S, T>,
 ) {
   function BooleonComponent(
-    { tag, ...props }: BooleonHtmlProps<M, S>,
+    { as: tag, ...props }: BooleonHtmlProps<M, S>,
     ref: React.Ref<R>,
   ) {
     const [className, forwardProps, ssr] = useBooleon(

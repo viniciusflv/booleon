@@ -1,12 +1,13 @@
 import { createElement } from 'react';
 
-export function changeChildrenTag(tag: any, component: any, props: any) {
+// TODO: Improve this logic
+export function changeChildrenTag(as: any, component: any, props: any) {
   switch (true) {
     case typeof component === 'string':
-      return createElement(tag ?? component, props);
-    case tag && typeof component !== 'string':
-      return createElement(tag, props, createElement(component));
-    case !tag && typeof component !== 'string':
+      return createElement(as ?? component, props);
+    case as && typeof component !== 'string':
+      return createElement(as, props, createElement(component));
+    case !as && typeof component !== 'string':
       return createElement(component, props);
     default:
       return createElement(component, props);
