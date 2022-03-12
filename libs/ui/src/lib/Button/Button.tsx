@@ -3,23 +3,15 @@ import { Children, forwardRef, Ref } from 'react';
 import type { Tag } from '@booleon/react';
 
 import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
-import type { AriaLinkOptions } from '@react-aria/link';
-import type { AriaButtonProps } from '@react-types/button';
 import { useSlots } from 'use-slots';
 
 import { useAction } from '../../hooks/useAction';
 import { atLeast } from '../../utils/atLeast';
 import { Container } from '../Container';
 import { IconText } from '../IconText';
+import { ButtonProps } from './Button.types';
 
 type ButtonRef = HTMLButtonElement;
-
-type ButtonProps = {
-  underlined?: boolean;
-  outlined?: boolean;
-  type?: 'blue' | 'green';
-} & AriaLinkOptions &
-  AriaButtonProps;
 
 function Button(
   { children, outlined, underlined, type, ...props }: ButtonProps,
@@ -40,6 +32,7 @@ function Button(
       {...actionProps}
       ref={forwardRef}
       tag={tag}
+      title={props.title}
       href={props.href}
       target={props.target}
       aria-pressed={props.href ? undefined : isPressed}

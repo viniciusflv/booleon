@@ -21,6 +21,7 @@ const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
+  title: 'Click',
   children: 'Button',
   outlined: false,
 };

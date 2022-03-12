@@ -11,7 +11,11 @@ expect.extend(toHaveNoViolations);
 
 describe('Button', () => {
   test('default', async () => {
-    const { container } = render(<Button href="#">Button</Button>);
+    const { container } = render(
+      <Button title="Click" href="#">
+        Button
+      </Button>,
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
