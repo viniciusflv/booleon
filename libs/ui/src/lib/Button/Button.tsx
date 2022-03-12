@@ -1,6 +1,6 @@
 import { Children, forwardRef, Ref } from 'react';
 
-import type { Tag } from '@booleon/react';
+import type { As } from '@booleon/react';
 
 import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 import { useSlots } from 'use-slots';
@@ -11,13 +11,13 @@ import { Container } from '../Container';
 import { IconText } from '../IconText';
 import { ButtonProps } from './Button.types';
 
-type ButtonRef = HTMLButtonElement;
+export type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
 
 function Button(
   { children, outlined, underlined, type, ...props }: ButtonProps,
   ref: Ref<ButtonRef>,
 ) {
-  const tag: Tag = props.href ? 'a' : 'button';
+  const as: As = props.href ? 'a' : 'button';
 
   const forwardRef = useForwardedRef(ref);
   const { firstIcon, lastIcon } = useSlots(children);
@@ -31,7 +31,7 @@ function Button(
     <Container
       {...actionProps}
       ref={forwardRef}
-      tag={tag}
+      as={as}
       title={props.title}
       href={props.href}
       target={props.target}
@@ -114,4 +114,6 @@ function Button(
   );
 }
 
-export default forwardRef(Button);
+const ForwardedComponent = forwardRef(Button);
+
+export { ForwardedComponent as Button };

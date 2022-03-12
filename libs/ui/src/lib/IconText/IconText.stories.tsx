@@ -32,7 +32,7 @@ const booleon = {
 
 export const Default = (args: IconTextProps) => {
   return (
-    <IconText {...args} tag="a">
+    <IconText {...args} as="a">
       <IconFirst {...booleon} alt="lion icon" />
       IconText
       <IconLast {...booleon} alt="lion icon" />

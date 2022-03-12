@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react';
 
 import type { Props } from '@booleon/core';
-import type { Tag } from '@booleon/react';
+import type { As } from '@booleon/react';
 
 type Path = SVGProps<SVGPathElement> & {
   animates?: SVGProps<SVGAnimateElement>[];
@@ -23,7 +23,7 @@ type Gradients = {
 
 export type SvgProps = SVGProps<SVGSVGElement> &
   Gradients & {
-    tag?: Tag;
+    as?: As;
     paths?: Path[];
     alt: string;
     defaultFill?: boolean;
