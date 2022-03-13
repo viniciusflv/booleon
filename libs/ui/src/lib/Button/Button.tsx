@@ -1,4 +1,5 @@
-import { Children, forwardRef, Ref } from 'react';
+import { Children, forwardRef } from 'react';
+import type { Ref } from 'react';
 
 import type { As } from '@booleon/react';
 

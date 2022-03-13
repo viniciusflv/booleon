@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import type { Ref } from 'react';
 
 import {
+  animation,
   background,
   border,
   container,
@@ -30,6 +31,7 @@ const _Container = booleon.div(
     ...shadow,
     ...spacing,
     ...outline,
+    ...animation,
     ...container,
     ...transition,
     ...background,

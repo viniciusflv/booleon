@@ -31,7 +31,7 @@ function Svg({
   }
 
   return (
-    <_Wrapper as={as} flex role="img" aria-label={alt}>
+    <_Wrapper as={as as any} flex role="img" aria-label={alt}>
       <svg
         viewBox={viewBox}
         width={width}
