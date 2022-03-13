@@ -24,11 +24,7 @@ function IconText({ children, col = false, ...props }: IconTextProps) {
       {...props}
     >
       {firstIcon}
-      {text ? (
-        <Text ft_no_wrap ft_select_none>
-          {text}
-        </Text>
-      ) : null}
+      {text ? <Text ft_truncate>{text}</Text> : null}
       {lastIcon}
     </Text>
   );

@@ -19,20 +19,24 @@ import { booleon, InferBooleonComponent } from '@booleon/react';
 
 import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
-const _Container = booleon.div({
-  ...flex,
-  ...font,
-  ...grid,
-  ...border,
-  ...cursor,
-  ...sizing,
-  ...shadow,
-  ...spacing,
-  ...outline,
-  ...container,
-  ...transition,
-  ...background,
-});
+const _Container = booleon.div(
+  {
+    ...flex,
+    ...font,
+    ...grid,
+    ...border,
+    ...cursor,
+    ...sizing,
+    ...shadow,
+    ...spacing,
+    ...outline,
+    ...container,
+    ...transition,
+    ...background,
+  },
+  //TODO: fix empty selector bug
+  { selectors: {} },
+);
 
 export type ContainerRef = HTMLElement;
 export type ContainerProps = InferBooleonComponent<typeof _Container>;

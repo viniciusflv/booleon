@@ -65,10 +65,9 @@ function Button(
       hover__sd_8={!underlined && !isPressed}
       focus__sd_8={!underlined && !isPressed}
       h_5xl={!underlined && isIconButton}
-      w_5xl={!underlined && isIconButton}
+      min_w_5xl={!underlined && isIconButton}
       h_6xl={!underlined && !isIconButton}
-      w_6xl={!underlined && !isIconButton}
-      w_9xl={!underlined && !isIconButton}
+      min_w_9xl={!underlined && !isIconButton}
       p_2xl={!underlined && !isIconButton}
       px_4xl={!underlined && !isIconButton}
       sdi_6={!underlined && isPressed}
