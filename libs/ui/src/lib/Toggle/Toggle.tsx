@@ -1,26 +1,27 @@
 import { forwardRef } from 'react';
 import type { Ref } from 'react';
 
-import { dark, light } from '@booleon/icons';
-import { useTheme } from '@booleon/react';
-
 import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 import { useToggleButton } from '@react-aria/button';
 import { useToggleState } from '@react-stately/toggle';
+import { beSlot, useSlots } from 'use-slots';
 
 import { Container } from '../Container';
-import { Svg } from '../Svg';
+import { Svg, SvgProps } from '../Svg';
+import { ToggleProps } from './Toggle.types';
 
-function Toggle(props: any, ref: Ref<HTMLButtonElement>) {
+function Toggle(
+  { children, ...props }: ToggleProps,
+  ref: Ref<HTMLButtonElement>,
+) {
   const forwardRef = useForwardedRef(ref);
   const state = useToggleState(props);
   const { buttonProps } = useToggleButton(props, state, forwardRef);
-  const { toggleTheme } = useTheme();
+  const { firstIcon, lastIcon } = useSlots(children);
 
   return (
     <Container
       {...buttonProps}
-      onClick={toggleTheme}
       as="button"
       ref={forwardRef}
       aria-pressed={state.isSelected}
@@ -34,27 +35,27 @@ function Toggle(props: any, ref: Ref<HTMLButtonElement>) {
       cr_pointer
       bd_none
       bd_radius_pill
-      bd_width_xs
-      bd_color_inherit
-      bd_style_solid
-      ft_color_base_orange_500
-      dark__ft_color_base_orange_900
+      bg_color_inherit
       ft_size_lg
-      sdi_3
+      ft_color_base_orange_500
+      sdi_4
       ol_none
       relative
+      ts_all
+      ts_ease_in
+      ts_duration_md
       before__ts_all
       before__ts_ease_in
       before__ts_duration_md
       before__content
       before__absolute
-      before__m_neg_xs
       before__top
-      before__h_5xl
-      before__w_5xl
+      before__h_4xl
+      before__w_4xl
+      before__m_lg
       before__bd_radius_circle
-      before__bg_color_inherit
-      before__sd_1
+      before__bg_color_base_white_100
+      before__sd_4
       kf_on__from__left
       kf_on__half__left_percentage_50
       kf_on__to__right
@@ -68,11 +69,25 @@ function Toggle(props: any, ref: Ref<HTMLButtonElement>) {
       before__ani_name_on={state.isSelected}
       before__ani_name_off={!state.isSelected}
     >
-      <Svg {...dark} alt="dark" width="1.5em" height="1.5em" />
-      <Svg {...light} alt="light" width="1.5em" height="1.5em" />
+      {firstIcon}
+      {lastIcon}
     </Container>
   );
 }
+
+const Icon = (props: SvgProps) => (
+  <Svg {...props} as="i" color="white" width="1.5em" height="1.2em" />
+);
+
+export const IconOn = beSlot(
+  (props: SvgProps) => <Icon {...props} />,
+  'firstIcon',
+);
+
+export const IconOff = beSlot(
+  (props: SvgProps) => <Icon {...props} />,
+  'lastIcon',
+);
 
 const ForwardedComponent = forwardRef(Toggle);
 

@@ -14,6 +14,10 @@ body,
   align-items: center;
 }
 
+body[data-theme='dark'] {
+  background-color: #282a36 !important;
+}
+
 /* [0] */
 @font-face {
   font-family: 'RocknRoll One';

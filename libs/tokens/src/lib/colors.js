@@ -1,5 +1,6 @@
 module.exports = {
   colors: {
+    transparent: { value: 'transparent' },
     inherit: { value: 'currentColor' },
     brand: {
       primary: { value: '{colors.base.orange.500}' },

@@ -1,15 +1,23 @@
-import { Toggle } from '.';
+import { dark, light } from '@booleon/icons';
+import { useTheme } from '@booleon/react';
 
-// import type { TextProps } from '.';
+import { IconOff, IconOn, Toggle } from '.';
 
 export default {
   title: 'Components/Toggle',
   component: Toggle,
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
 };
 
-const Template = (args) => <Toggle {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Toggle',
+export const Default = () => {
+  const { theme, toggleTheme } = useTheme();
+  return (
+    <Toggle onPress={toggleTheme} isSelected={theme === 'light'}>
+      <IconOn {...light} alt="light" />
+      <IconOff {...dark} alt="dark" />
+    </Toggle>
+  );
 };
