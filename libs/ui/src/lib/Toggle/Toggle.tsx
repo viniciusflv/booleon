@@ -10,10 +10,9 @@ import { Container } from '../Container';
 import { Svg, SvgProps } from '../Svg';
 import { ToggleProps } from './Toggle.types';
 
-function Toggle(
-  { children, ...props }: ToggleProps,
-  ref: Ref<HTMLButtonElement>,
-) {
+export type ToggleRef = HTMLButtonElement;
+
+function Toggle({ children, ...props }: ToggleProps, ref: Ref<ToggleRef>) {
   const forwardRef = useForwardedRef(ref);
   const state = useToggleState(props);
   const { buttonProps } = useToggleButton(props, state, forwardRef);

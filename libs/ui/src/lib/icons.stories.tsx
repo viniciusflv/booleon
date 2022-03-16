@@ -16,6 +16,10 @@ export default {
     },
     onPress: { action: 'button-press' },
   },
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
 };
 
 export const List = () => {

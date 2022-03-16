@@ -14,7 +14,7 @@ body,
   align-items: center;
 }
 
-body[data-theme='dark'] {
+body[data-theme='dark'] #root {
   background-color: #282a36 !important;
 }
 
