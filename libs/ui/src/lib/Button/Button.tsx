@@ -82,8 +82,6 @@ function Button(
       bd_color_base_orange_600={!underlined && !type}
       bg_color_base_orange_600={!underlined && !outlined && !type}
       ft_color_base_orange_700={(underlined || outlined) && !type}
-      focus__ft_color_base_orange_500={underlined && !type}
-      hover__ft_color_base_orange_500={underlined && !type}
       hover__bg_color_base_orange_500={!underlined && !type}
       hover__bd_color_base_orange_500={!underlined && !type}
       focus__bg_color_base_orange_500={!underlined && !type}
@@ -92,8 +90,6 @@ function Button(
       bd_color_base_blue_600={!underlined && type === 'blue'}
       bg_color_base_blue_600={!underlined && !outlined && type === 'blue'}
       ft_color_base_blue_700={(underlined || outlined) && type === 'blue'}
-      focus__ft_color_base_blue_500={underlined && type === 'blue'}
-      hover__ft_color_base_blue_500={underlined && type === 'blue'}
       hover__bg_color_base_blue_500={!underlined && type === 'blue'}
       hover__bd_color_base_blue_500={!underlined && type === 'blue'}
       focus__bg_color_base_blue_500={!underlined && type === 'blue'}
@@ -102,8 +98,6 @@ function Button(
       bd_color_base_green_800={!underlined && type === 'green'}
       bg_color_base_green_800={!underlined && !outlined && type === 'green'}
       ft_color_base_green_800={(underlined || outlined) && type === 'green'}
-      focus__ft_color_base_green_700={underlined && type === 'green'}
-      hover__ft_color_base_green_700={underlined && type === 'green'}
       hover__bg_color_base_green_700={!underlined && type === 'green'}
       hover__bd_color_base_green_700={!underlined && type === 'green'}
       focus__bg_color_base_green_700={!underlined && type === 'green'}
