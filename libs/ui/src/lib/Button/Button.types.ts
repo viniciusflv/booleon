@@ -5,6 +5,6 @@ export type ButtonProps = {
   underlined?: boolean;
   outlined?: boolean;
   title: string;
-  type?: 'blue' | 'green';
+  variant?: 'blue' | 'green';
 } & AriaLinkOptions &
   AriaButtonProps;

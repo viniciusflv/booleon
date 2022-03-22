@@ -14,10 +14,8 @@ import { ButtonProps } from './Button.types';
 
 export type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
 
-function Button(
-  { children, outlined, underlined, type, ...props }: ButtonProps,
-  ref: Ref<ButtonRef>,
-) {
+function Button(props: ButtonProps, ref: Ref<ButtonRef>) {
+  const { children, outlined, underlined, variant } = props;
   const as: As = props.href ? 'a' : 'button';
 
   const forwardRef = useForwardedRef(ref);
@@ -27,6 +25,10 @@ function Button(
   const onlyOne = Children.count(children) === 1;
   const hasIcon = atLeast(1, firstIcon, lastIcon);
   const isIconButton = hasIcon && onlyOne;
+  const isDefault = !isIconButton && !underlined;
+  const isOrange = isDefault && !variant;
+  const isBlue = isDefault && variant === 'blue';
+  const isGreen = isDefault && variant === 'green';
 
   return (
     <Container
@@ -37,18 +39,19 @@ function Button(
       href={props.href}
       target={props.target}
       aria-pressed={props.href ? undefined : isPressed}
-      ts_all
-      ts_ease_in
-      ts_duration_md
-      cr_pointer
-      ft_size_md
+      ts_all={!isIconButton}
+      ts_ease_in={!isIconButton}
+      ts_duration_md={!isIconButton}
+      ft_size_md={!isIconButton}
+      ft_color_inherit
       ft_weight_bold
       ft_spacing_px
       ft_family_sans
       ft_no_underline
+      cr_pointer
       ol_none
-      bd_none={underlined}
-      bg_transparent={underlined || outlined}
+      bd_none={isIconButton || underlined}
+      bg_transparent={isIconButton || underlined || outlined}
       after__content={underlined ? '""' : undefined}
       after__block={underlined}
       after__m_auto={underlined}
@@ -62,46 +65,53 @@ function Button(
       after__w_percentage_80={underlined && isPressed}
       hover_after__w_percentage_100={underlined && !isPressed}
       focus_after__w_percentage_100={underlined && !isPressed}
-      sd_3={!underlined && !isPressed}
-      hover__sd_8={!underlined && !isPressed}
-      focus__sd_8={!underlined && !isPressed}
-      h_5xl={!underlined && isIconButton}
-      min_w_5xl={!underlined && isIconButton}
-      h_6xl={!underlined && !isIconButton}
-      min_w_9xl={!underlined && !isIconButton}
-      p_2xl={!underlined && !isIconButton}
-      px_4xl={!underlined && !isIconButton}
-      sdi_6={!underlined && isPressed}
+      sd_3={!isIconButton && !underlined && !isPressed}
+      hover__sd_8={!isIconButton && !underlined && !isPressed}
+      focus__sd_8={!isIconButton && !underlined && !isPressed}
+      h_5xl={!isIconButton && !underlined}
+      min_w_5xl={!isIconButton && !underlined}
+      h_6xl={!isIconButton && !underlined}
+      min_w_9xl={!isIconButton && !underlined}
+      p_2xl={!isIconButton && !underlined}
+      px_4xl={!isIconButton && !underlined}
+      sdi_6={!isIconButton && !underlined && isPressed}
+      sdi_2={isIconButton && isPressed}
+      hover__bg_color_base_white_600={isIconButton}
+      focus__bg_color_base_white_600={isIconButton}
+      dark__hover__bg_color_base_grey_800={isIconButton}
+      p_none={isIconButton}
+      h_4xl={isIconButton}
+      w_4xl={isIconButton}
       bd_radius_pill={!underlined}
-      bd_style_solid={!underlined}
-      bd_width_xs={!underlined && outlined}
-      ft_color_base_white_100={!underlined && !outlined}
-      hover__ft_color_base_white_100={!underlined && outlined}
-      focus__ft_color_base_white_100={!underlined && outlined}
+      bd_style_solid={!isIconButton && !underlined}
+      bd_width_xs={!isIconButton && !underlined && outlined}
+      ft_color_base_white_100={!isIconButton && !underlined && !outlined}
+      hover__ft_color_base_white_100={!isIconButton && !underlined && outlined}
+      focus__ft_color_base_white_100={!isIconButton && !underlined && outlined}
       //
-      bd_color_base_orange_600={!underlined && !type}
-      bg_color_base_orange_600={!underlined && !outlined && !type}
-      ft_color_base_orange_700={(underlined || outlined) && !type}
-      hover__bg_color_base_orange_500={!underlined && !type}
-      hover__bd_color_base_orange_500={!underlined && !type}
-      focus__bg_color_base_orange_500={!underlined && !type}
-      focus__bd_color_base_orange_500={!underlined && !type}
+      bd_color_base_orange_600={isOrange}
+      bg_color_base_orange_600={isOrange && !outlined}
+      ft_color_base_orange_700={(underlined || outlined) && !variant}
+      hover__bg_color_base_orange_500={isOrange}
+      hover__bd_color_base_orange_500={isOrange}
+      focus__bg_color_base_orange_500={isOrange}
+      focus__bd_color_base_orange_500={isOrange}
       //
-      bd_color_base_blue_600={!underlined && type === 'blue'}
-      bg_color_base_blue_600={!underlined && !outlined && type === 'blue'}
-      ft_color_base_blue_700={(underlined || outlined) && type === 'blue'}
-      hover__bg_color_base_blue_500={!underlined && type === 'blue'}
-      hover__bd_color_base_blue_500={!underlined && type === 'blue'}
-      focus__bg_color_base_blue_500={!underlined && type === 'blue'}
-      focus__bd_color_base_blue_500={!underlined && type === 'blue'}
+      bd_color_base_blue_600={isBlue}
+      bg_color_base_blue_600={isBlue && !outlined}
+      ft_color_base_blue_700={(underlined || outlined) && variant === 'blue'}
+      hover__bg_color_base_blue_500={isBlue}
+      hover__bd_color_base_blue_500={isBlue}
+      focus__bg_color_base_blue_500={isBlue}
+      focus__bd_color_base_blue_500={isBlue}
       //
-      bd_color_base_green_800={!underlined && type === 'green'}
-      bg_color_base_green_800={!underlined && !outlined && type === 'green'}
-      ft_color_base_green_800={(underlined || outlined) && type === 'green'}
-      hover__bg_color_base_green_700={!underlined && type === 'green'}
-      hover__bd_color_base_green_700={!underlined && type === 'green'}
-      focus__bg_color_base_green_700={!underlined && type === 'green'}
-      focus__bd_color_base_green_700={!underlined && type === 'green'}
+      bd_color_base_green_800={isGreen}
+      bg_color_base_green_800={isGreen && !outlined}
+      ft_color_base_green_800={(underlined || outlined) && variant === 'green'}
+      hover__bg_color_base_green_700={isGreen}
+      hover__bd_color_base_green_700={isGreen}
+      focus__bg_color_base_green_700={isGreen}
+      focus__bd_color_base_green_700={isGreen}
     >
       <IconText>{children}</IconText>
     </Container>

@@ -31,7 +31,7 @@ function IconText({ children, col = false, ...props }: IconTextProps) {
 }
 
 const Icon = (props: SvgProps) => (
-  <Svg {...props} as="i" color="currentColor" width="1.5em" height="1.5em" />
+  <Svg as="i" color="currentColor" width="1.5em" height="1.5em" {...props} />
 );
 
 export const IconFirst = beSlot(

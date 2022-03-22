@@ -30,14 +30,14 @@ export const Blue = Template.bind({});
 Blue.args = {
   children: 'Button',
   outlined: false,
-  type: 'blue',
+  variant: 'blue',
 };
 
 export const Green = Template.bind({});
 Green.args = {
   children: 'Button',
   outlined: false,
-  type: 'green',
+  variant: 'green',
 };
 
 export const WithIcon = Template.bind({});
