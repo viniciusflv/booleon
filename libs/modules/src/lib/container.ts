@@ -15,11 +15,16 @@ const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
  */
 export const container = {
   ...theme('z', absolute, ($) => `z-index:${$};`),
+  ...theme('z_neg', absolute, ($) => `z-index:-${$};`),
   ...theme('op', relative, ($) => `opacity:${$};`),
   ...theme('top', sizes, ($) => `top:${$};`),
   ...theme('bottom', sizes, ($) => `bottom:${$};`),
   ...theme('left', sizes, ($) => `left:${$};`),
   ...theme('right', sizes, ($) => `right:${$};`),
+  ...theme('top_neg', sizes, ($) => `top:-${$};`),
+  ...theme('bottom_neg', sizes, ($) => `bottom:-${$};`),
+  ...theme('left_neg', sizes, ($) => `left:-${$};`),
+  ...theme('right_neg', sizes, ($) => `right:-${$};`),
   z_max: () => `z-index:${MAX_SAFE_INTEGER};`,
   z_auto: () => 'z-index:auto;',
   sc_auto: () => 'overflow:auto;',
