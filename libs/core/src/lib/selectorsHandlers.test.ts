@@ -36,6 +36,17 @@ describe('selector', () => {
         recursiveCompiler: () => '.bl-className {css}',
       }),
     ).toMatchInlineSnapshot('"body[data-theme=\\"key\\"] .bl-className {css}"');
+    expect(
+      fn({
+        key: 'key',
+        value: { flex: true },
+        className: 'className',
+        selectors: selectorsDefault,
+        recursiveCompiler: () => '.bl-className .asdsdsd,.dasdasd {css,css}',
+      }),
+    ).toMatchInlineSnapshot(
+      `"body[data-theme=\\"key\\"] .bl-className .asdsdsd,body[data-theme=\\"key\\"] dasdasd {css,css}"`,
+    );
   });
 
   test('pseudo', () => {
