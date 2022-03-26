@@ -87,6 +87,7 @@ function SearchField(props: SearchFieldProps, ref: Ref<SearchFieldRef>) {
     >
       <_Input
         {...inputProps}
+        ref={forwardRef}
         w_percentage_100
         ol_none
         m_none
@@ -133,7 +134,7 @@ function SearchField(props: SearchFieldProps, ref: Ref<SearchFieldRef>) {
         {label}
       </_Label>
       <_Icon absolute px_2xl>
-        <Svg {...search} alt="Search" width="1.2em" height="1.2em" />
+        <Svg {...search} alt={label as string} width="1.2em" height="1.2em" />
       </_Icon>
       <_Icon absolute px_2xl right>
         <Button
@@ -141,7 +142,12 @@ function SearchField(props: SearchFieldProps, ref: Ref<SearchFieldRef>) {
           title={clearButtonProps['aria-label'] ?? 'Reset'}
           aria-label={clearButtonProps['aria-label']}
         >
-          <IconFirst {...close} alt="Reset" width="1.2em" height="1.2em" />
+          <IconFirst
+            {...close}
+            alt={clearButtonProps['aria-label'] ?? 'Reset'}
+            width="1.2em"
+            height="1.2em"
+          />
         </Button>
       </_Icon>
     </_Wrapper>
