@@ -23,6 +23,7 @@ import { useSearchFieldState } from '@react-stately/searchfield';
 import { Button } from '../Button';
 import { IconFirst } from '../IconText';
 import { Svg } from '../Svg';
+import { SearchFieldProps } from './SearchField.types';
 
 const _Wrapper = booleon.div({
   ...flex,
@@ -65,7 +66,7 @@ const _Icon = booleon.div({
 
 export type SearchFieldRef = HTMLInputElement;
 
-function SearchField(props: any, ref: Ref<SearchFieldRef>) {
+function SearchField(props: SearchFieldProps, ref: Ref<SearchFieldRef>) {
   const { label, hidden = false, placeholder = ' ' } = props;
   const forwardRef = useForwardedRef(ref);
   const state = useSearchFieldState(props);
@@ -117,9 +118,9 @@ function SearchField(props: any, ref: Ref<SearchFieldRef>) {
       <_Label
         {...labelProps}
         hidden={hidden}
-        z_neg_1
         absolute
         px_5xl
+        ft_select_none
         ft_color_inherit
         ft_family_sans
         ft_truncate
