@@ -105,11 +105,11 @@ StyleDictionary.registerFormat({
 });
 
 module.exports = {
-  source: ['src/**/*.js'],
+  source: ['src/lib/**/*.js'],
   platforms: {
     ts: {
       transformGroup: 'web',
-      buildPath: './dist/',
+      buildPath: './src/',
       files: [
         {
           destination: 'index.ts',
