@@ -1,1 +1,1 @@
-require('@configs/esbuild')();
+require('@configs/esbuild')({ inject: true });
