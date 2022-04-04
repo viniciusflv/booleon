@@ -3,7 +3,7 @@ import type { SVGProps } from 'react';
 import type { Props } from '@booleon/core';
 import type { As } from '@booleon/react';
 
-type Path = SVGProps<SVGPathElement> & {
+type Path = Partial<Record<keyof SVGProps<SVGPathElement>, string>> & {
   animates?: SVGProps<SVGAnimateElement>[];
 };
 

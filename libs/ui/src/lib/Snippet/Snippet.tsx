@@ -15,7 +15,7 @@ const _Snippet = booleon.pre(
   {
     selectors: {
       selection: selector.pseudo(
-        ' pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection,pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection',
+        ' pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection',
       ),
       comment: selector.pseudo(
         ' .token.cdata,.token.comment,.token.doctype,.token.prolog',
@@ -45,43 +45,47 @@ const _Snippet = booleon.pre(
   },
 );
 
-function Snippet({ children }: any) {
+export function Snippet({ children }: any) {
   return (
-    <_Snippet
-      p_2xl
-      sd_1
-      bd_radius_md
-      ft_family_mono
-      dark__ft_color_dark_code_baseColor
-      dark__bg_color_dark_code_background
-      dark__comment__ft_color_dark_code_comment
-      dark__parameter__ft_color_dark_code_parameter
-      dark__builtin__ft_color_dark_code_builtin
-      dark__operator__ft_color_dark_code_operator
-      dark__punctuation__ft_color_dark_code_punctuation
-      dark__property__ft_color_dark_code_property
-      dark__string__ft_color_dark_code_string
-      dark__keyword__ft_color_dark_code_keyword
-      dark__function__ft_color_dark_code_function
-      dark__variable__ft_color_dark_code_variable
-      ft_color_light_code_baseColor
-      bg_color_light_code_background
-      comment__ft_color_light_code_comment
-      parameter__ft_color_light_code_parameter
-      builtin__ft_color_light_code_builtin
-      operator__ft_color_light_code_operator
-      punctuation__ft_color_light_code_punctuation
-      property__ft_color_light_code_property
-      string__ft_color_light_code_string
-      keyword__ft_color_light_code_keyword
-      function__ft_color_light_code_function
-      variable__ft_color_light_code_variable
-    >
-      {children}
-    </_Snippet>
+    <div>
+      <_Snippet
+        p_2xl
+        sd_1
+        bd_radius_md
+        ft_family_mono
+        ft_color_light_code_baseColor
+        bg_color_light_code_background
+        selection__bg_color_light_code_selection
+        comment__ft_color_light_code_comment
+        parameter__ft_color_light_code_parameter
+        builtin__ft_color_light_code_builtin
+        operator__ft_color_light_code_operator
+        punctuation__ft_color_light_code_punctuation
+        property__ft_color_light_code_property
+        string__ft_color_light_code_string
+        keyword__ft_color_light_code_keyword
+        function__ft_color_light_code_function
+        variable__ft_color_light_code_variable
+        dark__selection__bg_color_dark_code_selection
+        dark__ft_color_dark_code_baseColor
+        dark__bg_color_dark_code_background
+        dark__comment__ft_color_dark_code_comment
+        dark__parameter__ft_color_dark_code_parameter
+        dark__builtin__ft_color_dark_code_builtin
+        dark__operator__ft_color_dark_code_operator
+        dark__punctuation__ft_color_dark_code_punctuation
+        dark__property__ft_color_dark_code_property
+        dark__string__ft_color_dark_code_string
+        dark__keyword__ft_color_dark_code_keyword
+        dark__function__ft_color_dark_code_function
+        dark__variable__ft_color_dark_code_variable
+      >
+        {children}
+      </_Snippet>
+    </div>
   );
 }
 
-const ForwardedComponent = forwardRef(Snippet);
+// const ForwardedComponent = forwardRef(Snippet);
 
-export { ForwardedComponent as Snippet };
+// export { ForwardedComponent as Snippet };

@@ -22,7 +22,8 @@
     "@react-stately/searchfield": "^3.1.6",
     "@react-stately/toggle": "^3.2.6",
     "@bedrock-layout/use-forwarded-ref": "^1.1.12",
-    "react": ">=17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "use-slots": "^1.0.3"
   },
   "devDependencies": {

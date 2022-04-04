@@ -1,8 +1,10 @@
+import type { SVGProps } from 'react';
+
 import { createClassName } from '@booleon/core';
 import { flex } from '@booleon/modules';
 import { booleon } from '@booleon/react';
 
-import { SvgProps } from './Svg.types';
+import type { SvgProps } from './Svg.types';
 
 const _Wrapper = booleon.div(flex);
 
@@ -48,7 +50,7 @@ function Svg({
         ) : null}
         {paths?.map(({ d, animates, ...pathProps }) => (
           <path
-            {...pathProps}
+            {...(pathProps as SVGProps<SVGPathElement>)}
             key={d}
             d={d}
             fill={
