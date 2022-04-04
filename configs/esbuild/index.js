@@ -20,6 +20,7 @@ const clearOutDir = () => ({
 module.exports = ({
   outfile = `dist/index.js`,
   entryPoints = ['src/index.ts'],
+  inject,
 } = {}) => {
   require('esbuild')
     .build({
@@ -36,6 +37,7 @@ module.exports = ({
       sourcemap: true,
       minify: false,
       plugins: [nodeExternalsPlugin(), clearOutDir()],
+      inject: inject && [path.resolve(__dirname, 'inject.js')],
     })
     .catch(() => process.exit(1));
 };
