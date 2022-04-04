@@ -1,906 +1,327 @@
 import { sizing } from './sizing';
 
-describe('sizing', () => {
-  test('h_10xl', () =>
-    expect(sizing.h_10xl()).toMatchInlineSnapshot(`"height:12rem;"`));
-  test('h_11xl', () =>
-    expect(sizing.h_11xl()).toMatchInlineSnapshot(`"height:24rem;"`));
-  test('h_12xl', () =>
-    expect(sizing.h_12xl()).toMatchInlineSnapshot(`"height:32rem;"`));
-  test('h_13xl', () =>
-    expect(sizing.h_13xl()).toMatchInlineSnapshot(`"height:48rem;"`));
-  test('h_14xl', () =>
-    expect(sizing.h_14xl()).toMatchInlineSnapshot(`"height:64rem;"`));
-  test('h_15xl', () =>
-    expect(sizing.h_15xl()).toMatchInlineSnapshot(`"height:96rem;"`));
-  test('h_16xl', () =>
-    expect(sizing.h_16xl()).toMatchInlineSnapshot(`"height:128rem;"`));
-  test('h_2xl', () =>
-    expect(sizing.h_2xl()).toMatchInlineSnapshot(`"height:1rem;"`));
-  test('h_3xl', () =>
-    expect(sizing.h_3xl()).toMatchInlineSnapshot(`"height:1.5rem;"`));
-  test('h_4xl', () =>
-    expect(sizing.h_4xl()).toMatchInlineSnapshot(`"height:2rem;"`));
-  test('h_5xl', () =>
-    expect(sizing.h_5xl()).toMatchInlineSnapshot(`"height:3rem;"`));
-  test('h_6xl', () =>
-    expect(sizing.h_6xl()).toMatchInlineSnapshot(`"height:4rem;"`));
-  test('h_7xl', () =>
-    expect(sizing.h_7xl()).toMatchInlineSnapshot(`"height:6rem;"`));
-  test('h_8xl', () =>
-    expect(sizing.h_8xl()).toMatchInlineSnapshot(`"height:8rem;"`));
-  test('h_9xl', () =>
-    expect(sizing.h_9xl()).toMatchInlineSnapshot(`"height:16rem;"`));
-  test('h_auto', () =>
-    expect(sizing.h_auto()).toMatchInlineSnapshot(`"height:auto;"`));
-  test('h_lg', () =>
-    expect(sizing.h_lg()).toMatchInlineSnapshot(`"height:0.5rem;"`));
-  test('h_md', () =>
-    expect(sizing.h_md()).toMatchInlineSnapshot(`"height:0.375rem;"`));
-  test('h_none', () =>
-    expect(sizing.h_none()).toMatchInlineSnapshot(`"height:0rem;"`));
-  test('h_percentage_10', () =>
-    expect(sizing.h_percentage_10()).toMatchInlineSnapshot(`"height:10%;"`));
-  test('h_percentage_100', () =>
-    expect(sizing.h_percentage_100()).toMatchInlineSnapshot(`"height:100%;"`));
-  test('h_percentage_20', () =>
-    expect(sizing.h_percentage_20()).toMatchInlineSnapshot(`"height:20%;"`));
-  test('h_percentage_30', () =>
-    expect(sizing.h_percentage_30()).toMatchInlineSnapshot(`"height:30%;"`));
-  test('h_percentage_40', () =>
-    expect(sizing.h_percentage_40()).toMatchInlineSnapshot(`"height:40%;"`));
-  test('h_percentage_50', () =>
-    expect(sizing.h_percentage_50()).toMatchInlineSnapshot(`"height:50%;"`));
-  test('h_percentage_60', () =>
-    expect(sizing.h_percentage_60()).toMatchInlineSnapshot(`"height:60%;"`));
-  test('h_percentage_70', () =>
-    expect(sizing.h_percentage_70()).toMatchInlineSnapshot(`"height:70%;"`));
-  test('h_percentage_80', () =>
-    expect(sizing.h_percentage_80()).toMatchInlineSnapshot(`"height:80%;"`));
-  test('h_percentage_90', () =>
-    expect(sizing.h_percentage_90()).toMatchInlineSnapshot(`"height:90%;"`));
-  test('h_px', () =>
-    expect(sizing.h_px()).toMatchInlineSnapshot(`"height:0.0625rem;"`));
-  test('h_screen_height_10', () =>
-    expect(sizing.h_screen_height_10()).toMatchInlineSnapshot(
-      `"height:10vh;"`,
-    ));
-  test('h_screen_height_100', () =>
-    expect(sizing.h_screen_height_100()).toMatchInlineSnapshot(
-      `"height:100vh;"`,
-    ));
-  test('h_screen_height_20', () =>
-    expect(sizing.h_screen_height_20()).toMatchInlineSnapshot(
-      `"height:20vh;"`,
-    ));
-  test('h_screen_height_30', () =>
-    expect(sizing.h_screen_height_30()).toMatchInlineSnapshot(
-      `"height:30vh;"`,
-    ));
-  test('h_screen_height_40', () =>
-    expect(sizing.h_screen_height_40()).toMatchInlineSnapshot(
-      `"height:40vh;"`,
-    ));
-  test('h_screen_height_50', () =>
-    expect(sizing.h_screen_height_50()).toMatchInlineSnapshot(
-      `"height:50vh;"`,
-    ));
-  test('h_screen_height_60', () =>
-    expect(sizing.h_screen_height_60()).toMatchInlineSnapshot(
-      `"height:60vh;"`,
-    ));
-  test('h_screen_height_70', () =>
-    expect(sizing.h_screen_height_70()).toMatchInlineSnapshot(
-      `"height:70vh;"`,
-    ));
-  test('h_screen_height_80', () =>
-    expect(sizing.h_screen_height_80()).toMatchInlineSnapshot(
-      `"height:80vh;"`,
-    ));
-  test('h_screen_height_90', () =>
-    expect(sizing.h_screen_height_90()).toMatchInlineSnapshot(
-      `"height:90vh;"`,
-    ));
-  test('h_screen_width_10', () =>
-    expect(sizing.h_screen_width_10()).toMatchInlineSnapshot(`"height:10vw;"`));
-  test('h_screen_width_100', () =>
-    expect(sizing.h_screen_width_100()).toMatchInlineSnapshot(
-      `"height:100vw;"`,
-    ));
-  test('h_screen_width_20', () =>
-    expect(sizing.h_screen_width_20()).toMatchInlineSnapshot(`"height:20vw;"`));
-  test('h_screen_width_30', () =>
-    expect(sizing.h_screen_width_30()).toMatchInlineSnapshot(`"height:30vw;"`));
-  test('h_screen_width_40', () =>
-    expect(sizing.h_screen_width_40()).toMatchInlineSnapshot(`"height:40vw;"`));
-  test('h_screen_width_50', () =>
-    expect(sizing.h_screen_width_50()).toMatchInlineSnapshot(`"height:50vw;"`));
-  test('h_screen_width_60', () =>
-    expect(sizing.h_screen_width_60()).toMatchInlineSnapshot(`"height:60vw;"`));
-  test('h_screen_width_70', () =>
-    expect(sizing.h_screen_width_70()).toMatchInlineSnapshot(`"height:70vw;"`));
-  test('h_screen_width_80', () =>
-    expect(sizing.h_screen_width_80()).toMatchInlineSnapshot(`"height:80vw;"`));
-  test('h_screen_width_90', () =>
-    expect(sizing.h_screen_width_90()).toMatchInlineSnapshot(`"height:90vw;"`));
-  test('h_sm', () =>
-    expect(sizing.h_sm()).toMatchInlineSnapshot(`"height:0.25rem;"`));
-  test('h_xl', () =>
-    expect(sizing.h_xl()).toMatchInlineSnapshot(`"height:0.75rem;"`));
-  test('h_xs', () =>
-    expect(sizing.h_xs()).toMatchInlineSnapshot(`"height:0.125rem;"`));
-  test('max_h_10xl', () =>
-    expect(sizing.max_h_10xl()).toMatchInlineSnapshot(`"max-height:12rem;"`));
-  test('max_h_11xl', () =>
-    expect(sizing.max_h_11xl()).toMatchInlineSnapshot(`"max-height:24rem;"`));
-  test('max_h_12xl', () =>
-    expect(sizing.max_h_12xl()).toMatchInlineSnapshot(`"max-height:32rem;"`));
-  test('max_h_13xl', () =>
-    expect(sizing.max_h_13xl()).toMatchInlineSnapshot(`"max-height:48rem;"`));
-  test('max_h_14xl', () =>
-    expect(sizing.max_h_14xl()).toMatchInlineSnapshot(`"max-height:64rem;"`));
-  test('max_h_15xl', () =>
-    expect(sizing.max_h_15xl()).toMatchInlineSnapshot(`"max-height:96rem;"`));
-  test('max_h_16xl', () =>
-    expect(sizing.max_h_16xl()).toMatchInlineSnapshot(`"max-height:128rem;"`));
-  test('max_h_2xl', () =>
-    expect(sizing.max_h_2xl()).toMatchInlineSnapshot(`"max-height:1rem;"`));
-  test('max_h_3xl', () =>
-    expect(sizing.max_h_3xl()).toMatchInlineSnapshot(`"max-height:1.5rem;"`));
-  test('max_h_4xl', () =>
-    expect(sizing.max_h_4xl()).toMatchInlineSnapshot(`"max-height:2rem;"`));
-  test('max_h_5xl', () =>
-    expect(sizing.max_h_5xl()).toMatchInlineSnapshot(`"max-height:3rem;"`));
-  test('max_h_6xl', () =>
-    expect(sizing.max_h_6xl()).toMatchInlineSnapshot(`"max-height:4rem;"`));
-  test('max_h_7xl', () =>
-    expect(sizing.max_h_7xl()).toMatchInlineSnapshot(`"max-height:6rem;"`));
-  test('max_h_8xl', () =>
-    expect(sizing.max_h_8xl()).toMatchInlineSnapshot(`"max-height:8rem;"`));
-  test('max_h_9xl', () =>
-    expect(sizing.max_h_9xl()).toMatchInlineSnapshot(`"max-height:16rem;"`));
-  test('max_h_auto', () =>
-    expect(sizing.max_h_auto()).toMatchInlineSnapshot(`"max-height:auto;"`));
-  test('max_h_lg', () =>
-    expect(sizing.max_h_lg()).toMatchInlineSnapshot(`"max-height:0.5rem;"`));
-  test('max_h_md', () =>
-    expect(sizing.max_h_md()).toMatchInlineSnapshot(`"max-height:0.375rem;"`));
-  test('max_h_none', () =>
-    expect(sizing.max_h_none()).toMatchInlineSnapshot(`"max-height:0rem;"`));
-  test('max_h_percentage_10', () =>
-    expect(sizing.max_h_percentage_10()).toMatchInlineSnapshot(
-      `"max-height:10%;"`,
-    ));
-  test('max_h_percentage_100', () =>
-    expect(sizing.max_h_percentage_100()).toMatchInlineSnapshot(
-      `"max-height:100%;"`,
-    ));
-  test('max_h_percentage_20', () =>
-    expect(sizing.max_h_percentage_20()).toMatchInlineSnapshot(
-      `"max-height:20%;"`,
-    ));
-  test('max_h_percentage_30', () =>
-    expect(sizing.max_h_percentage_30()).toMatchInlineSnapshot(
-      `"max-height:30%;"`,
-    ));
-  test('max_h_percentage_40', () =>
-    expect(sizing.max_h_percentage_40()).toMatchInlineSnapshot(
-      `"max-height:40%;"`,
-    ));
-  test('max_h_percentage_50', () =>
-    expect(sizing.max_h_percentage_50()).toMatchInlineSnapshot(
-      `"max-height:50%;"`,
-    ));
-  test('max_h_percentage_60', () =>
-    expect(sizing.max_h_percentage_60()).toMatchInlineSnapshot(
-      `"max-height:60%;"`,
-    ));
-  test('max_h_percentage_70', () =>
-    expect(sizing.max_h_percentage_70()).toMatchInlineSnapshot(
-      `"max-height:70%;"`,
-    ));
-  test('max_h_percentage_80', () =>
-    expect(sizing.max_h_percentage_80()).toMatchInlineSnapshot(
-      `"max-height:80%;"`,
-    ));
-  test('max_h_percentage_90', () =>
-    expect(sizing.max_h_percentage_90()).toMatchInlineSnapshot(
-      `"max-height:90%;"`,
-    ));
-  test('max_h_px', () =>
-    expect(sizing.max_h_px()).toMatchInlineSnapshot(`"max-height:0.0625rem;"`));
-  test('max_h_screen_height_10', () =>
-    expect(sizing.max_h_screen_height_10()).toMatchInlineSnapshot(
-      `"max-height:10vh;"`,
-    ));
-  test('max_h_screen_height_100', () =>
-    expect(sizing.max_h_screen_height_100()).toMatchInlineSnapshot(
-      `"max-height:100vh;"`,
-    ));
-  test('max_h_screen_height_20', () =>
-    expect(sizing.max_h_screen_height_20()).toMatchInlineSnapshot(
-      `"max-height:20vh;"`,
-    ));
-  test('max_h_screen_height_30', () =>
-    expect(sizing.max_h_screen_height_30()).toMatchInlineSnapshot(
-      `"max-height:30vh;"`,
-    ));
-  test('max_h_screen_height_40', () =>
-    expect(sizing.max_h_screen_height_40()).toMatchInlineSnapshot(
-      `"max-height:40vh;"`,
-    ));
-  test('max_h_screen_height_50', () =>
-    expect(sizing.max_h_screen_height_50()).toMatchInlineSnapshot(
-      `"max-height:50vh;"`,
-    ));
-  test('max_h_screen_height_60', () =>
-    expect(sizing.max_h_screen_height_60()).toMatchInlineSnapshot(
-      `"max-height:60vh;"`,
-    ));
-  test('max_h_screen_height_70', () =>
-    expect(sizing.max_h_screen_height_70()).toMatchInlineSnapshot(
-      `"max-height:70vh;"`,
-    ));
-  test('max_h_screen_height_80', () =>
-    expect(sizing.max_h_screen_height_80()).toMatchInlineSnapshot(
-      `"max-height:80vh;"`,
-    ));
-  test('max_h_screen_height_90', () =>
-    expect(sizing.max_h_screen_height_90()).toMatchInlineSnapshot(
-      `"max-height:90vh;"`,
-    ));
-  test('max_h_screen_width_10', () =>
-    expect(sizing.max_h_screen_width_10()).toMatchInlineSnapshot(
-      `"max-height:10vw;"`,
-    ));
-  test('max_h_screen_width_100', () =>
-    expect(sizing.max_h_screen_width_100()).toMatchInlineSnapshot(
-      `"max-height:100vw;"`,
-    ));
-  test('max_h_screen_width_20', () =>
-    expect(sizing.max_h_screen_width_20()).toMatchInlineSnapshot(
-      `"max-height:20vw;"`,
-    ));
-  test('max_h_screen_width_30', () =>
-    expect(sizing.max_h_screen_width_30()).toMatchInlineSnapshot(
-      `"max-height:30vw;"`,
-    ));
-  test('max_h_screen_width_40', () =>
-    expect(sizing.max_h_screen_width_40()).toMatchInlineSnapshot(
-      `"max-height:40vw;"`,
-    ));
-  test('max_h_screen_width_50', () =>
-    expect(sizing.max_h_screen_width_50()).toMatchInlineSnapshot(
-      `"max-height:50vw;"`,
-    ));
-  test('max_h_screen_width_60', () =>
-    expect(sizing.max_h_screen_width_60()).toMatchInlineSnapshot(
-      `"max-height:60vw;"`,
-    ));
-  test('max_h_screen_width_70', () =>
-    expect(sizing.max_h_screen_width_70()).toMatchInlineSnapshot(
-      `"max-height:70vw;"`,
-    ));
-  test('max_h_screen_width_80', () =>
-    expect(sizing.max_h_screen_width_80()).toMatchInlineSnapshot(
-      `"max-height:80vw;"`,
-    ));
-  test('max_h_screen_width_90', () =>
-    expect(sizing.max_h_screen_width_90()).toMatchInlineSnapshot(
-      `"max-height:90vw;"`,
-    ));
-  test('max_h_sm', () =>
-    expect(sizing.max_h_sm()).toMatchInlineSnapshot(`"max-height:0.25rem;"`));
-  test('max_h_xl', () =>
-    expect(sizing.max_h_xl()).toMatchInlineSnapshot(`"max-height:0.75rem;"`));
-  test('max_h_xs', () =>
-    expect(sizing.max_h_xs()).toMatchInlineSnapshot(`"max-height:0.125rem;"`));
-  test('max_w_10xl', () =>
-    expect(sizing.max_w_10xl()).toMatchInlineSnapshot(`"max-width:12rem;"`));
-  test('max_w_11xl', () =>
-    expect(sizing.max_w_11xl()).toMatchInlineSnapshot(`"max-width:24rem;"`));
-  test('max_w_12xl', () =>
-    expect(sizing.max_w_12xl()).toMatchInlineSnapshot(`"max-width:32rem;"`));
-  test('max_w_13xl', () =>
-    expect(sizing.max_w_13xl()).toMatchInlineSnapshot(`"max-width:48rem;"`));
-  test('max_w_14xl', () =>
-    expect(sizing.max_w_14xl()).toMatchInlineSnapshot(`"max-width:64rem;"`));
-  test('max_w_15xl', () =>
-    expect(sizing.max_w_15xl()).toMatchInlineSnapshot(`"max-width:96rem;"`));
-  test('max_w_16xl', () =>
-    expect(sizing.max_w_16xl()).toMatchInlineSnapshot(`"max-width:128rem;"`));
-  test('max_w_2xl', () =>
-    expect(sizing.max_w_2xl()).toMatchInlineSnapshot(`"max-width:1rem;"`));
-  test('max_w_3xl', () =>
-    expect(sizing.max_w_3xl()).toMatchInlineSnapshot(`"max-width:1.5rem;"`));
-  test('max_w_4xl', () =>
-    expect(sizing.max_w_4xl()).toMatchInlineSnapshot(`"max-width:2rem;"`));
-  test('max_w_5xl', () =>
-    expect(sizing.max_w_5xl()).toMatchInlineSnapshot(`"max-width:3rem;"`));
-  test('max_w_6xl', () =>
-    expect(sizing.max_w_6xl()).toMatchInlineSnapshot(`"max-width:4rem;"`));
-  test('max_w_7xl', () =>
-    expect(sizing.max_w_7xl()).toMatchInlineSnapshot(`"max-width:6rem;"`));
-  test('max_w_8xl', () =>
-    expect(sizing.max_w_8xl()).toMatchInlineSnapshot(`"max-width:8rem;"`));
-  test('max_w_9xl', () =>
-    expect(sizing.max_w_9xl()).toMatchInlineSnapshot(`"max-width:16rem;"`));
-  test('max_w_auto', () =>
-    expect(sizing.max_w_auto()).toMatchInlineSnapshot(`"max-width:auto;"`));
-  test('max_w_lg', () =>
-    expect(sizing.max_w_lg()).toMatchInlineSnapshot(`"max-width:0.5rem;"`));
-  test('max_w_md', () =>
-    expect(sizing.max_w_md()).toMatchInlineSnapshot(`"max-width:0.375rem;"`));
-  test('max_w_none', () =>
-    expect(sizing.max_w_none()).toMatchInlineSnapshot(`"max-width:0rem;"`));
-  test('max_w_percentage_10', () =>
-    expect(sizing.max_w_percentage_10()).toMatchInlineSnapshot(
-      `"max-width:10%;"`,
-    ));
-  test('max_w_percentage_100', () =>
-    expect(sizing.max_w_percentage_100()).toMatchInlineSnapshot(
-      `"max-width:100%;"`,
-    ));
-  test('max_w_percentage_20', () =>
-    expect(sizing.max_w_percentage_20()).toMatchInlineSnapshot(
-      `"max-width:20%;"`,
-    ));
-  test('max_w_percentage_30', () =>
-    expect(sizing.max_w_percentage_30()).toMatchInlineSnapshot(
-      `"max-width:30%;"`,
-    ));
-  test('max_w_percentage_40', () =>
-    expect(sizing.max_w_percentage_40()).toMatchInlineSnapshot(
-      `"max-width:40%;"`,
-    ));
-  test('max_w_percentage_50', () =>
-    expect(sizing.max_w_percentage_50()).toMatchInlineSnapshot(
-      `"max-width:50%;"`,
-    ));
-  test('max_w_percentage_60', () =>
-    expect(sizing.max_w_percentage_60()).toMatchInlineSnapshot(
-      `"max-width:60%;"`,
-    ));
-  test('max_w_percentage_70', () =>
-    expect(sizing.max_w_percentage_70()).toMatchInlineSnapshot(
-      `"max-width:70%;"`,
-    ));
-  test('max_w_percentage_80', () =>
-    expect(sizing.max_w_percentage_80()).toMatchInlineSnapshot(
-      `"max-width:80%;"`,
-    ));
-  test('max_w_percentage_90', () =>
-    expect(sizing.max_w_percentage_90()).toMatchInlineSnapshot(
-      `"max-width:90%;"`,
-    ));
-  test('max_w_px', () =>
-    expect(sizing.max_w_px()).toMatchInlineSnapshot(`"max-width:0.0625rem;"`));
-  test('max_w_screen_height_10', () =>
-    expect(sizing.max_w_screen_height_10()).toMatchInlineSnapshot(
-      `"max-width:10vh;"`,
-    ));
-  test('max_w_screen_height_100', () =>
-    expect(sizing.max_w_screen_height_100()).toMatchInlineSnapshot(
-      `"max-width:100vh;"`,
-    ));
-  test('max_w_screen_height_20', () =>
-    expect(sizing.max_w_screen_height_20()).toMatchInlineSnapshot(
-      `"max-width:20vh;"`,
-    ));
-  test('max_w_screen_height_30', () =>
-    expect(sizing.max_w_screen_height_30()).toMatchInlineSnapshot(
-      `"max-width:30vh;"`,
-    ));
-  test('max_w_screen_height_40', () =>
-    expect(sizing.max_w_screen_height_40()).toMatchInlineSnapshot(
-      `"max-width:40vh;"`,
-    ));
-  test('max_w_screen_height_50', () =>
-    expect(sizing.max_w_screen_height_50()).toMatchInlineSnapshot(
-      `"max-width:50vh;"`,
-    ));
-  test('max_w_screen_height_60', () =>
-    expect(sizing.max_w_screen_height_60()).toMatchInlineSnapshot(
-      `"max-width:60vh;"`,
-    ));
-  test('max_w_screen_height_70', () =>
-    expect(sizing.max_w_screen_height_70()).toMatchInlineSnapshot(
-      `"max-width:70vh;"`,
-    ));
-  test('max_w_screen_height_80', () =>
-    expect(sizing.max_w_screen_height_80()).toMatchInlineSnapshot(
-      `"max-width:80vh;"`,
-    ));
-  test('max_w_screen_height_90', () =>
-    expect(sizing.max_w_screen_height_90()).toMatchInlineSnapshot(
-      `"max-width:90vh;"`,
-    ));
-  test('max_w_screen_width_10', () =>
-    expect(sizing.max_w_screen_width_10()).toMatchInlineSnapshot(
-      `"max-width:10vw;"`,
-    ));
-  test('max_w_screen_width_100', () =>
-    expect(sizing.max_w_screen_width_100()).toMatchInlineSnapshot(
-      `"max-width:100vw;"`,
-    ));
-  test('max_w_screen_width_20', () =>
-    expect(sizing.max_w_screen_width_20()).toMatchInlineSnapshot(
-      `"max-width:20vw;"`,
-    ));
-  test('max_w_screen_width_30', () =>
-    expect(sizing.max_w_screen_width_30()).toMatchInlineSnapshot(
-      `"max-width:30vw;"`,
-    ));
-  test('max_w_screen_width_40', () =>
-    expect(sizing.max_w_screen_width_40()).toMatchInlineSnapshot(
-      `"max-width:40vw;"`,
-    ));
-  test('max_w_screen_width_50', () =>
-    expect(sizing.max_w_screen_width_50()).toMatchInlineSnapshot(
-      `"max-width:50vw;"`,
-    ));
-  test('max_w_screen_width_60', () =>
-    expect(sizing.max_w_screen_width_60()).toMatchInlineSnapshot(
-      `"max-width:60vw;"`,
-    ));
-  test('max_w_screen_width_70', () =>
-    expect(sizing.max_w_screen_width_70()).toMatchInlineSnapshot(
-      `"max-width:70vw;"`,
-    ));
-  test('max_w_screen_width_80', () =>
-    expect(sizing.max_w_screen_width_80()).toMatchInlineSnapshot(
-      `"max-width:80vw;"`,
-    ));
-  test('max_w_screen_width_90', () =>
-    expect(sizing.max_w_screen_width_90()).toMatchInlineSnapshot(
-      `"max-width:90vw;"`,
-    ));
-  test('max_w_sm', () =>
-    expect(sizing.max_w_sm()).toMatchInlineSnapshot(`"max-width:0.25rem;"`));
-  test('max_w_xl', () =>
-    expect(sizing.max_w_xl()).toMatchInlineSnapshot(`"max-width:0.75rem;"`));
-  test('max_w_xs', () =>
-    expect(sizing.max_w_xs()).toMatchInlineSnapshot(`"max-width:0.125rem;"`));
-  test('min_h_10xl', () =>
-    expect(sizing.min_h_10xl()).toMatchInlineSnapshot(`"min-height:12rem;"`));
-  test('min_h_11xl', () =>
-    expect(sizing.min_h_11xl()).toMatchInlineSnapshot(`"min-height:24rem;"`));
-  test('min_h_12xl', () =>
-    expect(sizing.min_h_12xl()).toMatchInlineSnapshot(`"min-height:32rem;"`));
-  test('min_h_13xl', () =>
-    expect(sizing.min_h_13xl()).toMatchInlineSnapshot(`"min-height:48rem;"`));
-  test('min_h_14xl', () =>
-    expect(sizing.min_h_14xl()).toMatchInlineSnapshot(`"min-height:64rem;"`));
-  test('min_h_15xl', () =>
-    expect(sizing.min_h_15xl()).toMatchInlineSnapshot(`"min-height:96rem;"`));
-  test('min_h_16xl', () =>
-    expect(sizing.min_h_16xl()).toMatchInlineSnapshot(`"min-height:128rem;"`));
-  test('min_h_2xl', () =>
-    expect(sizing.min_h_2xl()).toMatchInlineSnapshot(`"min-height:1rem;"`));
-  test('min_h_3xl', () =>
-    expect(sizing.min_h_3xl()).toMatchInlineSnapshot(`"min-height:1.5rem;"`));
-  test('min_h_4xl', () =>
-    expect(sizing.min_h_4xl()).toMatchInlineSnapshot(`"min-height:2rem;"`));
-  test('min_h_5xl', () =>
-    expect(sizing.min_h_5xl()).toMatchInlineSnapshot(`"min-height:3rem;"`));
-  test('min_h_6xl', () =>
-    expect(sizing.min_h_6xl()).toMatchInlineSnapshot(`"min-height:4rem;"`));
-  test('min_h_7xl', () =>
-    expect(sizing.min_h_7xl()).toMatchInlineSnapshot(`"min-height:6rem;"`));
-  test('min_h_8xl', () =>
-    expect(sizing.min_h_8xl()).toMatchInlineSnapshot(`"min-height:8rem;"`));
-  test('min_h_9xl', () =>
-    expect(sizing.min_h_9xl()).toMatchInlineSnapshot(`"min-height:16rem;"`));
-  test('min_h_auto', () =>
-    expect(sizing.min_h_auto()).toMatchInlineSnapshot(`"min-height:auto;"`));
-  test('min_h_lg', () =>
-    expect(sizing.min_h_lg()).toMatchInlineSnapshot(`"min-height:0.5rem;"`));
-  test('min_h_md', () =>
-    expect(sizing.min_h_md()).toMatchInlineSnapshot(`"min-height:0.375rem;"`));
-  test('min_h_none', () =>
-    expect(sizing.min_h_none()).toMatchInlineSnapshot(`"min-height:0rem;"`));
-  test('min_h_percentage_10', () =>
-    expect(sizing.min_h_percentage_10()).toMatchInlineSnapshot(
-      `"min-height:10%;"`,
-    ));
-  test('min_h_percentage_100', () =>
-    expect(sizing.min_h_percentage_100()).toMatchInlineSnapshot(
-      `"min-height:100%;"`,
-    ));
-  test('min_h_percentage_20', () =>
-    expect(sizing.min_h_percentage_20()).toMatchInlineSnapshot(
-      `"min-height:20%;"`,
-    ));
-  test('min_h_percentage_30', () =>
-    expect(sizing.min_h_percentage_30()).toMatchInlineSnapshot(
-      `"min-height:30%;"`,
-    ));
-  test('min_h_percentage_40', () =>
-    expect(sizing.min_h_percentage_40()).toMatchInlineSnapshot(
-      `"min-height:40%;"`,
-    ));
-  test('min_h_percentage_50', () =>
-    expect(sizing.min_h_percentage_50()).toMatchInlineSnapshot(
-      `"min-height:50%;"`,
-    ));
-  test('min_h_percentage_60', () =>
-    expect(sizing.min_h_percentage_60()).toMatchInlineSnapshot(
-      `"min-height:60%;"`,
-    ));
-  test('min_h_percentage_70', () =>
-    expect(sizing.min_h_percentage_70()).toMatchInlineSnapshot(
-      `"min-height:70%;"`,
-    ));
-  test('min_h_percentage_80', () =>
-    expect(sizing.min_h_percentage_80()).toMatchInlineSnapshot(
-      `"min-height:80%;"`,
-    ));
-  test('min_h_percentage_90', () =>
-    expect(sizing.min_h_percentage_90()).toMatchInlineSnapshot(
-      `"min-height:90%;"`,
-    ));
-  test('min_h_px', () =>
-    expect(sizing.min_h_px()).toMatchInlineSnapshot(`"min-height:0.0625rem;"`));
-  test('min_h_screen_height_10', () =>
-    expect(sizing.min_h_screen_height_10()).toMatchInlineSnapshot(
-      `"min-height:10vh;"`,
-    ));
-  test('min_h_screen_height_100', () =>
-    expect(sizing.min_h_screen_height_100()).toMatchInlineSnapshot(
-      `"min-height:100vh;"`,
-    ));
-  test('min_h_screen_height_20', () =>
-    expect(sizing.min_h_screen_height_20()).toMatchInlineSnapshot(
-      `"min-height:20vh;"`,
-    ));
-  test('min_h_screen_height_30', () =>
-    expect(sizing.min_h_screen_height_30()).toMatchInlineSnapshot(
-      `"min-height:30vh;"`,
-    ));
-  test('min_h_screen_height_40', () =>
-    expect(sizing.min_h_screen_height_40()).toMatchInlineSnapshot(
-      `"min-height:40vh;"`,
-    ));
-  test('min_h_screen_height_50', () =>
-    expect(sizing.min_h_screen_height_50()).toMatchInlineSnapshot(
-      `"min-height:50vh;"`,
-    ));
-  test('min_h_screen_height_60', () =>
-    expect(sizing.min_h_screen_height_60()).toMatchInlineSnapshot(
-      `"min-height:60vh;"`,
-    ));
-  test('min_h_screen_height_70', () =>
-    expect(sizing.min_h_screen_height_70()).toMatchInlineSnapshot(
-      `"min-height:70vh;"`,
-    ));
-  test('min_h_screen_height_80', () =>
-    expect(sizing.min_h_screen_height_80()).toMatchInlineSnapshot(
-      `"min-height:80vh;"`,
-    ));
-  test('min_h_screen_height_90', () =>
-    expect(sizing.min_h_screen_height_90()).toMatchInlineSnapshot(
-      `"min-height:90vh;"`,
-    ));
-  test('min_h_screen_width_10', () =>
-    expect(sizing.min_h_screen_width_10()).toMatchInlineSnapshot(
-      `"min-height:10vw;"`,
-    ));
-  test('min_h_screen_width_100', () =>
-    expect(sizing.min_h_screen_width_100()).toMatchInlineSnapshot(
-      `"min-height:100vw;"`,
-    ));
-  test('min_h_screen_width_20', () =>
-    expect(sizing.min_h_screen_width_20()).toMatchInlineSnapshot(
-      `"min-height:20vw;"`,
-    ));
-  test('min_h_screen_width_30', () =>
-    expect(sizing.min_h_screen_width_30()).toMatchInlineSnapshot(
-      `"min-height:30vw;"`,
-    ));
-  test('min_h_screen_width_40', () =>
-    expect(sizing.min_h_screen_width_40()).toMatchInlineSnapshot(
-      `"min-height:40vw;"`,
-    ));
-  test('min_h_screen_width_50', () =>
-    expect(sizing.min_h_screen_width_50()).toMatchInlineSnapshot(
-      `"min-height:50vw;"`,
-    ));
-  test('min_h_screen_width_60', () =>
-    expect(sizing.min_h_screen_width_60()).toMatchInlineSnapshot(
-      `"min-height:60vw;"`,
-    ));
-  test('min_h_screen_width_70', () =>
-    expect(sizing.min_h_screen_width_70()).toMatchInlineSnapshot(
-      `"min-height:70vw;"`,
-    ));
-  test('min_h_screen_width_80', () =>
-    expect(sizing.min_h_screen_width_80()).toMatchInlineSnapshot(
-      `"min-height:80vw;"`,
-    ));
-  test('min_h_screen_width_90', () =>
-    expect(sizing.min_h_screen_width_90()).toMatchInlineSnapshot(
-      `"min-height:90vw;"`,
-    ));
-  test('min_h_sm', () =>
-    expect(sizing.min_h_sm()).toMatchInlineSnapshot(`"min-height:0.25rem;"`));
-  test('min_h_xl', () =>
-    expect(sizing.min_h_xl()).toMatchInlineSnapshot(`"min-height:0.75rem;"`));
-  test('min_h_xs', () =>
-    expect(sizing.min_h_xs()).toMatchInlineSnapshot(`"min-height:0.125rem;"`));
-  test('min_w_10xl', () =>
-    expect(sizing.min_w_10xl()).toMatchInlineSnapshot(`"min-width:12rem;"`));
-  test('min_w_11xl', () =>
-    expect(sizing.min_w_11xl()).toMatchInlineSnapshot(`"min-width:24rem;"`));
-  test('min_w_12xl', () =>
-    expect(sizing.min_w_12xl()).toMatchInlineSnapshot(`"min-width:32rem;"`));
-  test('min_w_13xl', () =>
-    expect(sizing.min_w_13xl()).toMatchInlineSnapshot(`"min-width:48rem;"`));
-  test('min_w_14xl', () =>
-    expect(sizing.min_w_14xl()).toMatchInlineSnapshot(`"min-width:64rem;"`));
-  test('min_w_15xl', () =>
-    expect(sizing.min_w_15xl()).toMatchInlineSnapshot(`"min-width:96rem;"`));
-  test('min_w_16xl', () =>
-    expect(sizing.min_w_16xl()).toMatchInlineSnapshot(`"min-width:128rem;"`));
-  test('min_w_2xl', () =>
-    expect(sizing.min_w_2xl()).toMatchInlineSnapshot(`"min-width:1rem;"`));
-  test('min_w_3xl', () =>
-    expect(sizing.min_w_3xl()).toMatchInlineSnapshot(`"min-width:1.5rem;"`));
-  test('min_w_4xl', () =>
-    expect(sizing.min_w_4xl()).toMatchInlineSnapshot(`"min-width:2rem;"`));
-  test('min_w_5xl', () =>
-    expect(sizing.min_w_5xl()).toMatchInlineSnapshot(`"min-width:3rem;"`));
-  test('min_w_6xl', () =>
-    expect(sizing.min_w_6xl()).toMatchInlineSnapshot(`"min-width:4rem;"`));
-  test('min_w_7xl', () =>
-    expect(sizing.min_w_7xl()).toMatchInlineSnapshot(`"min-width:6rem;"`));
-  test('min_w_8xl', () =>
-    expect(sizing.min_w_8xl()).toMatchInlineSnapshot(`"min-width:8rem;"`));
-  test('min_w_9xl', () =>
-    expect(sizing.min_w_9xl()).toMatchInlineSnapshot(`"min-width:16rem;"`));
-  test('min_w_auto', () =>
-    expect(sizing.min_w_auto()).toMatchInlineSnapshot(`"min-width:auto;"`));
-  test('min_w_lg', () =>
-    expect(sizing.min_w_lg()).toMatchInlineSnapshot(`"min-width:0.5rem;"`));
-  test('min_w_md', () =>
-    expect(sizing.min_w_md()).toMatchInlineSnapshot(`"min-width:0.375rem;"`));
-  test('min_w_none', () =>
-    expect(sizing.min_w_none()).toMatchInlineSnapshot(`"min-width:0rem;"`));
-  test('min_w_percentage_10', () =>
-    expect(sizing.min_w_percentage_10()).toMatchInlineSnapshot(
-      `"min-width:10%;"`,
-    ));
-  test('min_w_percentage_100', () =>
-    expect(sizing.min_w_percentage_100()).toMatchInlineSnapshot(
-      `"min-width:100%;"`,
-    ));
-  test('min_w_percentage_20', () =>
-    expect(sizing.min_w_percentage_20()).toMatchInlineSnapshot(
-      `"min-width:20%;"`,
-    ));
-  test('min_w_percentage_30', () =>
-    expect(sizing.min_w_percentage_30()).toMatchInlineSnapshot(
-      `"min-width:30%;"`,
-    ));
-  test('min_w_percentage_40', () =>
-    expect(sizing.min_w_percentage_40()).toMatchInlineSnapshot(
-      `"min-width:40%;"`,
-    ));
-  test('min_w_percentage_50', () =>
-    expect(sizing.min_w_percentage_50()).toMatchInlineSnapshot(
-      `"min-width:50%;"`,
-    ));
-  test('min_w_percentage_60', () =>
-    expect(sizing.min_w_percentage_60()).toMatchInlineSnapshot(
-      `"min-width:60%;"`,
-    ));
-  test('min_w_percentage_70', () =>
-    expect(sizing.min_w_percentage_70()).toMatchInlineSnapshot(
-      `"min-width:70%;"`,
-    ));
-  test('min_w_percentage_80', () =>
-    expect(sizing.min_w_percentage_80()).toMatchInlineSnapshot(
-      `"min-width:80%;"`,
-    ));
-  test('min_w_percentage_90', () =>
-    expect(sizing.min_w_percentage_90()).toMatchInlineSnapshot(
-      `"min-width:90%;"`,
-    ));
-  test('min_w_px', () =>
-    expect(sizing.min_w_px()).toMatchInlineSnapshot(`"min-width:0.0625rem;"`));
-  test('min_w_screen_height_10', () =>
-    expect(sizing.min_w_screen_height_10()).toMatchInlineSnapshot(
-      `"min-width:10vh;"`,
-    ));
-  test('min_w_screen_height_100', () =>
-    expect(sizing.min_w_screen_height_100()).toMatchInlineSnapshot(
-      `"min-width:100vh;"`,
-    ));
-  test('min_w_screen_height_20', () =>
-    expect(sizing.min_w_screen_height_20()).toMatchInlineSnapshot(
-      `"min-width:20vh;"`,
-    ));
-  test('min_w_screen_height_30', () =>
-    expect(sizing.min_w_screen_height_30()).toMatchInlineSnapshot(
-      `"min-width:30vh;"`,
-    ));
-  test('min_w_screen_height_40', () =>
-    expect(sizing.min_w_screen_height_40()).toMatchInlineSnapshot(
-      `"min-width:40vh;"`,
-    ));
-  test('min_w_screen_height_50', () =>
-    expect(sizing.min_w_screen_height_50()).toMatchInlineSnapshot(
-      `"min-width:50vh;"`,
-    ));
-  test('min_w_screen_height_60', () =>
-    expect(sizing.min_w_screen_height_60()).toMatchInlineSnapshot(
-      `"min-width:60vh;"`,
-    ));
-  test('min_w_screen_height_70', () =>
-    expect(sizing.min_w_screen_height_70()).toMatchInlineSnapshot(
-      `"min-width:70vh;"`,
-    ));
-  test('min_w_screen_height_80', () =>
-    expect(sizing.min_w_screen_height_80()).toMatchInlineSnapshot(
-      `"min-width:80vh;"`,
-    ));
-  test('min_w_screen_height_90', () =>
-    expect(sizing.min_w_screen_height_90()).toMatchInlineSnapshot(
-      `"min-width:90vh;"`,
-    ));
-  test('min_w_screen_width_10', () =>
-    expect(sizing.min_w_screen_width_10()).toMatchInlineSnapshot(
-      `"min-width:10vw;"`,
-    ));
-  test('min_w_screen_width_100', () =>
-    expect(sizing.min_w_screen_width_100()).toMatchInlineSnapshot(
-      `"min-width:100vw;"`,
-    ));
-  test('min_w_screen_width_20', () =>
-    expect(sizing.min_w_screen_width_20()).toMatchInlineSnapshot(
-      `"min-width:20vw;"`,
-    ));
-  test('min_w_screen_width_30', () =>
-    expect(sizing.min_w_screen_width_30()).toMatchInlineSnapshot(
-      `"min-width:30vw;"`,
-    ));
-  test('min_w_screen_width_40', () =>
-    expect(sizing.min_w_screen_width_40()).toMatchInlineSnapshot(
-      `"min-width:40vw;"`,
-    ));
-  test('min_w_screen_width_50', () =>
-    expect(sizing.min_w_screen_width_50()).toMatchInlineSnapshot(
-      `"min-width:50vw;"`,
-    ));
-  test('min_w_screen_width_60', () =>
-    expect(sizing.min_w_screen_width_60()).toMatchInlineSnapshot(
-      `"min-width:60vw;"`,
-    ));
-  test('min_w_screen_width_70', () =>
-    expect(sizing.min_w_screen_width_70()).toMatchInlineSnapshot(
-      `"min-width:70vw;"`,
-    ));
-  test('min_w_screen_width_80', () =>
-    expect(sizing.min_w_screen_width_80()).toMatchInlineSnapshot(
-      `"min-width:80vw;"`,
-    ));
-  test('min_w_screen_width_90', () =>
-    expect(sizing.min_w_screen_width_90()).toMatchInlineSnapshot(
-      `"min-width:90vw;"`,
-    ));
-  test('min_w_sm', () =>
-    expect(sizing.min_w_sm()).toMatchInlineSnapshot(`"min-width:0.25rem;"`));
-  test('min_w_xl', () =>
-    expect(sizing.min_w_xl()).toMatchInlineSnapshot(`"min-width:0.75rem;"`));
-  test('min_w_xs', () =>
-    expect(sizing.min_w_xs()).toMatchInlineSnapshot(`"min-width:0.125rem;"`));
-  test('w_10xl', () =>
-    expect(sizing.w_10xl()).toMatchInlineSnapshot(`"width:12rem;"`));
-  test('w_11xl', () =>
-    expect(sizing.w_11xl()).toMatchInlineSnapshot(`"width:24rem;"`));
-  test('w_12xl', () =>
-    expect(sizing.w_12xl()).toMatchInlineSnapshot(`"width:32rem;"`));
-  test('w_13xl', () =>
-    expect(sizing.w_13xl()).toMatchInlineSnapshot(`"width:48rem;"`));
-  test('w_14xl', () =>
-    expect(sizing.w_14xl()).toMatchInlineSnapshot(`"width:64rem;"`));
-  test('w_15xl', () =>
-    expect(sizing.w_15xl()).toMatchInlineSnapshot(`"width:96rem;"`));
-  test('w_16xl', () =>
-    expect(sizing.w_16xl()).toMatchInlineSnapshot(`"width:128rem;"`));
-  test('w_2xl', () =>
-    expect(sizing.w_2xl()).toMatchInlineSnapshot(`"width:1rem;"`));
-  test('w_3xl', () =>
-    expect(sizing.w_3xl()).toMatchInlineSnapshot(`"width:1.5rem;"`));
-  test('w_4xl', () =>
-    expect(sizing.w_4xl()).toMatchInlineSnapshot(`"width:2rem;"`));
-  test('w_5xl', () =>
-    expect(sizing.w_5xl()).toMatchInlineSnapshot(`"width:3rem;"`));
-  test('w_6xl', () =>
-    expect(sizing.w_6xl()).toMatchInlineSnapshot(`"width:4rem;"`));
-  test('w_7xl', () =>
-    expect(sizing.w_7xl()).toMatchInlineSnapshot(`"width:6rem;"`));
-  test('w_8xl', () =>
-    expect(sizing.w_8xl()).toMatchInlineSnapshot(`"width:8rem;"`));
-  test('w_9xl', () =>
-    expect(sizing.w_9xl()).toMatchInlineSnapshot(`"width:16rem;"`));
-  test('w_auto', () =>
-    expect(sizing.w_auto()).toMatchInlineSnapshot(`"width:auto;"`));
-  test('w_lg', () =>
-    expect(sizing.w_lg()).toMatchInlineSnapshot(`"width:0.5rem;"`));
-  test('w_md', () =>
-    expect(sizing.w_md()).toMatchInlineSnapshot(`"width:0.375rem;"`));
-  test('w_none', () =>
-    expect(sizing.w_none()).toMatchInlineSnapshot(`"width:0rem;"`));
-  test('w_percentage_10', () =>
-    expect(sizing.w_percentage_10()).toMatchInlineSnapshot(`"width:10%;"`));
-  test('w_percentage_100', () =>
-    expect(sizing.w_percentage_100()).toMatchInlineSnapshot(`"width:100%;"`));
-  test('w_percentage_20', () =>
-    expect(sizing.w_percentage_20()).toMatchInlineSnapshot(`"width:20%;"`));
-  test('w_percentage_30', () =>
-    expect(sizing.w_percentage_30()).toMatchInlineSnapshot(`"width:30%;"`));
-  test('w_percentage_40', () =>
-    expect(sizing.w_percentage_40()).toMatchInlineSnapshot(`"width:40%;"`));
-  test('w_percentage_50', () =>
-    expect(sizing.w_percentage_50()).toMatchInlineSnapshot(`"width:50%;"`));
-  test('w_percentage_60', () =>
-    expect(sizing.w_percentage_60()).toMatchInlineSnapshot(`"width:60%;"`));
-  test('w_percentage_70', () =>
-    expect(sizing.w_percentage_70()).toMatchInlineSnapshot(`"width:70%;"`));
-  test('w_percentage_80', () =>
-    expect(sizing.w_percentage_80()).toMatchInlineSnapshot(`"width:80%;"`));
-  test('w_percentage_90', () =>
-    expect(sizing.w_percentage_90()).toMatchInlineSnapshot(`"width:90%;"`));
-  test('w_px', () =>
-    expect(sizing.w_px()).toMatchInlineSnapshot(`"width:0.0625rem;"`));
-  test('w_screen_height_10', () =>
-    expect(sizing.w_screen_height_10()).toMatchInlineSnapshot(`"width:10vh;"`));
-  test('w_screen_height_100', () =>
-    expect(sizing.w_screen_height_100()).toMatchInlineSnapshot(
-      `"width:100vh;"`,
-    ));
-  test('w_screen_height_20', () =>
-    expect(sizing.w_screen_height_20()).toMatchInlineSnapshot(`"width:20vh;"`));
-  test('w_screen_height_30', () =>
-    expect(sizing.w_screen_height_30()).toMatchInlineSnapshot(`"width:30vh;"`));
-  test('w_screen_height_40', () =>
-    expect(sizing.w_screen_height_40()).toMatchInlineSnapshot(`"width:40vh;"`));
-  test('w_screen_height_50', () =>
-    expect(sizing.w_screen_height_50()).toMatchInlineSnapshot(`"width:50vh;"`));
-  test('w_screen_height_60', () =>
-    expect(sizing.w_screen_height_60()).toMatchInlineSnapshot(`"width:60vh;"`));
-  test('w_screen_height_70', () =>
-    expect(sizing.w_screen_height_70()).toMatchInlineSnapshot(`"width:70vh;"`));
-  test('w_screen_height_80', () =>
-    expect(sizing.w_screen_height_80()).toMatchInlineSnapshot(`"width:80vh;"`));
-  test('w_screen_height_90', () =>
-    expect(sizing.w_screen_height_90()).toMatchInlineSnapshot(`"width:90vh;"`));
-  test('w_screen_width_10', () =>
-    expect(sizing.w_screen_width_10()).toMatchInlineSnapshot(`"width:10vw;"`));
-  test('w_screen_width_100', () =>
-    expect(sizing.w_screen_width_100()).toMatchInlineSnapshot(
-      `"width:100vw;"`,
-    ));
-  test('w_screen_width_20', () =>
-    expect(sizing.w_screen_width_20()).toMatchInlineSnapshot(`"width:20vw;"`));
-  test('w_screen_width_30', () =>
-    expect(sizing.w_screen_width_30()).toMatchInlineSnapshot(`"width:30vw;"`));
-  test('w_screen_width_40', () =>
-    expect(sizing.w_screen_width_40()).toMatchInlineSnapshot(`"width:40vw;"`));
-  test('w_screen_width_50', () =>
-    expect(sizing.w_screen_width_50()).toMatchInlineSnapshot(`"width:50vw;"`));
-  test('w_screen_width_60', () =>
-    expect(sizing.w_screen_width_60()).toMatchInlineSnapshot(`"width:60vw;"`));
-  test('w_screen_width_70', () =>
-    expect(sizing.w_screen_width_70()).toMatchInlineSnapshot(`"width:70vw;"`));
-  test('w_screen_width_80', () =>
-    expect(sizing.w_screen_width_80()).toMatchInlineSnapshot(`"width:80vw;"`));
-  test('w_screen_width_90', () =>
-    expect(sizing.w_screen_width_90()).toMatchInlineSnapshot(`"width:90vw;"`));
-  test('w_sm', () =>
-    expect(sizing.w_sm()).toMatchInlineSnapshot(`"width:0.25rem;"`));
-  test('w_xl', () =>
-    expect(sizing.w_xl()).toMatchInlineSnapshot(`"width:0.75rem;"`));
-  test('w_xs', () =>
-    expect(sizing.w_xs()).toMatchInlineSnapshot(`"width:0.125rem;"`));
+test('sizing', () => {
+  expect(Object.keys(sizing).map((key) => sizing[key]()))
+    .toMatchInlineSnapshot(`
+    Array [
+      "height:auto;",
+      "height:0rem;",
+      "height:0.0625rem;",
+      "height:0.125rem;",
+      "height:0.25rem;",
+      "height:0.375rem;",
+      "height:0.5rem;",
+      "height:0.75rem;",
+      "height:1rem;",
+      "height:1.5rem;",
+      "height:2rem;",
+      "height:3rem;",
+      "height:4rem;",
+      "height:6rem;",
+      "height:8rem;",
+      "height:16rem;",
+      "height:12rem;",
+      "height:24rem;",
+      "height:32rem;",
+      "height:48rem;",
+      "height:64rem;",
+      "height:96rem;",
+      "height:128rem;",
+      "height:10%;",
+      "height:20%;",
+      "height:30%;",
+      "height:40%;",
+      "height:50%;",
+      "height:60%;",
+      "height:70%;",
+      "height:80%;",
+      "height:90%;",
+      "height:100%;",
+      "height:10vw;",
+      "height:20vw;",
+      "height:30vw;",
+      "height:40vw;",
+      "height:50vw;",
+      "height:60vw;",
+      "height:70vw;",
+      "height:80vw;",
+      "height:90vw;",
+      "height:100vw;",
+      "height:10vh;",
+      "height:20vh;",
+      "height:30vh;",
+      "height:40vh;",
+      "height:50vh;",
+      "height:60vh;",
+      "height:70vh;",
+      "height:80vh;",
+      "height:90vh;",
+      "height:100vh;",
+      "max-height:auto;",
+      "max-height:0rem;",
+      "max-height:0.0625rem;",
+      "max-height:0.125rem;",
+      "max-height:0.25rem;",
+      "max-height:0.375rem;",
+      "max-height:0.5rem;",
+      "max-height:0.75rem;",
+      "max-height:1rem;",
+      "max-height:1.5rem;",
+      "max-height:2rem;",
+      "max-height:3rem;",
+      "max-height:4rem;",
+      "max-height:6rem;",
+      "max-height:8rem;",
+      "max-height:16rem;",
+      "max-height:12rem;",
+      "max-height:24rem;",
+      "max-height:32rem;",
+      "max-height:48rem;",
+      "max-height:64rem;",
+      "max-height:96rem;",
+      "max-height:128rem;",
+      "max-height:10%;",
+      "max-height:20%;",
+      "max-height:30%;",
+      "max-height:40%;",
+      "max-height:50%;",
+      "max-height:60%;",
+      "max-height:70%;",
+      "max-height:80%;",
+      "max-height:90%;",
+      "max-height:100%;",
+      "max-height:10vw;",
+      "max-height:20vw;",
+      "max-height:30vw;",
+      "max-height:40vw;",
+      "max-height:50vw;",
+      "max-height:60vw;",
+      "max-height:70vw;",
+      "max-height:80vw;",
+      "max-height:90vw;",
+      "max-height:100vw;",
+      "max-height:10vh;",
+      "max-height:20vh;",
+      "max-height:30vh;",
+      "max-height:40vh;",
+      "max-height:50vh;",
+      "max-height:60vh;",
+      "max-height:70vh;",
+      "max-height:80vh;",
+      "max-height:90vh;",
+      "max-height:100vh;",
+      "min-height:auto;",
+      "min-height:0rem;",
+      "min-height:0.0625rem;",
+      "min-height:0.125rem;",
+      "min-height:0.25rem;",
+      "min-height:0.375rem;",
+      "min-height:0.5rem;",
+      "min-height:0.75rem;",
+      "min-height:1rem;",
+      "min-height:1.5rem;",
+      "min-height:2rem;",
+      "min-height:3rem;",
+      "min-height:4rem;",
+      "min-height:6rem;",
+      "min-height:8rem;",
+      "min-height:16rem;",
+      "min-height:12rem;",
+      "min-height:24rem;",
+      "min-height:32rem;",
+      "min-height:48rem;",
+      "min-height:64rem;",
+      "min-height:96rem;",
+      "min-height:128rem;",
+      "min-height:10%;",
+      "min-height:20%;",
+      "min-height:30%;",
+      "min-height:40%;",
+      "min-height:50%;",
+      "min-height:60%;",
+      "min-height:70%;",
+      "min-height:80%;",
+      "min-height:90%;",
+      "min-height:100%;",
+      "min-height:10vw;",
+      "min-height:20vw;",
+      "min-height:30vw;",
+      "min-height:40vw;",
+      "min-height:50vw;",
+      "min-height:60vw;",
+      "min-height:70vw;",
+      "min-height:80vw;",
+      "min-height:90vw;",
+      "min-height:100vw;",
+      "min-height:10vh;",
+      "min-height:20vh;",
+      "min-height:30vh;",
+      "min-height:40vh;",
+      "min-height:50vh;",
+      "min-height:60vh;",
+      "min-height:70vh;",
+      "min-height:80vh;",
+      "min-height:90vh;",
+      "min-height:100vh;",
+      "width:auto;",
+      "width:0rem;",
+      "width:0.0625rem;",
+      "width:0.125rem;",
+      "width:0.25rem;",
+      "width:0.375rem;",
+      "width:0.5rem;",
+      "width:0.75rem;",
+      "width:1rem;",
+      "width:1.5rem;",
+      "width:2rem;",
+      "width:3rem;",
+      "width:4rem;",
+      "width:6rem;",
+      "width:8rem;",
+      "width:16rem;",
+      "width:12rem;",
+      "width:24rem;",
+      "width:32rem;",
+      "width:48rem;",
+      "width:64rem;",
+      "width:96rem;",
+      "width:128rem;",
+      "width:10%;",
+      "width:20%;",
+      "width:30%;",
+      "width:40%;",
+      "width:50%;",
+      "width:60%;",
+      "width:70%;",
+      "width:80%;",
+      "width:90%;",
+      "width:100%;",
+      "width:10vw;",
+      "width:20vw;",
+      "width:30vw;",
+      "width:40vw;",
+      "width:50vw;",
+      "width:60vw;",
+      "width:70vw;",
+      "width:80vw;",
+      "width:90vw;",
+      "width:100vw;",
+      "width:10vh;",
+      "width:20vh;",
+      "width:30vh;",
+      "width:40vh;",
+      "width:50vh;",
+      "width:60vh;",
+      "width:70vh;",
+      "width:80vh;",
+      "width:90vh;",
+      "width:100vh;",
+      "max-width:auto;",
+      "max-width:0rem;",
+      "max-width:0.0625rem;",
+      "max-width:0.125rem;",
+      "max-width:0.25rem;",
+      "max-width:0.375rem;",
+      "max-width:0.5rem;",
+      "max-width:0.75rem;",
+      "max-width:1rem;",
+      "max-width:1.5rem;",
+      "max-width:2rem;",
+      "max-width:3rem;",
+      "max-width:4rem;",
+      "max-width:6rem;",
+      "max-width:8rem;",
+      "max-width:16rem;",
+      "max-width:12rem;",
+      "max-width:24rem;",
+      "max-width:32rem;",
+      "max-width:48rem;",
+      "max-width:64rem;",
+      "max-width:96rem;",
+      "max-width:128rem;",
+      "max-width:10%;",
+      "max-width:20%;",
+      "max-width:30%;",
+      "max-width:40%;",
+      "max-width:50%;",
+      "max-width:60%;",
+      "max-width:70%;",
+      "max-width:80%;",
+      "max-width:90%;",
+      "max-width:100%;",
+      "max-width:10vw;",
+      "max-width:20vw;",
+      "max-width:30vw;",
+      "max-width:40vw;",
+      "max-width:50vw;",
+      "max-width:60vw;",
+      "max-width:70vw;",
+      "max-width:80vw;",
+      "max-width:90vw;",
+      "max-width:100vw;",
+      "max-width:10vh;",
+      "max-width:20vh;",
+      "max-width:30vh;",
+      "max-width:40vh;",
+      "max-width:50vh;",
+      "max-width:60vh;",
+      "max-width:70vh;",
+      "max-width:80vh;",
+      "max-width:90vh;",
+      "max-width:100vh;",
+      "min-width:auto;",
+      "min-width:0rem;",
+      "min-width:0.0625rem;",
+      "min-width:0.125rem;",
+      "min-width:0.25rem;",
+      "min-width:0.375rem;",
+      "min-width:0.5rem;",
+      "min-width:0.75rem;",
+      "min-width:1rem;",
+      "min-width:1.5rem;",
+      "min-width:2rem;",
+      "min-width:3rem;",
+      "min-width:4rem;",
+      "min-width:6rem;",
+      "min-width:8rem;",
+      "min-width:16rem;",
+      "min-width:12rem;",
+      "min-width:24rem;",
+      "min-width:32rem;",
+      "min-width:48rem;",
+      "min-width:64rem;",
+      "min-width:96rem;",
+      "min-width:128rem;",
+      "min-width:10%;",
+      "min-width:20%;",
+      "min-width:30%;",
+      "min-width:40%;",
+      "min-width:50%;",
+      "min-width:60%;",
+      "min-width:70%;",
+      "min-width:80%;",
+      "min-width:90%;",
+      "min-width:100%;",
+      "min-width:10vw;",
+      "min-width:20vw;",
+      "min-width:30vw;",
+      "min-width:40vw;",
+      "min-width:50vw;",
+      "min-width:60vw;",
+      "min-width:70vw;",
+      "min-width:80vw;",
+      "min-width:90vw;",
+      "min-width:100vw;",
+      "min-width:10vh;",
+      "min-width:20vh;",
+      "min-width:30vh;",
+      "min-width:40vh;",
+      "min-width:50vh;",
+      "min-width:60vh;",
+      "min-width:70vh;",
+      "min-width:80vh;",
+      "min-width:90vh;",
+      "min-width:100vh;",
+    ]
+  `);
 });
