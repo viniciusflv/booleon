@@ -20,7 +20,7 @@ const theme =
   ({ key, value, recursiveCompiler }) =>
     recursiveCompiler(value)
       .replace(/\.bl/g, `body[data-theme="${key}"] .bl`)
-      .replace(/(,)\./g, `$1body[data-theme="${key}"] `);
+      .replace(/(,)\./g, `$1body[data-theme="${key}"] .`);
 
 const pseudo =
   (selector: SelectorKey): SelectorHandler =>

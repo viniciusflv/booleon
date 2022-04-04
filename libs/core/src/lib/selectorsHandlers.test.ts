@@ -45,7 +45,7 @@ describe('selector', () => {
         recursiveCompiler: () => '.bl-className .asdsdsd,.dasdasd {css,css}',
       }),
     ).toMatchInlineSnapshot(
-      `"body[data-theme=\\"key\\"] .bl-className .asdsdsd,body[data-theme=\\"key\\"] dasdasd {css,css}"`,
+      `"body[data-theme=\\"key\\"] .bl-className .asdsdsd,body[data-theme=\\"key\\"] .dasdasd {css,css}"`,
     );
   });
 
