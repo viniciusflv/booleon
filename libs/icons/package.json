@@ -1,12 +1,18 @@
 {
   "name": "@booleon/icons",
-  "main": "dist/index.ts",
-  "types": "dist/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "private": true,
   "scripts": {
-    "svg": "svj -i $(pwd)/src/assets -d $(pwd)/dist --ts --svgo"
+    "emit": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "build": "npm run parse && node ./esbuild.js && npm run emit",
+    "parse": "svj -i ./src/assets -d ./src -r"
   },
   "devDependencies": {
-    "svj": "latest"
+    "svj": "^1.2.0",
+    "@configs/eslint": "*",
+    "@configs/babel": "*",
+    "@configs/jest": "*",
+    "@configs/typescript": "*"
   }
 }
