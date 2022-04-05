@@ -62,3 +62,7 @@ export type BooleonProps<
   | Props<BooleonPropsKeys<BooleonModuleKeys<M>, S>, BooleonModuleValues>
   | Record<string, BooleonModuleValues>
 >;
+
+export type ThemedModule<K extends string, T extends Record<string, any>> = {
+  [key in `${K}_${keyof T extends string ? keyof T : string}`]: () => string;
+};

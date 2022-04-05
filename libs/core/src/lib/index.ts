@@ -6,3 +6,5 @@ export * from './composeProps';
 export * from './uniqueClass';
 export * from './sortProps';
 export * from './stringHash';
+export * from './sym';
+export * from './theme';
