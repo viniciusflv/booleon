@@ -2,6 +2,7 @@ export * from './Button';
 export * from './Container';
 export * from './IconText';
 export * from './List';
+export * from './Mermaid';
 export * from './SearchField';
 export * from './Snippet';
 export * from './Svg';

@@ -3,10 +3,10 @@
   "scripts": {
     "build": "turbo run build",
     "sb": "turbo run storybook --parallel",
+    "prd": "turbo run prd",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "svg": "lerna exec npm run svg --scope=@booleon/icons",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
@@ -27,8 +27,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.4",
     "lerna": "^4.0.0",
-    "react": ">=17",
-    "react-dom": "^17.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "turbo": "latest"
   },
   "engines": {
@@ -40,5 +40,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "packageManager": "npm@8.1.0"
+  "packageManager": "npm@8.5.0"
 }
