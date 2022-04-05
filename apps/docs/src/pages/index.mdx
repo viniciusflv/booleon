@@ -1,0 +1,30 @@
+import { Snippet } from '@booleon/ui';
+
+```tsx
+const regex = /\d1.*/g;
+
+type Type = any;
+
+const arrowFunction = ({ blue }: Type) => <Component color={blue} />;
+
+/**
+ * comment
+ * @example example
+ */
+function FunctionComponent({ blue }: any) {
+  return <Component color={blue} />;
+}
+```
+
+```mermaid
+  graph TD
+
+  booleon[booleon] --> hocBooleon[hocBooleon] --> useBooleon[useBooleon]
+  useBooleon[useBooleon] --> useServerSide[useServerSide] --> ServerSideContext[ServerSideContext]
+  useBooleon[useBooleon] --> filterProps[filterProps]
+  useBooleon[useBooleon] --> reactStyleAppender[reactStyleAppender]
+  reactStyleAppender[reactStyleAppender] --> styleAppender[styleAppender]
+  reactStyleAppender[reactStyleAppender] --> createElement[createElement]
+  useBooleon[useBooleon] --> stringHash[stringHash]
+  useBooleon[useBooleon] --> styleCompiler[styleCompiler]
+```
