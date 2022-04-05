@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  transition-property: background-color, border-color, fill, stroke, opacity,
+    box-shadow, transform;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}

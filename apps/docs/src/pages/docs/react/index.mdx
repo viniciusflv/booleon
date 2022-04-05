@@ -1,0 +1,128 @@
+---
+priority: 3
+icon: react
+title: Booleon React
+description: Booleon React is a DX focused CSS-in-JS library for, a highly typed declarative, styling, using component boolean properties. Works by mapping a pre-defined entry of css with keys that can be static (string) or dynamic (RegEx).
+---
+
+# Introduction
+
+Booleon React is a `DX` focused `CSS-in-JS` `library` for, a highly typed `declarative`, styling, using component `boolean` properties.
+Works by mapping a `pre-defined` entry of css with keys that can be static (`string`) or dynamic (`RegEx`).
+
+```mermaid
+  graph TD
+
+  booleon[booleon] --> hocBooleon[hocBooleon] --> useBooleon[useBooleon]
+  useBooleon[useBooleon] --> useServerSide[useServerSide] --> ServerSideContext[ServerSideContext]
+  useBooleon[useBooleon] --> filterProps[filterProps]
+  useBooleon[useBooleon] --> reactStyleAppender[reactStyleAppender]
+  reactStyleAppender[reactStyleAppender] --> styleAppender[styleAppender]
+  reactStyleAppender[reactStyleAppender] --> createElement[createElement]
+  useBooleon[useBooleon] --> stringHash[stringHash]
+  useBooleon[useBooleon] --> styleCompiler[styleCompiler]
+```
+
+# Instalation
+
+```shell
+npm i @booleon/core
+```
+
+```shell
+yarn add @booleon/core
+```
+
+# Features
+
+## Create Component
+
+```tsx
+import { booleon } from '@booleon/react';
+import { background } from '@booleon/module';
+
+export const ButtonStyled = booleon.button(background);
+```
+
+## Basic Usage
+
+```tsx
+export const MyComponent = () => {
+  return (
+    <ButtonStyled bg_color_f00 />
+  )
+}
+```
+
+## Conditional styling
+
+Only applies css if a `condition` is satisfied.
+
+```tsx
+export const MyComponent = ({ color }) => {
+  return (
+    <ButtonStyled bg_color_f00={color === 'red'} />
+  )
+}
+```
+
+## Responsiveness
+
+Add styles to `media queries`.
+
+```tsx
+export const MyComponent = () => {
+  return (
+    <ButtonStyled md__bg_color_f00 />
+  )
+}
+```
+
+## Pseudo Elements
+
+Applies, possible nested, `pseudo elements`.
+
+```tsx
+export const MyComponent = () => {
+  return (
+    <ButtonStyled hover__bg_color_f00 />
+  )
+}
+```
+
+## Keyframes
+
+Create simple and fast `keyframes`.
+
+```tsx
+import { booleon } from '@booleon/react';
+import { container, animation } from '@booleon/module';
+
+const Component = booleon.div(container, animation);
+export const MyComponent = () => {
+  return (
+    <Component
+      kf__myAnimation
+      from__top
+      to__top_full
+      ani_name_myAnimation
+      ani_iteration_infinite
+    />
+  )
+}
+```
+
+## Theming
+
+Allows `themes` props declarations. (default from `prefers-color-scheme`)
+
+```tsx
+import { useTheme } from '@booleon/react';
+
+export const MyComponent = () => {
+  const { toggleTheme } = useTheme();
+  return (
+    <ButtonStyled dark__bg_color_f00 onClick={toggleTheme} />
+  )
+}
+```

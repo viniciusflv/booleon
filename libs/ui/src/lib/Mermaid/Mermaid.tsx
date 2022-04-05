@@ -13,28 +13,28 @@ const _Mermaid = booleon.div(
   },
   {
     selectors: {
-      line: selector.pseudo(' .mermaid .path'),
-      arrow: selector.pseudo(' .mermaid .arrowheadPath'),
-      node: selector.pseudo(' .mermaid .node rect,.node foreignObject'),
+      arrowhead: selector.pseudo(' .arrowheadPath'),
+      arrowline: selector.pseudo(' .edgePath .path'),
+      label: selector.pseudo(' .label,.mermaid .edgeLabel'),
+      node: selector.pseudo(' .label-container'),
     },
   },
 );
 
-export function Mermaid({ children }: any) {
+export function Mermaid({ children, className }: any) {
   return (
     <_Mermaid
-      dark__important__line__stroke_color_dark_code_baseColor
-      dark__important__arrow__fill_color_dark_code_keyword
-      dark__important__node__fill_color_dark_code_background
-      dark__important__node__ft_color_dark_code_baseColor
-      dark__important__node__stroke_color_dark_code_variable
-      important__line__stroke_color_light_code_variable
-      important__arrow__fill_color_light_code_keyword
+      className={className}
+      important__label__ft_size_sm
+      important__label__ft_family_sans
+      important__label__ft_color_light_code_baseColor
       important__node__fill_color_light_code_background
-      important__node__ft_color_light_code_baseColor
-      important__node__stroke_color_light_code_variable
-      node__ft_family_sans
-      node__ft_size_sm
+      important__arrowhead__fill_color_light_code_keyword
+      important__arrowline__stroke_color_light_code_variable
+      dark__important__arrowline__stroke_color_dark_code_variable
+      dark__important__arrowhead__fill_color_dark_code_keyword
+      dark__important__node__fill_color_dark_code_background
+      dark__important__label__ft_color_dark_code_baseColor
       child__min_w_13xl
       sc_auto
     >

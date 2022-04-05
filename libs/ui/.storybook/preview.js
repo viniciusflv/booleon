@@ -6,7 +6,7 @@ export const parameters = {
     default: 'light',
     values: [
       { name: 'light', value: '#eeeeee' },
-      { name: 'dark', value: '#282A36' },
+      { name: 'dark', value: '#22202c' },
     ],
   },
   controls: {

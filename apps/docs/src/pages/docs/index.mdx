@@ -1,3 +1,52 @@
-```tsx
-const regex = /\d1.*/g;
+---
+priority: 0
+icon: rocket
+title: Get Started
+description: Description
+---
+
+# Get Started
+
+<div>
+
+```jsx
+const x = 1;
+```
+
+</div>
+
+```mermaid
+  graph TD
+
+  stringHash[stringHash] --> styleCompiler((styleCompiler))
+  composeProps[composeProps] --> styleCompiler((styleCompiler))
+  booleonModules[booleonModules] --> styleCompiler((styleCompiler))
+  customPrefixes[customPrefixes] --> styleCompiler((styleCompiler))
+
+  styleCompiler((styleCompiler)) --> cleanTransformFilter[cleanTransformFilter]
+  styleCompiler((styleCompiler)) --> defaultPrefixes[defaultPrefixes] --> prefixerHandlers[prefixerHandlers]
+  styleCompiler((styleCompiler)) --> cssCompiler[cssCompiler] --> browserPrefixer[browserPrefixer]
+
+  booleon[booleon] --> hocBooleon[hocBooleon] --> useBooleon((useBooleon))
+  useBooleon((useBooleon)) --> useServerSide[useServerSide] --> ServerSideContext[ServerSideContext]
+  useBooleon((useBooleon)) --> filterProps[filterProps]
+  useBooleon((useBooleon)) --> reactStyleAppender[reactStyleAppender]
+  reactStyleAppender[reactStyleAppender] --> styleAppender[styleAppender]
+  reactStyleAppender[reactStyleAppender] --> createElement[createElement]
+  useBooleon((useBooleon)) --> stringHash[stringHash]
+  useBooleon((useBooleon)) --> styleCompiler((styleCompiler))
+  useBooleon((useBooleon)) --> composeProps[composeProps]
+  useBooleon((useBooleon)) --> booleonModules[booleonModules]
+  useBooleon((useBooleon)) --> customPrefixes[customPrefixes]
+
+  click styleCompiler "/docs/core/#styleCompiler" "styleCompiler"
+  click stringHash "/docs/core/#stringHash" "stringHash"
+  click composeProps "/docs/core/#composeProps" "composeProps"
+  click booleonModules "/docs/modules" "booleonModules"
+  click customPrefixes "/docs/core/#customPrefixes" "customPrefixes"
+  click cleanTransformFilter "/docs/core/#cleanTransformFilter" "cleanTransformFilter"
+  click defaultPrefixes "/docs/core/#defaultPrefixes" "defaultPrefixes"
+  click prefixerHandlers "/docs/core/#prefixerHandlers" "prefixerHandlers"
+  click cssCompiler "/docs/core/#cssCompiler" "cssCompiler"
+  click browserPrefixer "/docs/core/#browserPrefixer" "browserPrefixer"
 ```

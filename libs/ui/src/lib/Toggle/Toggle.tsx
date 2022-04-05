@@ -28,7 +28,7 @@ function Toggle({ children, ...props }: ToggleProps, ref: Ref<ToggleRef>) {
       cross_center
       main_between
       gap_lg
-      h_5xl
+      h_4xl
       p_md
       m_none
       cr_pointer
@@ -49,9 +49,9 @@ function Toggle({ children, ...props }: ToggleProps, ref: Ref<ToggleRef>) {
       before__content
       before__absolute
       before__top
-      before__h_4xl
-      before__w_4xl
-      before__m_lg
+      before__h_3xl
+      before__w_3xl
+      before__m_sm
       before__bd_radius_circle
       before__bg_color_base_white_100
       before__sd_4
@@ -75,7 +75,7 @@ function Toggle({ children, ...props }: ToggleProps, ref: Ref<ToggleRef>) {
 }
 
 const Icon = (props: SvgProps) => (
-  <Svg {...props} as="i" color="white" width="1.5em" height="1.2em" />
+  <Svg {...props} as="i" color="white" width=".9em" height=".9em" />
 );
 
 export const IconOn = beSlot(

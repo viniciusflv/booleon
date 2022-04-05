@@ -7,6 +7,7 @@ module.exports = {
       secondary: { value: '{colors.base.orange.900}' },
     },
     dark: {
+      background: '#22202c',
       code: {
         background: '#282a36',
         selection: '{colors.base.grey.500}',

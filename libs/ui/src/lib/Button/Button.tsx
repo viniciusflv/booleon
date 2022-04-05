@@ -42,7 +42,10 @@ function Button(props: ButtonProps, ref: Ref<ButtonRef>) {
       ts_all={!isIconButton}
       ts_ease_in={!isIconButton}
       ts_duration_md={!isIconButton}
-      ft_size_md={!isIconButton}
+      flex={isIconButton}
+      main_center={isIconButton}
+      cross_center={isIconButton}
+      ft_size_md
       ft_color_inherit
       ft_weight_bold
       ft_spacing_px
@@ -68,6 +71,8 @@ function Button(props: ButtonProps, ref: Ref<ButtonRef>) {
       sd_3={!isIconButton && !underlined && !isPressed}
       hover__sd_8={!isIconButton && !underlined && !isPressed}
       focus__sd_8={!isIconButton && !underlined && !isPressed}
+      w_4xl={isIconButton}
+      h_4xl={isIconButton}
       h_5xl={!isIconButton && !underlined}
       min_w_5xl={!isIconButton && !underlined}
       h_6xl={!isIconButton && !underlined}
@@ -78,13 +83,13 @@ function Button(props: ButtonProps, ref: Ref<ButtonRef>) {
       sdi_2={isIconButton && isPressed}
       hover__bg_color_base_white_600={isIconButton}
       focus__bg_color_base_white_600={isIconButton}
-      dark__hover__bg_color_base_grey_800={isIconButton}
+      dark__hover__bg_color_dark_code_background={isIconButton}
+      dark__focus__bg_color_dark_code_background={isIconButton}
       p_none={isIconButton}
-      h_4xl={isIconButton}
-      w_4xl={isIconButton}
       bd_radius_pill={!underlined}
       bd_style_solid={!isIconButton && !underlined}
       bd_width_xs={!isIconButton && !underlined && outlined}
+      dark__ft_color_base_white_100
       ft_color_base_white_100={!isIconButton && !underlined && !outlined}
       hover__ft_color_base_white_100={!isIconButton && !underlined && outlined}
       focus__ft_color_base_white_100={!isIconButton && !underlined && outlined}

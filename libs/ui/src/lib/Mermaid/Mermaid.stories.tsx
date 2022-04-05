@@ -12,7 +12,9 @@ export default {
 
 export const Default = () => (
   <>
-    <Toggle />
+    <div style={{ position: 'fixed', right: 12, top: 12 }}>
+      <Toggle />
+    </div>
     <Mermaid>
       <div className="mermaid" data-processed="true">
         <svg

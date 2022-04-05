@@ -1,0 +1,314 @@
+---
+priority: 4
+icon: lightbulb
+title: Motivations
+description: Booleon modules are a pre-defined entry of css with keys that can be static (string) or dynamic (RegEx).
+---
+
+# Motivations
+
+CSS it's known to be `complicated`, but those how dedicated their time to it,
+may have realized that actually is `too wide`.
+By saying it I meant that, for support reasons, CSS had to `accumulate` multiple
+ways do to the same things, which makes it `less intuitive`.
+
+Another characteristic of CSS that contributes for its infamous reputation, it's `scalability`.
+If you ever have worked in a medium/big project with just with HTML, CSS and JS, without any `frameworks` or `libs`,
+you probably had issues with it. Even at small teams respecting the `DRY (Don't Repeat Yourself)` concept it's a challenge.
+There're `pattern` solutions for class creation, but still demands a lot of effort and communication,
+which can be `unfeasible` at scenarios with third party teams.
+
+# Inspirations
+
+## Utility classes
+
+It's a way of building `CSS classes` focused on the functionality, or `utility`,
+of one or more style attributes, which produce a `specific result` and reusable.
+
+Among its advantages are the reduction of `redundancy` of styles, `declarative` use and `reusability`,
+reducing the creation of classes for primitive functionalities.
+
+One of the greatest `examples` of utility-first CSS frameworks is [tailwind css](https://tailwindcss.com/).
+You may took it for granted at first glace, but it did an `remarkable` job of `compiling relevant css` and
+has an awesome `documentation`. Solving the issues of `scalability` and `wideness`, pointed [above](#Motivations).
+
+```html
+<div class="bg-white rounded-lg p-6">
+  <img class="h-16 w-16" src="avatar.jpg" />
+  <div>
+    <h2>Erin Lindford</h2>
+    <div>Product Engineer</div>
+    <div>erinlindford@example.com</div>
+    <div>(555) 765-4321</div>
+  </div>
+</div>
+```
+
+## CSS-in-JS
+
+One of the most difficult things about programming is `naming things` and it's no different with css classes.
+So, what if we `delegate` it to JavaScript. Why stop there?
+What if, in addition to it, we simplified `logic transitions of styles` using JS.
+
+That's basically my view of the main strengths of this approach of using JavaScript to handle styles.
+Notorious examples are [emotion](https://emotion.sh/) and [styled-components](https://styled-components.com/).
+
+Both of those libs have a styled feature that, in React, can receive props for `conditional styling`.
+
+```tsx
+export const TextStyle = styled.span`
+  ${({ color }) => color && `color: ${color};`}
+`;
+
+function Text({ color }) {
+  return <TextStyle color={color} />;
+}
+
+...
+
+<Text color="red">RED TEXT</Text>
+```
+
+# Conclusions
+
+CSS-in-JS libs are great for `componentization` and `conditional styling`, while utility classes are great
+for `compiling relevant css`. So by trying to unite those concepts that Booleon has been created.
+
+## Utility modules
+
+### Map
+
+I needed a way to match keys do its correspondents styles. I'd started by using Map entries:
+
+```tsx
+[['flex', 'display:flex;']];
+```
+
+But I realized that this would only work at `static` scenarios. Example, if you need to pass a color,
+size or any `dynamic` values to the CSS string it wouldn't be possible using Map.
+
+### Custom Map
+
+To support dynamic scenarios, I'd modified the entries structure to return a `callback function`,
+accept `regex` as matcher and return the value inside the regex group as an `argument` of the callback.
+
+```tsx
+[
+  ['flex', () => 'display:flex;'],
+  [/^ani_name_([A-z]+)/g, (value) => `animation-name:${value};`],
+];
+```
+
+The problem was, since a had to implement a custom Map with regex, the performance wasn't really good.
+
+### JSON
+
+I'd started looking at benchmarks of static structures and I saw that actually JSON was more performative:
+
+```tsx
+{
+  key: 'value';
+}
+['key'] === 'value';
+```
+
+Sometimes the simple solution it's the best solution. But the problem of `dynamic` values, was again presented to me.
+So after a bit o study I'd noticed that `Symbols` can be used as `keys` and even has its own `Object.keys` equivalent,
+`Object.getOwnPropertySymbols`.
+
+```tsx
+export const animation = {
+  [Symbol(`^ani_name_(${LETTER})`)]: (value) => `animation-name:${value};`,
+  [Symbol(`^ani_duration_(${UNIT_NUMBER})`)]: (value: string) =>
+    `animation-duration:${value};`,
+  [Symbol(`^ani_iteration_(${NUMBER})`)]: (value: string) =>
+    `animation-iteration-count:${value};`,
+  ani_iteration_infinite: () => 'animation-iteration-count:infinite;',
+  ani_pause: () => 'animation-play-state:paused;',
+  ani_play: () => 'animation-play-state:running;',
+  ani_forwards: () => 'animation-fill-mode:forwards;',
+  ani_backwards: () => 'animation-fill-mode:backwards;',
+  ani_linear: () => 'animation-timing-function:linear;',
+  ani_ease: () => 'animation-timing-function:ease;',
+  ani_ease_in: () => 'animation-timing-function:ease-in;',
+  ani_ease_out: () => 'animation-timing-function:ease-out;',
+  ani_ease_in_out: () => 'animation-timing-function:ease-in-out;',
+};
+```
+
+By passing a regex string as `parameter` I was able to, case the key didn't match any at the module, `iterate` thru the `Symbols`,
+`instantiate` the regex with the argument and `match` the key with the regex:
+
+```tsx
+module[key]?.(value) ?? // Tries to do e default match with the key
+  // Iterate thru the utilities module Symbols to find its possible match
+  Object.getOwnPropertySymbols(module).reduce((acc, symbol) => {
+    const { regex } =
+      /Symbol\((?<regex>.*)\)/g.exec(String(symbol))?.groups ?? {};
+    const [, value] = new RegExp(regex).exec(key) ?? [];
+    if (value) {
+      // @ts-expect-error https://github.com/microsoft/TypeScript/issues/1863
+      acc += module[symbol](value);
+    }
+    return acc;
+  }, '');
+```
+
+With these structure I could now get the `props` of my component and `generate` the equivalent styles:
+
+```tsx
+<Example ani_name_bounce ani_iteration_infinite />
+// animation-name:bounce;
+// animation-iteration-count:infinite;
+```
+
+## Applying styles
+
+Next step was to find a way to `vendorize`, `append` those styles and return its `class` name.
+
+### Class name hash
+
+For those who aren't familiar with de concept o `hash functions`, they can be used to map data of `arbitrary size` to `fixed-size` values.
+That means, if the input data is the same so is the hash. It's perfect for class name generation,
+because it guaranties that the same style attributes result at same class name.
+
+One of the most famous hash function is `SHA256`, due the fact that it's used on `bitcoin`, but it wouldn't be the right choice,
+because its focus is `security`, which means `performance` would be put aside. After researching a bit, I'd found a simple algorithm that
+aggregates string `char codes` returning an integer that represents the inputted string.
+
+```tsx
+/**
+ * https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript#7616484
+ */
+export function stringHash(str: string) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+  return String(hash);
+}
+```
+
+### Appending styles
+
+From this point forward I could `compile styles` from JSON using utility modules and create `class names` based on string input,
+now I needed to append the classes to to `DOM`.
+
+I decided to create a `direct relation` between the style tag and the class. Because it's `simple` and I would avoid complex logic to create an unified style sheet.
+
+```tsx
+export function styleAppender(className: string, cb: () => string) {
+  let styles = document.querySelector(`style[data-booleon="${className}"]`);
+  if (!styles) {
+    styles = document.createElement('style');
+    styles.setAttribute('data-booleon', className);
+    document.head.appendChild(styles);
+    styles.innerHTML = cb?.();
+  }
+}
+```
+
+### Browser/Vendor prefixing
+
+CSS `vendor prefixes`, also sometimes known as or CSS `browser prefixes`,
+are a way for browser makers to add `support` for new CSS features before those features are fully supported in all browsers.
+(Jennifer Kyrnin, 2019)
+
+To solve this requirement I'd found [style-vendorizer](https://github.com/kripod/style-vendorizer) by kripod. It supports:
+
+- Baidu Browser for Android 7.12+
+- Chrome 57+
+- Edge 16+
+- Firefox 48+
+- Internet Explorer 11
+- KaiOS Browser 2.5+
+- Opera 46+
+- Safari 12.2+
+- Samsung Internet Browser 11.1+
+- QQ Browser for Android 10.4+
+- UC Browser for Android 12.12+
+
+## Styling Prefixes
+
+Inspired by [tailwind css](https://tailwindcss.com/) class prefixes `hover:bg-red-700`,
+I'd started to think how to transpose it to props.
+
+### Compose props
+
+To do so I'd created a logic that uses double underscore `__` as notation of a prefixer and prepare it to be compiled.
+
+```tsx
+// input
+{ flex: true, xs__flex: true }
+
+// output
+{
+  css: {
+    flex: true,
+  },
+  xs: {
+    css: {
+      flex: true,
+    },
+  }
+}
+```
+
+### Compile style
+
+Now with the composed props I can match predefined expressions to apply `selectors`, `pseudo elements`, `media queries`, etc.
+
+```tsx
+const media = (breakpoint: string): PrefixHandler => ({
+  value,
+  recursiveCompiler,
+}) => `@media ${breakpoint}{${recursiveCompiler(value)}}`;
+
+...
+
+export const defaultPrefixes = {
+  ...
+  xs: prefixerHandlers.media('(min-width: 640px)'),
+  sm: prefixerHandlers.media('(min-width: 768px)'),
+  md: prefixerHandlers.media('(min-width: 1024px)'),
+  lg: prefixerHandlers.media('(min-width: 1440px)'),
+  xl: prefixerHandlers.media('(min-width: 1920px)'),
+  ...
+};
+```
+That way it's possible to create custom prefixer handlers that receives the following arguments:
+
+* **key**: The contextual key of a prop
+* **value**: The value of a prop
+* **prefixes**: The prefixes handlers to be used
+* **className**: The css class pre generated
+* **recursiveCompiler**: The compiler that restarts the cycle, until the end of prop nesting
+
+```tsx
+const prefixes = {
+  ...customPrefixes,
+  ...defaultPrefixes,
+};
+const recursiveCompiler = (props: Props): string => {
+  return Object.keys(props).reduce((acc, key) => {
+    const value = props[key];
+    if (typeof value === 'object') {
+      const handler: PrefixHandler =
+        prefixes[key] ??
+        prefixes[`${Object.keys(prefixes).find((k) => key.startsWith(k))}`];
+      return (acc += handler({
+        key,
+        value,
+        prefixes,
+        className,
+        recursiveCompiler,
+      }));
+    }
+    return (acc += cssCompiler(key, value, booleonModules));
+  }, '');
+};
+
+return cleanTransformFilter(recursiveCompiler(composedProps));
+```
