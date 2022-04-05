@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { colors, font_family, font_size, spaces } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `font` options

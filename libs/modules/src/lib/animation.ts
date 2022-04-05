@@ -1,7 +1,5 @@
+import { sym, theme } from '@booleon/core';
 import { absolute, duration } from '@booleon/tokens';
-
-import { sym } from '../utils/sym';
-import { theme } from '../utils/theme';
 
 /**
  * Module for `animation` options

@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { spaces } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `flex` options

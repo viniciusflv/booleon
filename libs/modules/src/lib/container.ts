@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { absolute, relative, sizes } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 const MAX_SAFE_INTEGER = Math.pow(2, 31) - 1;
 

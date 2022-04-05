@@ -27,6 +27,7 @@
     "url": "https://github.com/viniciusflv/booleon.git"
   },
   "devDependencies": {
+    "@booleon/core": "*",
     "@booleon/tokens": "*",
     "@configs/eslint": "*",
     "@configs/babel": "*",

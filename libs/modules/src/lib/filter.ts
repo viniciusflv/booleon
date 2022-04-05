@@ -1,3 +1,4 @@
+import { theme } from '@booleon/core';
 import {
   drop_shadow,
   percentage,
@@ -5,8 +6,6 @@ import {
   rotation,
   thickness,
 } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `filter` options

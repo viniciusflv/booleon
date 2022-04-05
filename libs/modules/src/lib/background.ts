@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { colors } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `background` options

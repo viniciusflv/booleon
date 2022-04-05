@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { box_shadow, inset_shadow } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `shadow` options

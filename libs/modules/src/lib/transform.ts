@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { relative, rotation, sizes } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `transform` options

@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { colors, radius, thickness } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * Module for `border` options

@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { delay, duration } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 const colors = 'background-color,border-color,color,fill,stroke';
 

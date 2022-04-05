@@ -1,6 +1,5 @@
+import { theme } from '@booleon/core';
 import { sizes } from '@booleon/tokens';
-
-import { theme } from '../utils/theme';
 
 /**
  * @example
