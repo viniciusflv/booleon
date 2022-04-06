@@ -83,8 +83,8 @@ function Button(props: ButtonProps, ref: Ref<ButtonRef>) {
       sdi_2={isIconButton && isPressed}
       hover__bg_color_base_white_600={isIconButton}
       focus__bg_color_base_white_600={isIconButton}
-      dark__hover__bg_color_dark_code_background={isIconButton}
-      dark__focus__bg_color_dark_code_background={isIconButton}
+      dark__hover__bg_color_base_grey_900={isIconButton}
+      dark__focus__bg_color_base_grey_900={isIconButton}
       p_none={isIconButton}
       bd_radius_pill={!underlined}
       bd_style_solid={!isIconButton && !underlined}

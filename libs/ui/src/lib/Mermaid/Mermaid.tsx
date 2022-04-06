@@ -35,7 +35,7 @@ export function Mermaid({ children, className }: any) {
       dark__important__arrowhead__fill_color_dark_code_keyword
       dark__important__node__fill_color_dark_code_background
       dark__important__label__ft_color_dark_code_baseColor
-      child__min_w_13xl
+      child__min_w_14xl
       sc_auto
     >
       {children}

@@ -47,13 +47,12 @@ export const Grid = () => {
         "AREA_0"
         "AREA_1"
         "AREA_2"
-        "AREA_3"
       `}
       sm__areas={`
-        "AREA_0 AREA_0"
-        "AREA_1 AREA_2"
-        "AREA_3 AREA_3"
+        "______ AREA_0 _"
+        "AREA_1 AREA_2 _"
       `}
+      sm__cols_minmax_200px_1fr_minmax_auto_1024px_1fr
       w_percentage_100
       p_xl
       bd_width_lg
@@ -61,7 +60,7 @@ export const Grid = () => {
       bd_color_base_white_100
       bg_color_base_orange_100
     >
-      {Array.from(Array(4)).map((_, i) => (
+      {Array.from(Array(3)).map((_, i) => (
         <Container
           key={i}
           area_$={`AREA_${i}`}
