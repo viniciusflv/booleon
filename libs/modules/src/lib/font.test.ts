@@ -7,6 +7,7 @@ test('font', () => {
       "color:inherit;",
       "color:#D55901;",
       "color:#330E00;",
+      "color:#22202c;",
       "color:#282a36;",
       "color:#44475a;",
       "color:#f8f8f2;",

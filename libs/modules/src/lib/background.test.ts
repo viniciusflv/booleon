@@ -8,6 +8,7 @@ test('background', () => {
       "background-color:currentColor;",
       "background-color:#D55901;",
       "background-color:#330E00;",
+      "background-color:#22202c;",
       "background-color:#282a36;",
       "background-color:#44475a;",
       "background-color:#f8f8f2;",

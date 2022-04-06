@@ -8,6 +8,7 @@ test('outline', () => {
       "outline-color:currentColor;",
       "outline-color:#D55901;",
       "outline-color:#330E00;",
+      "outline-color:#22202c;",
       "outline-color:#282a36;",
       "outline-color:#44475a;",
       "outline-color:#f8f8f2;",
