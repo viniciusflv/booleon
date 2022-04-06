@@ -10,12 +10,10 @@ import {
   Toggle,
 } from '@booleon/ui';
 
-import { Search } from './Search';
-
 export function Header() {
   const { theme, toggleTheme } = useTheme();
   return (
-    <Container as="header" area_HEADER w_screen_width_100>
+    <Container as="header" area_HEADER>
       <Container
         as="nav"
         flex
@@ -23,18 +21,17 @@ export function Header() {
         cross_center
         gap_sm
         p_2xl
-        // max_w_15xl
-        // w_percentage_100
         m_auto
+        bdb_width_px
+        bdb_style_solid
+        bdb_color_base_grey_100
+        dark__bdb_color_base_grey_900
       >
         <Button href="/" title="Logo" underlined>
           <IconFirst alt="Logo" {...logo} width="2em" height="2em" />
-          <Text hidden sm__block>
-            Booleon
-          </Text>
+          <Text>Booleon</Text>
         </Button>
         <Container flex main_between cross_center gap_xl>
-          <Search />
           <Button
             title="github"
             target="__blank"

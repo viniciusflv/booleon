@@ -1,6 +1,4 @@
-import { GatsbyConfig } from 'gatsby';
-
-export default {
+module.exports = {
   siteMetadata: {
     title: ``,
     siteUrl: `https://www.yourdomain.tld`,
@@ -47,19 +45,11 @@ export default {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-graph`,
-            options: {
-              language: 'mermaid', // default
-              theme: 'dark', // could also be dark, forest, or neutral
-            },
-          },
+          `gatsby-remark-graph`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: `language-`,
-              showLineNumbers: true,
-              numberLines: true,
             },
           },
         ],
@@ -83,4 +73,4 @@ export default {
       __key: 'pages',
     },
   ],
-} as GatsbyConfig;
+};

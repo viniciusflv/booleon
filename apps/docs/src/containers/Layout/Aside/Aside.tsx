@@ -9,15 +9,17 @@ export function Aside({ slug }: any) {
     <Container
       as="aside"
       area_ASIDE
-      flex
+      hidden
+      sm__flex
       col
       main_start
+      cross_end
       gap_lg
       p_2xl
       bdr_width_px
       bdr_style_solid
       bdr_color_base_grey_100
-      dark__bdr_color_dark_code_background
+      dark__bdr_color_base_grey_900
     >
       {navigation?.map(({ path, title, icon }) => (
         <Button key={path} title={title} href={path} underlined>
