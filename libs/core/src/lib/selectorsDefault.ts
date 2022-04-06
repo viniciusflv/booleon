@@ -1,7 +1,7 @@
 import { selector } from './selectorsHandlers';
 
 export const selectorsDefault = {
-  undefined: () => '',
+  undefined: (value = '') => value,
   css: selector.classes(),
   dark: selector.theme(),
   important: selector.important(),
@@ -28,6 +28,12 @@ export const selectorsDefault = {
   sibling: selector.pseudo('+*'),
   odd: selector.pseudo(':nth-child(odd)'),
   even: selector.pseudo(':nth-child(even)'),
+  minmax: selector.fn((key) =>
+    key.replace(/minmax_(\d+\w{2}|auto)_(\d+\w{2}|auto)/g, 'minmax($1,$2)'),
+  ),
+  calc: selector.fn((key) =>
+    key.replace(/calc_(\d+\w{2}|auto)_(\d+\w{2}|auto)/g, 'calc($1+$2)'),
+  ),
   kf: selector.keyframe({
     from: '0%',
     quarter: '25%',

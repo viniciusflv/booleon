@@ -2,7 +2,7 @@ import {
   BooleonModule,
   BooleonOptions,
   Props,
-  SelectorHandler,
+  SelectorContext,
   Selectors,
   WithToken,
 } from '../types';
@@ -27,19 +27,27 @@ export function styleCompiler<
   const recursiveCompiler = (props: Props): string => {
     return Object.keys(props).reduce((acc, key) => {
       const value = props[key];
+      const selectorContext: SelectorContext = {
+        key,
+        value,
+        selectors,
+        className,
+        recursiveCompiler,
+      };
       if (typeof value === 'object') {
-        const handler: SelectorHandler =
-          selectors[key] ??
-          selectors[`${Object.keys(selectors).find((k) => key.startsWith(k))}`];
-        return (acc += handler({
-          key,
-          value,
-          selectors,
-          className,
-          recursiveCompiler,
-        }));
+        const handler =
+          selectors?.[key] ??
+          selectors?.[
+            `${Object.keys(selectors).find((k) => key.startsWith(k))}`
+          ];
+
+        return (acc += handler?.(selectorContext) ?? '');
       }
-      return (acc += cssCompiler(key, value, booleonModules, options?.tokens));
+      return (acc += cssCompiler(
+        selectorContext,
+        booleonModules,
+        options?.tokens,
+      ));
     }, '');
   };
 

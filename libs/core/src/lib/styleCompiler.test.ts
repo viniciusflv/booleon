@@ -1,4 +1,6 @@
+import { composeProps } from './composeProps';
 import { styleCompiler } from './styleCompiler';
+import { sym } from './sym';
 
 describe('styleCompiler', () => {
   test('css', () => {
@@ -169,5 +171,35 @@ describe('styleCompiler', () => {
       },
     );
     expect(res).toMatchInlineSnapshot('"color:#f00;"');
+  });
+
+  test('minmax', () => {
+    const res = styleCompiler(
+      'className',
+      composeProps({ rows_minmax_300px_1fr_minmax_auto_1024px_1fr: true }),
+      {
+        [sym('rows_$')]: ($: string) =>
+          `grid-template-rows:${$.replace(/_/g, ' ')};`,
+      },
+    );
+
+    expect(res).toMatchInlineSnapshot(
+      `".className{-ms-grid-rows:minmax(300px,1fr) minmax(auto,1024px) 1fr;grid-template-rows:minmax(300px,1fr) minmax(auto,1024px) 1fr;}"`,
+    );
+  });
+
+  test('calc', () => {
+    const res = styleCompiler(
+      'className',
+      composeProps({ rows_calc_300px_1fr_calc_auto_1024px_1fr: true }),
+      {
+        [sym('rows_$')]: ($: string) =>
+          `grid-template-rows:${$.replace(/_/g, ' ')};`,
+      },
+    );
+
+    expect(res).toMatchInlineSnapshot(
+      `".className{-ms-grid-rows:calc(300px+1fr) calc(auto+1024px) 1fr;grid-template-rows:calc(300px+1fr) calc(auto+1024px) 1fr;}"`,
+    );
   });
 });

@@ -26,7 +26,11 @@ export type SelectorHandler = (
   wrap?: boolean,
 ) => SelectorKey;
 
-export type Selectors = Props<string, SelectorHandler> | undefined;
+export type SelectorCallback = (value?: any) => string;
+
+export type Selectors =
+  | Props<string, SelectorHandler | SelectorCallback>
+  | undefined;
 
 export type SelectorContext = {
   key: string;

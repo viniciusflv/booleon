@@ -69,6 +69,9 @@ const important =
   ({ value, recursiveCompiler }) =>
     recursiveCompiler(value).replace(/;/g, ' !important;');
 
+const fn = (callback: (s: string) => string): SelectorHandler =>
+  ((value: string) => callback(value)) as any;
+
 export const selector = {
   classes,
   media,
@@ -76,4 +79,5 @@ export const selector = {
   pseudo,
   keyframe,
   important,
+  fn,
 };

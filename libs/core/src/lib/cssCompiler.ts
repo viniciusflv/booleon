@@ -1,4 +1,10 @@
-import type { BooleonModule, Props, WithToken } from '../types';
+import type {
+  BooleonModule,
+  Props,
+  SelectorCallback,
+  SelectorContext,
+  WithToken,
+} from '../types';
 import { browserPrefixer } from './browserPrefixer';
 import { handleCssVars } from './handleCssVars';
 import { stripSymbolValue } from './stripSymbolValue';
@@ -12,8 +18,7 @@ export const rootPixelEm = (value: any) => {
 };
 
 export function cssCompiler<M extends BooleonModule, T extends Props>(
-  key: string,
-  value: string | boolean,
+  { key, value, selectors }: SelectorContext,
   booleonModule: WithToken<M, T>,
   customTokens?: T,
 ) {
@@ -28,8 +33,16 @@ export function cssCompiler<M extends BooleonModule, T extends Props>(
                 .replace('neg_', '-')
                 .replace('$', '%');
 
+              const cssFunction = selectors?.[
+                `${Object.keys(selectors).find((k) => symValue.includes(k))}`
+              ] as SelectorCallback;
+
               acc += booleonModule[symbol]?.(
-                rootPixelEm(value === true ? handleCssVars(symValue) : value),
+                rootPixelEm(
+                  (value as unknown as string | boolean) === true
+                    ? handleCssVars(cssFunction(symValue))
+                    : value,
+                ),
                 customTokens,
               );
             }
